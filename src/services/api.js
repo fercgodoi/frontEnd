@@ -4,6 +4,4 @@ require('dotenv').config();
 const api = axios.create({
     baseURL: process.env.APP
 });
-
-
 export default api;

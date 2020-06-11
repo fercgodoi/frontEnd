@@ -9,4 +9,3 @@ const api2 = axios.create({
 });
 
 export default api2;
-// export default api2;
