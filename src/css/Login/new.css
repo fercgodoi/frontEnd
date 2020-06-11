@@ -1,0 +1,54 @@
+/*----------------------------------------------------------------------------Login----------------------------------------------------------------------- */
+.DivEsqueceuSenha{
+    width: 100%;
+    padding-top: 4%;
+    padding-left: 10%;
+    padding-right: 20%;
+    text-align: right;
+    color: #009fe3;
+    font-weight: 500
+}
+
+.btn.btn-primary.pull-right.Login{
+    background-color: #009fe3;
+    border-radius: 32px;
+    width:100%
+}
+
+.btn.btn-primary.pull-right.Cadastro{
+    background-color:#fff;
+    border-radius: 32px;
+    border: 1px solid #009fe3;
+    color:#009fe3;
+    width:100%;
+}
+
+.ImagemTop{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top:50%;
+}
+
+.ImagemBottom{
+    width: 100%;
+    height: 50%;
+    position: absolute
+}
+
+.form-group.input{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/*-----------------------------------------------------------------------EsqueciSenha----------------------------------------------------------------------- */
+
+.TituloEsq{
+    width: 100%;
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
+    color: #009fe3;
+    font-weight: 500;
+}

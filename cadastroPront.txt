@@ -1,0 +1,878 @@
+ <div className="col-md-2">
+                                                    <div id="DivImagem" style={{display:'none'}}>    
+                                                        <br/>
+                                                        <p  style={{color:'black',marginBottom:'0px'}}> Exames Imagem:</p>
+                                                        <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                            <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
+
+                                                            <label className="dias">Radiologia simples
+                                                                <input type="checkbox" id="RadiologiaSimples" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Radiologia contrastada
+                                                                <input type="checkbox" id="RadiologiaContrastada" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Eletrocardiograma
+                                                                <input type="checkbox" id="Eletrocardiograma" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Ultrassonografia Abdominal 
+                                                                <input type="checkbox" id="UltrassonografiAbdominal" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="col-md-2">
+                                                    <div id="DivHematologico" style={{display:'none'}}>  
+                                                        <br/>
+                                                        <p  style={{color:'black',marginBottom:'0px'}}> Exames Hematologico:</p>
+                                                        <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                            <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
+
+                                                            <label className="dias">Hemograma Completo
+                                                                <input type="checkbox" id="HemogramaCompleto" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Fribrinogenio
+                                                                <input type="checkbox" id="Fribrinogenio" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Pesquisa de Hemoparasitas
+                                                                <input type="checkbox" id="PesquisaHemoparasitas" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Função Hepatica
+                                                                <input type="checkbox" id="FuncaoHepatica" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Sorologico para FIV e FELV
+                                                                <input type="checkbox" id="SorologicoFIVFELV" />
+                                                                <span className="checkmark"></span>
+                                                            </label>                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            <div className="col-md-2">
+                                                <div id="DivBioquimico2" style={{display:'none'}}>  
+                                                <br/>
+                                                <p  style={{color:'black',marginBottom:'0px'}}> Exames Bioquimico:</p>
+                                                        <div className="col-md-6" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                            <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
+                                                            <label className="dias">Urina - Rotina
+                                                                <input type="checkbox" id="Urina" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Acido Úrico 
+                                                                <input type="checkbox" id="AcidoUrico" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Albumina 
+                                                                <input type="checkbox" id="Albumina" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">ALT (TGP)
+                                                                <input type="checkbox" id="ALT" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Amilase
+                                                                <input type="checkbox" id="Amilase" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">AST (TGO)
+                                                                <input type="checkbox" id="AST" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Bilirrubina
+                                                                <input type="checkbox" id="Bilirrubina" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Calcio sérico
+                                                                <input type="checkbox" id="CalcioSerico" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Colesterol
+                                                                <input type="checkbox" id="Colesterol" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Colinesterase 
+                                                                <input type="checkbox" id="Colinesterase" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Creatina quinase (CK)
+                                                                <input type="checkbox" id="CreatinaQuinase" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           
+                                                <div className="col-md-2">
+                                                <div id="DivBioquimico" style={{display:'none'}}>  
+                                                    <br/>
+                                                    <p  style={{color:'black',marginBottom:'0px',visibility:'hidden'}}> Exames Bioquimico:</p>
+                                                    <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                    <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
+                                                            <label className="dias">Creatinina
+                                                            <input type="checkbox" id="Creatinina" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+
+                                                        <label className="dias">Ferro sérico
+                                                            <input type="checkbox" id="FerroSerico" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+
+                                                        <label className="dias">Fosfatase alcalina
+                                                            <input type="checkbox" id="FosfataseAlcalina" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+
+                                                        <label className="dias">Fósforo
+                                                            <input type="checkbox" id="Fosforo" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+                                                        <label className="dias">Gama GT
+                                                            <input type="checkbox" id="Gama" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+
+                                                        <label className="dias">Glicose 
+                                                            <input type="checkbox" id="Glicose" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+
+                                                        <label className="dias">Magnésio
+                                                            <input type="checkbox" id="Magnesio" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+
+                                                        <label className="dias">Proteínas totais
+                                                            <input type="checkbox" id="ProteinasTotais" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+
+                                                        <label className="dias">Sódio (Na+), Potássio (K+) e Cloro (Cl-)
+                                                            <input type="checkbox" id="NAKCL" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+
+                                                        <label className="dias">Triglicerídeos
+                                                            <input type="checkbox" id="Triglicerideos" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+
+                                                        <label className="dias">Uréia
+                                                            <input type="checkbox" id="Ureia" />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>                                               
+                                            </div>
+
+
+                                                <div className="col-md-2">
+                                                    <div id="DivOutros" style={{display:'none'}}>    
+                                                        <br/>
+                                                        <p  style={{color:'black',marginBottom:'0px'}}> Exames Outros:</p>
+                                                        <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                            <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
+
+                                                            <label className="dias">Exame tumoral 
+                                                                <input type="checkbox" id="ExameTumoral" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Exame ginecologico 
+                                                                <input type="checkbox" id="ExameGinecologico" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Glicemia de jejum
+                                                                <input type="checkbox" id="GlicemiaJejum" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Biopsia
+                                                                <input type="checkbox" id="Biopsia" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Sexagem de Aves
+                                                                <input type="checkbox" id="SexagemAves" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                                
+
+                                            <div class="row">
+                                            <div className="col-md-12">
+                                                    <div id="DivOutros" style={{display:'none'}}>    
+                                                        <br/>
+                                                        <p  style={{color:'black',marginBottom:'0px'}}> Exames Outros:</p>
+                                                        <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                            <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
+
+                                                            <div>
+                                                                <div style={{width:'50%'}}>
+                                                                    <label className="dias">Exame tumoral 
+                                                                    <input type="checkbox" id="ExameTumoral" />
+                                                                    <span className="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div style={{width:'50%'}}>
+                                                                    <input type="text" className="form-control"  placeholder="Data" />
+                                                                </div>
+                                                            </div>
+                                                           
+
+                                                            <label className="dias">Exame ginecologico 
+                                                                <input type="checkbox" id="ExameGinecologico" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Glicemia de jejum
+                                                                <input type="checkbox" id="GlicemiaJejum" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Biopsia
+                                                                <input type="checkbox" id="Biopsia" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+
+                                                            <label className="dias">Sexagem de Aves
+                                                                <input type="checkbox" id="SexagemAves" />
+                                                                <span className="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+
+
+                                                var OpcaoHematologico = "Não";
+var OpcaoBioquimico= "Não";
+
+var OpcaoOutros= "Não";
+
+if(ButtonHematologico === "Sim"){
+    if(HemogramaCompleto.checked === false && Fribrinogenio.checked === false &&PesquisaHemoparasitas.checked === false && FuncaoHepatica.checked === false &&  SorologicoFIVFELV.checked === false){
+        erro.innerHTML = "Escolha pelo menos uma opção de exame Hematologico";
+        OpcaoHematologico = "Pendente";
+    }
+    else{
+        OpcaoHematologico = "Sim";
+    }
+}else{
+    OpcaoHematologico = "Não";
+}
+
+// if(ButtonImagem === "Sim") {
+//     if(RadiologiaSimples.checked === false && RadiologiaContrastada.checked === false && Eletrocardiograma.checked === false && UltrassonografiAbdominal.checked === false){
+//         erro.innerHTML = "Escolha pelo menos uma opção de exame Imagem";
+//         OpcaoImagem= "Pendente";
+//     }else{
+//         OpcaoImagem= "Sim";
+//     }
+// }
+// else{
+//     OpcaoImagem= "Não";
+// }
+
+// if(ButtonParasitologico === "Sim") {
+//     console.log("entrou");
+//     if(Fezes.checked === false){
+//         console.log("ta vazio");
+        
+//         erro.innerHTML = "Escolha pelo menos uma opção de exame Parasitologico ";
+//         OpcaoParasitologico= "Pendente";
+//         console.log(erro);
+//     }else{
+//         var InputFezes = document.getElementById("InputFezes");
+//         console.log("ta verddeiro");
+//         if(InputFezes.value === "" || InputFezes.value === null || InputFezes.value === undefined){
+//             erro.innerHTML = "Preencha a observação do exame de fezes."
+//         }
+//         OpcaoParasitologico= "Sim";
+//     }
+// }
+// else{
+//     OpcaoParasitologico= "Não";
+// }
+
+if(ButtonOutros === "Sim"){
+    if(ExameTumoral.checked === false && ExameGinecologico.checked === false && GlicemiaJejum.checked === false && Biopsia.checked === false && SexagemAves.checked === false){
+        erro.innerHTML = "Escolha pelo menos uma opção de exame Outros";
+        OpcaoOutros= "Pendente";
+    }else{
+        OpcaoOutros= "Sim";
+    }
+}
+else{
+    OpcaoOutros= "Não";
+}                                                               
+
+if(ButtonBioquimico === "Sim"){
+    if(Urina.checked === false && AcidoUrico.checked === false && Albumina.checked === false && ALT.checked === false && Amilase.checked === false && AST.checked === false && Bilirrubina.checked === false && CalcioSerico.checked === false && Colesterol.checked === false && Colinesterase.checked === false && CreatinaQuinase.checked === false && Creatinina.checked === false && FerroSerico.checked === false && FosfataseAlcalina.checked === false && Fosforo.checked === false && Gama.checked === false && Glicose.checked === false && Magnesio.checked === false && ProteinasTotais.checked === false && NAKCL.checked === false && Triglicerideos.checked === false && Ureia.checked === false){
+        erro.innerHTML = "Escolha pelo menos uma opção de exame Bioquimico";
+        OpcaoBioquimico= "Pendente";
+    }else{
+        OpcaoBioquimico= "Sim";
+    }
+}
+else{
+    OpcaoBioquimico= "Não";
+}
+
+if( OpcaoBioquimico === "Pendente" || OpcaoOutros === "Pendente" || OpcaoParasitologico === "Pendente" || OpcaoHematologico === "Pendente" || OpcaoImagem === "Pendente" ){
+    erro.innerHTML = "Verifique se nenhum exame esta vazio";
+}
+
+else if( OpcaoBioquimico === "Sim" || OpcaoOutros === "Sim" || OpcaoParasitologico === "Sim" || OpcaoHematologico === "Sim" || OpcaoImagem === "Sim"){                                                                
+    erro.innerHTML = "Fimmmmm";
+    alert("tchau")
+}
+}
+else{
+erro.innerHTML = "Fimmmmm";
+alert("ooi")
+}
+}     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+true
+
+else{
+    if(MedSim === "Sim" && MedNao === "Sim"){
+        erro.innerHTML = "Escolha apenas uma opção na medicação";
+        var buttonMedSim = document.getElementById("MedSim");
+        buttonMedSim.style.backgroundColor="#fff";
+        buttonMedSim.style.border="1px solid #009fe3"; 
+        buttonMedSim.style.color="#009fe3";        
+        MedSim="Não";
+
+        var div = document.getElementById("DivMedicacaoSim");
+        div.style.display="none";  
+
+        var buttonMedNao = document.getElementById("MedNao");
+        buttonMedNao.style.backgroundColor="#fff";
+        buttonMedNao.style.border="1px solid #009fe3"; 
+        buttonMedNao.style.color="#009fe3";  
+        MedNao="Não";
+    }
+    else{
+        if(MedSim === "Não" && MedNao === "Não"){
+            erro.innerHTML = "Escolha pelo menos uma opção de medicação";
+            var buttonMedSimm = document.getElementById("MedSim");
+            buttonMedSimm.style.backgroundColor="#fff";
+            buttonMedSimm.style.border="1px solid #009fe3"; 
+            buttonMedSimm.style.color="#009fe3";        
+            MedSim="Não";
+
+            var div = document.getElementById("DivMedicacaoSim");
+            div.style.display="none";  
+
+            var buttonMedNaoo = document.getElementById("MedNao");
+            buttonMedNaoo.style.backgroundColor="#fff";
+            buttonMedNaoo.style.border="1px solid #009fe3"; 
+            buttonMedNaoo.style.color="#009fe3";  
+            MedNao="Não";
+        }
+        else{
+            if(ExSim === "Sim" && ExNao === "Sim"){
+                erro.innerHTML = "Escolha apenas uma opção no exame";
+                var buttonExeSim = document.getElementById("ExSim");
+                buttonExeSim.style.backgroundColor="#fff";
+                buttonExeSim.style.border="1px solid #009fe3"; 
+                buttonExeSim.style.color="#009fe3";        
+                ExSim="Não";
+
+                var buttonExeNao = document.getElementById("ExNao");
+                buttonExeNao.style.backgroundColor="#fff";
+                buttonExeNao.style.border="1px solid #009fe3"; 
+                buttonExeNao.style.color="#009fe3";  
+                ExNao="Não";
+            }
+            else{
+                if(ExSim === "Não" && ExNao === "Não"){
+                    erro.innerHTML = "Escolha pelo menos uma opção de exame";
+                    var buttonExeSimm = document.getElementById("ExSim");
+                    buttonExeSimm.style.backgroundColor="#fff";
+                    buttonExeSimm.style.border="1px solid #009fe3"; 
+                    buttonExeSimm.style.color="#009fe3";        
+                    ExSim="Não";
+
+                    var buttonExeNaoo = document.getElementById("ExNao");
+                    buttonExeNaoo.style.backgroundColor="#fff";
+                    buttonExeNaoo.style.border="1px solid #009fe3"; 
+                    buttonExeNaoo.style.color="#009fe3";  
+                    ExNao="Não";
+                }
+                else{
+                    if(ExSim === "Sim"){
+                        if(ButtonImagem === "Não" && ButtonHematologico === "Não" && ButtonBioquimico === "Não" && ButtonParasitologico === "Não" && ButtonOutros === "Não" ){
+
+                            erro.innerHTML = "Escolha pelo menos uma opção de exame";
+                            var buttonImagemm = document.getElementById("Imagem");
+                            buttonImagemm.style.backgroundColor="#fff";
+                            buttonImagemm.style.border="1px solid #009fe3"; 
+                            buttonImagemm.style.color="#009fe3";  
+                            ButtonImagem="Não";
+                            var DivImagem = document.getElementById("DivImagem");
+                            DivImagem.style.display="none";
+
+
+                            // var buttonHematologicoo = document.getElementById("Hematologico");
+                            // buttonHematologicoo.style.backgroundColor="#fff";
+                            // buttonHematologicoo.style.border="1px solid #009fe3"; 
+                            // buttonHematologicoo.style.color="#009fe3";  
+                            // ButtonHematologico="Não";
+                            // var DivHematologico = document.getElementById("DivHematologico");
+                            // DivHematologico.style.display="none";
+
+
+                            // var buttonBioquimicoo = document.getElementById("Bioquimico");
+                            // buttonBioquimicoo.style.backgroundColor="#fff";
+                            // buttonBioquimicoo.style.border="1px solid #009fe3"; 
+                            // buttonBioquimicoo.style.color="#009fe3";  
+                            // ButtonBioquimico="Não";
+                            // var DivBioquimico = document.getElementById("DivBioquimico");
+                            // DivBioquimico.style.display="none";
+                            // var DivBioquimico2 = document.getElementById("DivBioquimico2");
+                            // DivBioquimico2.style.display="none";
+
+
+                            var buttonParasitologicoo = document.getElementById("Parasitologico");
+                            buttonParasitologicoo.style.backgroundColor="#fff";
+                            buttonParasitologicoo.style.border="1px solid #009fe3"; 
+                            buttonParasitologicoo.style.color="#009fe3";  
+                            ButtonParasitologico="Não";
+                            var DivParasitologico = document.getElementById("DivParasitologico");
+                            DivParasitologico.style.display="none";
+
+
+                            // var buttonOutross = document.getElementById("Outros");
+                            // buttonOutross.style.backgroundColor="#fff";
+                            // buttonOutross.style.border="1px solid #009fe3"; 
+                            // buttonOutross.style.color="#009fe3";  
+                            // ButtonOutros="Não";
+                            // var DivOutros = document.getElementById("DivOutros");
+                            // DivOutros.style.display="none";
+                        }
+                        else{
+                            if(ButtonImagem === "Sim" || ButtonHematologico === "Sim" || ButtonBioquimico === "Sim" || ButtonParasitologico === "Sim" || ButtonOutros === "Sim" ) {
+                                var erro = document.getElementById("valida");
+
+                                var OpcaoParasitologico = "Não";
+                                var OpcaoImagem= "Não";
+
+                                if(ButtonParasitologico === "Sim") {
+                                    if(Fezes.checked === false){
+                                        erro.innerHTML = "Escolha pelo menos uma opção de exame Parasitologico ";
+                                        OpcaoParasitologico= "Pendente";
+                                    }else{
+                                        OpcaoParasitologico= "Pendente";
+                                        var InputFezes = document.getElementById("InputFezes");
+                                        if(InputFezes.value === "" || InputFezes.value === null || InputFezes.value === undefined){
+                                            erro.innerHTML = "Preencha a observação do exame de fezes."
+                                        }else{
+                                             OpcaoParasitologico= "Sim";
+                                        }
+                                    }
+                                }
+                                else{
+                                    OpcaoParasitologico= "Não";
+                                }
+
+                                if(ButtonImagem === "Sim") {
+                                    if(RadiologiaSimples.checked === false && RadiologiaContrastada.checked === false && Eletrocardiograma.checked === false && UltrassonografiAbdominal.checked === false){
+                                        erro.innerHTML = "Escolha pelo menos uma opção de exame Imagem";
+                                        OpcaoImagem= "Pendente";
+                                    }else{
+                                        if(RadiologiaSimples.checked === true){
+                                            OpcaoImagem= "Pendente";
+                                            var InputRadiologiaSimples = document.getElementById("InputRadiologiaSimples");
+                                            if(InputRadiologiaSimples.value === "" || InputRadiologiaSimples.value === null || InputRadiologiaSimples.value === undefined){
+                                            }else{
+                                                OpcaoImagem= "Sim";
+                                            }
+                                        }
+
+                                        if(RadiologiaContrastada.checked === true){
+                                            OpcaoImagem= "Pendente";
+                                            var InputRadiologiaContrastada = document.getElementById("InputRadiologiaContrastada");
+                                            if(InputRadiologiaContrastada.value === "" || InputRadiologiaContrastada.value === null || InputRadiologiaContrastada.value === undefined){
+                                                erro.innerHTML = "Preencha a observação do exame de RadiologiaContrastada."
+                                            }else{
+                                                OpcaoImagem= "Sim";
+                                            }
+                                        }
+
+                                        if(Eletrocardiograma.checked === true){
+                                            OpcaoImagem= "Pendente";
+                                            var InputEletrocardiograma = document.getElementById("InputEletrocardiograma");
+                                            if(InputEletrocardiograma.value === "" || InputEletrocardiograma.value === null || InputEletrocardiograma.value === undefined){
+                                                erro.innerHTML = "Preencha a observação do exame de Eletrocardiograma."
+                                            }else{
+                                                OpcaoImagem= "Sim";
+                                            }
+                                        }
+
+                                        if(UltrassonografiAbdominal.checked === true){
+                                            OpcaoImagem= "Pendente";
+                                            var InputUltrassonografiAbdominal = document.getElementById("InputUltrassonografiAbdominal");
+                                            if(InputUltrassonografiAbdominal.value === "" || InputUltrassonografiAbdominal.value === null || InputUltrassonografiAbdominal.value === undefined){
+                                                erro.innerHTML = "Preencha a observação do exame de Ultrassonografia Abdominal."
+                                            }else{
+                                                OpcaoImagem= "Sim";
+                                            }
+                                        }
+                                    }
+                                }
+                                else{
+                                    OpcaoImagem= "Não";
+                                }
+
+                                if(OpcaoParasitologico === "Pendente" ||  OpcaoImagem === "Pendente" ){
+                                    // OpcaoBioquimico === "Pendente" || OpcaoOutros === "Pendente" || OpcaoHematologico === "Pendente" ||
+                                    erro.innerHTML = "Verifique se nenhum exame esta vazio";
+                                }
+                                
+                                else if( OpcaoParasitologico === "Sim" ||  OpcaoImagem === "Sim"){        
+                                    // OpcaoBioquimico === "Sim" || OpcaoOutros === "Sim" ||OpcaoHematologico === "Sim" ||                                                        
+                                    erro.innerHTML = "Fimmmmm";
+                                    alert("tchau")
+                                }
+
+                            
+
+                            }
+
+
+                        }                                         
+                    }
+                    else{
+                        erro.innerHTML = "Fimmmmm";
+                        alert("ooi")
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+else
+                            {
+                                if(VacSim === "Sim"|| VacNao === "Sim"){
+                                    if(VacSim === "Sim"){
+                                        if(VacInfo === "Não"){
+                                            erro.innerHTML = "Salve a vacina antes.";
+                                            VacSim="Sim";
+                                        }
+                                    }
+                                    
+                                }
+
+                                if(MedSim === "Não" && MedNao === "Não"){
+                                    erro.innerHTML = "Escolha pelo menos uma opção de medicação";
+                                    var buttonMedSimm = document.getElementById("MedSim");
+                                    buttonMedSimm.style.backgroundColor="#fff";
+                                    buttonMedSimm.style.border="1px solid #009fe3"; 
+                                    buttonMedSimm.style.color="#009fe3";        
+                                    MedSim="Não";
+                        
+                                    var div = document.getElementById("DivMedicacaoSim");
+                                    div.style.display="none";  
+                        
+                                    var buttonMedNaoo = document.getElementById("MedNao");
+                                    buttonMedNaoo.style.backgroundColor="#fff";
+                                    buttonMedNaoo.style.border="1px solid #009fe3"; 
+                                    buttonMedNaoo.style.color="#009fe3";  
+                                    MedNao="Não";
+                                }
+                                else{
+                                    if(MedSim === "Sim"|| MedNao === "Sim"){
+                                        if(MedSim === "Sim"){
+                                            if(MedInfo === "Não"){
+                                                erro.innerHTML = "Salve a Medicação antes.";
+                                                VacSim="Sim";
+                                            }
+                                        }
+                                        
+                                    }
+
+                                    if(ExSim === "Sim" && ExNao === "Sim"){
+                                        erro.innerHTML = "Escolha apenas uma opção no exame";
+                                        var buttonExeSim = document.getElementById("ExSim");
+                                        buttonExeSim.style.backgroundColor="#fff";
+                                        buttonExeSim.style.border="1px solid #009fe3"; 
+                                        buttonExeSim.style.color="#009fe3";        
+                                        ExSim="Não";
+                        
+                                        var buttonExeNao = document.getElementById("ExNao");
+                                        buttonExeNao.style.backgroundColor="#fff";
+                                        buttonExeNao.style.border="1px solid #009fe3"; 
+                                        buttonExeNao.style.color="#009fe3";  
+                                        ExNao="Não";
+                                    }
+                                    else{
+                                        if(ExSim === "Não" && ExNao === "Não"){
+                                            erro.innerHTML = "Escolha pelo menos uma opção de exame";
+                                            var buttonExeSimm = document.getElementById("ExSim");
+                                            buttonExeSimm.style.backgroundColor="#fff";
+                                            buttonExeSimm.style.border="1px solid #009fe3"; 
+                                            buttonExeSimm.style.color="#009fe3";        
+                                            ExSim="Não";
+                        
+                                            var buttonExeNaoo = document.getElementById("ExNao");
+                                            buttonExeNaoo.style.backgroundColor="#fff";
+                                            buttonExeNaoo.style.border="1px solid #009fe3"; 
+                                            buttonExeNaoo.style.color="#009fe3";  
+                                            ExNao="Não";
+                                        }
+                                        else{
+                                            if(ExSim === "Sim"){
+                                                if(ButtonImagem === "Não" && ButtonHematologico === "Não" && ButtonBioquimico === "Não" && ButtonParasitologico === "Não" && ButtonOutros === "Não" ){
+                        
+                                                    erro.innerHTML = "Escolha pelo menos uma opção de exame";
+                                                    var buttonImagemm = document.getElementById("Imagem");
+                                                    buttonImagemm.style.backgroundColor="#fff";
+                                                    buttonImagemm.style.border="1px solid #009fe3"; 
+                                                    buttonImagemm.style.color="#009fe3";  
+                                                    ButtonImagem="Não";
+                                                    var DivImagem = document.getElementById("DivImagem");
+                                                    DivImagem.style.display="none";
+                        
+                        
+                                                    // var buttonHematologicoo = document.getElementById("Hematologico");
+                                                    // buttonHematologicoo.style.backgroundColor="#fff";
+                                                    // buttonHematologicoo.style.border="1px solid #009fe3"; 
+                                                    // buttonHematologicoo.style.color="#009fe3";  
+                                                    // ButtonHematologico="Não";
+                                                    // var DivHematologico = document.getElementById("DivHematologico");
+                                                    // DivHematologico.style.display="none";
+                        
+                        
+                                                    // var buttonBioquimicoo = document.getElementById("Bioquimico");
+                                                    // buttonBioquimicoo.style.backgroundColor="#fff";
+                                                    // buttonBioquimicoo.style.border="1px solid #009fe3"; 
+                                                    // buttonBioquimicoo.style.color="#009fe3";  
+                                                    // ButtonBioquimico="Não";
+                                                    // var DivBioquimico = document.getElementById("DivBioquimico");
+                                                    // DivBioquimico.style.display="none";
+                                                    // var DivBioquimico2 = document.getElementById("DivBioquimico2");
+                                                    // DivBioquimico2.style.display="none";
+                        
+                        
+                                                    var buttonParasitologicoo = document.getElementById("Parasitologico");
+                                                    buttonParasitologicoo.style.backgroundColor="#fff";
+                                                    buttonParasitologicoo.style.border="1px solid #009fe3"; 
+                                                    buttonParasitologicoo.style.color="#009fe3";  
+                                                    ButtonParasitologico="Não";
+                                                    var DivParasitologico = document.getElementById("DivParasitologico");
+                                                    DivParasitologico.style.display="none";
+                        
+                        
+                                                    // var buttonOutross = document.getElementById("Outros");
+                                                    // buttonOutross.style.backgroundColor="#fff";
+                                                    // buttonOutross.style.border="1px solid #009fe3"; 
+                                                    // buttonOutross.style.color="#009fe3";  
+                                                    // ButtonOutros="Não";
+                                                    // var DivOutros = document.getElementById("DivOutros");
+                                                    // DivOutros.style.display="none";
+                                                }
+                                                else{
+                                                    if(ButtonImagem === "Sim" || ButtonHematologico === "Sim" || ButtonBioquimico === "Sim" || ButtonParasitologico === "Sim" || ButtonOutros === "Sim" ) {
+                                                        var erro = document.getElementById("valida");
+                        
+                                                        var OpcaoParasitologico = "Não";
+                                                        var OpcaoImagem= "Não";
+                        
+                                                        if(ButtonParasitologico === "Sim") {
+                                                            if(Fezes.checked === false){
+                                                                erro.innerHTML = "Escolha pelo menos uma opção de exame Parasitologico ";
+                                                                OpcaoParasitologico= "Pendente";
+                                                            }else{
+                                                                OpcaoParasitologico= "Pendente";
+                                                                var InputFezes = document.getElementById("InputFezes");
+                                                                if(InputFezes.value === "" || InputFezes.value === null || InputFezes.value === undefined){
+                                                                    erro.innerHTML = "Preencha a observação do exame de fezes."
+                                                                }else{
+                                                                     OpcaoParasitologico= "Sim";
+                                                                }
+                                                            }
+                                                        }
+                                                        else{
+                                                            OpcaoParasitologico= "Não";
+                                                        }
+                        
+                                                        if(ButtonImagem === "Sim") {
+                                                            if(RadiologiaSimples.checked === false && RadiologiaContrastada.checked === false && Eletrocardiograma.checked === false && UltrassonografiAbdominal.checked === false){
+                                                                erro.innerHTML = "Escolha pelo menos uma opção de exame Imagem";
+                                                                OpcaoImagem= "Pendente";
+                                                            }else{
+                                                                if(RadiologiaSimples.checked === true){
+                                                                    OpcaoImagem= "Pendente";
+                                                                    var InputRadiologiaSimples = document.getElementById("InputRadiologiaSimples");
+                                                                    if(InputRadiologiaSimples.value === "" || InputRadiologiaSimples.value === null || InputRadiologiaSimples.value === undefined){
+                                                                    }else{
+                                                                        OpcaoImagem= "Sim";
+                                                                    }
+                                                                }
+                        
+                                                                if(RadiologiaContrastada.checked === true){
+                                                                    OpcaoImagem= "Pendente";
+                                                                    var InputRadiologiaContrastada = document.getElementById("InputRadiologiaContrastada");
+                                                                    if(InputRadiologiaContrastada.value === "" || InputRadiologiaContrastada.value === null || InputRadiologiaContrastada.value === undefined){
+                                                                        erro.innerHTML = "Preencha a observação do exame de RadiologiaContrastada."
+                                                                    }else{
+                                                                        OpcaoImagem= "Sim";
+                                                                    }
+                                                                }
+                        
+                                                                if(Eletrocardiograma.checked === true){
+                                                                    OpcaoImagem= "Pendente";
+                                                                    var InputEletrocardiograma = document.getElementById("InputEletrocardiograma");
+                                                                    if(InputEletrocardiograma.value === "" || InputEletrocardiograma.value === null || InputEletrocardiograma.value === undefined){
+                                                                        erro.innerHTML = "Preencha a observação do exame de Eletrocardiograma."
+                                                                    }else{
+                                                                        OpcaoImagem= "Sim";
+                                                                    }
+                                                                }
+                        
+                                                                if(UltrassonografiAbdominal.checked === true){
+                                                                    OpcaoImagem= "Pendente";
+                                                                    var InputUltrassonografiAbdominal = document.getElementById("InputUltrassonografiAbdominal");
+                                                                    if(InputUltrassonografiAbdominal.value === "" || InputUltrassonografiAbdominal.value === null || InputUltrassonografiAbdominal.value === undefined){
+                                                                        erro.innerHTML = "Preencha a observação do exame de Ultrassonografia Abdominal."
+                                                                    }else{
+                                                                        OpcaoImagem= "Sim";
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        else{
+                                                            OpcaoImagem= "Não";
+                                                        }
+                        
+                                                        if(OpcaoParasitologico === "Pendente" ||  OpcaoImagem === "Pendente" ){
+                                                            // OpcaoBioquimico === "Pendente" || OpcaoOutros === "Pendente" || OpcaoHematologico === "Pendente" ||
+                                                            erro.innerHTML = "Verifique se nenhum exame esta vazio";
+                                                        }
+                                                        
+                                                        else if( OpcaoParasitologico === "Sim" ||  OpcaoImagem === "Sim"){        
+                                                            // OpcaoBioquimico === "Sim" || OpcaoOutros === "Sim" ||OpcaoHematologico === "Sim" ||                                                        
+                                                            erro.innerHTML = "Fimmmmm";
+                                                            alert("tchau")
+                                                        }
+                                                    }
+                                                }                                         
+                                            }
+                                            else{
+                                                erro.innerHTML = "Fimmmmm";
+                                                alert("ooi")
+                                            }
+                                        }
+                                    }
+                                }                                
+                            } 
+
+
+
+                            if(VacSim === "Sim" && VacNao === "Sim"){
+                                erro.innerHTML = "Escolha apenas uma opção na vacina";
+                                var buttonVacSim = document.getElementById("VacSim");
+                                    buttonVacSim.style.backgroundColor="#fff";
+                                    buttonVacSim.style.border="1px solid #009fe3"; 
+                                    buttonVacSim.style.color="#009fe3";        
+                                    VacSim="Não";
+                            
+                                    var div = document.getElementById("DivVacinaSim");
+                                    div.style.display="none";  
+                            
+                                    var buttonVacNao = document.getElementById("VacNao");
+                                    buttonVacNao.style.backgroundColor="#fff";
+                                    buttonVacNao.style.border="1px solid #009fe3"; 
+                                    buttonVacNao.style.color="#009fe3";  
+                                    VacNao="Não";
+                            }
+                            else{
+                                if(VacSim === "Não" && VacNao === "Não"){
+                                    erro.innerHTML = "Escolha pelo menos uma opção na vacina";
+                                    var buttonVacSimm = document.getElementById("VacSim");
+                                    buttonVacSimm.style.backgroundColor="#fff";
+                                    buttonVacSimm.style.border="1px solid #009fe3"; 
+                                    buttonVacSimm.style.color="#009fe3";        
+                                    VacSim="Não";
+                            
+                                    var div = document.getElementById("DivVacinaSim");
+                                    div.style.display="none";  
+                            
+                                    var buttonVacNaoo = document.getElementById("VacNao");
+                                    buttonVacNaoo.style.backgroundColor="#fff";
+                                    buttonVacNaoo.style.border="1px solid #009fe3"; 
+                                    buttonVacNaoo.style.color="#009fe3";  
+                                    VacNao="Não";
+                                }
+                                else{
+                                    if(SalvarVacina()){
+                                        console.log("uhull")
+                                    }
+                                    else{
+                                        console.log("merda")
+                                    }
+                                }
+                                
+                            }
+                            }
