@@ -101,7 +101,7 @@ export default function CadastroCinco(){
                         if(ButtonConta === "Pendente" || ButtonWibx == "Pendente" || ButtonCielo === "Pendente"){                    
                             let response="";
                             try {
-                                response = await api.post('/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:Foto,OngPrest:Ong});
+                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:Foto,OngPrest:Ong});
                             } catch (error) {
                                 console.log(error);               
                             }

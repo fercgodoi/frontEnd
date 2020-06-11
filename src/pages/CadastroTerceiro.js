@@ -50,7 +50,7 @@ export default function CadastroTerceiro(){
                         else{
                             let response="";
                             try {
-                                response = await api.post('/Prestador/CadTercPrest',{NomeFantsPrest:NomeFantasia,PetShopPrest:ButtonPetShop,ClinicaPrest:ButtonClinica,PasseadorPrest:ButtonPasseador,HotelPrest:ButtonHotel,CepPrest:cep,NumPrest:numero});
+                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadTercPrest',{NomeFantsPrest:NomeFantasia,PetShopPrest:ButtonPetShop,ClinicaPrest:ButtonClinica,PasseadorPrest:ButtonPasseador,HotelPrest:ButtonHotel,CepPrest:cep,NumPrest:numero});
                             } catch (error) {
                                 console.log(error);               
                             }
@@ -59,7 +59,7 @@ export default function CadastroTerceiro(){
                                 if(response.data.message){
                                     if(response.data.message === "Alterado"){
                                         erro.innerHTML = "Parabens mais uma etapa concluida, vamos para a proxima !!";
-                                        setTimeout(() => {window.location.href="/CadastroQuatro"}, 2000); 
+                                        setTimeout(() => {window.location.href="/CadastroCinco"}, 2000); 
                                     }
                                 }
                                 if(response.data.error){

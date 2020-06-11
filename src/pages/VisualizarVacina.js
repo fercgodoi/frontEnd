@@ -62,7 +62,7 @@ export default function VisualizarVacna(){
         else{
             let response="";
             try {
-                response = await api.post('/Vacina/BuscarInfo', {idVacina:id});
+                response = await api.post('https://agendaanimal-backend.herokuapp.com/Vacina/BuscarInfo', {idVacina:id});
             } catch (error) {
                 console.log(error);               
             }  

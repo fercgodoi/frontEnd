@@ -63,7 +63,7 @@ export default function VisualizarMedicacao(){
 
             let response="";
             try {
-                response = await api.post('/Medicamento/BuscarInfo', {idMed:id});
+                response = await api.post('https://agendaanimal-backend.herokuapp.com/Medicamento/BuscarInfo', {idMed:id});
             } catch (error) {
                 console.log(error);               
             }  

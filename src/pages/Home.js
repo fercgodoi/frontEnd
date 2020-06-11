@@ -56,7 +56,7 @@ export default function Home(){
     async function Aparecer(){
         let response="";
         try {
-            response = await api.post('/Agendamento/BuscarAgendamento');
+            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAgendamento');
         } catch (error) {
             console.log(error);               
         }          
@@ -159,7 +159,7 @@ export default function Home(){
     async function Confrimar(id){
       let response="";
       try {
-          response = await api.post('/Agendamento/ConfAgendamento', {idAgend:id});
+          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/ConfAgendamento', {idAgend:id});
       } catch (error) {
           console.log(error);               
       }
@@ -180,7 +180,7 @@ export default function Home(){
     async function Negar(id){
       let response="";
       try {
-          response = await api.post('/Agendamento/NegarAgendamento', {idAgend:id});
+          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/NegarAgendamento', {idAgend:id});
       } catch (error) {
           console.log(error);               
       }
@@ -233,7 +233,7 @@ export default function Home(){
 
         let response="";
         try {
-            response = await api.post('/Agendamento/BuscarPendente');
+            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarPendente');
         } catch (error) {
             console.log(error);               
         }
@@ -338,7 +338,7 @@ export default function Home(){
         
         let response="";
         try {
-            response = await api.post('/Agendamento/BuscarAprovados');
+            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAprovados');
         } catch (error) {
             console.log(error);               
         }
@@ -445,7 +445,7 @@ export default function Home(){
 
         let response="";
         try {
-            response = await api.post('/Agendamento/BuscarNegado');
+            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarNegado');
         } catch (error) {
             console.log(error);               
         }

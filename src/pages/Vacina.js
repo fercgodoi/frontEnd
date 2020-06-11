@@ -55,7 +55,7 @@ export default function Vacina(){
         var Nome = document.getElementById("rg");
         let response="";
         try {
-            response = await api.post('/Vacina/buscarVacina');
+            response = await api.post('https://agendaanimal-backend.herokuapp.com/Vacina/buscarVacina');
         } catch (error) {
             console.log(error);               
         }
@@ -197,7 +197,7 @@ export default function Vacina(){
             tbody.innerText="";
             
             try {
-                response = await api.post('/Vacina/FiltroVac', {rgPet:Nome.value});
+                response = await api.post('https://agendaanimal-backend.herokuapp.com/Vacina/FiltroVac', {rgPet:Nome.value});
             } catch (error) {
                 console.log(error);               
             } 

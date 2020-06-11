@@ -110,7 +110,7 @@ export default function CadastroMedicacao(){
 
                                         let response="";
                                         try {
-                                            response = await api.post('/Medicamento/CadastroMed', {rgPet: rg,statusMed: "Vigente" ,doseMed: dose,rotinaMed: rotina,dataIniMed: dataIni,dataFinMed: dataProx,nomeMed: nome,loteMed: lote,observacaoMed:observ });
+                                            response = await api.post('https://agendaanimal-backend.herokuapp.com/Medicamento/CadastroMed', {rgPet: rg,statusMed: "Vigente" ,doseMed: dose,rotinaMed: rotina,dataIniMed: dataIni,dataFinMed: dataProx,nomeMed: nome,loteMed: lote,observacaoMed:observ });
                                         } catch (error) {
                                             console.log(error);               
                                         }

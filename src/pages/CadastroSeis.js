@@ -77,7 +77,7 @@ export default function CadastroSeis(){
                                         
                                         let response="";
                                         try {
-                                            response = await api.post('/Prestador/CadSeisPrest',{NomeResp:nome,CpfResp:CPF,CelResp:celular,EmailResp:email,VetResp:vet,CRMVResp:CRMV,DataEmiResp:date});
+                                            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadSeisPrest',{NomeResp:nome,CpfResp:CPF,CelResp:celular,EmailResp:email,VetResp:vet,CRMVResp:CRMV,DataEmiResp:date});
                                         } catch (error) {
                                             console.log(error);               
                                         }

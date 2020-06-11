@@ -34,12 +34,10 @@ export default function Login(){
             else {
               let responseFunc="";
               try {
-                responseFunc = await api.post('/Funcionario/LoginFunc', {EmailFunc:email,SenhaFunc:senha});
+                responseFunc = await api.post('https://agendaanimal-backend.herokuapp.com/Funcionario/LoginFunc', {EmailFunc:email,SenhaFunc:senha});
               } catch (error) {
                 console.log(error);               
               } 
-
-              console.log(responseFunc);
               
               if(responseFunc.data){
                 if(responseFunc.data.message){                            

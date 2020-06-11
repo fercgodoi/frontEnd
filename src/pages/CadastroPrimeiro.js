@@ -41,7 +41,7 @@ export default function CadastroPrimeiro(){
 
                             let response="";
                             try {
-                                response = await api.post('/Prestador/CadPriPrest',{CnpjPrest: cnpj,CelularPrest:celular,EmailPrest:email});
+                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadPriPrest',{CnpjPrest: cnpj,CelularPrest:celular,EmailPrest:email});
                             } catch (error) {
                                 console.log(error);               
                             }

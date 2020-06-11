@@ -72,7 +72,7 @@ export default function EditarProduto(){
             let response="";
 
             try {
-                response = await api.post('/Produto/Buscar', {idProd:id});
+                response = await api.post('https://agendaanimal-backend.herokuapp.com/Produto/Buscar', {idProd:id});
             } catch (error) {
                 console.log(error);               
             } 
@@ -147,7 +147,7 @@ export default function EditarProduto(){
                             let response="";
 
                             try {
-                                response = await api.post('/Produto/EditarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi",idProd:id});
+                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Produto/EditarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi",idProd:id});
                             } catch (error) {
                                 console.log(error);               
                             } 

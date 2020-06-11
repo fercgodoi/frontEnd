@@ -61,7 +61,7 @@ export default function VisualizarProntuario(){
 
             let response="";
             try {
-                response = await api.post('/Prontuario/BuscarInfo', {idConst:id});
+                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prontuario/BuscarInfo', {idConst:id});
             } catch (error) {
                 console.log(error);               
             }  

@@ -70,7 +70,7 @@ export default function DetalhesPet(){
     }else{
       let response="";
       try {
-          response = await api.post('/Agendamento/BuscarAgend',{idAgend:id});
+          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAgend',{idAgend:id});
       } catch (error) {
           console.log(error);               
       }    
@@ -119,7 +119,7 @@ export default function DetalhesPet(){
     }else{
         let response="";
         try {
-            response = await api.post('/Agendamento/ConfAgendamento', {idAgend:id});
+            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/ConfAgendamento', {idAgend:id});
         } catch (error) {
             console.log(error);               
         }
@@ -145,7 +145,7 @@ export default function DetalhesPet(){
     }else{
         let response="";
         try {
-            response = await api.post('/Agendamento/NegarAgendamento', {idAgend:id});
+            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/NegarAgendamento', {idAgend:id});
         } catch (error) {
             console.log(error);               
         }

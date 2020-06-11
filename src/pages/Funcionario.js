@@ -58,7 +58,7 @@ export default function Funcionarios(){
         let response="";
 
         try {
-            response = await api2.post('/Funcionario/BuscarFunc');
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/BuscarFunc');
         } catch (error) {
             console.log(error);               
         } 
@@ -151,7 +151,7 @@ export default function Funcionarios(){
         let response="";
 
         try {
-            response = await api2.post('/Funcionario/ExcluirFunc', {idFunc:c});
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/ExcluirFunc', {idFunc:c});
         } catch (error) {
             console.log(error);               
         } 
@@ -205,7 +205,7 @@ export default function Funcionarios(){
             tbody.innerText="";
             
             try {
-                response = await api2.post('/Funcionario/FiltroFunc', {EmailFunc:Nome.value});
+                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/FiltroFunc', {EmailFunc:Nome.value});
             } catch (error) {
                 console.log(error);               
             } 

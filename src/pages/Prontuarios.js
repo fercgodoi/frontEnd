@@ -56,7 +56,7 @@ export default function Prontuarios(){
         var Nome = document.getElementById("rg");
         let response="";
         try {
-            response = await api.post('/Prontuario/BuscarPront');
+            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prontuario/BuscarPront');
         } catch (error) {
             console.log(error);               
         }  
@@ -197,7 +197,7 @@ export default function Prontuarios(){
                 tbody.innerText="";
                 
                 try {
-                    response = await api.post('/Prontuario/FiltroPront', {rgPet:Nome.value});
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prontuario/FiltroPront', {rgPet:Nome.value});
                 } catch (error) {
                     console.log(error);               
                 }  

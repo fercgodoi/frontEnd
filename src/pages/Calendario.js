@@ -62,7 +62,7 @@ export default function Calendario(){
   async function Aparecer(){
       let response="";
       try {
-          response = await api.post('/Agendamento/BuscarAprovados');
+          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAprovados');
       } catch (error) {
           console.log(error);               
       } 
@@ -144,7 +144,7 @@ export default function Calendario(){
      
      let response="";
       try {
-          response = await api.post('/Agendamento/ContAgendamentoDia');
+          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/ContAgendamentoDia');
       } catch (error) {
           console.log(error);               
       } 

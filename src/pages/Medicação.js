@@ -56,7 +56,7 @@ export default function Medicacao(){
         var Nome = document.getElementById("rg");
         let response="";
         try {
-            response = await api.post('/Medicamento/BuscarMed');
+            response = await api.post('https://agendaanimal-backend.herokuapp.com/Medicamento/BuscarMed');
         } catch (error) {
             console.log(error);               
         }  
@@ -193,7 +193,7 @@ export default function Medicacao(){
             tbody.innerText="";
 
             try {
-                response = await api.post('/Medicamento/FiltroMed', {rgPet:Nome.value});
+                response = await api.post('https://agendaanimal-backend.herokuapp.com/Medicamento/FiltroMed', {rgPet:Nome.value});
             } catch (error) {
                 console.log(error);               
             } 

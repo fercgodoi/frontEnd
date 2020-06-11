@@ -36,7 +36,7 @@ export default function EsqueciSenha(){
                     {
                         let response="";
                         try {
-                            response = await api.post('/Funcionario/EsqueciSenhaFunc', {EmailFunc:email});
+                            response = await api.post('https://agendaanimal-backend.herokuapp.com/Funcionario/EsqueciSenhaFunc', {EmailFunc:email});
                         } catch (error) {
                             console.log(error);               
                         }                     
