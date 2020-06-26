@@ -85,7 +85,7 @@ export default function CadastroShopping(){
                             let response="";
 
                             try {
-                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/CadastrarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi"});
+                                response = await api2.post('/Produto/CadastrarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi"});
                             } catch (error) {
                                 console.log(error);               
                             } 
@@ -164,7 +164,7 @@ export default function CadastroShopping(){
                             let response="";
 
                             try {
-                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/CadastrarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi"});
+                                response = await api2.post('/Produto/CadastrarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi"});
                             } catch (error) {
                                 console.log(error);               
                             } 
@@ -365,7 +365,7 @@ export default function CadastroShopping(){
                                             <div class="row">                                                
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <textarea class="form-control" rows="3" id="desc" placeholder="Descrição"></textarea>
+                                                        <textarea class="form-control" rows="2" id="desc" placeholder="Descrição"></textarea>
                                                         
                                                     </div>
                                                 </div>

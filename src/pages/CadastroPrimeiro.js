@@ -32,7 +32,8 @@ export default function CadastroPrimeiro(){
                     var novo = cnpj.split('', 18);
                     var novoCNPJ = novo[0]+novo[1]+novo[3]+novo[4]+novo[5]+novo[7]+novo[8]+novo[9]+novo[11]+novo[12]+novo[13]+novo[14]+novo[16]+novo[17];
 
-                    //  if(validarCNPJ(novoCNPJ)){
+                    erro.innerHTML ="";
+                     if(validarCNPJ(novoCNPJ)){
                         if (celular === "" || celular === null || celular === undefined ) {
                             erro.innerHTML = "Preencha seu celular";
                         } 
@@ -45,8 +46,6 @@ export default function CadastroPrimeiro(){
                             } catch (error) {
                                 console.log(error);               
                             }
-
-                            console.log(response)
                               
                             if(response){
                                 if(response.data.message){
@@ -72,10 +71,10 @@ export default function CadastroPrimeiro(){
                                 }
                             }
                         }
-                    // }
-                    // else{
-                    //     erro.innerHTML = "CNPJ inválido";
-                    // }                    
+                    }
+                    else{
+                        erro.innerHTML = "CNPJ inválido";
+                    }                    
                 }
             }
         }       
@@ -87,7 +86,7 @@ export default function CadastroPrimeiro(){
         var cnpj = novoCNPJ.replace(/[^\d]+/g,'');
      
         if(cnpj === '') {console.log(cnpj); return false};
-         
+        console.log(cnpj)
         if (cnpj.length !== 14)
             return false;
      
@@ -105,33 +104,40 @@ export default function CadastroPrimeiro(){
             return false;
              
         // Valida DVs
-        var tamanho = cnpj.length - 2
-        var numeros = cnpj.substring(0,tamanho);
-        var digitos = cnpj.substring(tamanho);
-        var  soma = 0;
-        var pos = tamanho - 7;
-        for (let i = tamanho; i >= 1; i--) {
-        soma += numeros.charAt(tamanho - i) * pos--;
-        if (pos < 2)
+        var tamanho ="";
+        var numeros= "";
+        var digitos="";
+        var soma ="";
+        var pos="";
+        var resultado="";
+        let i=0;
+        tamanho = cnpj.length - 2
+        numeros = cnpj.substring(0,tamanho);
+        digitos = cnpj.substring(tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        for (i = tamanho; i >= 1; i--) {
+          soma += numeros.charAt(tamanho - i) * pos--;
+          if (pos < 2)
                 pos = 9;
         }
-        var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-        if (resultado !== digitos.charAt(0))
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(0))
             return false;
-            
-        var tamanho1 = tamanho + 1;
-        var numeros1 = cnpj.substring(0,tamanho);
-        var soma1 = 0;
-        var pos1 = tamanho - 7;
-        for (let i = tamanho1; i >= 1; i--) {
-        soma1 += numeros1.charAt(tamanho1 - i) * pos1--;
-        if (pos1 < 2)
-                pos1 = 9;
+             
+        tamanho = tamanho + 1;
+        numeros = cnpj.substring(0,tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        for (i = tamanho; i >= 1; i--) {
+          soma += numeros.charAt(tamanho - i) * pos--;
+          if (pos < 2)
+                pos = 9;
         }
-        var resultado1 = soma1 % 11 < 2 ? 0 : 11 - soma1 % 11;
-        if (resultado1 !== digitos.charAt(1))
-            return false;
-            
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(1))
+              return false;
+               
         return true;
         
     }
@@ -165,7 +171,7 @@ export default function CadastroPrimeiro(){
                                 <div className="form-group">
                                     <img alt="" src={gatinho} style={{width:'30px'}}></img> 
                                     <a style={{marginLeft:'5px',color:'#000000'}}>Precisamos do seu CNPJ para confirmar o seu cadastro! </a>
-                                    <InputMask type="text"  mask = "99.999.999/9999-99" className="form-control" id="CNPJ" placeholder="CNPJ" style={{color:'#009fe3',marginTop:'1%'}} maskChar=""/>
+                                    <InputMask type="text"  mask = "99.999.999/9999-99" className="form-control" id="CNPJ" placeholder="CNPJ"  style={{color:'#009fe3',marginTop:'1%'}} maskChar=""/>
                                 </div>
                             </div>
                         </div>

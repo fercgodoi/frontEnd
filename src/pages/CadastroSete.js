@@ -16,19 +16,24 @@ export default function CadastroSete(){
     }
     Validar();
     
-    var recepcao = "Não";
-    var Admin ="Não";
-    var Vet ="Não";
-    var finan="Não";
+    // var recepcao = "Não";
+    // var Admin ="Não";
+    // var Vet ="Não";
+    // var finan="Não";
+
+    var VetSim = "Não";
+    var VetNao = "Não";
     
     async function Proximo(){
         var nome = document.getElementById("nome").value;
         var cpf = document.getElementById("cpf").value;
         var email = document.getElementById("email").value;
-        var crmv = document.getElementById("crmv").value;
+        var CRMV = document.getElementById("CRMV").value;
         var date = document.getElementById("date").value;
         var erro = document.getElementById("valida");
         var num = document.getElementById("num").value;
+
+        var vet = "";
 
         var segunda = document.getElementById("segunda");
         var terca = document.getElementById("terca");
@@ -256,90 +261,118 @@ export default function CadastroSete(){
                                 
                                 }
                                 else{
-                                    var AcessoRep ="0";
-                                    var AcessoAdmin ="0";
-                                    var AcessoVet ="0";
-                                    var AcessoFinan ="0";
-                                    var ControlePet = "Não";
-                                    if(recepcao === "Não" && Admin === "Não" && Vet === "Não" && finan==="Não"){
-                                        erro.innerHTML = "Escolha pelo menos um cargo";
+                                    // var AcessoRep ="0";
+                                    // var AcessoAdmin ="0";
+                                    // var AcessoVet ="0";
+                                    // var AcessoFinan ="0";
+                                    // var ControlePet = "Não";
+                                    // if(recepcao === "Não" && Admin === "Não" && Vet === "Não" && finan==="Não"){
+                                    //     erro.innerHTML = "Escolha pelo menos um cargo";
         
-                                    }else{
-                                        if( Vet === "Sim"){
-                                            ControlePet = "Pendente";
-                                            if (crmv === "" || crmv === null || crmv === undefined) {
+                                    // }else{
+                                        // if( Vet === "Sim"){
+                                        //     ControlePet = "Pendente";
+                                        //     if (crmv === "" || crmv === null || crmv === undefined) {
                         
-                                                erro.innerHTML = "Preencha o campo CRMV";
+                                        //         erro.innerHTML = "Preencha o campo CRMV";
+                                        //     }
+                                        //     else{
+                                        //         if (date === "" || date === null || date === undefined) {
+                        
+                                        //             erro.innerHTML = "Preencha o campo Data de Emissão";
+                                        //         }
+                                        //         else{
+                                                    
+                                        //             ControlePet = "Sim";
+                                        //         }                                        
+                                        //     }        
+                                        // }else{
+                                        //     date = "0000-00-00";
+                                        // }
+                                        
+                                        // if(ControlePet === "Pendente")
+                                        // {
+                                        //     erro.innerHTML = "Preencha os campos corretamente";
+                                        // }
+                                        // else{
+
+                                            // if(recepcao === "Sim"){
+                                            //     AcessoRep = "1";
+                                            // }
+                                            // if(Admin === "Sim"){
+                                            //     AcessoAdmin = '1';
+                                            // }
+                                            // if(finan === "Sim"){
+                                            //     AcessoFinan = "1";
+                                            // }
+                                            // if(Vet === "Sim"){
+                                            //     AcessoVet = "1";
+                                            // }                                          
+                                            // var AcessoTotal = AcessoRep + AcessoAdmin + AcessoVet + AcessoFinan ;
+
+                                            if(VetSim === "Não" && VetNao === "Não"){
+                                                erro.innerHTML = "Responda se você é veterinario";
                                             }
                                             else{
-                                                if (date === "" || date === null || date === undefined) {
-                        
-                                                    erro.innerHTML = "Preencha o campo Data de Emissão";
-                                                }
-                                                else{
-                                                    
-                                                    ControlePet = "Sim";
-                                                }                                        
-                                            }        
-                                        }else{
-                                            date = "0000-00-00";
-                                        }
-                                        
-                                        if(ControlePet === "Pendente")
-                                        {
-                                            erro.innerHTML = "Preencha os campos corretamente";
-                                        }
-                                        else{
-
-                                            if(recepcao === "Sim"){
-                                                AcessoRep = "1";
-                                            }
-                                            if(Admin === "Sim"){
-                                                AcessoAdmin = '1';
-                                            }
-                                            if(finan === "Sim"){
-                                                AcessoFinan = "1";
-                                            }
-                                            if(Vet === "Sim"){
-                                                AcessoVet = "1";
-                                            }                                          
-                                            var AcessoTotal = AcessoRep + AcessoAdmin + AcessoVet + AcessoFinan ;
-
-                                            let response="";
-                                            try {
-                                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadSetePrest', {NomeFunc: nome,EmailFunc: email,CpfFunc: cpf ,RecepFunc: recepcao,VetFunc: Vet,AdminFunc:  Admin ,FinanFunc: finan ,AcessoFunc: AcessoTotal,CelFunc:num, CRMVFunc: crmv,DateEmiFunc:date,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value});
-                                            } catch (error) {
-                                                console.log(error);               
-                                            }   
-                                            
-                                            if(response){
-                                                if(response.data.message){
-                                                    if(response.data.message === "Ja existe Email"){
-                                                        erro.innerText = "Email existente";
-                                                    }else if(response.data.message === "Ja existe CPF"){
-                                                            erro.innerText = "CPF existente";
-                                                        }else if(response.data.message === "Cadastrado"){
-                                                                erro.innerText = "Agora é só logar com a senha que foi enviada pelo email cadastrado !!";
-                                                                setTimeout(() => {window.location.href="/CadastroConcluido"}, 2000);
-                                                            }else if(response.data.message === "Ja existe CRMV"){
-                                                                    erro.innerText = "CRMV existente";
-                                                                }
-                                                }
-                                                
-                                                if(response.data.error){
-                                                    if(response.data.error === "error"){
-                                                        erro.innerText = "Não foi possivel enviar a senha pelo email cadastrado";
-                                                    }else if(response.data.error === "falha na autenticação do token"){
-                                                        erro.innerText = "Tente Novamente";
-                                                        setTimeout(() => {window.location.href="/"}, 2000);
-                                                    }else if(response.data.error === "error sql"){
-                                                        erro.innerText = "Tente Novamente";
+                                                if(VetSim === "Sim"){  
+                                                    if (CRMV === "" || CRMV === null || CRMV === undefined ) {
+                                                        erro.innerHTML = "Preencha seu CRMV";
                                                     }else{
-                                                        erro.innerText = "Tente Novamente";
+                                                        if (date === "" || date === null || date === undefined ) {
+                                                            erro.innerHTML = "Preencha a date";
+                                                        }else{
+                                                            VetSim = "Pedente";
+                                                            vet = "Sim";
+                                                        }
+                                                    }
+                                                }
+                                                if(VetNao === "Sim"){
+                                                    VetNao = "Pedente";
+                                                    vet = "Não";
+                                                }
+            
+                                                if(VetSim === "Pedente" || VetNao === "Pedente"){
+                                                    erro.innerHTML = "";
+                                                    let response="";
+                                                    try {
+                                                        response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadSetePrest', {NomeFunc: nome,EmailFunc: email,CpfFunc: cpf ,RecepFunc: "Não",VetFunc: "Não",AdminFunc: "Sim"  ,FinanFunc: "Não" ,CelFunc:num, CRMVFunc: CRMV,DateEmiFunc:date,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value});
+                                                        // AcessoFunc: AcessoTotal,
+                                                    } catch (error) {
+                                                        console.log(error);               
+                                                    }   
+
+                                                    console.log(response);
+                                                    
+                                                    if(response){
+                                                        if(response.data.message){
+                                                            if(response.data.message === "Ja existe Email"){
+                                                                erro.innerText = "Email existente";
+                                                            }else if(response.data.message === "Ja existe CPF"){
+                                                                    erro.innerText = "CPF existente";
+                                                                }else if(response.data.message === "Cadastrado"){
+                                                                        erro.innerText = "Agora é só logar com a senha que foi enviada pelo email cadastrado !!";
+                                                                        setTimeout(() => {window.location.href="/CadastroConcluido"}, 2000);
+                                                                    }else if(response.data.message === "Ja existe CRMV"){
+                                                                            erro.innerText = "CRMV existente";
+                                                                        }
+                                                        }
+                                                        
+                                                        if(response.data.error){
+                                                            if(response.data.error === "error"){
+                                                                erro.innerText = "Não foi possivel enviar a senha pelo email cadastrado";
+                                                            }else if(response.data.error === "falha na autenticação do token"){
+                                                                erro.innerText = "Tente Novamente";
+                                                                setTimeout(() => {window.location.href="/"}, 2000);
+                                                            }else if(response.data.error === "error sql"){
+                                                                erro.innerText = "Tente Novamente";
+                                                            }else{
+                                                                erro.innerText = "Tente Novamente";
+                                                            }
+                                                        }
                                                     }
                                                 }   
-                                            }
-                                        }
+                                        //     }
+                                        // }
                                     }
                                 }
                             }
@@ -395,76 +428,76 @@ export default function CadastroSete(){
         return true;   
     }
 
-    //////////////////////////////////////////////////////////////////////// RECEPÇÃO /////////////////////////////////////////////////////////////////
-    function Recepcao(){
-        var buttonRecep = document.getElementById("recepcao");
-        if(recepcao === "Sim"){ 
-            buttonRecep.style.backgroundColor="#fff";
-            buttonRecep.style.color="#009fe3";
-            buttonRecep.style.boder="1px solid #009fe3";
-            recepcao="Não";       
-        }else{
-            buttonRecep.style.backgroundColor="#009fe3";
-            buttonRecep.style.color="#fff";
-            recepcao="Sim";
-        }
-    }
+    // //////////////////////////////////////////////////////////////////////// RECEPÇÃO /////////////////////////////////////////////////////////////////
+    // function Recepcao(){
+    //     var buttonRecep = document.getElementById("recepcao");
+    //     if(recepcao === "Sim"){ 
+    //         buttonRecep.style.backgroundColor="#fff";
+    //         buttonRecep.style.color="#009fe3";
+    //         buttonRecep.style.boder="1px solid #009fe3";
+    //         recepcao="Não";       
+    //     }else{
+    //         buttonRecep.style.backgroundColor="#009fe3";
+    //         buttonRecep.style.color="#fff";
+    //         recepcao="Sim";
+    //     }
+    // }
 
-    //////////////////////////////////////////////////////////////////////// AMINISTRAÇÃO /////////////////////////////////////////////////////////////////
-    function Administracao(){
-        var button = document.getElementById("admin");
-        if(Admin === "Sim"){ 
-            button.style.backgroundColor="#fff";
-            button.style.color="#009fe3";
-            button.style.boder="1px solid #009fe3";
-            Admin="Não"; 
-        }else{
-            button.style.backgroundColor="#009fe3";
-            button.style.color="#fff";
-            Admin="Sim";
-        }        
-    }
+    // //////////////////////////////////////////////////////////////////////// AMINISTRAÇÃO /////////////////////////////////////////////////////////////////
+    // function Administracao(){
+    //     var button = document.getElementById("admin");
+    //     if(Admin === "Sim"){ 
+    //         button.style.backgroundColor="#fff";
+    //         button.style.color="#009fe3";
+    //         button.style.boder="1px solid #009fe3";
+    //         Admin="Não"; 
+    //     }else{
+    //         button.style.backgroundColor="#009fe3";
+    //         button.style.color="#fff";
+    //         Admin="Sim";
+    //     }        
+    // }
 
-    //////////////////////////////////////////////////////////////////////// VETERINARIO /////////////////////////////////////////////////////////////////
-    function Veterinario(){
-        var buttonVet = document.getElementById("vet");
-        var crmv = document.getElementById("crmv");
-        var date = document.getElementById("date");
-        var NameDate = document.getElementById("NameDate");
+    // //////////////////////////////////////////////////////////////////////// VETERINARIO /////////////////////////////////////////////////////////////////
+    // function Veterinario(){
+    //     var buttonVet = document.getElementById("vet");
+    //     var crmv = document.getElementById("crmv");
+    //     var date = document.getElementById("date");
+    //     var NameDate = document.getElementById("NameDate");
 
-        if(Vet === "Sim"){                    
-            buttonVet.style.backgroundColor="#fff";
-            buttonVet.style.color="#009fe3";
-            buttonVet.style.boder="1px solid #009fe3";                           
-            crmv.style.display="none";
-            date.style.display="none";
-            NameDate.style.display="none";
-            Vet="Não";     
-        }else{
-            buttonVet.style.backgroundColor="#009fe3";
-            buttonVet.style.color="#fff";
-            Vet="Sim";
-            crmv.style.display="block";
-            date.style.display="block";
-            NameDate.style.display="block";
+    //     if(Vet === "Sim"){                    
+    //         buttonVet.style.backgroundColor="#fff";
+    //         buttonVet.style.color="#009fe3";
+    //         buttonVet.style.boder="1px solid #009fe3";                           
+    //         crmv.style.display="none";
+    //         date.style.display="none";
+    //         NameDate.style.display="none";
+    //         Vet="Não";     
+    //     }else{
+    //         buttonVet.style.backgroundColor="#009fe3";
+    //         buttonVet.style.color="#fff";
+    //         Vet="Sim";
+    //         crmv.style.display="block";
+    //         date.style.display="block";
+    //         NameDate.style.display="block";
             
-        }
-    }
+    //     }
+    // }
 
-    //////////////////////////////////////////////////////////////////////// FINANCEIRO /////////////////////////////////////////////////////////////////
-    function Financeiro(){
-        var button = document.getElementById("financeiro");
-        if(finan === "Sim"){ 
-            button.style.backgroundColor="#fff";
-            button.style.color="#009fe3";
-            button.style.boder="1px solid #009fe3";
-            finan="Não"; 
-        }else{
-            button.style.backgroundColor="#009fe3";
-            button.style.color="#fff";
-            finan="Sim";
-        }            
-    }
+    // //////////////////////////////////////////////////////////////////////// FINANCEIRO /////////////////////////////////////////////////////////////////
+    // function Financeiro(){
+    //     var button = document.getElementById("financeiro");
+    //     if(finan === "Sim"){ 
+    //         button.style.backgroundColor="#fff";
+    //         button.style.color="#009fe3";
+    //         button.style.boder="1px solid #009fe3";
+    //         finan="Não"; 
+    //     }else{
+    //         button.style.backgroundColor="#009fe3";
+    //         button.style.color="#fff";
+    //         finan="Sim";
+    //     }            
+    // }
 
     function Segunda(){
         var segunda = document.getElementById("segunda");
@@ -588,6 +621,43 @@ export default function CadastroSete(){
             horarioFinal.style.visibility="collapse";
         }        
     }
+
+    function VeterinarioNao(){
+        var erro = document.getElementById("valida");
+        erro.innerHTML = "";
+
+        var button = document.getElementById("VeterinarioNao");
+        button.style.backgroundColor="#009fe3";
+        button.style.color="#fff";
+        VetNao="Sim";
+        var div=document.getElementById("DivVet");
+        div.style.display="none";
+
+
+        var VeterinarioSim = document.getElementById("VeterinarioSim");
+        VeterinarioSim.style.backgroundColor="#fff";
+        VeterinarioSim.style.border="1px solid #009fe3"; 
+        VeterinarioSim.style.color="#009fe3";
+        VetSim="Não";
+    }    
+
+    function VeterinarioSim(){
+        var erro = document.getElementById("valida");
+        erro.innerHTML = "";
+
+        var VeterinarioSim = document.getElementById("VeterinarioSim");
+        VeterinarioSim.style.backgroundColor="#009fe3";
+        VeterinarioSim.style.color="#fff";
+        VetSim="Sim";
+        var div=document.getElementById("DivVet");
+        div.style.display="block";
+
+        var VeterinarioNao = document.getElementById("VeterinarioNao");
+        VeterinarioNao.style.backgroundColor="#fff";
+        VeterinarioNao.style.border="1px solid #009fe3"; 
+        VeterinarioNao.style.color="#009fe3";
+        VetNao="Não";
+    }
     return(
         <div>
             <div class="content">
@@ -596,7 +666,7 @@ export default function CadastroSete(){
                         <div class="col-md-12" style={{padding:'0px',margin:'0px'}}>
     
                         <div class="card-header card-header-blue" style={{background:'#009fe3'}}>
-                            <h4 class="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 6</h4>
+                            <h4 class="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 7</h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -720,7 +790,7 @@ export default function CadastroSete(){
                                 </div>
                             </div>
                             
-                            <br/>
+                            {/* <br/>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -746,9 +816,9 @@ export default function CadastroSete(){
                                     <button type="submit" id="financeiro" onClick={Financeiro} className="btnCadFunc">Financeiro</button>
                                     <div className="clearfix"></div>                                                   
                                 </div>
-                            </div>  
+                            </div>   */}
                             <br/>   
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <input type="text" className="form-control" id="crmv" placeholder="CRMV" style={{display:'none'}}/>
@@ -770,7 +840,46 @@ export default function CadastroSete(){
                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>
                                 </div>
                             </div>
-                            <br/>   
+                            <br/>    */}
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Você é veterinario?</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"> </div>
+                                <div class="col-md-3"> 
+                                    <button type="submit" className="btnCadFunc" onClick={VeterinarioSim} id="VeterinarioSim">Sim</button>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" className="btnCadFunc" onClick={VeterinarioNao} id="VeterinarioNao">Não</button>
+                                    <div class="clearfix"></div>                                                   
+                                </div>   
+                            </div>
+                            <br/>
+                            <div id="DivVet" style={{display:'none'}}>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="CRMV" id="CRMV" style={{color:'#009fe3',marginTop:'1%'}}/>
+                                    </div>
+                                </div>
+                                <div className="col-md-3">
+                                    <div className="form-group">
+                                        <input type="text" className="form-control"  placeholder="Data de Emissão"  disabled/>
+                                    </div>
+                                </div>
+                                <div className="col-md-3">
+                                    <div className="form-group">
+                                        <input type="date" id="date" className="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
                                             
                             
                             <div class="row" style={{textAlign: '-webkit-center'}}>

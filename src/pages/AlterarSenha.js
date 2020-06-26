@@ -61,7 +61,7 @@ export default function AlterarSenha(){
                                     
                                 let response="";
                                 try {
-                                    response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/TrocarSenhaFunc', {EmailFunc:email, SenhaFunc:senha});
+                                    response = await api2.post('/Funcionario/TrocarSenhaFunc', {EmailFunc:email, SenhaFunc:senha});
                                 } catch (error) {
                                     console.log(error);               
                                 }    

@@ -4,17 +4,18 @@ import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
 
+
 import api from "../services/api2";
 
 export default function CadastroCinco(){
-    function Validar(){
-        localStorage.setItem('Codigo', "");
-        var validar  = localStorage.getItem('token');
-        if (validar === "" || validar === null || validar === undefined) {    
-            setTimeout(() => {window.location.href="/"});
-        }
-    }
-    Validar();
+    // function Validar(){
+    //     localStorage.setItem('Codigo', "");
+    //     var validar  = localStorage.getItem('token');
+    //     if (validar === "" || validar === null || validar === undefined) {    
+    //         setTimeout(() => {window.location.href="/"});
+    //     }
+    // }
+    // Validar();
 
     var ButtonEmergenciaSim = "Não";
     var ButtonEmergenciaNao = "Não";
@@ -32,14 +33,14 @@ export default function CadastroCinco(){
         var erro = document.getElementById("valida");
         var Foto = document.getElementById("Foto").value;
 
+        console.log(Foto)
         if(ButtonEmergenciaSim === "Não" && ButtonEmergenciaNao === "Não"){
             erro.innerHTML = "Selecione se você é 24horas.";
         }else{
             if(ButtonOngSim === "Não" && ButtonOngNao === "Não"){
                 erro.innerHTML = "Selecione se você é ONG.";
             }else{
-                if (Foto === "" || Foto === null || Foto === undefined) {
-    
+                if (Foto === "" || Foto === null || Foto === undefined) {    
                     erro.innerHTML = "Preencha o campo Logo";
                 }
                 else{
@@ -100,11 +101,29 @@ export default function CadastroCinco(){
     
                         if(ButtonConta === "Pendente" || ButtonWibx == "Pendente" || ButtonCielo === "Pendente"){                    
                             let response="";
+
+                            // let dados  = new FormData();
+
+                            // var ooi = "oooi";
+                            // dados.set("Conta","ooi");
+                            // dados.set('BancoCont', Banco);
+                            // dados.append("AgenciaCont", Agencia);
+                            // dados.append('TipoCont', tipo);
+                            // dados.append('CartCont', CodWibx);
+                            // dados.append('CieloCont', CodCielo);
+                            // dados.append('EmergenciaPrest', Emergencia);
+                            // dados.append('LogoPrest', Foto);
+                            // dados.append('OngPrest', Ong);
+                           
+                            // console.log(dados)
                             try {
-                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:Foto,OngPrest:Ong});
+                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
+                                // response = await api.post('/Prestador/CadCincoPrest',dados);
                             } catch (error) {
                                 console.log(error);               
                             }
+
+                            console.log(response)
 
                             
                             if(response){
@@ -425,10 +444,11 @@ export default function CadastroCinco(){
                         <br/>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
+                                <div class="">
+                                {/* form-group */}
                                     <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Ótimo! Precisamos do Logo da sua empresa!</a>
-                                        <input type="text" class="form-control" placeholder="Foto" id="Foto" style={{color:'#009fe3',marginTop:'1%'}}/>
+                                    <a style={{marginLeft:'5px',color:'#000000'}}>Ótimo, precisamos do logo da sua empresa, para aparecer bem bonito no aplicativo.</a>
+                                        <input type="file" class="form-control" accept="image/png, image/jpeg" placeholder="Foto" id="Foto" style={{color:'#009fe3',marginTop:'1%',backgroundImage:'none'}}/>
                                 </div>
                             </div>
                         </div>

@@ -115,7 +115,7 @@ export default function VisualizarProntuario(){
                         var idVacinaa = produto[0].idVacina;
                         let responseVacina="";
                         try {
-                            responseVacina = await api.post('/Vacina/BuscarInfo', {idVacina:idVacinaa});
+                            responseVacina = await api.post('https://agendaanimal-backend.herokuapp.com/Vacina/BuscarInfo', {idVacina:idVacinaa});
                         } catch (error) {
                             console.log(error);               
                         } 
@@ -169,7 +169,7 @@ export default function VisualizarProntuario(){
                         var idMedd = produto[0].idMed;  
                         let responseMed="";
                         try {
-                            responseMed = await api.post('/Medicamento/BuscarInfo', {idMed:idMedd});
+                            responseMed = await api.post('https://agendaanimal-backend.herokuapp.com/Medicamento/BuscarInfo', {idMed:idMedd});
                         } catch (error) {
                             console.log(error);               
                         } 
@@ -224,7 +224,7 @@ export default function VisualizarProntuario(){
                         var idExamess = produto[0].idExames;
                         let responseExames="";
                         try {
-                            responseExames = await api.post('/Exame/BuscarInfo', {idExames:idExamess});
+                            responseExames = await api.post('https://agendaanimal-backend.herokuapp.com/Exame/BuscarInfo', {idExames:idExamess});
                         } catch (error) {
                             console.log(error);               
                         } 

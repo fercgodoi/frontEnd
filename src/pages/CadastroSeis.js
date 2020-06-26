@@ -10,25 +10,25 @@ import api from "../services/api2";
 export default function CadastroSeis(){
     function Validar(){
         localStorage.setItem('Codigo', "");
-        var validar  = localStorage.getItem('token');
+        var validar = localStorage.getItem('token');
         if (validar === "" || validar === null || validar === undefined) {    
             setTimeout(() => {window.location.href="/"});
         }
     }
     Validar();
 
-    var VetSim = "Não";
-    var VetNao = "Não";
+    // var VetSim = "Não";
+    // var VetNao = "Não";
 
     async function Proximo() {
         var CPF = document.getElementById("CPF").value;
         var nome = document.getElementById("nome").value;
-        var email = document.getElementById("email").value;
+        // var email = document.getElementById("email").value;
         var celular = document.getElementById("celular").value;
         var erro = document.getElementById("valida");
-        var CRMV = document.getElementById("CRMV").value;
-        var date = document.getElementById("date").value;
-        var vet = "";
+        // var CRMV = document.getElementById("CRMV").value;
+        // var date = document.getElementById("date").value;
+        // var vet = "";
 
         if (nome === "" || nome === null || nome === undefined ) {
             erro.innerHTML = "Preencha seu nome";
@@ -43,44 +43,47 @@ export default function CadastroSeis(){
                         erro.innerHTML = "Preencha seu celular";
                     }
                     else{
-                        if (email === "" || email === null || email === undefined ) {
-                            erro.innerHTML = "Preencha seu email";
-                        }
-                        else{
-                            if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
-                                erro.innerHTML = "Email inválido";
-                            }
-                            else{
-                                if(VetSim === "Não" && VetNao === "Não"){
-                                    erro.innerHTML = "Responda se você é veterinario";
-                                }
-                                else{
-                                    if(VetSim === "Sim"){  
-                                        if (CRMV === "" || CRMV === null || CRMV === undefined ) {
-                                            erro.innerHTML = "Preencha seu CRMV";
-                                        }else{
-                                            if (date === "" || date === null || date === undefined ) {
-                                                erro.innerHTML = "Preencha a date";
-                                            }else{
-                                                VetSim = "Pedente";
-                                                vet = "Sim";
-                                            }
-                                        }
-                                    }
-                                    if(VetNao === "Sim"){
-                                        VetNao = "Pedente";
-                                        vet = "Não";
-                                    }
+                        // if (email === "" || email === null || email === undefined ) {
+                        //     erro.innerHTML = "Preencha seu email";
+                        // }
+                        // else{
+                        //     if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
+                        //         erro.innerHTML = "Email inválido";
+                        //     }
+                        //     else{
+                                // if(VetSim === "Não" && VetNao === "Não"){
+                                //     erro.innerHTML = "Responda se você é veterinario";
+                                // }
+                                // else{
+                                //     if(VetSim === "Sim"){  
+                                //         if (CRMV === "" || CRMV === null || CRMV === undefined ) {
+                                //             erro.innerHTML = "Preencha seu CRMV";
+                                //         }else{
+                                //             if (date === "" || date === null || date === undefined ) {
+                                //                 erro.innerHTML = "Preencha a date";
+                                //             }else{
+                                //                 VetSim = "Pedente";
+                                //                 vet = "Sim";
+                                //             }
+                                //         }
+                                //     }
+                                //     if(VetNao === "Sim"){
+                                //         VetNao = "Pedente";
+                                //         vet = "Não";
+                                //     }
 
-                                    if(VetSim === "Pedente" || VetNao === "Pedente"){
+                                //     if(VetSim === "Pedente" || VetNao === "Pedente"){
                                         erro.innerHTML = "";
                                         
                                         let response="";
                                         try {
-                                            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadSeisPrest',{NomeResp:nome,CpfResp:CPF,CelResp:celular,EmailResp:email,VetResp:vet,CRMVResp:CRMV,DataEmiResp:date});
+                                            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadSeisPrest',{NomeResp:nome,CpfResp:CPF,CelResp:celular});
+                                            // ,VetResp:vet,CRMVResp:CRMV,DataEmiResp:date
                                         } catch (error) {
                                             console.log(error);               
                                         }
+
+                                        console.log(response);
 
                                         if(response){
                                             if(response.data.message){
@@ -89,6 +92,8 @@ export default function CadastroSeis(){
                                                 }else if(response.data.message === "Alterado"){
                                                     erro.innerHTML = "Agora tem que realizar o cadastro de um funcioanrio para logar, lembrando que o responsavel não loga";
                                                     setTimeout(() => {window.location.href="/CadastroSete"}, 2000); 
+                                                }else if(response.data.message === "Ja existe CPF"){
+                                                    erro.innerHTML = "Este CPF já existe";
                                                 }
                                             }
                                             if(response.data.error){
@@ -101,11 +106,11 @@ export default function CadastroSeis(){
                                                     erro.innerHTML = "Tente Novamente";
                                                 }
                                             }
-                                        }
-                                    }
+                                    //     }
+                                    // }
                                 }
-                            }
-                        }
+                        //     }
+                        // }
                     }
                 }
                 else{
@@ -156,42 +161,42 @@ export default function CadastroSeis(){
         return true;   
     }
 
-    function VeterinarioNao(){
-        var erro = document.getElementById("valida");
-        erro.innerHTML = "";
+    // function VeterinarioNao(){
+    //     var erro = document.getElementById("valida");
+    //     erro.innerHTML = "";
 
-        var button = document.getElementById("VeterinarioNao");
-        button.style.backgroundColor="#009fe3";
-        button.style.color="#fff";
-        VetNao="Sim";
-        var div=document.getElementById("DivVet");
-        div.style.display="none";
+    //     var button = document.getElementById("VeterinarioNao");
+    //     button.style.backgroundColor="#009fe3";
+    //     button.style.color="#fff";
+    //     VetNao="Sim";
+    //     var div=document.getElementById("DivVet");
+    //     div.style.display="none";
 
 
-        var VeterinarioSim = document.getElementById("VeterinarioSim");
-        VeterinarioSim.style.backgroundColor="#fff";
-        VeterinarioSim.style.border="1px solid #009fe3"; 
-        VeterinarioSim.style.color="#009fe3";
-        VetSim="Não";
-    }    
+    //     var VeterinarioSim = document.getElementById("VeterinarioSim");
+    //     VeterinarioSim.style.backgroundColor="#fff";
+    //     VeterinarioSim.style.border="1px solid #009fe3"; 
+    //     VeterinarioSim.style.color="#009fe3";
+    //     VetSim="Não";
+    // }    
 
-    function VeterinarioSim(){
-        var erro = document.getElementById("valida");
-        erro.innerHTML = "";
+    // function VeterinarioSim(){
+    //     var erro = document.getElementById("valida");
+    //     erro.innerHTML = "";
 
-        var VeterinarioSim = document.getElementById("VeterinarioSim");
-        VeterinarioSim.style.backgroundColor="#009fe3";
-        VeterinarioSim.style.color="#fff";
-        VetSim="Sim";
-        var div=document.getElementById("DivVet");
-        div.style.display="block";
+    //     var VeterinarioSim = document.getElementById("VeterinarioSim");
+    //     VeterinarioSim.style.backgroundColor="#009fe3";
+    //     VeterinarioSim.style.color="#fff";
+    //     VetSim="Sim";
+    //     var div=document.getElementById("DivVet");
+    //     div.style.display="block";
 
-        var VeterinarioNao = document.getElementById("VeterinarioNao");
-        VeterinarioNao.style.backgroundColor="#fff";
-        VeterinarioNao.style.border="1px solid #009fe3"; 
-        VeterinarioNao.style.color="#009fe3";
-        VetNao="Não";
-    }
+    //     var VeterinarioNao = document.getElementById("VeterinarioNao");
+    //     VeterinarioNao.style.backgroundColor="#fff";
+    //     VeterinarioNao.style.border="1px solid #009fe3"; 
+    //     VeterinarioNao.style.color="#009fe3";
+    //     VetNao="Não";
+    // }
 
     return(
     <div>
@@ -228,15 +233,15 @@ export default function CadastroSeis(){
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        {/* <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Email" id="email" style={{color:'#009fe3',marginTop:'1%'}}/>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         <br/>
-                        <div class="row">
+                        {/* <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <img alt="" src={gatinho} style={{width:'30px'}}></img> 
@@ -252,9 +257,9 @@ export default function CadastroSeis(){
                                 <button type="submit" className="btnCadFunc" onClick={VeterinarioNao} id="VeterinarioNao">Não</button>
                                 <div class="clearfix"></div>                                                   
                             </div>   
-                        </div>
+                        </div> */}
 
-                        <div id="DivVet" style={{display:'none'}}>
+                        {/* <div id="DivVet" style={{display:'none'}}>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -272,7 +277,7 @@ export default function CadastroSeis(){
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         
                         <div class="row" style={{textAlign: '-webkit-center'}}>
                             <div class="col-md-12">

@@ -58,7 +58,7 @@ export default function Shopping(){
         let response="";
 
         try {
-            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/BuscarProd');
+            response = await api2.post('/Produto/BuscarProd');
         } catch (error) {
             console.log(error);               
         } 
@@ -166,7 +166,7 @@ export default function Shopping(){
         let response="";
 
         try {
-            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/DeleteProd', {idProd:c});
+            response = await api2.post('/Produto/DeleteProd', {idProd:c});
         } catch (error) {
             console.log(error);               
         } 
@@ -225,7 +225,7 @@ export default function Shopping(){
             tbody.innerText= "";
             
             try {
-                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/FiltroProd', {NomeProd:Nome.value});
+                response = await api2.post('/Produto/FiltroProd', {NomeProd:Nome.value});
             } catch (error) {
                 console.log(error);               
             } 

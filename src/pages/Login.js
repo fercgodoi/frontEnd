@@ -109,7 +109,7 @@ export default function Login(){
 		    <div className="container-login100">
 		      <div className="wrap-login100">
             <form className="login100-form validate-form" style={{marginBottom:'0px'}}>
-              <div style={{height: '100%',width: '100%',textAlign: 'center'}}>
+              <div style={{height: '70%',width: '100%',textAlign: 'center'}}>
                 <div>
                     <img src={Logo} alt="" style={{width: '40%', height: '20%'}}/>
                 </div>
@@ -144,7 +144,21 @@ export default function Login(){
                   </table>
                 </div>
               </div>
+              {/* <div  style={{height: '30%',width: '100%',textAlign: 'center'}}>
+                <div class="row" style={{textAlign: 'center'}}>
+                  <div className="col-md-12">
+                    <label style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#333333'}}>89.057.884/0001-24</label>
+                  </div>
+                  <div className="col-md-12">
+                    <label style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#333333'}}> Copyright © 2020 Agenda Animal</label> 
+                  </div>
+                </div>
+              </div> */}
+              
+              
+              
             </form>
+
             <div className="login100-more" >
               <img src={Imagem} alt="" className="ImagemTop"/>
               <img src={Imagem} alt="" className="ImagemBottom"/>

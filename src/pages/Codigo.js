@@ -37,7 +37,7 @@ export default function Codigo(){
 
                     let response="";
                     try {
-                        response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/CodFunc', {CpfFunc:cpf,CodFunc:cod});
+                        response = await api2.post('/Funcionario/CodFunc', {CpfFunc:cpf,CodFunc:cod});
                     } catch (error) {
                       console.log(error);               
                     }

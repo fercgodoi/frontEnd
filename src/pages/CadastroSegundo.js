@@ -33,6 +33,8 @@ export default function CadastroSegundo(){
                 console.log(error);               
             }
 
+            console.log(response)
+
             if(response){
                 if(response.data.message){
                     if(response.data.message === "Codigo incorreto"){
