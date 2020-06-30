@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const token = localStorage.getItem('token');
 const api2 = axios.create({
-    baseURL: "http://localhost:3000/",
+    baseURL: "",
     headers: {'Authorization': `Bearer ${token}`}
 });
 
