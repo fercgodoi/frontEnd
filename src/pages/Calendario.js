@@ -147,7 +147,7 @@ export default function Calendario(){
      
      let response="";
       try {
-          response = await api.https://agendaanimal-backend.herokuapp.com/Agendamento/ContAgendamentoDia');
+          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/ContAgendamentoDia');
       } catch (error) {
           console.log(error);               
       } 
