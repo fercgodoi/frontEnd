@@ -151,7 +151,6 @@ export default function Calendario(){
       } catch (error) {
           console.log(error);               
       } 
-      console.log(response) 
 
       var ContaDia = document.getElementById("Dia");
       if(response){
