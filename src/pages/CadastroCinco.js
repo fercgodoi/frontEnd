@@ -8,14 +8,14 @@ import gatinho from "../img/Icon/gatinho.png";
 import api from "../services/api2";
 
 export default function CadastroCinco(){
-    // function Validar(){
-    //     localStorage.setItem('Codigo', "");
-    //     var validar  = localStorage.getItem('token');
-    //     if (validar === "" || validar === null || validar === undefined) {    
-    //         setTimeout(() => {window.location.href="/"});
-    //     }
-    // }
-    // Validar();
+    function Validar(){
+        localStorage.setItem('Codigo', "");
+        var validar  = localStorage.getItem('token');
+        if (validar === "" || validar === null || validar === undefined) {    
+            setTimeout(() => {window.location.href="/"});
+        }
+    }
+    Validar();
 
     var ButtonEmergenciaSim = "Não";
     var ButtonEmergenciaNao = "Não";
@@ -497,7 +497,7 @@ export default function CadastroCinco(){
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Conta" id="NumConta" style={{color:'#009fe3'}}/>
+                                        <input type="text" class="form-control" placeholder="Conta com o digíto" id="NumConta" style={{color:'#009fe3'}}/>
                                 </div>
                             </div>
                         </div>

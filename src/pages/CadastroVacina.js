@@ -117,7 +117,7 @@ export default function CadastroVacina(){
 
 
                                             try {
-                                                response = await api2.post('/Vacina/inserirVac', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,idFunc: 1,rgPet: rg,observacaoVacina: observacao});
+                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Vacina/inserirVac', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,idFunc: 1,rgPet: rg,observacaoVacina: observacao});
                                             } catch (error) {
                                                 console.log(error);               
                                             }  

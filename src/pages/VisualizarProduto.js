@@ -72,7 +72,7 @@ export default function Visualizar(){
             let response="";
 
             try {
-                response = await api2.post('/Produto/Buscar', {idProd:id});
+                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/Buscar', {idProd:id});
             } catch (error) {
                 console.log(error);               
             } 
