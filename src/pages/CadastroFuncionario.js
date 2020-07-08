@@ -67,6 +67,10 @@ export default function CadastroFuncionario(){
         var date = document.getElementById("date").value;
         var erro = document.getElementById("valida");
         var num = document.getElementById("num").value;
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
 
         var segunda = document.getElementById("segunda");
         var terca = document.getElementById("terca");
@@ -101,153 +105,102 @@ export default function CadastroFuncionario(){
         var domingoFinal = document.getElementById("domingoFinal");
         
 
-        if(segunda.checked === false){
-            segundaInicio.style.visibility="collapse";
-            segundaFinal.style.visibility="collapse";
-            segundaInicio.value = "00:00:00";
-            segundaFinal.value = "00:00:00";
-        }
-        if(terca.checked === false){
-            tercaInicio.style.visibility="collapse";
-            tercaFinal.style.visibility="collapse";    
-            tercaInicio.value = "00:00:00";
-            tercaFinal.value = "00:00:00";                    
-        }
-        if(quarta.checked === false){
-            quartaInicio.style.visibility="collapse";
-            quartaFinal.style.visibility="collapse";
-            quartaInicio.value = "00:00:00";
-            quartaFinal.value = "00:00:00";
-        }    
-        if(quinta.checked === false){
-            quintaInicio.style.visibility="collapse";
-            quintaFinal.style.visibility="collapse";
-            quintaInicio.value = "00:00:00";
-            quintaFinal.value = "00:00:00";
-        }    
-        if(sexta.checked === false){
-            sextaInicio.style.visibility="collapse";
-            sextaFinal.style.visibility="collapse";
-            sextaInicio.value = "00:00:00";
-            sextaFinal.value = "00:00:00";
-        }    
-        if(sabado.checked === false){
-            sabadoInicio.style.visibility="collapse";
-            sabadoFinal.style.visibility="collapse";
-            sabadoInicio.value = "00:00:00";
-            sabadoFinal.value = "00:00:00";
-        }    
-        if(domingo.checked === false){
-            domingoInicio.style.visibility="collapse";
-            domingoFinal.style.visibility="collapse";
-            domingoInicio.value = "00:00:00";
-            domingoFinal.value = "00:00:00";
-        }
         if (nome === "" || nome === null || nome === undefined) {
-    
             erro.innerHTML = "Preencha o campo Nome";
-        }
-        else{
-            if (cpf === "" || cpf === null || cpf === undefined) {
-    
+            button.innerText="Salvar";
+            button.removeAttribute("disabled");
+        }else if(cpf === "" || cpf === null || cpf === undefined) {
                 erro.innerHTML = "Preencha o campo CPF";
-            }
-            if (num === "" || num === null || num === undefined) {
-    
+                button.innerText="Salvar";
+                button.removeAttribute("disabled");
+            }else if (num === "" || num === null || num === undefined) {
                 erro.innerHTML = "Preencha o campo Número";
-            }
-            else{
-                if(validarCPF(cpf)){
-
+                button.innerText="Salvar";
+                button.removeAttribute("disabled");
+            }else if(validarCPF(cpf)){
                     if (email === "" || email === null || email === undefined ) {
                         erro.innerHTML = "Preencha seu email";
-                    }
-                    else{
-                        if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
+                        button.innerText="Salvar";
+                        button.removeAttribute("disabled");
+                    }else if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
                             erro.innerHTML = "Email inválido";
+                            button.innerText="Salvar";
+                            button.removeAttribute("disabled");
                         }
                         else{
                             erro.innerHTML = "";
                             
                             if(segunda.checked === true){
                                 ValidaSegunda = "Pendente";                                
-                                if(segundaInicio.value === "" || segundaInicio.value === null || segundaInicio.value === undefined || segundaInicio.value === "00:00:00"){
+                                if(segundaInicio.value === "" || segundaInicio.value === null || segundaInicio.value === undefined){
                                     segundaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaSegunda = "Pendente";
-                                }
-                                if(segundaFinal.value === "" || segundaFinal.value === null || segundaFinal.value === undefined || segundaFinal.value === "00:00:00"){  
+                                }else if(segundaFinal.value === "" || segundaFinal.value === null || segundaFinal.value === undefined){  
                                     segundaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaSegunda = "Pendente";
-                                }
-                                if(segundaInicio.value !== "" && segundaFinal.value !== "" && segundaInicio.value !== "00:00:00" && segundaFinal.value !== "00:00:00"){
+                                }else if(segundaInicio.value !== "" && segundaFinal.value !== "" && segundaInicio.value !== null && segundaFinal.value !== null){
                                     segundaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     segundaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaSegunda = "Sim";
+                                    if(segundaInicio.value < segundaFinal.value){
+                                        ValidaSegunda = "Sim";
+                                    }
                                 }
                             }
                             if(terca.checked === true){
                                 ValidaTerca = "Pendente";
-                                if(tercaInicio.value === "" || tercaInicio.value === null || tercaInicio.value === undefined || tercaInicio.value === "00:00:00"){
+                                if(tercaInicio.value === "" || tercaInicio.value === null || tercaInicio.value === undefined){
                                     tercaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaTerca = "Pendente";
-                                }
-                                if(tercaFinal.value === "" || tercaFinal.value === null || tercaFinal.value === undefined || tercaFinal.value === "00:00:00"){  
+                                }else if(tercaFinal.value === "" || tercaFinal.value === null || tercaFinal.value === undefined){  
                                     tercaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaTerca = "Pendente";
-                                }
-                                if(tercaInicio.value !== "" && tercaFinal.value !== "" && tercaInicio.value !== "00:00:00" && tercaFinal.value !== "00:00:00"){
+                                }else if(tercaInicio.value !== "" && tercaFinal.value !== "" && tercaInicio.value !== null && tercaFinal.value !== null){
                                     tercaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     tercaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaTerca = "Sim";
+                                    if(tercaInicio.value < tercaFinal.value){
+                                        ValidaTerca = "Sim";
+                                    }
                                 }
                             }
                             if(quarta.checked === true){
                                 ValidaQuarta = "Pendente";
                                 if(quartaInicio.value === "" || quartaInicio.value === null || quartaInicio.value === undefined || quartaInicio.value === "00:00:00"){
                                     quartaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaQuarta = "Pendente";
-                                }
-                                if(quartaFinal.value === "" || quartaFinal.value === null || quartaFinal.value === undefined || quartaFinal.value === "00:00:00"){  
+                                }else if(quartaFinal.value === "" || quartaFinal.value === null || quartaFinal.value === undefined){  
                                     quartaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaQuarta = "Pendente";
-                                }
-                                if(quartaInicio.value !== "" && quartaFinal.value !== "" && quartaInicio.value !== "00:00:00" && quartaFinal.value !== "00:00:00"){
+                                }else if(quartaInicio.value !== "" && quartaFinal.value !== "" && quartaInicio.value !== null && quartaFinal.value !== null){
                                     quartaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     quartaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaQuarta= "Sim";
+                                    if(quartaInicio.value < quartaFinal.value){
+                                        ValidaQuarta = "Sim";
+                                    }
                                 }
                             }
                             
-                            if(quinta.checked === true){
+                            if(quinta.checked === true){ 
                                 ValidaQuinta = "Pendente";
                                 if(quintaInicio.value === "" || quintaInicio.value === null || quintaInicio.value === undefined || quintaInicio.value === "00:00:00"){
                                     quintaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaQuinta = "Pendente";
-                                }
-                                if(quintaFinal.value === "" || quintaFinal.value === null || quintaFinal.value === undefined || quintaFinal.value === "00:00:00"){  
+                                }else if(quintaFinal.value === "" || quintaFinal.value === null || quintaFinal.value === undefined){  
                                     quintaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaQuinta = "Pendente";
-                                }
-                                if(quintaInicio.value !== "" && quintaFinal.value !== "" && quintaInicio.value !== "00:00:00" &&  quintaFinal.value !== "00:00:00"){
+                                }else if(quintaInicio.value !== "" && quintaFinal.value !== "" && quintaInicio.value !== null && quintaFinal.value !== null){
                                     quintaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     quintaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaQuinta = "Sim";
+                                    if(quintaInicio.value < quintaFinal.value){
+                                        ValidaQuinta = "Sim";
+                                    }
                                 }
                             }
+
                             if(sexta.checked === true){
                                 ValidaSexta = "Pendente";
                                 if(sextaInicio.value === "" || sextaInicio.value === null || sextaInicio.value === undefined || sextaInicio.value === "00:00:00"){
                                     sextaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
                                     ValidaSexta = "Pendente";
-                                }
-                                if(sextaFinal.value === "" || sextaFinal.value === null || sextaFinal.value === undefined || sextaFinal.value === "00:00:00"){  
+                                }else if(sextaFinal.value === "" || sextaFinal.value === null || sextaFinal.value === undefined){  
                                     sextaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaSexta = "Pendente";
-                                }
-                                if(sextaInicio.value !== "" && sextaFinal.value !== "" && sextaInicio.value !== "00:00:00" && sextaFinal.value !== "00:00:00"){
+                                }else if(sextaInicio.value !== "" && sextaFinal.value !== "" && sextaInicio.value !== null && sextaFinal.value !== null){
                                     sextaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     sextaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaSexta = "Sim";
+                                    if(sextaInicio.value < sextaFinal.value){
+                                        ValidaSexta = "Sim";
+                                    }
                                 }
                             }
 
@@ -255,42 +208,41 @@ export default function CadastroFuncionario(){
                                 ValidaSabado = "Pendente";
                                 if(sabadoInicio.value === "" || sabadoInicio.value === null || sabadoInicio.value === undefined || sabadoInicio.value === "00:00:00"){
                                     sabadoInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaSabado = "Pendente";
-                                }
-                                if(sabadoFinal.value === "" || sabadoFinal.value === null || sabadoFinal.value === undefined || sabadoFinal.value === "00:00:00"){  
+                                }else if(sabadoFinal.value === "" || sabadoFinal.value === null || sabadoFinal.value === undefined){  
                                     sabadoFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaSabado = "Pendente";
-                                }
-                                if(sabadoInicio.value !== "" && sabadoFinal.value !== "" && sabadoInicio.value !== "00:00:00" && sabadoFinal.value !== "00:00:00"){
+                                }else if(sabadoInicio.value !== "" && sabadoFinal.value !== "" && sabadoInicio.value !== null && sabadoFinal.value !== null){
                                     sabadoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     sabadoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaSabado = "Sim";
+                                    if(sabadoInicio.value < sabadoFinal.value){
+                                        ValidaSabado = "Sim";
+                                    }
                                 }
                             }
+
                             if(domingo.checked === true){
                                 ValidaDomingo = "Pendente";
                                 if(domingoInicio.value === "" || domingoInicio.value === null || domingoInicio.value === undefined || domingoInicio.value === "00:00:00"){
                                     domingoInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaDomingo = "Pendente";
-                                }
-                                if(domingoFinal.value === "" || domingoFinal.value === null || domingoFinal.value === undefined || domingoFinal.value === "00:00:00"){  
+                                }else if(domingoFinal.value === "" || domingoFinal.value === null || domingoFinal.value === undefined){  
                                     domingoFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaDomingo = "Pendente";
-                                }
-                                if(domingoInicio.value !== "" && domingoFinal.value !== "" && domingoInicio.value !== "00:00:00" && domingoFinal.value !== "00:00:00"){
+                                }else if(domingoInicio.value !== "" && domingoFinal.value !== "" && domingoInicio.value !== null && domingoFinal.value !== null){
                                     domingoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     domingoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaDomingo = "Sim";
+                                    if(domingoInicio.value < domingoFinal.value){
+                                        ValidaDomingo = "Sim";
+                                    }
                                 }
                             }
                             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
                            
                             if(ValidaSegunda === "Não" && ValidaTerca ==="Não" && ValidaQuarta ==="Não" && ValidaQuinta === "Não" && ValidaSexta === "Não" && ValidaSabado === "Não" && ValidaDomingo === "Não" ) {
                                 erro.innerHTML = "Escolha pelo menos um dia para o horário";
-                                console.log("ooi")
-                            }else{
-                                if(ValidaSegunda === "Pendente" || ValidaTerca ==="Pendente" || ValidaQuarta ==="Pendente" || ValidaQuinta === "Pendente" || ValidaSexta === "Pendente" || ValidaSabado === "Pendente" || ValidaDomingo === "Pendente" ) {
+                                button.innerText="Salvar";
+                                button.removeAttribute("disabled");
+                            }else if(ValidaSegunda === "Pendente" || ValidaTerca ==="Pendente" || ValidaQuarta ==="Pendente" || ValidaQuinta === "Pendente" || ValidaSexta === "Pendente" || ValidaSabado === "Pendente" || ValidaDomingo === "Pendente" ) {
                                     erro.innerHTML = "Verefique os dados dos horarios";
+                                    button.innerText="Salvar";
+                                    button.removeAttribute("disabled");
                                 }
                                 else{
                                     var AcessoRep ="0";
@@ -300,31 +252,30 @@ export default function CadastroFuncionario(){
                                     var ControlePet = "Não";
                                     if(recepcao === "Não" && Admin === "Não" && Vet === "Não" && finan==="Não"){
                                         erro.innerHTML = "Escolha pelo menos um cargo";
-        
-                                    }else{
-                                        if( Vet === "Sim"){
+                                        button.innerText="Salvar";
+                                        button.removeAttribute("disabled");        
+                                    }else if( Vet === "Sim"){
                                             ControlePet = "Pendente";
                                             if (crmv === "" || crmv === null || crmv === undefined) {
-                        
                                                 erro.innerHTML = "Preencha o campo CRMV";
-                                            }
-                                            else{
-                                                if (date === "" || date === null || date === undefined) {
-                        
+                                                button.innerText="Salvar";
+                                                button.removeAttribute("disabled");
+                                            }else if(date === "" || date === null || date === undefined) {
                                                     erro.innerHTML = "Preencha o campo Data de Emissão";
-                                                }
-                                                else{
+                                                    button.innerText="Salvar";
+                                                    button.removeAttribute("disabled");
+                                                }else{
                                                     
                                                     ControlePet = "Sim";
-                                                }                                        
-                                            }        
+                                                }                                              
                                         }else{
                                             date = "0000-00-00";
                                         }
                                         
-                                        if(ControlePet === "Pendente")
-                                        {
+                                        if(ControlePet === "Pendente"){
                                             erro.innerHTML = "Preencha os campos corretamente";
+                                            button.innerText="Salvar";
+                                            button.removeAttribute("disabled");
                                         }
                                         else{
 
@@ -341,10 +292,8 @@ export default function CadastroFuncionario(){
                                                 AcessoVet = "1";
                                             }                                          
                                             var AcessoTotal = AcessoRep + AcessoAdmin + AcessoVet + AcessoFinan ;
-                                           
-                                            console.log(date);
-                                            
-                                           
+
+                                            console.log(domingoFinal.value);
                                             let response="";
                                             try {
                                                 response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/CadastrarFunc', {NomeFunc: nome,EmailFunc: email,CpfFunc: cpf ,RecepFunc: recepcao,VetFunc: Vet,AdminFunc:  Admin ,FinanFunc: finan ,AcessoFunc: AcessoTotal,CelFunc:num, CRMVFunc: crmv,DateEmiFunc:date,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value});
@@ -358,56 +307,61 @@ export default function CadastroFuncionario(){
                                                 if(response.data.message){
                                                     if(response.data.message === "Ja existe Email"){
                                                         erro.innerText = "Email existente";
-                                                    }
-                                                    else{
-                                                        if(response.data.message === "Ja existe CPF"){
+                                                        button.innerText="Salvar";
+                                                        button.removeAttribute("disabled");
+                                                    }else if(response.data.message === "Ja existe CPF"){
                                                             erro.innerText = "CPF existente";
+                                                            button.innerText="Salvar";
+                                                            button.removeAttribute("disabled");
                                                         }
-                                                        else{
-                                                            if(response.data.message === "Cadastrado"){
+                                                        else if(response.data.message === "Cadastrado"){
                                                                 erro.innerText = "Cadastrado com Sucesso";
                                                                 setTimeout(() => {window.location.href="/CadastroFuncionario"}, 2000);
-                                                            }
-                                                            else{
-                                                                if(response.data.message === "Ja existe CRMV"){
+                                                            } else if(response.data.message === "Ja existe CRMV"){
                                                                     erro.innerText = "CRMV existente";
-                                                                }
-                                                                else{
-                                                                    if(response.data.message === "nao deu"){
+                                                                    button.innerText="Salvar";
+                                                                    button.removeAttribute("disabled");
+                                                                }else if(response.data.message === "nao deu"){
                                                                         erro.innerText = "Não foi possivel enviar a senha pelo email cadastrado";
+                                                                        button.innerText="Salvar";
+                                                                        button.removeAttribute("disabled");
                                                                     }                                                      
-                                                                }  
-                                                            }
-                                                        }
-                                                    }
+                                                                // }  
+                                                        //     }
+                                                        // }
+                                                    // }
                                                 }
                                                 
                                                 if(response.data.error){
                                                     if(response.data.error === "error sql"){
                                                         erro.innerText = "Tente Novamente";
-                                                    }
-                                                    if(response.data.error === "falha na autenticação do token"){
+                                                        button.innerText="Salvar";
+                                                        button.removeAttribute("disabled");
+                                                    }else if(response.data.error === "falha na autenticação do token"){
                                                         erro.innerText = "Tente Novamente";
                                                         setTimeout(() => {window.location.href="/"}, 2000);
                                                     }else{
                                                         erro.innerText = "Tente Novamente";
+                                                        button.innerText="Salvar";
+                                                        button.removeAttribute("disabled");
                                                     }
                                                 }   
                                             }
                                         }
                                     }
                                 }
-                            }
-                        }
-                    }     
+                            // }
+                    //     }
+                    // }     
                 }
                 else{
                     erro.innerHTML = "CPF Inválido";
+                    button.innerText="Salvar";
+                    button.removeAttribute("disabled");
                 }
 
-            }
-        }
-
+            // }
+        // }
     }
 
     function validarCPF(cpf) {	
@@ -645,6 +599,8 @@ export default function CadastroFuncionario(){
         }        
     }
 
+    
+
     return(
     <div>
         <div className="wrapper ">
@@ -881,8 +837,13 @@ export default function CadastroFuncionario(){
                                                     <input type="time" id="domingoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
                                                 </div>
                                             </div>
-                                           
                                             <br/>
+                                            <div className="row">
+                                                <div class="col-md-12">
+                                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 00:00 e na terça-feira 00:00 até 06:00.</p>
+                                                </div>
+                                            </div>
+
                                             <div className="row">
                                                 <div className="col-md-3"> 
                                                     <label className="bmd-label-floating">Cargos</label>                                                
@@ -931,12 +892,12 @@ export default function CadastroFuncionario(){
                                             </div>
                                             <br/>   
                                             <div className="row" style={{textAlign: '-webkit-center'}}>
-                                                <div className="col-md-6">
-                                                    <a type="submit" className="btn btn-primary" href="/CadastroFuncionario"  style={{borderRadius: '30px',padding: '2% 10%'}}>Novo</a>
+                                                {/* <div className="col-md-6">
+                                                    <a type="submit" className="btn btn-primary" onClick={Novo} id="buttonProximo2" style={{borderRadius: '30px',padding: '2% 10%'}}>Novo</a>
                                                     <div className="clearfix"></div>
-                                                </div>
-                                                <div className="col-md-6">                                                    
-                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '2% 10%'}} onClick={Salvar}>Salvar</button>
+                                                </div> */}
+                                                <div className="col-md-12">                                                    
+                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 10%'}} id="buttonProximo" onClick={Salvar}>Salvar</button>
                                                     <div className="clearfix"></div>
                                                 </div>
                                             </div>   

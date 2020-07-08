@@ -17,20 +17,32 @@ export default function EsqueciSenha(){
         var email = document.getElementById("email").value;
         var cpf = document.getElementById("cpf").value;
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
 
         if (email === "" || email === null || email === undefined ) {
             erro.innerHTML = "Preencha seu email";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else{
             if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
                 erro.innerHTML = "Email inválido";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             else {
                 if (cpf === "" || cpf === null || cpf === undefined) {
                     erro.innerHTML = "Preencha o CPF";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else {
                     erro.innerHTML = "";
+                    button.innerText="Aguardando";
+                    button.setAttribute("disabled","disabled");
 
                     if(validarCPF(cpf))
                     {
@@ -44,30 +56,30 @@ export default function EsqueciSenha(){
                         if(response.data.message){
                             if(response.data.message === "error sql"){
                                 erro.innerText = "Tente Novamente";
-                            }
-                            else{
-                                if(response.data.message === "erro no bcript"){
-                                    erro.innerText = "Tente Novamente";
-                                }
-                                else{
-                                    if(response.data.message === "Enviamos uma nova senha, verifique seu email"){
-                                        erro.innerText = "Enviamos um email contendo uma nova senha para ser trocada.";
-                                        setTimeout(() => {window.location.href="/"}, 2000);
-                                    }
-                                    else{
-                                        if(response.data.message === "nao deu"){
-                                            erro.innerText = "Verifique o email digitado";
-                                        }
-                                        else{                                                
-                                            erro.innerText = "Tente Novamente";
-                                        }
-                                    }
-                                }
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
+                            }else if(response.data.message === "erro no bcript"){
+                                erro.innerText = "Tente Novamente";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
+                            }else if(response.data.message === "Enviamos uma nova senha, verifique seu email"){
+                                erro.innerText = "Enviamos um email contendo uma nova senha para ser trocada.";
+                                setTimeout(() => {window.location.href="/"}, 2000);
+                            }else if(response.data.message === "nao deu"){
+                                    erro.innerText = "Verifique o email digitado";
+                                    button.innerText="Próximo";
+                                    button.removeAttribute("disabled");
+                            }else{                                                
+                                erro.innerText = "Tente Novamente";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
                             }
                         }
                     }
                     else{
                         erro.innerHTML = "CPF Inválido";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
                 }
             }
@@ -146,7 +158,7 @@ export default function EsqueciSenha(){
                                 <table>
                                     <tr>
                                         <td style={{width:'100%'}}>
-                                            <button type="submit" className="btn btn-primary pull-right" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Enviar}>Enviar</button>
+                                            <button type="submit" className="btn btn-primary pull-right" id="buttonProximo" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Enviar}>Enviar</button>
                                             <div className="clearfix"></div>
                                         </td>  
                                     </tr>

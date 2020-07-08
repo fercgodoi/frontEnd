@@ -116,30 +116,39 @@ export default function EditarProduto(){
         var desc = document.getElementById("desc");
         var valor = document.getElementById("preco");
         var quant = document.getElementById("quantidade");
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined) {
-    
             erro.innerHTML = "Preencha o campo Nome";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else{
             if (quant.value === "" || quant.value === null || quant.value === undefined) {
-            
                 erro.innerHTML = "Preencha o campo Quantidade";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }            
             else{                
                 if (quant.value === 0 || quant.value === "0") {
-    
                     erro.innerHTML = "A quantidade tem que ser maior que 0";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else{
                     if (valor.value === "" || valor.value === null || valor.value === undefined) {
-            
                         erro.innerHTML = "Preencha o campo Preço";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
                     else{
                         if (desc.value === "" || desc.value === null || desc.value === undefined) {
-            
                             erro.innerHTML = "Escreva uma descrição para o produto";
+                            button.innerText="Próximo";
+                            button.removeAttribute("disabled");
                         }
                         else{
                             erro.innerHTML ="";
@@ -156,35 +165,40 @@ export default function EditarProduto(){
                                 if(response.data.message){
                                     if(response.data.message === "Já existe"){
                                         erro.innerText = "Este nome ja esta sendo utilizado";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
+                                    }
+                                    else if(response.data.message === "Alterado"){
+                                        erro.innerText = "Produto Alterado com sucesso";
+
+                                        var button = document.getElementById("buttonSalvar");
+                                        nome.setAttribute("disabled", "disabled");
+                                        valor.setAttribute("disabled", "disabled");
+                                        valor.setAttribute("disabled", "disabled");
+                                        quant.setAttribute("disabled", "disabled");  
+                                        desc.setAttribute("disabled", "disabled");  
+                                        localStorage.setItem('Codigo',"");
+                                        window.location.href="/Shopping" ;                              
                                     }
                                     else{
-                                        if(response.data.message === "Alterado"){
-                                            erro.innerText = "Produto Alterado com sucesso";
-    
-                                            var button = document.getElementById("buttonSalvar");
-                                            nome.setAttribute("disabled", "disabled");
-                                            valor.setAttribute("disabled", "disabled");
-                                            valor.setAttribute("disabled", "disabled");
-                                            quant.setAttribute("disabled", "disabled");  
-                                            desc.setAttribute("disabled", "disabled");  
-                                            localStorage.setItem('Codigo',"");
-                                            window.location.href="/Shopping" ;                              
-                                        }
-                                        else{
-                                            erro.innerText = "Tente Novamente";     
-                                        }
+                                        erro.innerText = "Tente Novamente"; 
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");    
                                     }
-                                    
                                 }
                     
                                 if(response.data.error){
                                     if(response.data.error === "error sql"){
                                         erro.innerText = "Tente Novamente";
-                                    }if(response.data.error === "falha na autenticação do token"){
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
+                                    }else if(response.data.error === "falha na autenticação do token"){
                                         erro.value = "Tente Novamente";
                                         setTimeout(() => {window.location.href="/"}, 2000);
                                     }else{
                                         erro.innerText = "Tente Novamente";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }    
                                 }
                             }                           
@@ -339,21 +353,19 @@ export default function EditarProduto(){
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                    <label style={{color:'#009fe3'}}>Nome</label>
                                                             <input type="text" class="form-control" id="nome" placeholder="Nome"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                    <label style={{color:'#009fe3'}}>Quantidade</label>
-                                                        <input type="text" class="form-control" id="quantidade" placeholder="Quantidade"/>
+                                                        <input type="number" class="form-control" min="0" id="quantidade" placeholder="Quantidade"/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                    <label style={{color:'#009fe3'}}>Preço R$</label>
-                                                        <input type="text" class="form-control" id="preco" placeholder="Preço R$"/>
+                                                <div class="input-group col-md-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" style={{color:'#009fe3'}}>R$</span>
                                                     </div>
+                                                    <input type="text" class="form-control" id="preco" placeholder="Preço Unitário"/>
                                                 </div>
                                             </div>
                                             <div class="row">                                                
@@ -361,7 +373,6 @@ export default function EditarProduto(){
                                                     <div class="form-group">
                                                     <label style={{color:'#009fe3'}}>Descrição</label>
                                                         <textarea class="form-control" rows="3" id="desc" placeholder="Descrição"></textarea>
-                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -370,7 +381,7 @@ export default function EditarProduto(){
                                                
                                                 <div class="col-md-12">
                                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>
-                                                    <button type="submit" class="btn btn-primary" style={{borderRadius: '30px',padding: '1% 05%'}} onClick={Editar} id="buttonSalvar">Salvar</button>
+                                                    <button type="submit" class="btn btn-primary" id="buttonProximo" style={{borderRadius: '30px',padding: '1% 05%'}} onClick={Editar} id="buttonSalvar">Salvar</button>
                                                     <div class="clearfix"></div>
                                                 </div>
                                             </div>   

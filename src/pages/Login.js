@@ -19,17 +19,27 @@ export default function Login(){
         var email = document.getElementById("email").value;
         var senha = document.getElementById("senha").value;
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
 
         if (email === "" || email === null || email === undefined) {
-         erro.innerText = "Preencha seu email";
+          erro.innerText = "Preencha seu email";
+          button.innerText="Próximo";
+          button.removeAttribute("disabled");
         }
         else {
           if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
             erro.innerText = "Email Inválido";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
           }
           else{
             if (senha === "" || senha === null || senha === undefined) {
               erro.innerText = "Preencha sua senha";
+              button.innerText="Próximo";
+              button.removeAttribute("disabled");
             }
             else {
               let responseFunc="";
@@ -44,6 +54,8 @@ export default function Login(){
   
                   if(responseFunc.data.message === "Usuario inexistente"){
                     erro.innerText = "Email inexistente";
+                    button.innerText="Próximo";
+                      button.removeAttribute("disabled");
                   }
                   else{
                     var acesso = responseFunc.data.acesso.split('', 4);
@@ -52,48 +64,49 @@ export default function Login(){
 
                     if(responseFunc.data.message === "Seu codigo expirou, enviamos um novo codigo para seu email"){
                       erro.innerText = "Enivamos um novo código ao seu email";
+                      button.innerText="Próximo";
+                      button.removeAttribute("disabled");
                     }
-                    else{
-                      if(responseFunc.data.message === "Confirmar Codigo"){
-                          window.location.href="/Codigo";
-                      }
-                      else{
-                        if(responseFunc.data.message === "Trocar Senha"){
-                          window.location.href="/AlterarSenha";
-                        }
-                        else{
-                          if(responseFunc.data.message === "Não Pode logar"){
-                            erro.innerText = "Você não pode logar";
-                          }
-                          else{
-                            if(responseFunc.data.message === "Logar"){
-                              window.location.href="/Home";
-                            }
-                            else{
-                              if(responseFunc.data.message === "nao deu"){
-                                erro.innerText = "Não foi possivel enviar um email";
-                              }else{
-                                erro.innerText = "Tente Novamente";
-                              }
-                              
-                            }
-                          }
-                        }
-                      }
-                    }                  
+                    else if(responseFunc.data.message === "Confirmar Codigo"){
+                      window.location.href="/Codigo";
+                    }
+                    else if(responseFunc.data.message === "Trocar Senha"){
+                      window.location.href="/AlterarSenha";
+                    }
+                    else if(responseFunc.data.message === "Não Pode logar"){
+                      erro.innerText = "Você não pode logar";
+                    }
+                    else if(responseFunc.data.message === "Logar"){
+                      window.location.href="/Home";
+                    }
+                    else if(responseFunc.data.message === "nao deu"){
+                      erro.innerText = "Não foi possivel enviar um email";
+                      button.innerText="Próximo";
+                      button.removeAttribute("disabled");
+                    }else{
+                      erro.innerText = "Tente Novamente";
+                      button.innerText="Próximo";
+                      button.removeAttribute("disabled");
+                    }                
                   }
                 }
   
                 if(responseFunc.data.error){
                   if(responseFunc.data.error === "falha na autenticação"){
                     erro.innerText = "Senha Incorreta";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                   }
                   else{
                     if(responseFunc.data.error === "Error de requisição"){
                       erro.innerText = "Tente Novamente";
+                      button.innerText="Próximo";
+                      button.removeAttribute("disabled");
                     }
                     else{
                       erro.innerText = "Tente Novamente";
+                      button.innerText="Próximo";
+                      button.removeAttribute("disabled");
                     }                  
                   }
                 }
@@ -133,7 +146,7 @@ export default function Login(){
                   <table>
                       <tr>
                           <td style={{width:'50%'}}>
-                              <button type="submit" className="btn btn-primary pull-right Login" onClick={Logar}>Login</button>
+                              <button type="submit" className="btn btn-primary pull-right Login" id="buttonProximo" onClick={Logar}>Login</button>
                               <div className="clearfix"></div>
                           </td>
                           <td style={{width:'50%', paddingLeft: '2%',}}>

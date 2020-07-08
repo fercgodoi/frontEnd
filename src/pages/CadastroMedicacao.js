@@ -61,49 +61,62 @@ export default function CadastroMedicacao(){
         var dataIni = document.getElementById("dataIni").value;
         var dataProx = document.getElementById("dataProx").value;
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
         
         if (nome === "" || nome === null || nome === undefined) {
-    
             erro.innerHTML = "Preencha o campo Nome";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else{
             if (observ === "" || observ === null || observ === undefined) {
-    
                 erro.innerHTML = "Preencha o campo de Observação";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             if (rotina === "" || rotina === null || rotina === undefined) {
-    
                 erro.innerHTML = "Preencha o campo de Rotina";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             else{
                 if (lote === "" || lote === null || lote === undefined) {
-    
                     erro.innerHTML = "Preencha o campo Lote";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else{
                     if (dose === "" || dose === null || dose === undefined) {
-        
                         erro.innerHTML = "Preencha o campo da Dose";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
                     else{
                         if (rg === "" || rg === null || rg === undefined) {
-            
                             erro.innerHTML = "Preencha o campo do Rg Animal";
+                            button.innerText="Próximo";
+                            button.removeAttribute("disabled");
                         }
                         else{
                             if (dataIni === "" || dataIni === null || dataIni === undefined) {
-                
                                 erro.innerHTML = "Preencha o campo Data de Inicio";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
                             }
                             else{
                                 if (dataProx === "" || dataProx === null || dataProx === undefined) {
-                    
                                     erro.innerHTML = "Preencha o campo Proxima data";
+                                    button.innerText="Próximo";
+                                    button.removeAttribute("disabled");
                                 }
                                 else{
-                                    if (dataProx < dataIni)
-                                    {
+                                    if (dataProx < dataIni){
                                         erro.innerHTML = "A data de proxima dose deve ser mais do que a de inicio";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }
                                     else{
                                         erro.innerHTML ="";
@@ -119,10 +132,12 @@ export default function CadastroMedicacao(){
                                             if(response.data.message){
                                                 if(response.data.message === "Vet nao encontrado"){
                                                     erro.innerHTML= "Veterinário não encontrado";
-                                                }
-                                                else{
-                                                    if(response.data.message === "Pet nao encontrado"){  
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
+                                                } else if(response.data.message === "Pet nao encontrado"){  
                                                         erro.innerHTML= "Pet não encontrado";
+                                                        button.innerText="Próximo";
+                                                        button.removeAttribute("disabled");
                                                     }
                                                     else{
                                                         if(response.data.message === "Cadastrado"){ 
@@ -130,12 +145,14 @@ export default function CadastroMedicacao(){
                                                             setTimeout(() => {window.location.href="/cadastroMedicacao"}, 1000);
                                                         }
                                                     }
-                                                }
+                                                
                                             }
 
                                             if(response.data.error){
                                                 if(response.data.error === "error sql"){
                                                     erro.innerHTML= "Tente Novamente";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
                                                 } if(response.data.error === "falha na autenticação do token"){
                                                     erro.innerText = "Tente Novamente";
                                                     setTimeout(() => {window.location.href="/"}, 2000);
@@ -148,7 +165,6 @@ export default function CadastroMedicacao(){
                         }
                     }
                 }
-                
             }
         }
     }
@@ -347,7 +363,7 @@ export default function CadastroMedicacao(){
                                             <div className="row" style={{textAlign: '-webkit-center'}}>
                                                 <div className="col-md-12">
                                                     <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 5%',background:'#fff',border:'1px solid #009fe3',color:"#009fe3"}} onClick={Adicionar}>Salvar</button>
+                                                    <button type="submit" className="btn btn-primary" id="buttonProximo" style={{borderRadius: '30px',padding: '1% 5%',background:'#fff',border:'1px solid #009fe3',color:"#009fe3"}} onClick={Adicionar}>Salvar</button>
                                                     <div className="clearfix"></div>
                                                 </div>
                                                

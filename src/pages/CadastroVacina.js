@@ -64,89 +64,102 @@ export default function CadastroVacina(){
         var dataProx = document.getElementById("dataProx").value;
         var observacao = document.getElementById("observacao").value;
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
         
         
         if (nome === "" || nome === null || nome === undefined) {
-    
             erro.innerHTML = "Preencha o campo Nome";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else{
             if (valor === "" || valor === null || valor === undefined) {
-    
                 erro.innerHTML = "Preencha o campo de Valor";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             else{
                 if (lote === "" || lote === null || lote === undefined) {
-    
                     erro.innerHTML = "Preencha o campo Lote";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else{
                     if (dose === "" || dose === null || dose === undefined) {
-        
                         erro.innerHTML = "Preencha o campo da Dose";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
                     else{
                         if (rg === "" || rg === null || rg === undefined) {
-            
                             erro.innerHTML = "Preencha o campo do Rg Animal";
+                            button.innerText="Próximo";
+                            button.removeAttribute("disabled");
                         }
                         else{
                             if (dataIni === "" || dataIni === null || dataIni === undefined) {
-                
                                 erro.innerHTML = "Preencha o campo Data Aplicada";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
                             }
                             else{
                                 if (dataProx === "" || dataProx === null || dataProx === undefined) {
-                    
                                     erro.innerHTML = "Preencha o campo Proxima data";
+                                    button.innerText="Próximo";
+                                    button.removeAttribute("disabled");
                                 }
                                 else{
-                                    if (dataProx < dataIni)
-                                    {
+                                    if (dataProx < dataIni){
                                         erro.innerHTML = "A data de proxima dose deve ser mais do que a de inicio";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }
                                     else{
                                         if (observacao === "" || observacao === null || observacao === undefined) {
-                    
                                             erro.innerHTML = "Preencha o campo observação";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
                                         }
                                         else{
                                             let response="";
-
-                                            let Token = localStorage.getItem('token');
-
+                                            valor= valor.replace(/,/g, '.');
 
                                             try {
-                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Vacina/inserirVac', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,idFunc: 1,rgPet: rg,observacaoVacina: observacao});
+                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Vacina/inserirVac', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,rgPet: rg,observacaoVacina: observacao});
                                             } catch (error) {
                                                 console.log(error);               
                                             }  
 
                                             if(response){
                                                 if(response.data.message){
-                                                    
                                                     if(response.data.message === "Pet nao encontrado"){
                                                         erro.innerHTML= "Pet não encontrado";
-                                                    }
-                                                    else{
-                                                        if(response.data.message === "Cadastrado")
-                                                        {
+                                                        button.innerText="Próximo";
+                                                        button.removeAttribute("disabled");
+                                                    }else if(response.data.message === "Cadastrado"){
                                                             erro.innerHTML= "Cadastrado com Sucesso";
                                                             setTimeout(() => {window.location.href="/CadastroVacina"}, 2000);
                                                         }
                                                         else{
                                                             erro.innerHTML= "Tente Novamente";
-                                                        }
-                                                    }
-                                                    
+                                                            button.innerText="Próximo";
+                                                            button.removeAttribute("disabled");
+                                                        }                                                    
                                                 }
     
                                                 if(response.data.error){
                                                     if(response.data.error === "error sql"){
                                                         erro.innerHTML= "Tente Novamente";
+                                                        button.innerText="Próximo";
+                                                        button.removeAttribute("disabled");
                                                     }
                                                     else{
                                                         erro.innerHTML= "Tente Novamente";
+                                                        button.innerText="Próximo";
+                                                        button.removeAttribute("disabled");
                                                     }
                                                 }
                                             }                                            
@@ -314,14 +327,16 @@ export default function CadastroVacina(){
                                                 </div>
                                                 <div className="col-md-3">
                                                     <div className="form-group">
-                                                        <input type="text" className="form-control" id="valor" placeholder="Valor"/>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-3">
-                                                    <div className="form-group">
                                                         <input type="text" className="form-control" id="rg" placeholder="RG Animal"/>
                                                     </div>
                                                 </div>
+                                                <div class="input-group col-md-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" style={{color:'#009fe3'}}>R$</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="valor" placeholder="Preço Unitário"/>
+                                                </div>
+                                               
                                             </div>
                                             <br/>   
                                             <div className="row">
@@ -357,7 +372,7 @@ export default function CadastroVacina(){
                                             <div className="row" style={{textAlign: '-webkit-center'}}>
                                                 <div className="col-md-12">
                                                     <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 5%',background:'#fff',border:'1px solid #009fe3',color:"#009fe3"}} onClick={Adicionar}>Salvar</button>
+                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 5%',background:'#fff',border:'1px solid #009fe3',color:"#009fe3"}} id="buttonProximo" onClick={Adicionar}>Salvar</button>
                                                     <div className="clearfix"></div>
                                                 </div>
                                                

@@ -26,39 +26,52 @@ export default function AlterarSenha(){
         var senha = document.getElementById("senha").value;
         var confSenha = document.getElementById("confSenha").value;
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
     
         if (email === "" || email === null || email === undefined) {
-    
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
             erro.innerHTML = "Preencha os campos obrigatório";
         }
         else {
             if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
                 erro.innerText = "Email Inválido";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             else{
                 if (senha === "" || senha === null || senha === undefined) {
-
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                     erro.innerHTML = "Preencha os campos obrigatório";
                     erro.style.color = "#FF0000";
                 }
                 else {
-                    if(senha.length < 6  || senha.length > 15)
-                    {
+                    if(senha.length < 6  || senha.length > 15){
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                         erro.innerHTML = "A senha deve conter de 6 a 15 caracteres";
                     }
                     else{
     
                         if (confSenha === "" || confSenha === null || confSenha === undefined) {
-        
+                            button.innerText="Próximo";
+                            button.removeAttribute("disabled");
                             erro.innerHTML = "Preencha os campos obrigatório";
                         }
                         else{
-            
                             if(confSenha !== senha){
                                 erro.innerHTML = "As senhas não conhecidem ";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
                             }
                             else{
-                                    
+                                button.innerText="Aguardando";
+                                button.setAttribute("disabled","disabled");
+
                                 let response="";
                                 try {
                                     response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/TrocarSenhaFunc', {EmailFunc:email, SenhaFunc:senha});
@@ -71,25 +84,28 @@ export default function AlterarSenha(){
                                     if(response.data.message){
                                         if(response.data.message === "error sql"){
                                             erro.innerText = "Tente Novamente";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
                                         }
-                                        else{
-                                            if(response.data.message === "erro no bcript"){
-                                                erro.innerText = "Tente Novamente";
-                                            }
-                                            else{
-                                                if(response.data.message === "Usuario nao encontrado"){
-                                                    erro.innerText = "Confirme os dados.";
-                                                }
-                                                else{                                              
-                                                    if(response.data.message === "deu certo"){
-                                                        erro.innerText = "Alteramos sua senha, agora faça login.";
-                                                        setTimeout(() => {window.location.href="/"}, 2000);
-                                                    }else{
-                                                        erro.innerText = "Tente Novamente";
-                                                    }                                                    
-                                                }
-                                            }
+                                        else if(response.data.message === "erro no bcript"){
+                                            erro.innerText = "Tente Novamente";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
                                         }
+                                        else if(response.data.message === "Usuario nao encontrado"){
+                                            erro.innerText = "Confirme os dados";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
+                                        }
+                                        else if(response.data.message === "deu certo"){
+                                            erro.innerText = "Alteramos sua senha, agora faça login.";
+                                            setTimeout(() => {window.location.href="/"}, 2000);
+                                        }else{
+                                            erro.innerText = "Tente Novamente";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
+                                        }                                                    
+                                             
                                     }
                                     if(response.data.error){
                                         if(response.data.error === "falha na autenticação do token"){
@@ -138,7 +154,7 @@ export default function AlterarSenha(){
                             <table>
                                 <tr>
                                     <td style={{width:'100%'}}>
-                                        <button type="submit" class="btn btn-primary pull-right" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Confirmar}>Trocar Senha</button>
+                                        <button type="submit" class="btn btn-primary pull-right" id="buttonProximo" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Confirmar}>Trocar Senha</button>
                                         <div class="clearfix"></div>
                                     </td>
                                 </tr>

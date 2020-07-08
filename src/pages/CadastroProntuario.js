@@ -299,8 +299,8 @@ export default function CadastroProntuario(){
                                                 ButtonBioquimico="Não";
                                                 var DivBioquimico = document.getElementById("DivBioquimico");
                                                 DivBioquimico.style.display="none";
-                                                var DivBioquimico2 = document.getElementById("DivBioquimico2");
-                                                DivBioquimico2.style.display="none";
+                                                // var DivBioquimico2 = document.getElementById("DivBioquimico2");
+                                                // DivBioquimico2.style.display="none";
                     
                     
                                                 var buttonParasitologicoo = document.getElementById("Parasitologico");

@@ -84,9 +84,9 @@ export default function Teste(){
         //     background:#2d2d2d;}
         // </style>
         <div>
-           {/* <input type='file' onClick={readURL(this)} />
-        <img id="blah" src="http://placehold.it/180" alt="your image" />  */}
-        </div>
+        {/* //    <input type='file' onClick={readURL(this)} />
+        // <img id="blah" src="http://placehold.it/180" alt="your image" />  */}
+         </div>
         
     )
 }

@@ -6,7 +6,8 @@ import rodape2 from  "../img/Icon/versao.png";
 
 import api2 from '../services/api2.js';
 
-export default function EditarFuncionario(){    
+export default function EditarFuncionario(){   
+
     function Validar(){
         var validar  = localStorage.getItem('token');
         var dados = localStorage.getItem('Acesso');
@@ -55,6 +56,7 @@ export default function EditarFuncionario(){
     var Admin ="Não";
     var Vet ="Não";
     var finan="Não";
+    var user = "";
 
     async function Buscar(){
         var erro = document.getElementById("valida");
@@ -90,7 +92,8 @@ export default function EditarFuncionario(){
                     cpf.value = produto[0].CpfFunc;
                     email.value = produto[0].EmailFunc;
                     num.value =produto[0].CelFunc;
-    
+
+                    var tipoUser = produto[0].TipoFunc;
                     var recep = produto[0].RecepFunc;
                     var vete = produto[0].VetFunc;
                     var admin = produto[0].AdminFunc;
@@ -100,71 +103,81 @@ export default function EditarFuncionario(){
                     var buttonAdmin = document.getElementById("admin");
                     var buttonFinan = document.getElementById("financeiro");
                     var buttonVet = document.getElementById("vet");
-    
-                    ///////////////////////////////// RECEPEÇÃO //////////////////////////////////
-                    if(recep === "Sim"){                    
-                        buttonRecep.style.backgroundColor="#009fe3";
-                        buttonRecep.style.color="#fff";
-                        recepcao="Sim";
+
+                    if(tipoUser === "Responsável"){
+                        var div =document.getElementById("Cargos");
+                        div.style.display='none';
+                        user = "Responsavel";
+
                     }else{
-                        buttonRecep.style.backgroundColor="#fff";
-                        buttonRecep.style.color="#009fe3";
-                        buttonRecep.style.boder="1px solid #009fe3";
-                        recepcao="Não";
+                        user = "Funcionario"
+                        ///////////////////////////////// RECEPEÇÃO //////////////////////////////////
+                        if(recep === "Sim"){                    
+                            buttonRecep.style.backgroundColor="#009fe3";
+                            buttonRecep.style.color="#fff";
+                            recepcao="Sim";
+                        }else{
+                            buttonRecep.style.backgroundColor="#fff";
+                            buttonRecep.style.color="#009fe3";
+                            buttonRecep.style.boder="1px solid #009fe3";
+                            recepcao="Não";
+                        }
+        
+                        ///////////////////////////////// ADMINSTRAÇÃO //////////////////////////////////
+                        if(admin === "Sim"){                    
+                            buttonAdmin.style.backgroundColor="#009fe3";
+                            buttonAdmin.style.color="#fff";
+                            Admin="Sim";
+                        }else{
+                            buttonAdmin.style.backgroundColor="#fff";
+                            buttonAdmin.style.color="#009fe3";
+                            buttonAdmin.style.boder="1px solid #009fe3";
+                            Admin="Não";
+                        }
+        
+                        ///////////////////////////////// FINANCEIRO //////////////////////////////////
+                        if(financeiro === "Sim"){                    
+                            buttonFinan.style.backgroundColor="#009fe3";
+                            buttonFinan.style.color="#fff";
+                            finan="Sim";
+                        }else{
+                            buttonFinan.style.backgroundColor="#fff";
+                            buttonFinan.style.color="#009fe3";
+                            buttonFinan.style.boder="1px solid #009fe3";
+                            finan="Não";
+                        }
+        
+                        ///////////////////////////////// VETERINARIO //////////////////////////////////
+                        var crmv = document.getElementById("crmv");
+                        var date = document.getElementById("date");
+                        var NameDate = document.getElementById("NameDate");
+        
+                        if(vete === "Sim"){     
+                            ///////////////// Data de Emissão //////////////////
+                            var dateInicio= produto[0].DateEmiFunc.split('', 10);
+                            var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                            ////////////////////////////////////////////////////
+        
+                            buttonVet.style.backgroundColor="#009fe3";
+                            buttonVet.style.color="#fff";
+                            Vet="Sim";                    
+                            crmv.style.display="block";
+                            crmv.setAttribute("value",produto[0].CRMVFunc);
+                            date.style.display="block";
+                            date.setAttribute("value",dateCorreto);
+                            NameDate.style.display="block";
+                        }else{
+                            buttonVet.style.backgroundColor="#fff";
+                            buttonVet.style.color="#009fe3";
+                            buttonVet.style.boder="1px solid #009fe3";
+                            Vet="Não";
+                            crmv.style.display="none";
+                            date.style.display="none";
+                            NameDate.style.display="none";
+                        }
                     }
     
-                    ///////////////////////////////// ADMINSTRAÇÃO //////////////////////////////////
-                    if(admin === "Sim"){                    
-                        buttonAdmin.style.backgroundColor="#009fe3";
-                        buttonAdmin.style.color="#fff";
-                        Admin="Sim";
-                    }else{
-                        buttonAdmin.style.backgroundColor="#fff";
-                        buttonAdmin.style.color="#009fe3";
-                        buttonAdmin.style.boder="1px solid #009fe3";
-                        Admin="Não";
-                    }
-    
-                    ///////////////////////////////// FINANCEIRO //////////////////////////////////
-                    if(financeiro === "Sim"){                    
-                        buttonFinan.style.backgroundColor="#009fe3";
-                        buttonFinan.style.color="#fff";
-                        finan="Sim";
-                    }else{
-                        buttonFinan.style.backgroundColor="#fff";
-                        buttonFinan.style.color="#009fe3";
-                        buttonFinan.style.boder="1px solid #009fe3";
-                        finan="Não";
-                    }
-    
-                    ///////////////////////////////// VETERINARIO //////////////////////////////////
-                    var crmv = document.getElementById("crmv");
-                    var date = document.getElementById("date");
-                    var NameDate = document.getElementById("NameDate");
-    
-                    if(vete === "Sim"){     
-                        ///////////////// Data de Emissão //////////////////
-                        var dateInicio= produto[0].DateEmiFunc.split('', 10);
-                        var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
-                        ////////////////////////////////////////////////////
-    
-                        buttonVet.style.backgroundColor="#009fe3";
-                        buttonVet.style.color="#fff";
-                        Vet="Sim";                    
-                        crmv.style.display="block";
-                        crmv.setAttribute("value",produto[0].CRMVFunc);
-                        date.style.display="block";
-                        date.setAttribute("value",dateCorreto);
-                        NameDate.style.display="block";
-                    }else{
-                        buttonVet.style.backgroundColor="#fff";
-                        buttonVet.style.color="#009fe3";
-                        buttonVet.style.boder="1px solid #009fe3";
-                        Vet="Não";
-                        crmv.style.display="none";
-                        date.style.display="none";
-                        NameDate.style.display="none";
-                    }
+                    
                     //////////////////////////////Horarios////////////////////////////////////////////
                     var segunda = document.getElementById("segunda");
                     var terca = document.getElementById("terca");
@@ -205,7 +218,7 @@ export default function EditarFuncionario(){
                     var DomingInicio= produto[0].DomingInicio; 
                     var DomingFinal= produto[0].DomingFinal;
 
-                    if(SegundInicio !== "00:00:00" || SegundFinal !== "00:00:00" ){  
+                    if(SegundInicio !== null || SegundFinal !== null ){  
                         segunda.checked = "true";                     
                         segundaInicio.style.visibility="inherit";
                         segundaFinal.style.visibility="inherit";
@@ -219,7 +232,7 @@ export default function EditarFuncionario(){
                         segundaFinal.style.visibility="collapse";
                     }
 
-                    if(TercaInicio !== "00:00:00" || TercaFinal !== "00:00:00" ){    
+                    if(TercaInicio !== null || TercaFinal !== null ){    
                         terca.checked = "true";                     
                         tercaInicio.style.visibility="inherit";
                         tercaFinal.style.visibility="inherit";
@@ -232,7 +245,7 @@ export default function EditarFuncionario(){
                         tercaFinal.style.visibility="collapse";
                     }
 
-                    if(QuartInicio !== "00:00:00" || QuartFinal !== "00:00:00" ){   
+                    if(QuartInicio !== null || QuartFinal !== null ){   
                         quarta.checked = "true";                      
                         quartaInicio.style.visibility="inherit";
                         quartaFinal.style.visibility="inherit";
@@ -245,7 +258,7 @@ export default function EditarFuncionario(){
                         quartaFinal.style.visibility="collapse";
                     }
 
-                    if(QuintInicio !== "00:00:00" || QuintFinal !== "00:00:00" ){
+                    if(QuintInicio !== null || QuintFinal !== null ){
                         quinta.checked = "true";                         
                         quintaInicio.style.visibility="inherit";
                         quintaFinal.style.visibility="inherit";
@@ -258,7 +271,7 @@ export default function EditarFuncionario(){
                         quintaFinal.style.visibility="collapse";
                     }
 
-                    if(SextInicio !== "00:00:00" || SextFinal !== "00:00:00" ){ 
+                    if(SextInicio !== null || SextFinal !== null ){ 
                         sexta.checked = "true";                        
                         sextaInicio.style.visibility="inherit";
                         sextaFinal.style.visibility="inherit";
@@ -271,7 +284,7 @@ export default function EditarFuncionario(){
                         sextaFinal.style.visibility="collapse";
                     }
 
-                    if(SabInicio !== "00:00:00" || SabFinal !== "00:00:00" ){  
+                    if(SabInicio !== null || SabFinal !== null ){  
                         sabado.checked = "true";                       
                         sabadoInicio.style.visibility="inherit";
                         sabadoFinal.style.visibility="inherit";
@@ -284,7 +297,7 @@ export default function EditarFuncionario(){
                         sabadoFinal.style.visibility="collapse";
                     }
 
-                    if(DomingInicio !== "00:00:00" || DomingFinal !== "00:00:00" ){   
+                    if(DomingInicio !== null || DomingFinal !== null ){   
                         domingo.checked = "true";                      
                         domingoInicio.style.visibility="inherit";
                         domingoFinal.style.visibility="inherit";
@@ -327,6 +340,10 @@ export default function EditarFuncionario(){
         var date = document.getElementById("date").value;
         var num = document.getElementById("num").value;
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonSalvar");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
 
         var segunda = document.getElementById("segunda");
         var terca = document.getElementById("terca");
@@ -361,152 +378,101 @@ export default function EditarFuncionario(){
         var domingoFinal = document.getElementById("domingoFinal");
         
 
-        if(segunda.checked === false){
-            segundaInicio.style.visibility="collapse";
-            segundaFinal.style.visibility="collapse";
-            segundaInicio.value = "00:00:00";
-            segundaFinal.value = "00:00:00";
-        }
-        if(terca.checked === false){
-            tercaInicio.style.visibility="collapse";
-            tercaFinal.style.visibility="collapse";    
-            tercaInicio.value = "00:00:00";
-            tercaFinal.value = "00:00:00";                    
-        }
-        if(quarta.checked === false){
-            quartaInicio.style.visibility="collapse";
-            quartaFinal.style.visibility="collapse";
-            quartaInicio.value = "00:00:00";
-            quartaFinal.value = "00:00:00";
-        }    
-        if(quinta.checked === false){
-            quintaInicio.style.visibility="collapse";
-            quintaFinal.style.visibility="collapse";
-            quintaInicio.value = "00:00:00";
-            quintaFinal.value = "00:00:00";
-        }    
-        if(sexta.checked === false){
-            sextaInicio.style.visibility="collapse";
-            sextaFinal.style.visibility="collapse";
-            sextaInicio.value = "00:00:00";
-            sextaFinal.value = "00:00:00";
-        }    
-        if(sabado.checked === false){
-            sabadoInicio.style.visibility="collapse";
-            sabadoFinal.style.visibility="collapse";
-            sabadoInicio.value = "00:00:00";
-            sabadoFinal.value = "00:00:00";
-        }    
-        if(domingo.checked === false){
-            domingoInicio.style.visibility="collapse";
-            domingoFinal.style.visibility="collapse";
-            domingoInicio.value = "00:00:00";
-            domingoFinal.value = "00:00:00";
-        }
         if (nome === "" || nome === null || nome === undefined) {
-    
             erro.innerHTML = "Preencha o campo Nome";
-        }
-        else{
-            if (cpf === "" || cpf === null || cpf === undefined) {
-    
+            button.innerText="Salvar";
+            button.removeAttribute("disabled");
+        }else if (cpf === "" || cpf === null || cpf === undefined) {
                 erro.innerHTML = "Preencha o campo CPF";
-            }
-            if (num === "" || num === null || num === undefined) {
-    
+                button.innerText="Salvar";
+                button.removeAttribute("disabled");
+            }else if (num === "" || num === null || num === undefined) {
                 erro.innerHTML = "Preencha o campo Número";
-            }
-            else{
-                if(validarCPF(cpf)){
-
+                button.innerText="Salvar";
+                button.removeAttribute("disabled");
+            }else if(validarCPF(cpf)){
                     if (email === "" || email === null || email === undefined ) {
                         erro.innerHTML = "Preencha seu email";
-                    }
-                    else{
-                        if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
+                        button.innerText="Salvar";
+                        button.removeAttribute("disabled");
+                    } else if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
                             erro.innerHTML = "Email inválido";
+                            button.innerText="Salvar";
+                            button.removeAttribute("disabled");
                         }
                         else{
                             erro.innerHTML = "";
                             if(segunda.checked === true){
                                 ValidaSegunda = "Pendente";                                
-                                if(segundaInicio.value === "" || segundaInicio.value === null || segundaInicio.value === undefined || segundaInicio.value === "00:00:00"){
+                                if(segundaInicio.value === "" || segundaInicio.value === null || segundaInicio.value === undefined){
                                     segundaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaSegunda = "Pendente";
-                                }
-                                if(segundaFinal.value === "" || segundaFinal.value === null || segundaFinal.value === undefined || segundaFinal.value === "00:00:00"){  
+                                }else if(segundaFinal.value === "" || segundaFinal.value === null || segundaFinal.value === undefined){  
                                     segundaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaSegunda = "Pendente";
-                                }
-                                if(segundaInicio.value !== "" && segundaFinal.value !== "" && segundaInicio.value !== "00:00:00" && segundaFinal.value !== "00:00:00"){
+                                }else if(segundaInicio.value !== "" && segundaFinal.value !== "" && segundaInicio.value !== null && segundaFinal.value !== null){
                                     segundaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     segundaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaSegunda = "Sim";
+                                    if(segundaInicio.value < segundaFinal.value){
+                                        ValidaSegunda = "Sim";
+                                    }
                                 }
                             }
                             if(terca.checked === true){
                                 ValidaTerca = "Pendente";
-                                if(tercaInicio.value === "" || tercaInicio.value === null || tercaInicio.value === undefined || tercaInicio.value === "00:00:00"){
+                                if(tercaInicio.value === "" || tercaInicio.value === null || tercaInicio.value === undefined){
                                     tercaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaTerca = "Pendente";
-                                }
-                                if(tercaFinal.value === "" || tercaFinal.value === null || tercaFinal.value === undefined || tercaFinal.value === "00:00:00"){  
+                                }else if(tercaFinal.value === "" || tercaFinal.value === null || tercaFinal.value === undefined){  
                                     tercaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaTerca = "Pendente";
-                                }
-                                if(tercaInicio.value !== "" && tercaFinal.value !== "" && tercaInicio.value !== "00:00:00" && tercaFinal.value !== "00:00:00"){
+                                }else if(tercaInicio.value !== "" && tercaFinal.value !== "" && tercaInicio.value !== null && tercaFinal.value !== null){
                                     tercaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     tercaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaTerca = "Sim";
+                                    if(tercaInicio.value < tercaFinal.value){
+                                        ValidaTerca = "Sim";
+                                    }
                                 }
                             }
                             if(quarta.checked === true){
                                 ValidaQuarta = "Pendente";
                                 if(quartaInicio.value === "" || quartaInicio.value === null || quartaInicio.value === undefined || quartaInicio.value === "00:00:00"){
                                     quartaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaQuarta = "Pendente";
-                                }
-                                if(quartaFinal.value === "" || quartaFinal.value === null || quartaFinal.value === undefined || quartaFinal.value === "00:00:00"){  
+                                }else if(quartaFinal.value === "" || quartaFinal.value === null || quartaFinal.value === undefined){  
                                     quartaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaQuarta = "Pendente";
-                                }
-                                if(quartaInicio.value !== "" && quartaFinal.value !== "" && quartaInicio.value !== "00:00:00" && quartaFinal.value !== "00:00:00"){
+                                }else if(quartaInicio.value !== "" && quartaFinal.value !== "" && quartaInicio.value !== null && quartaFinal.value !== null){
                                     quartaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     quartaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaQuarta= "Sim";
+                                    if(quartaInicio.value < quartaFinal.value){
+                                        ValidaQuarta = "Sim";
+                                    }
                                 }
                             }
                             
-                            if(quinta.checked === true){
+                            if(quinta.checked === true){ 
                                 ValidaQuinta = "Pendente";
                                 if(quintaInicio.value === "" || quintaInicio.value === null || quintaInicio.value === undefined || quintaInicio.value === "00:00:00"){
                                     quintaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaQuinta = "Pendente";
-                                }
-                                if(quintaFinal.value === "" || quintaFinal.value === null || quintaFinal.value === undefined || quintaFinal.value === "00:00:00"){  
+                                }else if(quintaFinal.value === "" || quintaFinal.value === null || quintaFinal.value === undefined){  
                                     quintaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaQuinta = "Pendente";
-                                }
-                                if(quintaInicio.value !== "" && quintaFinal.value !== "" && quintaInicio.value !== "00:00:00" &&  quintaFinal.value !== "00:00:00"){
+                                }else if(quintaInicio.value !== "" && quintaFinal.value !== "" && quintaInicio.value !== null && quintaFinal.value !== null){
                                     quintaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     quintaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaQuinta = "Sim";
+                                    if(quintaInicio.value < quintaFinal.value){
+                                        ValidaQuinta = "Sim";
+                                    }
                                 }
                             }
+
                             if(sexta.checked === true){
                                 ValidaSexta = "Pendente";
                                 if(sextaInicio.value === "" || sextaInicio.value === null || sextaInicio.value === undefined || sextaInicio.value === "00:00:00"){
                                     sextaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
                                     ValidaSexta = "Pendente";
-                                }
-                                if(sextaFinal.value === "" || sextaFinal.value === null || sextaFinal.value === undefined || sextaFinal.value === "00:00:00"){  
+                                }else if(sextaFinal.value === "" || sextaFinal.value === null || sextaFinal.value === undefined){  
                                     sextaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaSexta = "Pendente";
-                                }
-                                if(sextaInicio.value !== "" && sextaFinal.value !== "" && sextaInicio.value !== "00:00:00" && sextaFinal.value !== "00:00:00"){
+                                }else if(sextaInicio.value !== "" && sextaFinal.value !== "" && sextaInicio.value !== null && sextaFinal.value !== null){
                                     sextaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     sextaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaSexta = "Sim";
+                                    if(sextaInicio.value < sextaFinal.value){
+                                        ValidaSexta = "Sim";
+                                    }
                                 }
                             }
 
@@ -514,42 +480,41 @@ export default function EditarFuncionario(){
                                 ValidaSabado = "Pendente";
                                 if(sabadoInicio.value === "" || sabadoInicio.value === null || sabadoInicio.value === undefined || sabadoInicio.value === "00:00:00"){
                                     sabadoInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaSabado = "Pendente";
-                                }
-                                if(sabadoFinal.value === "" || sabadoFinal.value === null || sabadoFinal.value === undefined || sabadoFinal.value === "00:00:00"){  
+                                }else if(sabadoFinal.value === "" || sabadoFinal.value === null || sabadoFinal.value === undefined){  
                                     sabadoFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaSabado = "Pendente";
-                                }
-                                if(sabadoInicio.value !== "" && sabadoFinal.value !== "" && sabadoInicio.value !== "00:00:00" && sabadoFinal.value !== "00:00:00"){
+                                }else if(sabadoInicio.value !== "" && sabadoFinal.value !== "" && sabadoInicio.value !== null && sabadoFinal.value !== null){
                                     sabadoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     sabadoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaSabado = "Sim";
+                                    if(sabadoInicio.value < sabadoFinal.value){
+                                        ValidaSabado = "Sim";
+                                    }
                                 }
                             }
+
                             if(domingo.checked === true){
                                 ValidaDomingo = "Pendente";
                                 if(domingoInicio.value === "" || domingoInicio.value === null || domingoInicio.value === undefined || domingoInicio.value === "00:00:00"){
                                     domingoInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaDomingo = "Pendente";
-                                }
-                                if(domingoFinal.value === "" || domingoFinal.value === null || domingoFinal.value === undefined || domingoFinal.value === "00:00:00"){  
+                                }else if(domingoFinal.value === "" || domingoFinal.value === null || domingoFinal.value === undefined){  
                                     domingoFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaDomingo = "Pendente";
-                                }
-                                if(domingoInicio.value !== "" && domingoFinal.value !== "" && domingoInicio.value !== "00:00:00" && domingoFinal.value !== "00:00:00"){
+                                }else if(domingoInicio.value !== "" && domingoFinal.value !== "" && domingoInicio.value !== null && domingoFinal.value !== null){
                                     domingoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     domingoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaDomingo = "Sim";
+                                    if(domingoInicio.value < domingoFinal.value){
+                                        ValidaDomingo = "Sim";
+                                    }
                                 }
                             }
         
                             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                             if(ValidaSegunda === "Não" && ValidaTerca ==="Não" && ValidaQuarta ==="Não" && ValidaQuinta === "Não" && ValidaSexta === "Não" && ValidaSabado === "Não" && ValidaDomingo === "Não" ) {
                                 erro.innerHTML = "Escolha pelo menos um dia para o horário";
-                            }else{
-                                if(ValidaSegunda === "Pendente" || ValidaTerca ==="Pendente" || ValidaQuarta ==="Pendente" || ValidaQuinta === "Pendente" || ValidaSexta === "Pendente" || ValidaSabado === "Pendente" || ValidaDomingo === "Pendente" ) {
+                                button.innerText="Salvar";
+                                button.removeAttribute("disabled");
+                            }else if(ValidaSegunda === "Pendente" || ValidaTerca ==="Pendente" || ValidaQuarta ==="Pendente" || ValidaQuinta === "Pendente" || ValidaSexta === "Pendente" || ValidaSabado === "Pendente" || ValidaDomingo === "Pendente" ) {
                                     erro.innerHTML = "Verefique os dados dos horarios";
-                                
+                                    button.innerText="Salvar";
+                                    button.removeAttribute("disabled");
                                 }
                                 else{                            
                                     var AcessoRep ="0";
@@ -557,53 +522,58 @@ export default function EditarFuncionario(){
                                     var AcessoVet ="0";
                                     var AcessoFinan ="0";
                                     var ControlePet = "Não";
+                                    var AcessoTotal = "0";
+                                    if(user === "Responsavel"){
+                                        Admin ="Sim";
+                                    }
                                     if(recepcao === "Não" && Admin === "Não" && Vet === "Não" && finan==="Não"){
                                         erro.innerHTML = "Escolha pelo menos um cargo";
-
+                                        button.innerText="Salvar";
+                                        button.removeAttribute("disabled");
                                     }else{
                                         if( Vet === "Sim"){
                                             ControlePet = "Pendente";
                                             if (crmv === "" || crmv === null || crmv === undefined) {
-                        
                                                 erro.innerHTML = "Preencha o campo CRMV";
-                                            }
-                                            else{
-                                                if (date === "" || date === null || date === undefined) {
-                        
+                                                button.innerText="Salvar";
+                                                button.removeAttribute("disabled");
+                                            }else if(date === "" || date === null || date === undefined) {
                                                     erro.innerHTML = "Preencha o campo Data de Emissão";
-                                                }
-                                                else{
+                                                    button.innerText="Salvar";
+                                                    button.removeAttribute("disabled");
+                                                }else{
                                                     ControlePet = "Sim";
-                                                }                                        
-                                            }        
+                                                }                                          
                                         }else{
                                             date = "0000-00-00";
                                         }
 
-                                        if(ControlePet === "Pendente")
-                                        {
+                                        if(ControlePet === "Pendente"){
                                             erro.innerHTML = "Preencha os campos corretamente";
-                                        }
-                                        else{
-                                            if(recepcao === "Sim"){
-                                                AcessoRep = "1";
-                                            }
-                                            if(Admin === "Sim"){
-                                                AcessoAdmin = '1';
-                                            }
-                                            if(finan === "Sim"){
-                                                AcessoFinan = "1";
-                                            }
-                                            if(Vet === "Sim"){
-                                                AcessoVet = "1";
-                                            }                                          
-                                            var AcessoTotal = AcessoRep + AcessoAdmin + AcessoVet + AcessoFinan ;
+                                            button.innerText="Salvar";
+                                            button.removeAttribute("disabled");
+                                        }else if(user === "Responsavel"){
+                                                AcessoTotal ="1111";
+                                            }else{
+                                                if(recepcao === "Sim"){
+                                                    AcessoRep = "1";
+                                                }
+                                                if(Admin === "Sim"){
+                                                    AcessoAdmin = '1';
+                                                }
+                                                if(finan === "Sim"){
+                                                    AcessoFinan = "1";
+                                                }
+                                                if(Vet === "Sim"){
+                                                    AcessoVet = "1";
+                                                }                                       
+                                                AcessoTotal = AcessoRep + AcessoAdmin + AcessoVet + AcessoFinan ;
+                                            }                                           
                                         
                                             var id= localStorage.getItem('Codigo');
                                     
                                             if(id === "" || id === null || id=== undefined){
                                                 erro.innerText = "Tente Novamente";
-                                                var button = document.getElementById("buttonSalvar"); 
                                                 button.onclick = function() { window.location.href="/Funcionarios" }; 
                                             }
                                             else{   
@@ -619,40 +589,42 @@ export default function EditarFuncionario(){
                                                     if(response.data.message){
                                                         if(response.data.message === "Ja existe Email"){
                                                             erro.innerText = "Email existente";
-                                                        }
-                                                        else{
-                                                            if(response.data.message === "Ja existe CPF"){
+                                                            button.innerText="Salvar";
+                                                            button.removeAttribute("disabled");
+                                                        }else if(response.data.message === "Ja existe CPF"){
                                                                 erro.innerText = "CPF existente";
-                                                            }
-                                                            else{
-                                                                if(response.data.message === "Atualizado"){
+                                                                button.innerText="Salvar";
+                                                                button.removeAttribute("disabled");
+                                                            }else if(response.data.message === "Atualizado"){
                                                                     erro.innerText = "Atualizado com Sucesso";
                                                                     setTimeout(() => {window.location.href="/Funcionarios"}, 2000);
-                                                                }
-                                                                else{
-                                                                    if(response.data.message === "Ja existe CRMV"){
+                                                                }else if(response.data.message === "Ja existe CRMV"){
                                                                         erro.innerText = "CRMV existente";
+                                                                        button.innerText="Salvar";
+                                                                        button.removeAttribute("disabled");
                                                                     }
                                                                     else{
                                                                         erro.innerText = "Tente Novamente";
+                                                                        button.innerText="Salvar";
+                                                                        button.removeAttribute("disabled");
                                                                     }  
-                                                                }
-                                                            }
-                                                        }
+                                                        //         }
+                                                        //     }
+                                                        // }
                                                     }
                                                     
                                                     if(response.data.error){
                                                         if(response.data.error === "error sql"){
                                                             erro.innerText = "Tente Novamente";
-                                                        }                                            
-                                                        if(response.data.error){
-                                                            if(response.data.error === "falha na autenticação do token"){
-                                                                erro.innerText = "Tente Novamente";
-                                                                setTimeout(() => {window.location.href="/"}, 2000);
-                                                            }
-                                                        }
-                                                        else{
+                                                            button.innerText="Salvar";
+                                                            button.removeAttribute("disabled");
+                                                        } else if(response.data.error === "falha na autenticação do token"){
                                                             erro.innerText = "Tente Novamente";
+                                                            setTimeout(() => {window.location.href="/"}, 2000);
+                                                        }else{
+                                                            erro.innerText = "Tente Novamente";
+                                                            button.innerText="Salvar";
+                                                            button.removeAttribute("disabled");
                                                         }
                                                     }
                                                 }                                                
@@ -660,16 +632,18 @@ export default function EditarFuncionario(){
                                         }
                                     }                                   
                                 }                                
-                            }
-                        }
-                    }     
+                            // }
+                    //     }
+                    // }     
                 }
                 else{
                     erro.innerHTML = "CPF Inválido";
+                    button.innerText="Salvar";
+                    button.removeAttribute("disabled");
                 }
 
-            }
-        }
+            // }
+        // }
 
     }
 
@@ -1153,6 +1127,12 @@ export default function EditarFuncionario(){
                                            
                                             <br/>
                                             <div className="row">
+                                                <div class="col-md-12">
+                                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 00:00 e na terça-feira 00:00 até 06:00.</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="row" id="Cargos">
                                                 <div className="col-md-3"> 
                                                     <label className="bmd-label-floating">Cargos</label>                                                
                                                     <br/>
@@ -1202,7 +1182,7 @@ export default function EditarFuncionario(){
                                             <div className="row" style={{textAlign: '-webkit-center'}}>
                                                
                                                 <div className="col-md-12">                                                    
-                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 10%'}} onClick={Salvar}>Salvar</button>
+                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 10%'}} id="buttonSalvar" onClick={Salvar}>Salvar</button>
                                                     <div className="clearfix"></div>
                                                 </div>
                                             </div>   

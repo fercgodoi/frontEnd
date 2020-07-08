@@ -3,9 +3,9 @@ import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
+import axios from "axios";
 
-
-import api from "../services/api2";
+import api from "../services/api3";
 
 export default function CadastroCinco(){
     function Validar(){
@@ -32,22 +32,36 @@ export default function CadastroCinco(){
     async function Proximo(){
         var erro = document.getElementById("valida");
         var Foto = document.getElementById("Foto").value;
+        var button = document.getElementById("buttonProximo");
 
-        console.log(Foto)
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
+
         if(ButtonEmergenciaSim === "Não" && ButtonEmergenciaNao === "Não"){
             erro.innerHTML = "Selecione se você é 24horas.";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }else{
             if(ButtonOngSim === "Não" && ButtonOngNao === "Não"){
                 erro.innerHTML = "Selecione se você é ONG.";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }else{
                 if (Foto === "" || Foto === null || Foto === undefined) {    
                     erro.innerHTML = "Preencha o campo Logo";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else{
                     if( ButtonConta === "Não" && ButtonCielo === "Não" && ButtonWibx === "Não"){
                         erro.innerHTML = "Escolha um tipo de conta";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
-                    else{                        
+                    else{  
+                        button.innerText="Aguardando";
+                        button.setAttribute("disabled","disabled");
+
                         var Banco = document.getElementById("Banco").value;
                         var Agencia = document.getElementById("Agencia").value;
                         var Conta = document.getElementById("NumConta").value;
@@ -58,18 +72,26 @@ export default function CadastroCinco(){
                         if(ButtonConta === "Sim"){                        
                             if (Banco === "" || Banco === null || Banco === undefined) {
                                 erro.innerHTML = "Preencha o campo Banco";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
                             }
                             else{
                                 if (Agencia === "" || Agencia === null || Agencia === undefined) {
                                     erro.innerHTML = "Preencha o campo Agencia";
+                                    button.innerText="Próximo";
+                                    button.removeAttribute("disabled");
                                 }
                                 else{
                                     if (Conta === "" || Conta === null || Conta === undefined) {
                                         erro.innerHTML = "Preencha o campo Conta";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }
                                     else{
                                         if(ButtonCorrente === "Não" && ButtonPoupanca === "Não"){ 
                                             erro.innerHTML = "Selecione um tipo de conta";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
                                         }else{
                                             ButtonConta= "Pendente";
                                             if(ButtonCorrente === "Sim"){
@@ -86,6 +108,8 @@ export default function CadastroCinco(){
                         if(ButtonCielo === "Sim"){
                             if (CodCielo === "" || CodCielo === null || CodCielo === undefined) {
                                 erro.innerHTML = "Preencha o campo do Codigo da Cielo";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
                             }else{
                                 ButtonCielo= "Pendente";
                             }
@@ -94,12 +118,18 @@ export default function CadastroCinco(){
                         if(ButtonWibx === "Sim"){
                             if (CodWibx === "" || CodWibx === null || CodWibx === undefined) {
                                 erro.innerHTML = "Preencha o campo do Codigo da Wibx";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
                             }else{                            
                                 ButtonConta= "Pendente";
                             }
                         }
     
                         if(ButtonConta === "Pendente" || ButtonWibx == "Pendente" || ButtonCielo === "Pendente"){                    
+                            
+                            button.innerText="Aguardando";
+                            button.setAttribute("disabled","disabled");
+
                             let response="";
 
                             // let dados  = new FormData();
@@ -118,18 +148,26 @@ export default function CadastroCinco(){
                             // console.log(dados)
                             try {
                                 response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
-                                // response = await api.post('/Prestador/CadCincoPrest',dados);
+                                //  response = await api.post('',);
+                                // const token = localStorage.getItem('token');
+                               
+                                // require('dotenv').config();
+                                //  response = await axios({
+                                //     method: 'post',
+                                //     url: 'http://localhost:3000/Prestador/CadCincoPrest',
+                                //     data: dados,
+                                //     headers: {'Authorization': `Bearer ${token}`}
+                                //     })
                             } catch (error) {
                                 console.log(error);               
                             }
-
-                            console.log(response)
-
                             
                             if(response){
                                 if(response.data.message){
                                     if(response.data.message === "Codigo incorreto"){
                                         erro.innerHTML = "O código esta incorreto";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }else if(response.data.message === "Alterado"){
                                         erro.innerHTML = "Verificação correta, vamos para a proxima etapa agora !!";
                                         setTimeout(() => {window.location.href="/CadastroSeis"}, 2000); 
@@ -138,11 +176,15 @@ export default function CadastroCinco(){
                                 if(response.data.error){
                                     if(response.data.error === "error sql"){
                                         erro.innerHTML = "Tente Novamente";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }else if(response.data.error === "falha na autenticação do token"){
                                         erro.value = "Tente Novamente";
                                         setTimeout(() => {window.location.href="/"}, 2000);
                                     }else{
                                         erro.innerHTML = "Tente Novamente";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }
                                 }
                             }                            
@@ -533,7 +575,7 @@ export default function CadastroCinco(){
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo}>Proximo</button>
+                                <button type="submit" className=" btn btn-primary btnEditShop" id="buttonProximo" onClick={Proximo}>Proximo</button>
                                 </div>
                             </div>
                         </div>

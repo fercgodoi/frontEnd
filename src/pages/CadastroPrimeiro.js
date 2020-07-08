@@ -10,23 +10,37 @@ import api from "../services/api";
 export default function CadastroPrimeiro(){    
     localStorage.setItem('Codigo', "");
     localStorage.setItem('token', "");
+
+    var ButtonSim ="Não";
+    var ButtonNao ="Não";
+    var tipo= "";
    
     async function Proximo() {
+        var button = document.getElementById("buttonProximo");
         var cnpj = document.getElementById("CNPJ").value;
         var email = document.getElementById("email").value;
         var celular = document.getElementById("celular").value;
         var erro = document.getElementById("valida");
 
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
+
         if (email === "" || email === null || email === undefined ) {
             erro.innerHTML = "Preencha seu email";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else{
             if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
                 erro.innerHTML = "Email inválido";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             else{
                 if (cnpj === "" || cnpj === null || cnpj === undefined ) {
                     erro.innerHTML = "Preencha seu CNPJ";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else{
                     var novo = cnpj.split('', 18);
@@ -36,44 +50,65 @@ export default function CadastroPrimeiro(){
                      if(validarCNPJ(novoCNPJ)){
                         if (celular === "" || celular === null || celular === undefined ) {
                             erro.innerHTML = "Preencha seu celular";
+                            button.innerText="Próximo";
+                            button.removeAttribute("disabled");
                         } 
                         else{
-                            erro.innerHTML ="";
+                            if(ButtonSim === "Não" && ButtonNao === "Não"){ 
+                                erro.innerHTML = "Selecione se é WhatsApp";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
+                            }else{
+                                
+                                erro.innerHTML ="";
 
-                            let response="";
-                            try {
-                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadPriPrest',{CnpjPrest: cnpj,CelularPrest:celular,EmailPrest:email});
-                            } catch (error) {
-                                console.log(error);               
-                            }
-                              
-                            if(response){
-                                if(response.data.message){
-                                    if(response.data.message === "cnpj ja existe"){
-                                        erro.innerHTML = "CNPJ ja existente";
-                                    }else if(response.data.message === "email ja existe"){
-                                        erro.innerHTML = "Email ja existente";
-                                    }else if(response.data.message === "numero ja existe"){
-                                        erro.innerHTML = "Celular ja existente";
-                                    }else if(response.data.message === "Enviado"){
-                                        localStorage.setItem('token', response.data.token);
-                                        erro.innerHTML = "Foi enviado um código por email para que digite na tela que será direcionado";
-                                        setTimeout(() => {window.location.href="/CadastroSegundo"}, 2000);                                                                               
+                                let response="";
+                                try {
+                                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadPriPrest',{CnpjPrest: cnpj,CelularPrest:celular,EmailPrest:email,WhatsPrest:tipo});
+                                } catch (error) {
+                                    console.log(error);               
+                                }
+                                
+                                if(response){
+                                    if(response.data.message){
+                                        if(response.data.message === "cnpj ja existe"){
+                                            erro.innerHTML = "CNPJ ja existente";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
+                                        }else if(response.data.message === "email ja existe"){
+                                            erro.innerHTML = "Email ja existente";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
+                                        }else if(response.data.message === "numero ja existe"){
+                                            erro.innerHTML = "Celular ja existente";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
+                                        }else if(response.data.message === "Enviado"){
+                                            localStorage.setItem('token', response.data.token);
+                                            erro.innerHTML = "Foi enviado um código por email para que digite na tela que será direcionado";
+                                            setTimeout(() => {window.location.href="/CadastroSegundo"}, 2000);                                                                               
+                                        }
+                                    }
+
+                                    if(response.data.error){
+                                        if(response.data.error === "error sql"){
+                                            erro.innerHTML = "Tente Novamente";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
+                                        }else if(response.data.error === "nao deu"){
+                                            erro.innerHTML = "Verifique o email digitado";
+                                            button.innerText="Próximo";
+                                            button.removeAttribute("disabled");
+                                        }
                                     }
                                 }
-
-                                if(response.data.error){
-                                    if(response.data.error === "error sql"){
-                                        erro.innerHTML = "Tente Novamente";
-                                    }else if(response.data.error === "nao deu"){
-                                        erro.innerHTML = "Verifique o email digitado";
-                                    }
-                                }
-                            }
+                            }                            
                         }
                     }
                     else{
                         erro.innerHTML = "CNPJ inválido";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }                    
                 }
             }
@@ -142,6 +177,50 @@ export default function CadastroPrimeiro(){
         
     }
 
+    function Sim(){ 
+        var buttonNao = document.getElementById("Nao");
+        buttonNao.style.backgroundColor="#fff";
+        buttonNao.style.border="1px solid #009fe3"; 
+        buttonNao.style.color="#009fe3";
+        ButtonNao="Não";
+
+        var button = document.getElementById("Sim");
+        if(ButtonSim ==="Sim"){
+            button.style.backgroundColor="#fff";
+            button.style.border="1px solid #009fe3"; 
+            button.style.color="#009fe3";
+            ButtonSim="Não";
+            tipo="Nao";
+        }else{
+            button.style.backgroundColor="#009fe3";
+            button.style.color="#fff";
+            ButtonSim="Sim";
+            tipo="Sim";
+        }
+    }
+
+    function Nao(){
+        var buttonSim = document.getElementById("Sim");
+        buttonSim.style.backgroundColor="#fff";
+        buttonSim.style.border="1px solid #009fe3"; 
+        buttonSim.style.color="#009fe3";
+        buttonSim="Não";
+
+        var button = document.getElementById("Nao");
+        if(ButtonNao ==="Sim"){
+            button.style.backgroundColor="#fff";
+            button.style.border="1px solid #009fe3"; 
+            button.style.color="#009fe3";
+            ButtonNao="Não";
+            tipo="Nao";
+        }else{
+            button.style.backgroundColor="#009fe3";
+            button.style.color="#fff";
+            ButtonNao="Sim";
+            tipo="Nao";
+        }
+    }
+
   
     return(
     <div>
@@ -177,21 +256,39 @@ export default function CadastroPrimeiro(){
                         </div>
                         <br/>
                         <div className="row">
-                            <div className="col-md-12">
+                            <div className="col-md-6">
                                 <div className="form-group">
                                     <img alt="" src={gatinho} style={{width:'30px'}}></img> 
                                     <a style={{marginLeft:'5px',color:'#000000'}}>Certo, agora precisamos confirmar é o celular da sua empresa? </a>
                                     <InputMask type="text"  mask = "(99) 99999-9999" className="form-control" placeholder="Celular" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="celular" />
                                 </div>
                             </div>
+                            <div className="col-md-6">
+                                <div className="form-group">
+                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                    <a style={{marginLeft:'5px',color:'#000000'}}>Este número é WhatsApp? </a>
+                                    <div class="row">
+                                        <div class="col-md-6">  
+                                            <button type="submit" className="btnCadFunc" onClick={Sim} style={{marginTop:'2%'}} id="Sim">Sim</button>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="submit" className="btnCadFunc" onClick={Nao} style={{marginTop:'2%'}} id="Nao">Não</button>
+                                            <div class="clearfix"></div>                                                   
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
                         </div>
                         <div className="row" style={{textAlign: '-webkit-center', marginTop:'8%'}}>
                             <div className="col-md-12">
                                 <div className="form-group">
                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} style={{marginRight:'0px'}}>Proximo</button>
+                                <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} style={{marginRight:'0px'}} id="buttonProximo">Proximo</button>
                                 </div>
                             </div>
+                           
                         </div>
                     </div>
                     </div>

@@ -59,28 +59,43 @@ export default function CadastroShopping(){
         var valor = document.getElementById("preco");
         var quant = document.getElementById("quantidade");
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined) {
             erro.innerHTML = "Preencha o campo Nome";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else{
             if (quant.value === "" || quant.value === null || quant.value === undefined) {
                 erro.innerHTML = "Preencha o campo Quantidade";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }            
             else{                
                 if (quant.value === 0 || quant.value === "0") {
                     erro.innerHTML = "A quantidade tem que ser maior que 0";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else{
                     if (valor.value === "" || valor.value === null || valor.value === undefined) {
                         erro.innerHTML = "Preencha o campo Preço";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
                     else{
                         if (desc.value === "" || desc.value === null || desc.value === undefined) {
                             erro.innerHTML = "Escreva uma descrição para o produto";
+                            button.innerText="Próximo";
+                            button.removeAttribute("disabled");
                         }
                         else{
                             erro.innerHTML ="";
+                            valor.value = valor.value.replace(/,/g, '.');
 
                             let response="";
 
@@ -95,33 +110,38 @@ export default function CadastroShopping(){
                                     if(response.data.message === "Já existe"){
                                         erro.innerText = "Este nome ja esta sendo utilizado";
                                     }
-                                    else{
-                                        if(response.data.message === "Cadastrado"){
-                                            erro.innerText = "Produto Cdastro com sucesso";
-    
-                                            var button = document.getElementById("Salvar");
-                                            nome.setAttribute("disabled", "disabled");
-                                            valor.setAttribute("disabled", "disabled");
-                                            valor.setAttribute("disabled", "disabled");
-                                            quant.setAttribute("disabled", "disabled"); 
-                                            desc.setAttribute("disabled", "disabled"); 
-                                            button.onclick = function() { window.location.href="/CadastroShopping" };                              
-                                        }
-                                        else{
-                                            erro.innerText = "Tente Novamente";     
-                                        }
+                                    else if(response.data.message === "Cadastrado"){
+                                        erro.innerText = "Produto Cadastro com sucesso";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
+
+                                        nome.setAttribute("disabled", "disabled");
+                                        valor.setAttribute("disabled", "disabled");
+                                        valor.setAttribute("disabled", "disabled");
+                                        quant.setAttribute("disabled", "disabled"); 
+                                        desc.setAttribute("disabled", "disabled"); 
+                                        button.onclick = function() { window.location.href="/CadastroShopping" };                              
                                     }
+                                    else{
+                                        erro.innerText = "Tente Novamente";   
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");  
+                                    }
+                                    
                                     
                                 }                    
                                 if(response.data.error){
                                     if(response.data.error === "error sql"){
                                         erro.innerText = "Tente Novamente";
-                                    }
-                                    if(response.data.error === "falha na autenticação do token"){
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
+                                    }else if(response.data.error === "falha na autenticação do token"){
                                         erro.innerText = "Tente Novamente";
                                         setTimeout(() => {window.location.href="/"}, 2000);
                                     }else{
                                         erro.innerText = "Tente Novamente";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }    
                                 }
                             }
@@ -138,25 +158,39 @@ export default function CadastroShopping(){
         var valor = document.getElementById("preco");
         var quant = document.getElementById("quantidade");
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo2");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined) {
             erro.innerHTML = "Preencha o campo Nome";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else{
             if (quant.value === "" || quant.value === null || quant.value === undefined) {
                 erro.innerHTML = "Preencha o campo Quantidade";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }            
             else{                
                 if (quant.value === 0 || quant.value === "0") {
                     erro.innerHTML = "A quantidade tem que ser maior que 0";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else{
                     if (valor.value === "" || valor.value === null || valor.value === undefined) {
                         erro.innerHTML = "Preencha o campo Preço";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
                     else{
                         if (desc.value === "" || desc.value === null || desc.value === undefined) {
                             erro.innerHTML = "Escreva uma descrição para o produto";
+                            button.innerText="Próximo";
+                            button.removeAttribute("disabled");
                         }
                         else{
                             erro.innerHTML ="";
@@ -173,27 +207,34 @@ export default function CadastroShopping(){
                                 if(response.data.message){
                                     if(response.data.message === "Já existe"){
                                         erro.innerText = "Este nome ja esta sendo utilizado";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
+                                    }
+                                    else if(response.data.message === "Cadastrado"){
+                                        erro.innerText = "Produto Cadastro com sucesso";
+                                        window.location.href="/CadastroShopping";                            
                                     }
                                     else{
-                                        if(response.data.message === "Cadastrado"){
-                                            erro.innerText = "Produto Cdastro com sucesso";
-                                            window.location.href="/CadastroShopping";                              
-                                        }
-                                        else{
-                                            erro.innerText = "Tente Novamente";     
-                                        }
+                                        erro.innerText = "Tente Novamente";   
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");  
                                     }
+                                
                                     
                                 }                    
                                 if(response.data.error){
                                     if(response.data.error === "error sql"){
                                         erro.innerText = "Tente Novamente";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }
-                                    if(response.data.error === "falha na autenticação do token"){
+                                    else if(response.data.error === "falha na autenticação do token"){
                                         erro.innerText = "Tente Novamente";
                                         setTimeout(() => {window.location.href="/"}, 2000);
                                     }else{
                                         erro.innerText = "Tente Novamente";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }    
                                 }
                             }
@@ -353,13 +394,14 @@ export default function CadastroShopping(){
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" id="quantidade" placeholder="Quantidade"/>
+                                                        <input type="number" class="form-control" min="0" id="quantidade" placeholder="Quantidade"/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" id="preco" placeholder="Preço R$"/>
+                                                <div class="input-group col-md-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" style={{color:'#009fe3'}}>R$</span>
                                                     </div>
+                                                    <input type="text" class="form-control" id="preco" placeholder="Preço Unitário"/>
                                                 </div>
                                             </div>
                                             <div class="row">                                                
@@ -379,11 +421,11 @@ export default function CadastroShopping(){
                                             <br/> 
                                             <div class="row" style={{textAlign: '-webkit-center'}}>
                                                 <div class="col-md-6">
-                                                    <a type="submit" class="btn btn-primary"   style={{borderRadius: '30px',padding: '2% 10%'}} onClick={Novo}>Novo</a>
+                                                    <a type="submit" class="btn btn-primary" id="buttonProximo2"  style={{borderRadius: '30px',padding: '2% 10%'}} onClick={Novo}>Novo</a>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-primary" style={{borderRadius: '30px',padding: '2% 10%'}} onClick={Cadastrar} id="Salvar">Salvar</button>
+                                                    <button type="submit" class="btn btn-primary" id="buttonProximo" style={{borderRadius: '30px',padding: '2% 10%'}} onClick={Cadastrar} >Salvar</button>
                                                     <div class="clearfix"></div>
                                                 </div>
                                             </div>   

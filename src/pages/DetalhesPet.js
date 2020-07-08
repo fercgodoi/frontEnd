@@ -74,7 +74,7 @@ export default function DetalhesPet(){
       } catch (error) {
           console.log(error);               
       }    
-
+      // console.log(response);
       if(response){
         if(response.data){
           var produto = response.data.response.Agendamento;

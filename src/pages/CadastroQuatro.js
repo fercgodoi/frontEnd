@@ -34,11 +34,17 @@ export default function CdastroQuatro(){
 
     function Proximo(){
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
 
         if(valida1 === "Não" && valida2 === "Não" && valida3 === "Não" && valida4 === "Não" && valida5 === "Não" && valida6 === "Não" &&
         valida7 === "Não" && valida8 === "Não" && valida9 === "Não" && valida10 === "Não" && valida11 === "Não" && valida12 === "Não" &&
         valida13 === "Não" && valida14 === "Não" && valida15 === "Não"){
             erro.innerHTML = "Preencha pelo menos um serviço";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }else{
             erro.innerHTML = "Você será direcionado para próxima etapa.";
             setTimeout(() => {window.location.href="/CadastroCinco"}, 2000);  
@@ -56,6 +62,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -69,6 +77,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -95,6 +106,7 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -108,6 +120,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
 
@@ -135,6 +150,7 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -148,6 +164,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -174,6 +193,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -187,6 +208,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -213,6 +237,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -226,6 +252,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -252,6 +281,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -265,6 +296,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -291,6 +325,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -304,6 +340,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -331,6 +370,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -344,6 +385,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -371,6 +415,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -384,6 +430,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -411,6 +460,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -424,6 +475,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -450,6 +504,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -463,6 +519,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -489,6 +548,9 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -502,6 +564,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -528,6 +593,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -541,6 +608,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -567,6 +637,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -580,6 +652,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -606,6 +681,8 @@ export default function CdastroQuatro(){
                 valor.value = "Preencha o campo valor";
             }
             else{
+                valor.value= valor.value.replace(/,/g, '.');
+
                 let response="";
                 try {
                     response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
@@ -619,6 +696,9 @@ export default function CdastroQuatro(){
                             valida1 = "Sim";
                             nome.setAttribute("disabled","disabled");
                             valor.setAttribute("disabled","disabled");                                                                               
+                        }else if(response.data.message === "ja existe"){
+                            nome.style.color="#ff0000";
+                            nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
@@ -662,8 +742,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome1" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor1" placeholder="Valor"/>
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar1}>Adicionar</button>
@@ -676,8 +759,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome2" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor2" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor2" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar2}>Adicionar</button>
@@ -690,8 +776,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome3" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor3" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor3" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar3}>Adicionar</button>
@@ -704,9 +793,13 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome4" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor4" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor4" placeholder="Valor" />
                             </div>
+                            
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar4}>Adicionar</button>
                             </div>
@@ -718,8 +811,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome5" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor5" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor5" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar5}>Adicionar</button>
@@ -732,8 +828,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome6" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor6" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor6" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar6}>Adicionar</button>
@@ -746,8 +845,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome7" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor7" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor7" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar7}>Adicionar</button>
@@ -760,8 +862,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome8" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor8" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor8" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar8}>Adicionar</button>
@@ -773,9 +878,11 @@ export default function CdastroQuatro(){
                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
                                     <input type="text" className="form-control"  id="inputNome9" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
-                            </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor9" placeholder="Valor" style={{display:'block'}}/>
+                            </div><div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor9" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar9}>Adicionar</button>
@@ -788,8 +895,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome10" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor10" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor10" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar10}>Adicionar</button>
@@ -802,8 +912,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome11" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor11" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor11" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar11}>Adicionar</button>
@@ -816,8 +929,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome12" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor12" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor12" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar12}>Adicionar</button>
@@ -830,8 +946,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome13" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor13" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor13" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar13}>Adicionar</button>
@@ -844,8 +963,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome14" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor14" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor14" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar14}>Adicionar</button>
@@ -858,8 +980,11 @@ export default function CdastroQuatro(){
                                     <input type="text" className="form-control"  id="inputNome15" placeholder="Nome" style={{display:'block'}}/>                                                        
                                 </div>
                             </div>
-                            <div className="col-md-5">
-                                <input type="text" className="form-control"  id="inputValor15" placeholder="Valor" style={{display:'block'}}/>
+                            <div class="input-group col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" className="form-control"  id="inputValor15" placeholder="Valor" />
                             </div>
                             <div className="col-md-4" style={{textAlign: 'center'}}>
                             <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar15}>Adicionar</button>
@@ -870,7 +995,7 @@ export default function CdastroQuatro(){
                             <div class="col-md-12">
                                 <div class="form-group" style={{paddingBottom:'0px'}}>
                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className="btn btn-primary btnEditShop" style={{border:'2px solid #009fe3'}} onClick={Proximo}>Proximo</button>
+                                <button type="submit" className="btn btn-primary btnEditShop" style={{border:'2px solid #009fe3'}} id="buttonProximo" onClick={Proximo}>Proximo</button>
                                 </div>
                             </div>
                         </div>

@@ -30,17 +30,28 @@ export default function CadastroSeis(){
         // var date = document.getElementById("date").value;
         // var vet = "";
 
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
+
         if (nome === "" || nome === null || nome === undefined ) {
             erro.innerHTML = "Preencha seu nome";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else{
             if (CPF === "" || CPF === null || CPF === undefined ) {
                 erro.innerHTML = "Preencha seu CPF";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             else{
                 if(validarCPF(CPF)){                   
                     if (celular === "" || celular === null || celular === undefined ) {
                         erro.innerHTML = "Preencha seu celular";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
                     else{
                         // if (email === "" || email === null || email === undefined ) {
@@ -83,27 +94,33 @@ export default function CadastroSeis(){
                                             console.log(error);               
                                         }
 
-                                        console.log(response);
-
                                         if(response){
                                             if(response.data.message){
-                                                if(response.data.message === "Codigo incorreto"){
-                                                    erro.innerHTML = "O código esta incorreto";
-                                                }else if(response.data.message === "Alterado"){
-                                                    erro.innerHTML = "Agora tem que realizar o cadastro de um funcioanrio para logar, lembrando que o responsavel não loga";
+                                                if(response.data.message === "Alterado"){
+                                                    erro.innerHTML = "Agora tem que realizar o cadastro para logar";
                                                     setTimeout(() => {window.location.href="/CadastroSete"}, 2000); 
                                                 }else if(response.data.message === "Ja existe CPF"){
                                                     erro.innerHTML = "Este CPF já existe";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
+                                                }else if(response.data.message === "Ja existe Numero"){
+                                                    erro.innerHTML = "Este Número já existe";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
                                                 }
                                             }
                                             if(response.data.error){
                                                 if(response.data.error === "error sql"){
                                                     erro.innerHTML = "Tente Novamente";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
                                                 }else if(response.data.error === "falha na autenticação do token"){
                                                     erro.value = "Tente Novamente";
                                                     setTimeout(() => {window.location.href="/"}, 2000);
                                                 }else{
                                                     erro.innerHTML = "Tente Novamente";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
                                                 }
                                             }
                                     //     }
@@ -283,7 +300,7 @@ export default function CadastroSeis(){
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo}>Proximo</button>
+                                <button type="submit" className=" btn btn-primary btnEditShop" id="buttonProximo" onClick={Proximo}>Proximo</button>
                                 </div>
                             </div>
                         </div>

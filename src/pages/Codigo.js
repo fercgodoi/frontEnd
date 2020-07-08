@@ -21,9 +21,14 @@ export default function Codigo(){
         var cpf = document.getElementById("cpf").value;
         var cod = document.getElementById("cod").value;
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
     
         if (cpf === "" || cpf === null || cpf === undefined) {
-    
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
             erro.innerHTML = "Preencha os campos obrigatório";
         }
         else {
@@ -31,10 +36,14 @@ export default function Codigo(){
                 if (cod === "" || cod === null || cod === undefined) {    
                     erro.innerHTML = "Preencha os campos obrigatório";
                     erro.style.color = "#FF0000";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else {                  
                     erro.innerHTML = "";
-
+                    button.innerText="Aguardando";
+                    button.setAttribute("disabled","disabled");
+                    
                     let response="";
                     try {
                         response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/CodFunc', {CpfFunc:cpf,CodFunc:cod});
@@ -46,28 +55,31 @@ export default function Codigo(){
                         if(response.data.message){
                             if(response.data.message === "Código incorreto"){
                               erro.innerText = "Confira os dados";
-                            }
-                            if(response.data.message === "Código confirmado"){
-                            erro.innerText = "Código confirmado";
-                            setTimeout(() => {window.location.href="/Home"}, 1000);
+                              button.innerText="Próximo";
+                              button.removeAttribute("disabled");
+                            }else if(response.data.message === "Código confirmado"){
+                                erro.innerText = "Código confirmado";
+                                setTimeout(() => {window.location.href="/Home"}, 1000);
                             }  
                         }
                         if(response.data.error){
                             if(response.data.error === "error sql"){
                               erro.innerText = "Tente Novamente";
-                            } 
-                            if(response.data.error === "falha na autenticação do token"){
+                              button.innerText="Próximo";
+                              button.removeAttribute("disabled");
+                            }else if(response.data.error === "falha na autenticação do token"){
                                 erro.innerText = "Tente Novamente";
                                 setTimeout(() => {window.location.href="/"}, 1000);
                             }
-                        }  
-                     
+                        }                       
                     }
                 }                   
               
             }
             else{
                 erro.innerHTML = "Verifique o CPF";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             
         }        
@@ -141,7 +153,7 @@ export default function Codigo(){
                             <table>
                                 <tr>
                                     <td style={{width:'100%'}}>
-                                        <button type="submit" class="btn btn-primary pull-right" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Confirmar}>Verificar</button>
+                                        <button type="submit" class="btn btn-primary pull-right" id="buttonProximo" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Confirmar}>Verificar</button>
                                         <div class="clearfix"></div>
                                     </td>
                                 </tr>

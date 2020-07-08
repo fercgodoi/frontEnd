@@ -119,7 +119,7 @@ export default function Shopping(){
                         div5.style.width="100%";
                         div5.style.textAlign="right";
         
-                        buttonExluir.setAttribute("id", i.toString() );
+                        buttonExluir.setAttribute("id", "idExcluir"+produto[i].idProd );
                         buttonExluir.onclick = function() { Excluir(produto[i].idProd) };
                         buttonExluir.className="btn btn-primary btnExcShop";
                         buttonExluir.innerHTML="Excluir";
@@ -165,6 +165,11 @@ export default function Shopping(){
         var Nome = document.getElementById("Nome");
         let response="";
 
+        var button = document.getElementById("idExcluir"+c)
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
+
         try {
             response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/DeleteProd', {idProd:c});
         } catch (error) {
@@ -173,22 +178,26 @@ export default function Shopping(){
 
         if(response){
             if(response.data.message){
-                if(response.data.message === "deletou")
-                {
+                if(response.data.message === "deletou"){
                     window.location.href="/Shopping"
-                }
-                else{
+                }else{
                     Nome.value = "Tente Novamente";
+                    button.innerText="Excluir";
+                    button.removeAttribute("disabled");
                 }
             }
             if(response.data.error){
                 if(response.data.error === "error sql"){
                     Nome.value = "Tente Novamente";
-                }if(response.data.error === "falha na autenticação do token"){
+                    button.innerText="Excluir";
+                    button.removeAttribute("disabled");
+                }else if(response.data.error === "falha na autenticação do token"){
                     Nome.value = "Tente Novamente";
                     setTimeout(() => {window.location.href="/"}, 2000);
                 }else{
                     Nome.value = "Tente Novamente";
+                    button.innerText="Excluir";
+                    button.removeAttribute("disabled");
                 }    
             }
         }       

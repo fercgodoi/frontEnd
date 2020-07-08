@@ -30,6 +30,7 @@ export default function CadastroTerceiro(){
         var numero = document.getElementById("numero").value;
         var desc = document.getElementById("desc").value;
         var erro = document.getElementById("valida");
+        var button = document.getElementById("buttonProximo");
 
         var segunda = document.getElementById("segunda");
         var terca = document.getElementById("terca");
@@ -63,6 +64,8 @@ export default function CadastroTerceiro(){
         var sabadoFinal = document.getElementById("sabadoFinal");
         var domingoFinal = document.getElementById("domingoFinal");
         
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
 
         if(segunda.checked === false){
             segundaInicio.style.visibility="collapse";
@@ -108,163 +111,165 @@ export default function CadastroTerceiro(){
         }
 
         if (NomeFantasia === "" || NomeFantasia === null || NomeFantasia === undefined) {
-    
             erro.innerHTML = "Preencha o campo Nome Fantasia";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else {   
             if (desc === "" || desc === null || desc === undefined) {
-    
                 erro.innerHTML = "Preencha o campo Descrição";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             else {                     
                 if (cep === "" || cep === null || cep === undefined) {
-        
                     erro.innerHTML = "Preencha o campo CEP";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
                 else{
                     if(btnCEP === "Sim")
                     {
                         if (numero === "" || numero === null || numero === undefined) {    
                             erro.innerHTML = "Preencha o campo Número";
+                            button.innerText="Próximo";
+                            button.removeAttribute("disabled");
                         }
                         else{
                             if (ButtonClinica === "Não" && ButtonPetShop === "Não" && ButtonHotel=== "Não" && ButtonPasseador=== "Não") {
                                 erro.innerHTML = "Escolha uma atuação";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
                             }
                             else{
                                 erro.innerHTML = "";
                             
                                 if(segunda.checked === true){
                                     ValidaSegunda = "Pendente";                                
-                                    if(segundaInicio.value === "" || segundaInicio.value === null || segundaInicio.value === undefined || segundaInicio.value === "00:00:00"){
+                                    if(segundaInicio.value === "" || segundaInicio.value === null || segundaInicio.value === undefined){
                                         segundaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                        ValidaSegunda = "Pendente";
-                                    }
-                                    if(segundaFinal.value === "" || segundaFinal.value === null || segundaFinal.value === undefined || segundaFinal.value === "00:00:00"){  
+                                    }else if(segundaFinal.value === "" || segundaFinal.value === null || segundaFinal.value === undefined){  
                                         segundaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                        ValidaSegunda = "Pendente";
-                                    }
-                                    if(segundaInicio.value !== "" && segundaFinal.value !== "" && segundaInicio.value !== "00:00:00" && segundaFinal.value !== "00:00:00"){
+                                    }else if(segundaInicio.value !== "" && segundaFinal.value !== "" && segundaInicio.value !== null && segundaFinal.value !== null){
                                         segundaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                         segundaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                        ValidaSegunda = "Sim";
+                                        if(segundaInicio.value < segundaFinal.value){
+                                            ValidaSegunda = "Sim";
+                                        }
                                     }
                                 }
                                 if(terca.checked === true){
                                     ValidaTerca = "Pendente";
-                                    if(tercaInicio.value === "" || tercaInicio.value === null || tercaInicio.value === undefined || tercaInicio.value === "00:00:00"){
+                                    if(tercaInicio.value === "" || tercaInicio.value === null || tercaInicio.value === undefined){
                                         tercaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                        ValidaTerca = "Pendente";
-                                    }
-                                    if(tercaFinal.value === "" || tercaFinal.value === null || tercaFinal.value === undefined || tercaFinal.value === "00:00:00"){  
+                                    }else if(tercaFinal.value === "" || tercaFinal.value === null || tercaFinal.value === undefined){  
                                         tercaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                        ValidaTerca = "Pendente";
-                                    }
-                                    if(tercaInicio.value !== "" && tercaFinal.value !== "" && tercaInicio.value !== "00:00:00" && tercaFinal.value !== "00:00:00"){
+                                    }else if(tercaInicio.value !== "" && tercaFinal.value !== "" && tercaInicio.value !== null && tercaFinal.value !== null){
                                         tercaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                         tercaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                        ValidaTerca = "Sim";
+                                        if(tercaInicio.value < tercaFinal.value){
+                                            ValidaTerca = "Sim";
+                                        }
                                     }
                                 }
                                 if(quarta.checked === true){
                                     ValidaQuarta = "Pendente";
                                     if(quartaInicio.value === "" || quartaInicio.value === null || quartaInicio.value === undefined || quartaInicio.value === "00:00:00"){
                                         quartaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                        ValidaQuarta = "Pendente";
-                                    }
-                                    if(quartaFinal.value === "" || quartaFinal.value === null || quartaFinal.value === undefined || quartaFinal.value === "00:00:00"){  
+                                    }else if(quartaFinal.value === "" || quartaFinal.value === null || quartaFinal.value === undefined){  
                                         quartaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                        ValidaQuarta = "Pendente";
-                                    }
-                                    if(quartaInicio.value !== "" && quartaFinal.value !== "" && quartaInicio.value !== "00:00:00" && quartaFinal.value !== "00:00:00"){
+                                    }else if(quartaInicio.value !== "" && quartaFinal.value !== "" && quartaInicio.value !== null && quartaFinal.value !== null){
                                         quartaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                         quartaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                        ValidaQuarta= "Sim";
+                                        if(quartaInicio.value < quartaFinal.value){
+                                            ValidaQuarta = "Sim";
+                                        }
                                     }
                                 }
                                 
-                                if(quinta.checked === true){
+                                if(quinta.checked === true){ 
                                     ValidaQuinta = "Pendente";
                                     if(quintaInicio.value === "" || quintaInicio.value === null || quintaInicio.value === undefined || quintaInicio.value === "00:00:00"){
                                         quintaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                        ValidaQuinta = "Pendente";
-                                    }
-                                    if(quintaFinal.value === "" || quintaFinal.value === null || quintaFinal.value === undefined || quintaFinal.value === "00:00:00"){  
+                                    }else if(quintaFinal.value === "" || quintaFinal.value === null || quintaFinal.value === undefined){  
                                         quintaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                        ValidaQuinta = "Pendente";
-                                    }
-                                    if(quintaInicio.value !== "" && quintaFinal.value !== "" && quintaInicio.value !== "00:00:00" &&  quintaFinal.value !== "00:00:00"){
+                                    }else if(quintaInicio.value !== "" && quintaFinal.value !== "" && quintaInicio.value !== null && quintaFinal.value !== null){
                                         quintaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                         quintaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                        ValidaQuinta = "Sim";
+                                        if(quintaInicio.value < quintaFinal.value){
+                                            ValidaQuinta = "Sim";
+                                        }
                                     }
                                 }
+    
                                 if(sexta.checked === true){
                                     ValidaSexta = "Pendente";
                                     if(sextaInicio.value === "" || sextaInicio.value === null || sextaInicio.value === undefined || sextaInicio.value === "00:00:00"){
                                         sextaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
                                         ValidaSexta = "Pendente";
-                                    }
-                                    if(sextaFinal.value === "" || sextaFinal.value === null || sextaFinal.value === undefined || sextaFinal.value === "00:00:00"){  
+                                    }else if(sextaFinal.value === "" || sextaFinal.value === null || sextaFinal.value === undefined){  
                                         sextaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                        ValidaSexta = "Pendente";
-                                    }
-                                    if(sextaInicio.value !== "" && sextaFinal.value !== "" && sextaInicio.value !== "00:00:00" && sextaFinal.value !== "00:00:00"){
+                                    }else if(sextaInicio.value !== "" && sextaFinal.value !== "" && sextaInicio.value !== null && sextaFinal.value !== null){
                                         sextaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                         sextaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                        ValidaSexta = "Sim";
+                                        if(sextaInicio.value < sextaFinal.value){
+                                            ValidaSexta = "Sim";
+                                        }
                                     }
                                 }
-
+    
                                 if(sabado.checked === true){
                                     ValidaSabado = "Pendente";
                                     if(sabadoInicio.value === "" || sabadoInicio.value === null || sabadoInicio.value === undefined || sabadoInicio.value === "00:00:00"){
                                         sabadoInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                        ValidaSabado = "Pendente";
-                                    }
-                                    if(sabadoFinal.value === "" || sabadoFinal.value === null || sabadoFinal.value === undefined || sabadoFinal.value === "00:00:00"){  
+                                    }else if(sabadoFinal.value === "" || sabadoFinal.value === null || sabadoFinal.value === undefined){  
                                         sabadoFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                        ValidaSabado = "Pendente";
-                                    }
-                                    if(sabadoInicio.value !== "" && sabadoFinal.value !== "" && sabadoInicio.value !== "00:00:00" && sabadoFinal.value !== "00:00:00"){
+                                    }else if(sabadoInicio.value !== "" && sabadoFinal.value !== "" && sabadoInicio.value !== null && sabadoFinal.value !== null){
                                         sabadoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                         sabadoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                        ValidaSabado = "Sim";
+                                        if(sabadoInicio.value < sabadoFinal.value){
+                                            ValidaSabado = "Sim";
+                                        }
                                     }
                                 }
+    
                                 if(domingo.checked === true){
                                     ValidaDomingo = "Pendente";
                                     if(domingoInicio.value === "" || domingoInicio.value === null || domingoInicio.value === undefined || domingoInicio.value === "00:00:00"){
                                         domingoInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                        ValidaDomingo = "Pendente";
-                                    }
-                                    if(domingoFinal.value === "" || domingoFinal.value === null || domingoFinal.value === undefined || domingoFinal.value === "00:00:00"){  
+                                    }else if(domingoFinal.value === "" || domingoFinal.value === null || domingoFinal.value === undefined){  
                                         domingoFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                        ValidaDomingo = "Pendente";
-                                    }
-                                    if(domingoInicio.value !== "" && domingoFinal.value !== "" && domingoInicio.value !== "00:00:00" && domingoFinal.value !== "00:00:00"){
+                                    }else if(domingoInicio.value !== "" && domingoFinal.value !== "" && domingoInicio.value !== null && domingoFinal.value !== null){
                                         domingoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                         domingoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                        ValidaDomingo = "Sim";
+                                        if(domingoInicio.value < domingoFinal.value){
+                                            ValidaDomingo = "Sim";
+                                        }
                                     }
                                 }
                                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
                             
                                 if(ValidaSegunda === "Não" && ValidaTerca ==="Não" && ValidaQuarta ==="Não" && ValidaQuinta === "Não" && ValidaSexta === "Não" && ValidaSabado === "Não" && ValidaDomingo === "Não" ) {
                                     erro.innerHTML = "Escolha pelo menos um dia para o horário";
+                                    button.innerText="Próximo";
+                                    button.removeAttribute("disabled");
                                 }else{
                                     if(ValidaSegunda === "Pendente" || ValidaTerca ==="Pendente" || ValidaQuarta ==="Pendente" || ValidaQuinta === "Pendente" || ValidaSexta === "Pendente" || ValidaSabado === "Pendente" || ValidaDomingo === "Pendente" ) {
                                         erro.innerHTML = "Verefique os dados dos horarios";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
                                     }
                                     else{
+
+                                        button.innerText="Aguardando";
+                                        button.setAttribute("disabled","disabled");
+                                        
                                         let response="";
                                         try {
                                             response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadTercPrest',{NomeFantsPrest:NomeFantasia,PetShopPrest:ButtonPetShop,ClinicaPrest:ButtonClinica,PasseadorPrest:ButtonPasseador,HotelPrest:ButtonHotel,CepPrest:cep,NumPrest:numero,descricaoPrest:desc,latitude:Latitude,longitude:Longitude,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value});
                                         } catch (error) {
                                             console.log(error);               
                                         }
-
-                                        console.log(response);
                                         
                                         if(response){
                                             if(response.data.message){
@@ -276,11 +281,15 @@ export default function CadastroTerceiro(){
                                             if(response.data.error){
                                                 if(response.data.error === "error sql"){
                                                     erro.innerHTML = "Tente Novamente";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
                                                 }else if(response.data.error === "falha na autenticação do token"){
                                                     erro.value = "Tente Novamente";
                                                     setTimeout(() => {window.location.href="/"}, 2000);
                                                 }else{
                                                     erro.innerHTML = "Tente Novamente";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
                                                 }
                                             }
                                         }
@@ -291,6 +300,8 @@ export default function CadastroTerceiro(){
                     }
                     else{
                         erro.innerHTML = "Preencha o CEP corretamente";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
                 }
             }
@@ -578,7 +589,7 @@ export default function CadastroTerceiro(){
                                 <div className="form-group">
                                     <img alt="" src={gatinho} style={{width:'30px'}}></img> 
                                     <a style={{marginLeft:'5px',color:'#000000'}}>Descreve sua empresa em 3 (três) linhas</a>
-                                    <textarea class="form-control" rows="2" id="desc" placeholder="Descrição"></textarea>
+                                    <textarea class="form-control" rows="2" id="desc" placeholder="Descrição" style={{color:'#009fe3',marginTop:'1%'}}></textarea>
                                 </div>
                             </div>
                         </div>
@@ -706,7 +717,7 @@ export default function CadastroTerceiro(){
                                 </div>
                             </div>
                         </div>
-                        <br/>
+
                         <div className="row" style={{display:'none'}} id="DivEstado">
                         <br/>
                             <div className="col-md-12">
@@ -764,7 +775,7 @@ export default function CadastroTerceiro(){
                             <div className="col-md-12">
                                 <div className="form-group">
                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo}>Proximo</button>
+                                <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} id="buttonProximo">Proximo</button>
                                 </div>
                             </div>
                         </div>

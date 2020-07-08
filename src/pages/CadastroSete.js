@@ -66,6 +66,11 @@ export default function CadastroSete(){
         var sextaFinal = document.getElementById("sextaFinal");
         var sabadoFinal = document.getElementById("sabadoFinal");
         var domingoFinal = document.getElementById("domingoFinal");
+
+        var button = document.getElementById("buttonProximo");
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
         
 
         if(segunda.checked === false){
@@ -111,110 +116,109 @@ export default function CadastroSete(){
             domingoFinal.value = "00:00:00";
         }
         if (nome === "" || nome === null || nome === undefined) {
-    
             erro.innerHTML = "Preencha o campo Nome";
+            button.innerText="Próximo";
+            button.removeAttribute("disabled");
         }
         else{
             if (cpf === "" || cpf === null || cpf === undefined) {
-    
                 erro.innerHTML = "Preencha o campo CPF";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             if (num === "" || num === null || num === undefined) {
-    
                 erro.innerHTML = "Preencha o campo Número";
+                button.innerText="Próximo";
+                button.removeAttribute("disabled");
             }
             else{
                 if(validarCPF(cpf)){
 
                     if (email === "" || email === null || email === undefined ) {
                         erro.innerHTML = "Preencha seu email";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
                     }
                     else{
                         if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
                             erro.innerHTML = "Email inválido";
+                            button.innerText="Próximo";
+                            button.removeAttribute("disabled");
                         }
                         else{
                             erro.innerHTML = "";
                             
                             if(segunda.checked === true){
                                 ValidaSegunda = "Pendente";                                
-                                if(segundaInicio.value === "" || segundaInicio.value === null || segundaInicio.value === undefined || segundaInicio.value === "00:00:00"){
+                                if(segundaInicio.value === "" || segundaInicio.value === null || segundaInicio.value === undefined){
                                     segundaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaSegunda = "Pendente";
-                                }
-                                if(segundaFinal.value === "" || segundaFinal.value === null || segundaFinal.value === undefined || segundaFinal.value === "00:00:00"){  
+                                }else if(segundaFinal.value === "" || segundaFinal.value === null || segundaFinal.value === undefined){  
                                     segundaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaSegunda = "Pendente";
-                                }
-                                if(segundaInicio.value !== "" && segundaFinal.value !== "" && segundaInicio.value !== "00:00:00" && segundaFinal.value !== "00:00:00"){
+                                }else if(segundaInicio.value !== "" && segundaFinal.value !== "" && segundaInicio.value !== null && segundaFinal.value !== null){
                                     segundaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     segundaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaSegunda = "Sim";
+                                    if(segundaInicio.value < segundaFinal.value){
+                                        ValidaSegunda = "Sim";
+                                    }
                                 }
                             }
                             if(terca.checked === true){
                                 ValidaTerca = "Pendente";
-                                if(tercaInicio.value === "" || tercaInicio.value === null || tercaInicio.value === undefined || tercaInicio.value === "00:00:00"){
+                                if(tercaInicio.value === "" || tercaInicio.value === null || tercaInicio.value === undefined){
                                     tercaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaTerca = "Pendente";
-                                }
-                                if(tercaFinal.value === "" || tercaFinal.value === null || tercaFinal.value === undefined || tercaFinal.value === "00:00:00"){  
+                                }else if(tercaFinal.value === "" || tercaFinal.value === null || tercaFinal.value === undefined){  
                                     tercaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaTerca = "Pendente";
-                                }
-                                if(tercaInicio.value !== "" && tercaFinal.value !== "" && tercaInicio.value !== "00:00:00" && tercaFinal.value !== "00:00:00"){
+                                }else if(tercaInicio.value !== "" && tercaFinal.value !== "" && tercaInicio.value !== null && tercaFinal.value !== null){
                                     tercaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     tercaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaTerca = "Sim";
+                                    if(tercaInicio.value < tercaFinal.value){
+                                        ValidaTerca = "Sim";
+                                    }
                                 }
                             }
                             if(quarta.checked === true){
                                 ValidaQuarta = "Pendente";
                                 if(quartaInicio.value === "" || quartaInicio.value === null || quartaInicio.value === undefined || quartaInicio.value === "00:00:00"){
                                     quartaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaQuarta = "Pendente";
-                                }
-                                if(quartaFinal.value === "" || quartaFinal.value === null || quartaFinal.value === undefined || quartaFinal.value === "00:00:00"){  
+                                }else if(quartaFinal.value === "" || quartaFinal.value === null || quartaFinal.value === undefined){  
                                     quartaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaQuarta = "Pendente";
-                                }
-                                if(quartaInicio.value !== "" && quartaFinal.value !== "" && quartaInicio.value !== "00:00:00" && quartaFinal.value !== "00:00:00"){
+                                }else if(quartaInicio.value !== "" && quartaFinal.value !== "" && quartaInicio.value !== null && quartaFinal.value !== null){
                                     quartaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     quartaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaQuarta= "Sim";
+                                    if(quartaInicio.value < quartaFinal.value){
+                                        ValidaQuarta = "Sim";
+                                    }
                                 }
                             }
                             
-                            if(quinta.checked === true){
+                            if(quinta.checked === true){ 
                                 ValidaQuinta = "Pendente";
                                 if(quintaInicio.value === "" || quintaInicio.value === null || quintaInicio.value === undefined || quintaInicio.value === "00:00:00"){
                                     quintaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaQuinta = "Pendente";
-                                }
-                                if(quintaFinal.value === "" || quintaFinal.value === null || quintaFinal.value === undefined || quintaFinal.value === "00:00:00"){  
+                                }else if(quintaFinal.value === "" || quintaFinal.value === null || quintaFinal.value === undefined){  
                                     quintaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaQuinta = "Pendente";
-                                }
-                                if(quintaInicio.value !== "" && quintaFinal.value !== "" && quintaInicio.value !== "00:00:00" &&  quintaFinal.value !== "00:00:00"){
+                                }else if(quintaInicio.value !== "" && quintaFinal.value !== "" && quintaInicio.value !== null && quintaFinal.value !== null){
                                     quintaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     quintaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaQuinta = "Sim";
+                                    if(quintaInicio.value < quintaFinal.value){
+                                        ValidaQuinta = "Sim";
+                                    }
                                 }
                             }
+
                             if(sexta.checked === true){
                                 ValidaSexta = "Pendente";
                                 if(sextaInicio.value === "" || sextaInicio.value === null || sextaInicio.value === undefined || sextaInicio.value === "00:00:00"){
                                     sextaInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
                                     ValidaSexta = "Pendente";
-                                }
-                                if(sextaFinal.value === "" || sextaFinal.value === null || sextaFinal.value === undefined || sextaFinal.value === "00:00:00"){  
+                                }else if(sextaFinal.value === "" || sextaFinal.value === null || sextaFinal.value === undefined){  
                                     sextaFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaSexta = "Pendente";
-                                }
-                                if(sextaInicio.value !== "" && sextaFinal.value !== "" && sextaInicio.value !== "00:00:00" && sextaFinal.value !== "00:00:00"){
+                                }else if(sextaInicio.value !== "" && sextaFinal.value !== "" && sextaInicio.value !== null && sextaFinal.value !== null){
                                     sextaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     sextaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaSexta = "Sim";
+                                    if(sextaInicio.value < sextaFinal.value){
+                                        ValidaSexta = "Sim";
+                                    }
                                 }
                             }
 
@@ -222,43 +226,42 @@ export default function CadastroSete(){
                                 ValidaSabado = "Pendente";
                                 if(sabadoInicio.value === "" || sabadoInicio.value === null || sabadoInicio.value === undefined || sabadoInicio.value === "00:00:00"){
                                     sabadoInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaSabado = "Pendente";
-                                }
-                                if(sabadoFinal.value === "" || sabadoFinal.value === null || sabadoFinal.value === undefined || sabadoFinal.value === "00:00:00"){  
+                                }else if(sabadoFinal.value === "" || sabadoFinal.value === null || sabadoFinal.value === undefined){  
                                     sabadoFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaSabado = "Pendente";
-                                }
-                                if(sabadoInicio.value !== "" && sabadoFinal.value !== "" && sabadoInicio.value !== "00:00:00" && sabadoFinal.value !== "00:00:00"){
+                                }else if(sabadoInicio.value !== "" && sabadoFinal.value !== "" && sabadoInicio.value !== null && sabadoFinal.value !== null){
                                     sabadoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     sabadoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaSabado = "Sim";
+                                    if(sabadoInicio.value < sabadoFinal.value){
+                                        ValidaSabado = "Sim";
+                                    }
                                 }
                             }
+
                             if(domingo.checked === true){
                                 ValidaDomingo = "Pendente";
                                 if(domingoInicio.value === "" || domingoInicio.value === null || domingoInicio.value === undefined || domingoInicio.value === "00:00:00"){
                                     domingoInicio.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                 
-                                    ValidaDomingo = "Pendente";
-                                }
-                                if(domingoFinal.value === "" || domingoFinal.value === null || domingoFinal.value === undefined || domingoFinal.value === "00:00:00"){  
+                                }else if(domingoFinal.value === "" || domingoFinal.value === null || domingoFinal.value === undefined){  
                                     domingoFinal.style.backgroundImage="linear-gradient(to top, #e30000  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #e30000 1px, rgba(210, 210, 210, 0) 1px)";                       
-                                    ValidaDomingo = "Pendente";
-                                }
-                                if(domingoInicio.value !== "" && domingoFinal.value !== "" && domingoInicio.value !== "00:00:00" && domingoFinal.value !== "00:00:00"){
+                                }else if(domingoInicio.value !== "" && domingoFinal.value !== "" && domingoInicio.value !== null && domingoFinal.value !== null){
                                     domingoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     domingoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                                    ValidaDomingo = "Sim";
+                                    if(domingoInicio.value < domingoFinal.value){
+                                        ValidaDomingo = "Sim";
+                                    }
                                 }
                             }
                             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
                            
                             if(ValidaSegunda === "Não" && ValidaTerca ==="Não" && ValidaQuarta ==="Não" && ValidaQuinta === "Não" && ValidaSexta === "Não" && ValidaSabado === "Não" && ValidaDomingo === "Não" ) {
                                 erro.innerHTML = "Escolha pelo menos um dia para o horário";
-                                console.log("ooi")
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
                             }else{
                                 if(ValidaSegunda === "Pendente" || ValidaTerca ==="Pendente" || ValidaQuarta ==="Pendente" || ValidaQuinta === "Pendente" || ValidaSexta === "Pendente" || ValidaSabado === "Pendente" || ValidaDomingo === "Pendente" ) {
                                     erro.innerHTML = "Verefique os dados dos horarios";
-                                
+                                    button.innerText="Próximo";
+                                    button.removeAttribute("disabled");
                                 }
                                 else{
                                     // var AcessoRep ="0";
@@ -312,16 +315,23 @@ export default function CadastroSete(){
 
                                             if(VetSim === "Não" && VetNao === "Não"){
                                                 erro.innerHTML = "Responda se você é veterinario";
+                                                button.innerText="Próximo";
+                                                button.removeAttribute("disabled");
                                             }
                                             else{
                                                 if(VetSim === "Sim"){  
                                                     if (CRMV === "" || CRMV === null || CRMV === undefined ) {
                                                         erro.innerHTML = "Preencha seu CRMV";
+                                                        button.innerText="Próximo";
+                                                        button.removeAttribute("disabled");
                                                     }else{
                                                         if (date === "" || date === null || date === undefined ) {
                                                             erro.innerHTML = "Preencha a date";
+                                                            button.innerText="Próximo";
+                                                            button.removeAttribute("disabled");
                                                         }else{
                                                             VetSim = "Pedente";
+
                                                             vet = "Sim";
                                                         }
                                                     }
@@ -332,6 +342,9 @@ export default function CadastroSete(){
                                                 }
             
                                                 if(VetSim === "Pedente" || VetNao === "Pedente"){
+                                                    button.innerText="Aguardando";
+                                                    button.setAttribute("disabled","disabled");
+
                                                     erro.innerHTML = "";
                                                     let response="";
                                                     try {
@@ -339,34 +352,44 @@ export default function CadastroSete(){
                                                         // AcessoFunc: AcessoTotal,
                                                     } catch (error) {
                                                         console.log(error);               
-                                                    }   
-
-                                                    console.log(response);
+                                                    } 
                                                     
                                                     if(response){
                                                         if(response.data.message){
                                                             if(response.data.message === "Ja existe Email"){
                                                                 erro.innerText = "Email existente";
+                                                                button.innerText="Próximo";
+                                                                button.removeAttribute("disabled");
                                                             }else if(response.data.message === "Ja existe CPF"){
                                                                     erro.innerText = "CPF existente";
+                                                                    button.innerText="Próximo";
+                                                                    button.removeAttribute("disabled");
                                                                 }else if(response.data.message === "Cadastrado"){
                                                                         erro.innerText = "Agora é só logar com a senha que foi enviada pelo email cadastrado !!";
                                                                         setTimeout(() => {window.location.href="/CadastroConcluido"}, 2000);
                                                                     }else if(response.data.message === "Ja existe CRMV"){
                                                                             erro.innerText = "CRMV existente";
+                                                                            button.innerText="Próximo";
+                                                                            button.removeAttribute("disabled");
                                                                         }
                                                         }
                                                         
                                                         if(response.data.error){
                                                             if(response.data.error === "error"){
                                                                 erro.innerText = "Não foi possivel enviar a senha pelo email cadastrado";
+                                                                button.innerText="Próximo";
+                                                                button.removeAttribute("disabled");
                                                             }else if(response.data.error === "falha na autenticação do token"){
                                                                 erro.innerText = "Tente Novamente";
                                                                 setTimeout(() => {window.location.href="/"}, 2000);
                                                             }else if(response.data.error === "error sql"){
                                                                 erro.innerText = "Tente Novamente";
+                                                                button.innerText="Próximo";
+                                                                button.removeAttribute("disabled");
                                                             }else{
                                                                 erro.innerText = "Tente Novamente";
+                                                                button.innerText="Próximo";
+                                                                button.removeAttribute("disabled");
                                                             }
                                                         }
                                                     }
@@ -673,7 +696,7 @@ export default function CadastroSete(){
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Agora vamos cadastrar um funcionario do estabelecimento!! (Lembrando que o responsavel não acessa a plataforma)</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Agora vamos cadastrar um funcionario do estabelecimento!!</a>
                                         <input type="text" class="form-control" placeholder="Nome" id="nome" style={{color:'#009fe3',marginTop:'1%'}}/>
                                     </div>
                                 </div>
@@ -886,7 +909,7 @@ export default function CadastroSete(){
                                 <div class="col-md-12">
                                     <div class="form-group">
                                     <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                    <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo}>Proximo</button>
+                                    <button type="submit" className=" btn btn-primary btnEditShop" id="buttonProximo" onClick={Proximo}>Proximo</button>
                                     </div>
                                 </div>
                             </div>

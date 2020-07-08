@@ -80,7 +80,7 @@ export default function Funcionarios(){
                         var pFunc = document.createElement("p");
                         var div4 = document.createElement("div");
                         var div5 = document.createElement("div");
-                        var buttonExluir   = document.createElement("button");
+                       
                         var buttonEditar  = document.createElement("button");
         
                         tr.style.width="100%";
@@ -101,24 +101,31 @@ export default function Funcionarios(){
                         div5.style.textAlign="right";
                         div5.style.paddingRight="5%";
         
-                        buttonExluir.setAttribute("id", i.toString() );
-                        buttonExluir.onclick = function() { Excluir(Funcionario[i].idFunc) };
-                        buttonExluir.className="btn btn-primary btnExcFunc";
-                        buttonExluir.innerHTML="Excluir";
-                        buttonExluir.setAttribute("type","submit");
-        
                         buttonEditar.setAttribute("id", i.toString() );
                         buttonEditar.onclick = function() { Editar(Funcionario[i].idFunc) };
                         buttonEditar.className="btn btn-primary btnEditFunc";
                         buttonEditar.innerHTML="Editar";
                         buttonEditar.setAttribute("type","submit");
+
+                        
+
+                        if(Funcionario[i].TipoFunc=== "Funcionário"){
+                            var buttonExluir   = document.createElement("button");
+                            buttonExluir.setAttribute("id", "idExcluir"+ Funcionario[i].idFunc) ;
+                            buttonExluir.onclick = function() { Excluir(Funcionario[i].idFunc) };
+                            buttonExluir.className="btn btn-primary btnExcFunc";
+                            buttonExluir.innerHTML="Excluir";
+                            buttonExluir.setAttribute("type","submit");
+                            div5.appendChild(buttonExluir);  
+                        }
+        
+                       
                        
                         div2.appendChild(pNome);
                         div2.appendChild(br); 
                         div2.appendChild(pDesc);
                         div3.appendChild(pFunc);
-                        div5.appendChild(buttonEditar);
-                        div5.appendChild(buttonExluir);                
+                        div5.appendChild(buttonEditar);                                      
                         div4.appendChild(div5);
                         div.appendChild(div2);
                         div.appendChild(div3);
@@ -150,32 +157,42 @@ export default function Funcionarios(){
         var Nome = document.getElementById("Email");
         let response="";
 
+        var button = document.getElementById("idExcluir"+c)
+
+        button.innerText="Aguardando";
+        button.setAttribute("disabled","disabled");
+
         try {
             response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/ExcluirFunc', {idFunc:c});
         } catch (error) {
             console.log(error);               
-        } 
-
-        console.log(response)
+        }
 
         if(response.data.message){
-            if(response.data.message === "deletou")
-            {
+            if(response.data.message === "deletou"){
                 window.location.href="/Funcionarios"
-            }
-            else{
+            }else if(response.data.message === "Nao pode"){
+                Nome.value = "Impossivel excluir";
+                button.innerText="Excluir";
+                button.removeAttribute("disabled");
+            }else{
                 Nome.value = "Tente Novamente";
+                button.innerText="Excluir";
+                button.removeAttribute("disabled");
             }
         }
         if(response.data.error){
             if(response.data.error === "error sql" ){
                 Nome.value = "Tente Novamente";
-            }
-            if(response.data.error === "falha na autenticação do token"){
+                button.innerText="Excluir";
+                button.removeAttribute("disabled");
+            }else if(response.data.error === "falha na autenticação do token"){
                 Nome.innerText = "Tente Novamente";
                 setTimeout(() => {window.location.href="/"}, 1000);
             }else{
                 Nome.value = "Tente Novamente";
+                button.innerText="Excluir";
+                button.removeAttribute("disabled");
             }    
         }
 
@@ -189,11 +206,9 @@ export default function Funcionarios(){
 
     async function Filtro(){
         var Nome = document.getElementById("Email");
-        var ButtonFiltro = document.getElementById("ButtonFiltro");
+        // var ButtonFiltro = document.getElementById("ButtonFiltro");
         
-
         if (Nome.value === "" || Nome.value === null || Nome.value === undefined) {
-
             Nome.value = "Preencha o campo Email";
             Nome.style.color="red";
         }
