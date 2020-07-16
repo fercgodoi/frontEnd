@@ -8,13 +8,13 @@ import gatinho from "../img/Icon/gatinho.png";
 import api from "../services/api2";
 
 export default function CadastroSete(){
-    // function Validar(){
-    //     var validar  = localStorage.getItem('token');
-    //     if (validar === "" || validar === null || validar === undefined) {    
-    //         setTimeout(() => {window.location.href="/"});
-    //     }
-    // }
-    // Validar();
+    function Validar(){
+        var validar  = localStorage.getItem('token');
+        if (validar === "" || validar === null || validar === undefined) {    
+            setTimeout(() => {window.location.href="/"});
+        }
+    }
+    Validar();
     
     // var recepcao = "Não";
     // var Admin ="Não";
