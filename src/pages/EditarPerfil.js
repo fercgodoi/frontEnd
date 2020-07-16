@@ -1469,37 +1469,38 @@ export default function EditarPerfil(){
                             <span className="navbar-toggler-icon icon-bar"></span>
                         </button>
                       <div className="collapse navbar-collapse justify-content-end">
-                             {/*  <ul className="navbar-nav">
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i className="material-icons">notifications</i>
-                                        <span className="notification">5</span>
-                                        <p className="d-lg-none d-md-block">
-                                        className Actions
-                                        </p>
-                                    </a>
-                                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a className="dropdown-item" href="#">Mike John responded to your email</a>
-                                        <a className="dropdown-item" href="#">You have 5 new tasks</a>
-                                        <a className="dropdown-item" href="#">You're now friend with Andrew</a>
-                                        <a className="dropdown-item" href="#">Another Notification</a>
-                                        <a className="dropdown-item" href="#">Another One</a>
-                                    </div>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#pablo">
-                                        <i className="material-icons">help_outline</i>
-                                        <p className="d-lg-none d-md-block">
-                                            Stats
-                                        </p>
-                                    </a>
-                                </li>                                
-                                <li className="nav-item dropdown">
-                                    <a >
-                                        <img src={rodape}  alt=""class="iconLogo" align="right" />      
-                                    </a>                                    
-                                </li>
-                            </ul>*/}
+                            <ul class="navbar-nav">
+                    {/* <li class="nav-item dropdown">
+                        <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">notifications</i>
+                        <span class="notification">5</span>
+                        <p class="d-lg-none d-md-block">
+                            Some Actions
+                        </p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                        <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                        <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                        <a class="dropdown-item" href="#">Another Notification</a>
+                        <a class="dropdown-item" href="#">Another One</a>
+                        </div>
+                    </li> */}
+                    <li class="nav-item">
+                        <a class="nav-link" onClick={Edit}>
+                        <i class="material-icons">help_outline</i>
+                        <p class="d-lg-none d-md-block">
+                            Stats
+                        </p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item dropdown" >
+                        <a onClick={Login}>
+                            <img src={rodape} class="iconLogo" align="right" alt="" />      
+                        </a>
+                    </li>
+                    </ul>   
                         </div> 
                     </div>
                 </nav>

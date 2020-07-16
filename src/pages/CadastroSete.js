@@ -8,13 +8,13 @@ import gatinho from "../img/Icon/gatinho.png";
 import api from "../services/api2";
 
 export default function CadastroSete(){
-    // function Validar(){
-    //     var validar  = localStorage.getItem('token');
-    //     if (validar === "" || validar === null || validar === undefined) {    
-    //         setTimeout(() => {window.location.href="/"});
-    //     }
-    // }
-    // Validar();
+    function Validar(){
+        var validar  = localStorage.getItem('token');
+        if (validar === "" || validar === null || validar === undefined) {    
+            setTimeout(() => {window.location.href="/"});
+        }
+    }
+    Validar();
     
     // var recepcao = "Não";
     // var Admin ="Não";
@@ -25,7 +25,8 @@ export default function CadastroSete(){
     var VetNao = "Não";
     var ButtonSim ="Não";
     var ButtonNao ="Não";
-    var tipo = "Pendente";
+    var tipo = "";
+    var ButtonValor = "";
     
     async function Proximo(){
         var nome = document.getElementById("nome").value;
@@ -94,40 +95,16 @@ export default function CadastroSete(){
             }
             else{
                 if(validarCPF(cpf)){
-                    console.log(tipo)
-                    if(tipo === "Pendente"){
-                        erro.innerHTML = "Escolha se vai querer usar o mesmo email";
-                        button.innerText="Próximo";
-                        button.removeAttribute("disabled");
-                    }
-                   
-                    
-                    // else{
-                    // console.log(tipo)
-                    // if(tipo !== null || tipo === null){
-                    //     console.log("entrou")
-                    //     if(tipo !== null){
-                           
-                    //         if(tipo === "Nao"){
-                    //         }   
-                    //     }else{
-                    //         erro.innerHTML = "Escolha se vai querer usar o mesmo email";
-                    //         button.innerText="Próximo";
-                    //         button.removeAttribute("disabled");
-                    //     }
-                    // }
-                    else{
-                        var tipoValor ="";
+                    if(ButtonNao !== "Não" || ButtonNao !== "Não" ){
+                        if(ButtonNao === "Sim"){
+                            if(email === "" || email === null){
+                                tipo="Pendente";
+                            }else{
+                                tipo="Concluido";
+                            }
 
-                        if(tipo === "Nao" ){ 
-                            tipoValor ="Pendente";
-                        } 
-                        
-                        
-                        // else{
-                            // erro.innerHTML = "";
-                            console.log("ooi");
-                            console.log(tipoValor);
+
+                            erro.innerHTML = "";
                             if(segunda.checked === true){
                                 ValidaSegunda = "Pendente";                                
                                 if(segundaInicio.value === "" || segundaInicio.value === null || segundaInicio.value === undefined){
@@ -237,37 +214,110 @@ export default function CadastroSete(){
                                 erro.innerHTML = "Escolha pelo menos um dia para o horário";
                                 button.innerText="Próximo";
                                 button.removeAttribute("disabled");
-                            }else{
-                                if(ValidaSegunda === "Pendente" || ValidaTerca ==="Pendente" || ValidaQuarta ==="Pendente" || ValidaQuinta === "Pendente" || ValidaSexta === "Pendente" || ValidaSabado === "Pendente" || ValidaDomingo === "Pendente" ) {
-                                    erro.innerHTML = "Verefique os dados dos horarios";
-                                    button.innerText="Próximo";
-                                    button.removeAttribute("disabled");
-                                }
-                                else{
-                                    if(tipoValor === "Pendente"){
-                                        if (email === "" || email === null || email === undefined || email.indexOf("@") === -1 || email.indexOf(".") === -1 ) {
-                                            erro.innerHTML = "Preencha seu email corretamente";
+                            }else if(ValidaSegunda === "Pendente" || ValidaTerca ==="Pendente" || ValidaQuarta ==="Pendente" || ValidaQuinta === "Pendente" || ValidaSexta === "Pendente" || ValidaSabado === "Pendente" || ValidaDomingo === "Pendente" ) {
+                                erro.innerHTML = "Verefique os dados dos horarios";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
+                            }else if(VetSim === "Não" && VetNao === "Não"){
+                                erro.innerHTML = "Responda se você é veterinario";
+                                button.innerText="Próximo";
+                                button.removeAttribute("disabled");
+                            }
+                            else{
+                                if(VetSim === "Sim"){  
+                                    if (CRMV === "" || CRMV === null || CRMV === undefined ) {
+                                        erro.innerHTML = "Preencha seu CRMV";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
+                                    }else{
+                                        if (date === "" || date === null || date === undefined ) {
+                                            erro.innerHTML = "Preencha a date";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
-                                        } 
-                                        // if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
-                                        //     erro.innerHTML = "Email inválido";
-                                        //     button.innerText="Próximo";
-                                        //     button.removeAttribute("disabled");
-                                        // }
-                                        // tipoValor="Concluido";
-                                        
-                                    }else{
+                                        }else{
+                                            VetSim = "Pedente";
 
-                                        tipoValor="Concluido";
-                                            console.log("parou")
-                                        
-                                                   
-                                    
+                                            vet = "Sim";
+                                        }
                                     }
                                 }
-                            }
-                        }  
+                                if(VetNao === "Sim"){
+                                    VetNao = "Pedente";
+                                    vet = "Não";
+                                }
+
+                                if(VetSim === "Pedente" || VetNao === "Pedente"){
+                                    button.innerText="Aguardando";
+                                    button.setAttribute("disabled","disabled");
+
+                                    if(tipo === "Pendente"){
+                                        erro.innerHTML = "Preencha corretamente o campo do Email";
+                                        button.innerText="Próximo";
+                                        button.removeAttribute("disabled");
+                                    }else{
+                                        erro.innerHTML = "";
+                                        let response="";
+                                        try {
+                                            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadSetePrest', {NomeFunc: nome,EmailFunc: email,CpfFunc: cpf ,RecepFunc: "Não",VetFunc: "Não",AdminFunc: "Sim"  ,FinanFunc: "Não" ,CelFunc:num, CRMVFunc: CRMV,DateEmiFunc:date,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value,ButtonValor:ButtonValor});
+                                        } catch (error) {
+                                            console.log(error);               
+                                        } 
+                                        
+                                        if(response){
+                                            if(response.data.message){
+                                                if(response.data.message === "Ja existe Email"){
+                                                    erro.innerText = "Email existente";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
+                                                }else if(response.data.message === "Ja existe CPF"){
+                                                        erro.innerText = "CPF existente";
+                                                        button.innerText="Próximo";
+                                                        button.removeAttribute("disabled");
+                                                    }else if(response.data.message === "Cadastrado"){
+                                                            erro.style.color = "#09ff00";     
+                                                            erro.style.fontWeight= "700";     
+                                                            erro.innerText = "Agora é só logar com a senha que foi enviada pelo email cadastrado !!";
+                                                            setTimeout(() => {window.location.href="/CadastroConcluido"}, 2000);
+                                                        }else if(response.data.message === "Ja existe CRMV"){
+                                                                erro.innerText = "CRMV existente";
+                                                                button.innerText="Próximo";
+                                                                button.removeAttribute("disabled");
+                                                            }else if(response.data.message === "Ja existe Numero"){
+                                                        erro.innerHTML = "Este Número já existe";
+                                                        button.innerText="Próximo";
+                                                        button.removeAttribute("disabled");
+                                                }
+                                            }
+                                            
+                                            if(response.data.error){
+                                                if(response.data.error === "error"){
+                                                    erro.innerText = "Não foi possivel enviar a senha pelo email cadastrado";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
+                                                }else if(response.data.error === "falha na autenticação do token"){
+                                                    erro.innerText = "Tente Novamente";
+                                                    setTimeout(() => {window.location.href="/"}, 2000);
+                                                }else if(response.data.error === "error sql"){
+                                                    erro.innerText = "Tente Novamente";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
+                                                }else{
+                                                    erro.innerText = "Tente Novamente";
+                                                    button.innerText="Próximo";
+                                                    button.removeAttribute("disabled");
+                                                }
+                                            }
+                                        }
+                                    }
+                                }   
+                            }           
+                       
+                    }
+                    }else{
+                        erro.innerHTML = "Escolha se vai querer usar o email";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
+                    }
                 }
                 else{
                     erro.innerHTML = "CPF Inválido";
@@ -558,18 +608,22 @@ export default function CadastroSete(){
         buttonNao.style.color="#009fe3";
         ButtonNao="Não";
 
+        var input = document.getElementById('email');
+
         var button = document.getElementById("Sim");
         if(ButtonSim ==="Sim"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
             ButtonSim="Não";
-            tipo="Nao";
+            ButtonValor="Nao";
+            input.removeAttribute('disabled');
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
             ButtonSim="Sim";
-            tipo="Sim";
+            ButtonValor="Sim";
+            input.setAttribute('disabled','disabled');
         }
     }
 
@@ -580,18 +634,22 @@ export default function CadastroSete(){
         buttonSim.style.color="#009fe3";
         buttonSim="Não";
 
+        var input = document.getElementById('email');
+
         var button = document.getElementById("Nao");
         if(ButtonNao ==="Sim"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
             ButtonNao="Não";
-            tipo="Nao";
+            ButtonValor="Nao";
+            input.setAttribute('disabled','disabled');
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
             ButtonNao="Sim";
-            tipo="Nao";
+            ButtonValor="Nao";
+            input.removeAttribute('disabled');
         }
     }
 
@@ -645,7 +703,7 @@ export default function CadastroSete(){
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Deseja usar o emial da primiera etapa do cadastro??</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Deseja usar o email da primeira etapa do cadastro??</a>
                                         <div className="row">
                                             <div className="col-md-6">  
                                                 <button type="submit" className="btnCadFunc" onClick={Sim} style={{marginTop:'2%'}} id="Sim">Sim</button>
