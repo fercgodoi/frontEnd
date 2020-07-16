@@ -645,7 +645,7 @@ export default function CadastroSete(){
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Deseja usar o emial da primiera etapa do cadastro??</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Deseja usar o email da primeira etapa do cadastro??</a>
                                         <div className="row">
                                             <div className="col-md-6">  
                                                 <button type="submit" className="btnCadFunc" onClick={Sim} style={{marginTop:'2%'}} id="Sim">Sim</button>
