@@ -47,7 +47,7 @@ export default function CadastroPrimeiro(){
                     var novoCNPJ = novo[0]+novo[1]+novo[3]+novo[4]+novo[5]+novo[7]+novo[8]+novo[9]+novo[11]+novo[12]+novo[13]+novo[14]+novo[16]+novo[17];
 
                     erro.innerHTML ="";
-                     if(validarCNPJ(novoCNPJ)){
+                    if(validarCNPJ(novoCNPJ)){
                         if (celular === "" || celular === null || celular === undefined ) {
                             erro.innerHTML = "Preencha seu celular";
                             button.innerText="Próximo";
@@ -84,6 +84,8 @@ export default function CadastroPrimeiro(){
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else if(response.data.message === "Enviado"){
+                                            erro.style.color = "#09ff00";     
+                                            erro.style.fontWeight= "700"; 
                                             localStorage.setItem('token', response.data.token);
                                             erro.innerHTML = "Foi enviado um código por email para que digite na tela que será direcionado";
                                             setTimeout(() => {window.location.href="/CadastroSegundo"}, 2000);                                                                               
@@ -228,69 +230,66 @@ export default function CadastroPrimeiro(){
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
-
-                    <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
-                        <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 1</h4>
-                    </div>
-                    <div className="card-body">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Oi, eu sou o Jhon! Vou te ajudar no passo a passo do cadastro na Plataforma Agenda Animal.</a>
-                                    <br/>
-                                    <a style={{marginLeft:'35px',color:'#000000'}}>Qual é o e-mail da sua empresa?</a>
+                        <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
+                            <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 1</h4>
+                        </div>
+                        <div className="card-body">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Oi, eu sou o Jhon! Vou te ajudar no passo a passo do cadastro na Plataforma Agenda Animal.</a>
+                                        <br/>
+                                        <a style={{marginLeft:'35px',color:'#000000'}}>Qual é o e-mail da sua empresa?</a>
                                         <input type="text" className="form-control" placeholder="Email" id="email" style={{color:'#009fe3',marginTop:'1%'}}/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Precisamos do seu CNPJ para confirmar o seu cadastro! </a>
-                                    <InputMask type="text"  mask = "99.999.999/9999-99" className="form-control" id="CNPJ" placeholder="CNPJ"  style={{color:'#009fe3',marginTop:'1%'}} maskChar=""/>
+                            <br/>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Precisamos do seu CNPJ para confirmar o seu cadastro! </a>
+                                        <InputMask type="text"  mask = "99.999.999/9999-99" className="form-control" id="CNPJ" placeholder="CNPJ"  style={{color:'#009fe3',marginTop:'1%'}} maskChar=""/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div className="row">
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Certo, agora precisamos confirmar é o celular da sua empresa? </a>
-                                    <InputMask type="text"  mask = "(99) 99999-9999" className="form-control" placeholder="Celular" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="celular" />
+                            <br/>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Certo, agora precisamos confirmar é o celular da sua empresa? </a>
+                                        <InputMask type="text"  mask = "(99) 99999-9999" className="form-control" placeholder="Celular" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="celular" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="col-md-6">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Este número é WhatsApp? </a>
-                                    <div class="row">
-                                        <div class="col-md-6">  
-                                            <button type="submit" className="btnCadFunc" onClick={Sim} style={{marginTop:'2%'}} id="Sim">Sim</button>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="submit" className="btnCadFunc" onClick={Nao} style={{marginTop:'2%'}} id="Nao">Não</button>
-                                            <div class="clearfix"></div>                                                   
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Este número é WhatsApp? </a>
+                                        <div className="row">
+                                            <div className="col-md-6">  
+                                                <button type="submit" className="btnCadFunc" onClick={Sim} style={{marginTop:'2%'}} id="Sim">Sim</button>
+                                                <div className="clearfix"></div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <button type="submit" className="btnCadFunc" onClick={Nao} style={{marginTop:'2%'}} id="Nao">Não</button>
+                                                <div className="clearfix"></div>                                                   
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                           
-                        </div>
-                        <div className="row" style={{textAlign: '-webkit-center', marginTop:'8%'}}>
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} style={{marginRight:'0px'}} id="buttonProximo">Proximo</button>
+                            <div className="row" style={{textAlign: '-webkit-center', marginTop:'8%'}}>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                    <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                                    <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} style={{marginRight:'0px'}} id="buttonProximo">Proximo</button>
+                                    </div>
                                 </div>
                             </div>
-                           
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>

@@ -97,6 +97,8 @@ export default function CadastroSeis(){
                                         if(response){
                                             if(response.data.message){
                                                 if(response.data.message === "Alterado"){
+                                                    erro.style.color = "#09ff00";      
+                                                    erro.style.fontWeight= "700";
                                                     erro.innerHTML = "Agora tem que realizar o cadastro para logar";
                                                     setTimeout(() => {window.location.href="/CadastroSete"}, 2000); 
                                                 }else if(response.data.message === "Ja existe CPF"){
@@ -217,96 +219,93 @@ export default function CadastroSeis(){
 
     return(
     <div>
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12" style={{padding:'0px',margin:'0px'}}>
-
-                    <div class="card-header card-header-blue" style={{background:'#009fe3'}}>
-                        <h4 class="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 6</h4>
+        <div className="content">
+            <div cclassNamelass="container-fluid">
+                <div className="row">
+                    <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
+                    <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
+                        <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 6</h4>
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Agora vamos cadastrar o responsável do estabelecimento!!</a>
-                                    <input type="text" class="form-control" placeholder="Nome" id="nome" style={{color:'#009fe3',marginTop:'1%'}}/>
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                        <InputMask type="text"  mask = "999.999.999-99" className="form-control" placeholder="CPF" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="CPF" />   
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <InputMask type="text"  mask = "(99) 99999-9999" className="form-control" placeholder="Celular" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="celular" />   
-                                </div>
-                            </div>
-                        </div>
-                        {/* <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email" id="email" style={{color:'#009fe3',marginTop:'1%'}}/>
-                                </div>
-                            </div>
-                        </div> */}
-                        <br/>
-                        {/* <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Você é veterinario?</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3"> </div>
-                            <div class="col-md-3"> 
-                                <button type="submit" className="btnCadFunc" onClick={VeterinarioSim} id="VeterinarioSim">Sim</button>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="submit" className="btnCadFunc" onClick={VeterinarioNao} id="VeterinarioNao">Não</button>
-                                <div class="clearfix"></div>                                                   
-                            </div>   
-                        </div> */}
-
-                        {/* <div id="DivVet" style={{display:'none'}}>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="CRMV" id="CRMV" style={{color:'#009fe3',marginTop:'1%'}}/>
-                                    </div>
-                                </div>
-                                <div className="col-md-3">
+                        <div className="card-body">
+                            <div className="row">
+                                <div className="col-md-12">
                                     <div className="form-group">
-                                        <input type="text" className="form-control"  placeholder="Data de Emissão"  disabled/>
-                                    </div>
-                                </div>
-                                <div className="col-md-3">
-                                    <div className="form-group">
-                                        <input type="date" id="date" className="form-control"/>
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Agora vamos cadastrar o responsável do estabelecimento!!</a>
+                                        <input type="text" className="form-control" placeholder="Nome" id="nome" style={{color:'#009fe3',marginTop:'1%'}}/>
                                     </div>
                                 </div>
                             </div>
-                        </div> */}
                         
-                        <div class="row" style={{textAlign: '-webkit-center'}}>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className=" btn btn-primary btnEditShop" id="buttonProximo" onClick={Proximo}>Proximo</button>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <InputMask type="text"  mask = "999.999.999-99" className="form-control" placeholder="CPF" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="CPF" />   
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <InputMask type="text"  mask = "(99) 99999-9999" className="form-control" placeholder="Celular" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="celular" />   
+                                    </div>
+                                </div>
+                            </div>
+                            {/* <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Email" id="email" style={{color:'#009fe3',marginTop:'1%'}}/>
+                                    </div>
+                                </div>
+                            </div> */}
+                            <br/>
+                            {/* <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Você é veterinario?</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"> </div>
+                                <div class="col-md-3"> 
+                                    <button type="submit" className="btnCadFunc" onClick={VeterinarioSim} id="VeterinarioSim">Sim</button>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" className="btnCadFunc" onClick={VeterinarioNao} id="VeterinarioNao">Não</button>
+                                    <div class="clearfix"></div>                                                   
+                                </div>   
+                            </div> */}
+
+                            {/* <div id="DivVet" style={{display:'none'}}>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="CRMV" id="CRMV" style={{color:'#009fe3',marginTop:'1%'}}/>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-3">
+                                        <div className="form-group">
+                                            <input type="text" className="form-control"  placeholder="Data de Emissão"  disabled/>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-3">
+                                        <div className="form-group">
+                                            <input type="date" id="date" className="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> */}
+                            
+                            <div className="row" style={{textAlign: '-webkit-center'}}>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                                        <button type="submit" className=" btn btn-primary btnEditShop" id="buttonProximo" onClick={Proximo}>Proximo</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                                            
-
                     </div>
                 </div>
             </div>

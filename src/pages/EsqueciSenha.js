@@ -63,6 +63,8 @@ export default function EsqueciSenha(){
                                 button.innerText="Próximo";
                                 button.removeAttribute("disabled");
                             }else if(response.data.message === "Enviamos uma nova senha, verifique seu email"){
+                                erro.style.color = "#09ff00";
+                                erro.style.fontWeight= "700";      
                                 erro.innerText = "Enviamos um email contendo uma nova senha para ser trocada.";
                                 setTimeout(() => {window.location.href="/"}, 2000);
                             }else if(response.data.message === "nao deu"){
@@ -130,10 +132,10 @@ export default function EsqueciSenha(){
 
     return(
     <div>        
-    <div className="limiter">
-		<div className="container-login100">
-			<div className="wrap-login100">
-				<form className="login100-form validate-form" style={{marginBottom:'0px',paddingTop:'8%'}}>				
+        <div className="limiter">
+            <div className="container-login100">
+                <div className="wrap-login100">
+                    <form className="login100-form validate-form" style={{marginBottom:'0px',paddingTop:'8%'}}>				
                         <div style={{height: '100%',width: '100%',textAlign: 'center'}}>
                             <div>
                                 <img src={Logo} alt="" style={{width: '40%', height: '20%'}}/>
@@ -165,14 +167,14 @@ export default function EsqueciSenha(){
                                 </table>
                             </div>
                         </div>
-				</form>
-				<div className="login100-more" >
-                    <img src={Imagem} alt="" className="ImagemTop"/>
-                    <img src={Imagem} alt=""  className="ImagemBottom"/>
-				</div>
-			</div>
-		</div>
-	</div>    
+                    </form>
+                    <div className="login100-more" >
+                        <img src={Imagem} alt="" className="ImagemTop"/>
+                        <img src={Imagem} alt=""  className="ImagemBottom"/>
+                    </div>
+                </div>
+            </div>
+        </div>    
     </div>
     )
 }

@@ -46,8 +46,7 @@ export default function AlterarSenha(){
                 if (senha === "" || senha === null || senha === undefined) {
                     button.innerText="Próximo";
                     button.removeAttribute("disabled");
-                    erro.innerHTML = "Preencha os campos obrigatório";
-                    erro.style.color = "#FF0000";
+                    erro.innerHTML = "Preencha os campos obrigatório";              
                 }
                 else {
                     if(senha.length < 6  || senha.length > 15){
@@ -98,6 +97,8 @@ export default function AlterarSenha(){
                                             button.removeAttribute("disabled");
                                         }
                                         else if(response.data.message === "deu certo"){
+                                            erro.style.color = "#09ff00";   
+                                            erro.style.fontWeight= "700";   
                                             erro.innerText = "Alteramos sua senha, agora faça login.";
                                             setTimeout(() => {window.location.href="/"}, 2000);
                                         }else{
@@ -124,51 +125,51 @@ export default function AlterarSenha(){
 
     return(
     <div>        
-    <div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-form validate-form" style={{marginBottom:'0px'}}>				
-                    <div style={{height: '100%',width: '100%',textAlign: 'center'}}>
-                        <div>
-                            <img src={Logo} alt="" style={{width: '40%', height: '20%'}}/>
-                        </div>
-                        <div style={{width: '100%',height: 'auto',marginTop:'2%'}}>
-                            <div class="col-md-12">
-                                <div class="form-group input" >
-                                    <input type="text" className="form-control" id="email" placeholder="Email"/>
+        <div className="limiter">
+            <div className="container-login100">
+                <div className="wrap-login100">
+                    <div className="login100-form validate-form" style={{marginBottom:'0px'}}>				
+                        <div style={{height: '100%',width: '100%',textAlign: 'center'}}>
+                            <div>
+                                <img src={Logo} alt="" style={{width: '40%', height: '20%'}}/>
+                            </div>
+                            <div style={{width: '100%',height: 'auto',marginTop:'2%'}}>
+                                <div className="col-md-12">
+                                    <div className="form-group input" >
+                                        <input type="text" className="form-control" id="email" placeholder="Email"/>
+                                    </div>
+                                </div>
+                                <div className="col-md-12">
+                                    <div className="form-group input" >
+                                        <input type="password" className="form-control" id="senha" placeholder="Nova Senha"/>
+                                    </div>
+                                </div>
+                                <div className="col-md-12">
+                                    <div className="form-group input" >
+                                        <input type="password" className="form-control" id="confSenha" placeholder="Confrimar Nova Senha"/>
+                                        <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group input" >
-                                    <input type="password" class="form-control" id="senha" placeholder="Nova Senha"/>
-                                </div>
+                            <div style={{textAlign: '-webkit-center',paddingTop: '5%'}}>
+                                <table>
+                                    <tr>
+                                        <td style={{width:'100%'}}>
+                                            <button type="submit" className="btn btn-primary pull-right" id="buttonProximo" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Confirmar}>Trocar Senha</button>
+                                            <div className="clearfix"></div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group input" >
-                                    <input type="password" class="form-control" id="confSenha" placeholder="Confrimar Nova Senha"/>
-                                    <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style={{textAlign: '-webkit-center',paddingTop: '5%'}}>
-                            <table>
-                                <tr>
-                                    <td style={{width:'100%'}}>
-                                        <button type="submit" class="btn btn-primary pull-right" id="buttonProximo" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Confirmar}>Trocar Senha</button>
-                                        <div class="clearfix"></div>
-                                    </td>
-                                </tr>
-                            </table>
                         </div>
                     </div>
-				</div>
-				<div class="login100-more" >
-                    <img src={Imagem}  alt="" className="ImagemTop"/>
-                    <img src={Imagem} alt="" className="ImagemBottom"/>
-				</div>
-			</div>
-		</div>
-	</div>    
+                    <div className="login100-more" >
+                        <img src={Imagem}  alt="" className="ImagemTop"/>
+                        <img src={Imagem} alt="" className="ImagemBottom"/>
+                    </div>
+                </div>
+            </div>
+        </div>    
     </div>
     )
 }

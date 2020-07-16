@@ -118,67 +118,63 @@ export default function Login(){
 
     return(
       <div>
-      <div className="limiter">
-		    <div className="container-login100">
-		      <div className="wrap-login100">
-            <form className="login100-form validate-form" style={{marginBottom:'0px'}}>
-              <div style={{height: '70%',width: '100%',textAlign: 'center'}}>
-                <div>
-                    <img src={Logo} alt="" style={{width: '40%', height: '20%'}}/>
-                </div>
-                <div style={{width: '100%',height: 'auto',marginTop:'2%'}}>
+        <div className="limiter">
+          <div className="container-login100">
+            <div className="wrap-login100">
+              <form className="login100-form validate-form" style={{marginBottom:'0px'}}>
+                <div style={{height: '70%',width: '100%',textAlign: 'center'}}>
+                  <div>
+                      <img src={Logo} alt="" style={{width: '40%', height: '20%'}}/>
+                  </div>
+                  <div style={{width: '100%',height: 'auto',marginTop:'2%'}}>
                     <div className="col-md-12">
-                        <div className="form-group input" >
-                            <input type="text" className="form-control" id="email" placeholder="Email"/>
-                        </div>
+                      <div className="form-group input" >
+                        <input type="text" className="form-control" id="email" placeholder="Email"/>
+                      </div>
                     </div>
                     <div className="col-md-12 ">
-                        <div className="form-group input">
-                            <input type="password" className="form-control"  id="senha" placeholder="Senha"/>
-                            <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                        </div>
+                      <div className="form-group input">
+                        <input type="password" className="form-control"  id="senha" placeholder="Senha"/>
+                        <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                      </div>
                     </div>
-                </div>
-                <div className="DivEsqueceuSenha">
-                  <a style={{color:'#009fe3',fontFamily:'Arial'}} href="/EsqueciSenha"> Esqueceu Senha?</a>
-                </div>
-                <div style={{textAlign: '-webkit-center',paddingTop: '5%'}}>
-                  <table>
+                  </div>
+                  <div className="DivEsqueceuSenha">
+                    <a style={{color:'#009fe3',fontFamily:'Arial'}} href="/EsqueciSenha"> Esqueceu Senha?</a>
+                  </div>
+                  <div style={{textAlign: '-webkit-center',paddingTop: '5%'}}>
+                    <table>
                       <tr>
-                          <td style={{width:'50%'}}>
-                              <button type="submit" className="btn btn-primary pull-right Login" id="buttonProximo" onClick={Logar}>Login</button>
-                              <div className="clearfix"></div>
-                          </td>
-                          <td style={{width:'50%', paddingLeft: '2%',}}>
-                              <a type="submit" className="btn btn-primary pull-right Cadastro" href="/CadastroPrimeiro">Cadastro</a>
-                              <div className="clearfix"></div>
-                          </td>
+                        <td style={{width:'50%'}}>
+                          <button type="submit" className="btn btn-primary pull-right Login" id="buttonProximo" onClick={Logar}>Login</button>
+                          <div className="clearfix"></div>
+                        </td>
+                        <td style={{width:'50%', paddingLeft: '2%',}}>
+                          <a type="submit" className="btn btn-primary pull-right Cadastro" href="/CadastroPrimeiro">Cadastro</a>
+                          <div className="clearfix"></div>
+                        </td>
                       </tr>
-                  </table>
+                    </table>
+                  </div>
                 </div>
+                {/* <div  style={{height: '30%',width: '100%',textAlign: 'center'}}>
+                  <div class="row" style={{textAlign: 'center'}}>
+                    <div className="col-md-12">
+                      <label style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#333333'}}>89.057.884/0001-24</label>
+                    </div>
+                    <div className="col-md-12">
+                      <label style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#333333'}}> Copyright © 2020 Agenda Animal</label> 
+                    </div>
+                  </div>
+                </div> */}
+              </form>
+              <div className="login100-more" >
+                <img src={Imagem} alt="" className="ImagemTop"/>
+                <img src={Imagem} alt="" className="ImagemBottom"/>
               </div>
-              {/* <div  style={{height: '30%',width: '100%',textAlign: 'center'}}>
-                <div class="row" style={{textAlign: 'center'}}>
-                  <div className="col-md-12">
-                    <label style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#333333'}}>89.057.884/0001-24</label>
-                  </div>
-                  <div className="col-md-12">
-                    <label style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#333333'}}> Copyright © 2020 Agenda Animal</label> 
-                  </div>
-                </div>
-              </div> */}
-              
-              
-              
-            </form>
-
-            <div className="login100-more" >
-              <img src={Imagem} alt="" className="ImagemTop"/>
-              <img src={Imagem} alt="" className="ImagemBottom"/>
-				    </div>
+            </div>
           </div>
         </div>
-      </div>
       </div>        
     )
         

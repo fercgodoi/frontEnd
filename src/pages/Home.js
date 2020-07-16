@@ -5,6 +5,19 @@ import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
 
+import pendentes from  "../img/pendentes.png";
+import aprovadas from  "../img/aprovadas.png";
+import canceladas from  "../img/canceladas.png";
+import recebimentos from  "../img/recebimentos.png";
+import recebimentosMensais from  "../img/rebebimentos_mensais.png";
+
+import inicio from "../img/Icon/inicioAzul.png";
+import calendario from "../img/Icon/calendarioAzul.png";
+import funcionario from "../img/Icon/funcionarioAzul.png";
+import shop from "../img/Icon/shopAzul.png";
+import vacinas from "../img/Icon/vacinasAzul.png";
+import prontuarios from "../img/Icon/prontuarioAzul.png";
+
 import api from '../services/api2.js';
 export default function Home(){
 
@@ -94,9 +107,7 @@ export default function Home(){
                 tdNomePet.style.width="55%";
                 imgPet.className="ImagemTabGrand";
                 imgPet.setAttribute("alt","");
-                imgPet.onclick = function() { Detalhes(produto[i].idAgend) };
                 imgPet.src="data:image/png;base64,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";
-                imgPet.onclick = function() { Detalhes(produto[i].idAgend) };
                 PNomePet.className="TituloTabGrand";
                 PNomePet.innerHTML=produto[i].nomePet;
                 PNomePet.onclick = function() { Detalhes(produto[i].idAgend) };
@@ -534,6 +545,35 @@ export default function Home(){
       }
     }
 
+  async function Contagem(){
+     
+      let response="";
+       try {
+           response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/ContAgendamentoDia');
+       } catch (error) {
+           console.log(error);               
+       } 
+       console.log(response) 
+ 
+       var ContaDia = document.getElementById("Dia");
+       if(response){
+         if(response.data.response){          
+           ContaDia.innerHTML = response.data.response.Agendamento[0].contador ;
+         }
+         if(response.data.error){
+           ContaDia.innerHTML = "";
+         }
+       }
+   }
+    setTimeout(() => {Contagem()}, 100);
+
+    function Edit(){
+      window.location.href="/EditarPerfil";
+    }
+    function Login(){
+      window.location.href="/";
+    }
+
     return(        
     <div>
   <div class="wrapper ">
@@ -551,44 +591,44 @@ export default function Home(){
         <ul class="nav">
         <li class="nav-item active" id="Home" style={{display:'block'}}>
                             <a class="nav-link" href="/Home">
-                            <i class="material-icons">dashboard</i>
-                            <p>Inicio</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                            <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li class="nav-item" id="Calen" style={{display:'none'}}>
                             <a class="nav-link" href="/Calendario">
-                            <i class="material-icons">event</i>
-                            <p>Calendário</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                            <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Func" style={{display:'none'}}>
                             <a class="nav-link" href="/Funcionarios">
-                            <i class="material-icons">assignment_ind</i>
-                            <p>Funcionários</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                            <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Shop" style={{display:'none'}}>
                             <a class="nav-link" href="/Shopping">
-                            <i class="material-icons">shopping_cart</i>
-                            <p>Shopping</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop}/>
+                            <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Med" style={{display:'none'}}>
                             <a class="nav-link" href="/Medicacao">
                             <i class="material-icons">alarm</i>
-                            <p>Medicações</p>
+                            <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Vac" style={{display:'none'}}>
                             <a class="nav-link" href="Vacina">
-                            <i class="material-icons">account_circle</i>
-                            <p>Vacinas</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                            <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Pront" style={{display:'none'}}>
                             <a class="nav-link" href="/Prontuarios">
-                            <i class="material-icons">assignment</i>
-                            <p>Prontuários</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                            <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
           <li class="nav-item active-pro ">
@@ -625,8 +665,8 @@ export default function Home(){
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            {/* <ul class="navbar-nav">
-               <li class="nav-item dropdown">
+            <ul class="navbar-nav">
+               {/* <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
                   <span class="notification">5</span>
@@ -641,9 +681,9 @@ export default function Home(){
                   <a class="dropdown-item" href="#">Another Notification</a>
                   <a class="dropdown-item" href="#">Another One</a>
                 </div>
-              </li>
+              </li> */}
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
+                <a class="nav-link" onClick={Edit}>
                   <i class="material-icons">help_outline</i>
                   <p class="d-lg-none d-md-block">
                     Stats
@@ -651,12 +691,12 @@ export default function Home(){
                 </a>
               </li>
              
-              <li class="nav-item dropdown">
-                <a >
+              <li class="nav-item dropdown" >
+                <a onClick={Login}>
                     <img src={rodape} class="iconLogo" align="right" alt="" />      
                 </a>
               </li>
-            </ul> */}
+            </ul>
           </div>
       </div>
       </nav>
@@ -667,7 +707,7 @@ export default function Home(){
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
+                {/* <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
                     <i class="material-icons">content_copy</i>
                   </div>
@@ -681,12 +721,13 @@ export default function Home(){
                     <i class="material-icons text-danger">warning</i>
                     <a href="#pablo">Get More Space...</a>
                   </div>
-                </div>
+                </div> */}
+                <img src={recebimentos} style={{width:'100%'}} class="material-icons" alt=""/>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
+                {/* <div class="card-header card-header-warning card-header-icon">
                   <div class="card-icon">
                     <i class="material-icons">store</i>
                   </div>
@@ -697,7 +738,8 @@ export default function Home(){
                   <div class="stats">
                     <i class="material-icons">date_range</i> Last 24 Hours
                   </div>
-                </div>
+                </div> */}
+                <img src={recebimentosMensais} style={{width:'100%'}} class="material-icons" alt=""/>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
@@ -718,18 +760,17 @@ export default function Home(){
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-danger card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">pets</i>
-                  </div>
-                  <p class="card-category">Followers</p>
-                  <h3 class="card-title">+245</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
-                  </div>
-                </div>
+              <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">content_copy</i>
+                        </div>
+                        <p class="card-category">Contagem de Agendamentos Dia</p>
+                        <h3 class="card-title" id="Dia">     </h3>
+                         
+                        </div> 
+                        <div class="card-footer">
+                       
+                        </div>
               </div>
             </div>
           </div>
@@ -741,8 +782,8 @@ export default function Home(){
                 <div class="card-body table-responsive">
                   <div class="tab-content">
                     <div class="tab-pane active">
-                      <table class="table table-hover">
-                        <thead> <img src={rodape} style={{width:'100%'}} id="imgCentro" class="material-icons" alt=""/></thead>
+                      <table class="table ">
+                        <thead> <img src={pendentes} style={{width:'100%'}} id="imgCentro" class="material-icons" alt=""/></thead>
 
                         <tbody id="tbody" style={{width:'100%'}}>
                         </tbody>
@@ -781,22 +822,22 @@ export default function Home(){
                   </div>
                 </div>
                 <div class="card-body table-responsive" id="DivPendente" style={{display:"block"}}>
-                  <table class="table table-hover">
-                    <thead>  <img src={rodape} style={{width:'100%'}} id="imgPendente" class="material-icons" alt=""/></thead>
+                  <table class="table ">
+                    <thead>  <img src={pendentes} style={{width:'100%'}} id="imgPendente" class="material-icons" alt=""/></thead>
                     <tbody id="TbodyPendente">                   
                     </tbody>
                   </table>
                 </div>
                 <div class="card-body table-responsive" id="DivCancelado" style={{display:"none"}}>
-                <table class="table table-hover">
-                  <thead>  <img src={rodape} style={{width:'100%'}} id="imgCancelado" class="material-icons" alt=""/></thead>
+                <table class="table ">
+                  <thead>  <img src={canceladas} style={{width:'100%'}} id="imgCancelado" class="material-icons" alt=""/></thead>
                     <tbody id="TbodyCancelado">                   
                     </tbody>
                   </table>
                 </div>
                 <div class="card-body table-responsive" id="DivAprovado" style={{display:"none"}}>
-                <table class="table table-hover">
-                  <thead> <img src={rodape} style={{width:'100%'}} id="imgAprovado"  class="material-icons" alt=""/></thead>
+                <table class="table">
+                  <thead> <img src={aprovadas} style={{width:'100%'}} id="imgAprovado"  class="material-icons" alt=""/></thead>
                     <tbody id="TbodyAprovados"> 
                     </tbody>
                   </table>

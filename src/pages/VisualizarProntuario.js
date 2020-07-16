@@ -5,6 +5,13 @@ import rodape2 from  "../img/Icon/versao.png";
 
 import api from '../services/api2.js';
 
+import inicio from "../img/Icon/inicioAzul.png";
+import calendario from "../img/Icon/calendarioAzul.png";
+import funcionario from "../img/Icon/funcionarioAzul.png";
+import shop from "../img/Icon/shopAzul.png";
+import vacinas from "../img/Icon/vacinasAzul.png";
+import prontuarios from "../img/Icon/prontuario_branco.png";
+
 export default function VisualizarProntuario(){
     function Validar(){
         var validar  = localStorage.getItem('token');
@@ -47,7 +54,7 @@ export default function VisualizarProntuario(){
                     }
                 }
             }       
-    }
+        }
     setTimeout(() => {Validar()}, 100);
 
     async function Aparecer(){
@@ -160,7 +167,6 @@ export default function VisualizarProntuario(){
                                 }
                             }                   
                         }                        
-    
                     }else{
                         Vacina.style.display="none";
                     }
@@ -545,8 +551,7 @@ export default function VisualizarProntuario(){
                                     Exame.style.display="none";
                                 }
                             } 
-                        }                        
-                               
+                        }                             
                     }else{
                         Exame.style.display="none";
                     }
@@ -565,7 +570,6 @@ export default function VisualizarProntuario(){
                         Vacina.style.display="none";
                         Exame.style.display="none";
                     }
-                
                 }else{
                     erro.value = "Tente Novamente";
                 }
@@ -593,70 +597,78 @@ export default function VisualizarProntuario(){
     }
 
     setTimeout(() => {Aparecer()}, 1000);
+
+    function Edit(){
+        window.location.href="/EditarPerfil";
+    }
+    function Login(){
+        window.location.href="/";
+    }
+    
     return(
         
-        <div>
-        <div class="wrapper ">
-            <div class="sidebar" data-color="blue" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-                <div class="logo">
-                    <a  class="simple-text logo-normal">
-                        <img src={rodape} class="ImagemLogo" align="left" alt="" />            
+    <div>
+        <div className="wrapper ">
+            <div className="sidebar" data-color="blue" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+                <div className="logo">
+                    <a  className="simple-text logo-normal">
+                        <img src={rodape} className="ImagemLogo" align="left" alt="" />            
                     </a>
-                    <a  class="simple-text logo-normal">
-                        <p class="NomePrest">Cantos dos Bichos</p>
-                        <p class="TipoPrest">PetShop</p>
+                    <a  className="simple-text logo-normal">
+                        <p className="NomePrest">Cantos dos Bichos</p>
+                        <p className="TipoPrest">PetShop</p>
                     </a>
                 </div>
-                <div class="sidebar-wrapper">
-                    <ul class="nav">
-                        <li class="nav-item " id="Home" style={{display:'block'}}>
-                            <a class="nav-link" href="/Home">
-                            <i class="material-icons">dashboard</i>
-                            <p>Inicio</p>
+                <div className="sidebar-wrapper">
+                    <ul className="nav">
+                        <li className="nav-item " id="Home" style={{display:'block'}}>
+                            <a className="nav-link" href="/Home">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Calen" style={{display:'none'}}>
-                            <a class="nav-link" href="/Calendario">
-                            <i class="material-icons">event</i>
-                            <p>Calendário</p>
+                        <li className="nav-item" id="Calen" style={{display:'none'}}>
+                            <a className="nav-link" href="/Calendario">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Func" style={{display:'none'}}>
-                            <a class="nav-link" href="/Funcionarios">
-                            <i class="material-icons">assignment_ind</i>
-                            <p>Funcionários</p>
+                        <li className="nav-item " id="Func" style={{display:'none'}}>
+                            <a className="nav-link" href="/Funcionarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Shop" style={{display:'none'}}>
-                            <a class="nav-link" href="/Shopping">
-                            <i class="material-icons">shopping_cart</i>
-                            <p>Shopping</p>
+                        <li className="nav-item " id="Shop" style={{display:'none'}}>
+                            <a className="nav-link" href="/Shopping">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop}/>
+                                <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Med" style={{display:'none'}}>
-                            <a class="nav-link" href="/Medicacao">
-                            <i class="material-icons">alarm</i>
-                            <p>Medicações</p>
+                        <li className="nav-item " id="Med" style={{display:'none'}}>
+                            <a className="nav-link" href="/Medicacao">
+                                <i className="material-icons">alarm</i>
+                                <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Vac" style={{display:'none'}}>
-                            <a class="nav-link" href="Vacina">
-                            <i class="material-icons">account_circle</i>
-                            <p>Vacinas</p>
+                        <li className="nav-item " id="Vac" style={{display:'none'}}>
+                            <a className="nav-link" href="Vacina">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
-                        <li class="nav-item active" id="Pront" style={{display:'none'}}>
-                            <a class="nav-link" href="/Prontuarios">
-                            <i class="material-icons">assignment</i>
-                            <p>Prontuários</p>
+                        <li className="nav-item active" id="Pront" style={{display:'none'}}>
+                            <a className="nav-link" href="/Prontuarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
-                        <li class="nav-item active-pro ">
-                            <a class="nav-link" style={{background:'none'}}>
+                        <li className="nav-item active-pro ">
+                            <a className="nav-link" style={{background:'none'}}>
                                 <table>
                                     <tr>
                                         <td style={{width: '20%'}}>
-                                            <img src={rodape2} class="material-icons" alt="" />
+                                            <img src={rodape2} className="material-icons" alt="" />
                                         </td>
                                         <td style={{width: '80%'}}>
                                             <p style={{color:'#009fe3'}}>Versão 1.0</p>
@@ -668,76 +680,77 @@ export default function VisualizarProntuario(){
                     </ul>
                 </div>
             </div>    
-            <div class="main-panel">
-                <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-                    <div class="container-fluid">
-                        <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="#pablo" style={{fontSize:'21px'}}>Visualizar Prontuários</a>
+            <div className="main-panel">
+                <nav className="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                    <div className="container-fluid">
+                        <div className="navbar-wrapper">
+                            <a className="navbar-brand" href="#pablo" style={{fontSize:'21px'}}>Visualizar Prontuários</a>
                         </div>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="navbar-toggler-icon icon-bar"></span>
-                            <span class="navbar-toggler-icon icon-bar"></span>
-                            <span class="navbar-toggler-icon icon-bar"></span>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="sr-only">Toggle navigation</span>
+                            <span className="navbar-toggler-icon icon-bar"></span>
+                            <span className="navbar-toggler-icon icon-bar"></span>
+                            <span className="navbar-toggler-icon icon-bar"></span>
                         </button>
-                        <div class="collapse navbar-collapse justify-content-end">
-                            {/* <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">notifications</i>
-                                        <span class="notification">5</span>
-                                        <p class="d-lg-none d-md-block">
-                                            Some Actions
-                                        </p>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                                        <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                                        <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                                        <a class="dropdown-item" href="#">Another Notification</a>
-                                        <a class="dropdown-item" href="#">Another One</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#pablo">
-                                        <i class="material-icons">help_outline</i>
-                                        <p class="d-lg-none d-md-block">
-                                            Stats
-                                        </p>
-                                    </a>
-                                </li>                                
-                                <li class="nav-item dropdown">
-                                    <a >
-                                        <img src={rodape} class="iconLogo" align="right" alt="" />      
-                                    </a>                                    
-                                </li>
-                            </ul> */}
+                        <div className="collapse navbar-collapse justify-content-end">
+                        <ul class="navbar-nav">
+                            {/* <li class="nav-item dropdown">
+                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">5</span>
+                                <p class="d-lg-none d-md-block">
+                                    Some Actions
+                                </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                                <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                                <a class="dropdown-item" href="#">Another Notification</a>
+                                <a class="dropdown-item" href="#">Another One</a>
+                                </div>
+                            </li> */}
+                            <li class="nav-item">
+                                <a class="nav-link" onClick={Edit}>
+                                <i class="material-icons">help_outline</i>
+                                <p class="d-lg-none d-md-block">
+                                    Stats
+                                </p>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item dropdown" >
+                                <a onClick={Login}>
+                                    <img src={rodape} class="iconLogo" align="right" alt="" />      
+                                </a>
+                            </li>
+                            </ul>
                         </div>
                     </div>
                 </nav>
-                <div class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header card-header-blue">
-                                        <h4 class="card-title">Prontuários</h4>
+                <div className="content">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="card">
+                                    <div className="card-header card-header-blue">
+                                        <h4 className="card-title">Prontuários</h4>
                                     </div>
-                                    <div class="card-body">
-                                            <div class="col-md-12">
+                                    <div className="card-body">
+                                            <div className="col-md-12">
                                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>                                                 
                                             </div>
-                                            <div class="row">
-                                            <div class="col-md-3">
-                                                    <div class="form-group">
-                                                    <label style={{color:'#009fe3'}}>Nome do Animal</label>
-                                                        <input type="text" class="form-control" id="nomePet" placeholder="Nome do Animal" disabled/>
+                                            <div className="row">
+                                                <div className="col-md-3">
+                                                    <div className="form-group">
+                                                        <label style={{color:'#009fe3'}}>Nome do Animal</label>
+                                                        <input type="text" className="form-control" id="nomePet" placeholder="Nome do Animal" disabled/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                    <label style={{color:'#009fe3'}}>RG do Animal</label>
-                                                        <input type="text" class="form-control" id="rgPet" placeholder="RG do Animal" disabled/>
+                                                <div className="col-md-3">
+                                                    <div className="form-group">
+                                                        <label style={{color:'#009fe3'}}>RG do Animal</label>
+                                                        <input type="text" className="form-control" id="rgPet" placeholder="RG do Animal" disabled/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
@@ -748,782 +761,780 @@ export default function VisualizarProntuario(){
                                                 </div>
                                                 <div className="col-md-3">
                                                     <div className="form-group">
-                                                    <label style={{color:'#009fe3',visibility:'hidden'}}>RG do Animal</label>
+                                                        <label style={{color:'#009fe3',visibility:'hidden'}}>RG do Animal</label>
                                                         <input type="date" className="form-control" id="dataConst" disabled/>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                    <label style={{color:'#009fe3'}}>Clinica Veterinaria</label>
-                                                        <input type="text" class="form-control" id="nomePrest" placeholder="Clinica Veterinaria" disabled/>
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <div className="form-group">
+                                                        <label style={{color:'#009fe3'}}>Clinica Veterinaria</label>
+                                                        <input type="text" className="form-control" id="nomePrest" placeholder="Clinica Veterinaria" disabled/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                    <label style={{color:'#009fe3'}}>Veterinario Responsavel</label>
-                                                        <input type="text" class="form-control" id="nomeFunc" placeholder="Veterinario Responsavel" disabled/>
+                                                <div className="col-md-6">
+                                                    <div className="form-group">
+                                                        <label style={{color:'#009fe3'}}>Veterinario Responsavel</label>
+                                                        <input type="text" className="form-control" id="nomeFunc" placeholder="Veterinario Responsavel" disabled/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <br/>
                                             <div id="Medicacao" style={{display:"none"}}>                                                
-                                                <div class="row">                                                    
-                                                    <div class="col-md-12">
-                                                        <label class="bmd-label-floating" style={{    color:"#009fe3",textAlign: "center", width: '100%',fontSize: '20px',fontWeight: '500',}}>Medicações</label>                                                
-                                                        <div id="Med">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
+                                                <div className="row">                                                    
+                                                    <div className="col-md-12">
+                                                        <label className="bmd-label-floating" style={{    color:"#009fe3",textAlign: "center", width: '100%',fontSize: '20px',fontWeight: '500',}}>Medicações</label>                                                
+                                                            <div id="Med">
+                                                                <div className="row">
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
                                                                             <label style={{color:'#009fe3'}}>Nome da Medicação</label>
-                                                                            <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} id="nomeMed"/>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} id="nomeMed"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Dosagem</label>
+                                                                            <input type="email" className="form-control" placeholder="Dose" disabled style={{borderBottom:    '1px solid #009fe3'}} id="doseMed"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Rotina</label>
+                                                                            <input type="email" className="form-control" placeholder="Rotina" disabled style={{borderBottom:    '1px solid #009fe3'}} id="rotinaMed"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-3">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Dosagem</label>
-                                                                        <input type="email" class="form-control" placeholder="Dose" disabled style={{borderBottom:    '1px solid #009fe3'}} id="doseMed"/>
+                                                                <br/>
+                                                                <div className="row">
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Lote</label>
+                                                                            <input type="text" className="form-control" placeholder="Lote" disabled style={{borderBottom:    '1px solid #009fe3'}} id="loteMed"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observações</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="observacaoMed"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-3">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Rotina</label>
-                                                                        <input type="email" class="form-control" placeholder="Rotina" disabled style={{borderBottom:    '1px solid #009fe3'}} id="rotinaMed"/>
+                                                                <br/>   
+                                                                <div class="row">
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" placeholder="Data Aplicada"  disabled/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="date" className="form-control" id="dataIniMed" disabled/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" placeholder="Proxima Aplicação"  disabled/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="date" className="form-control" id="dataFinMed" disabled/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>  
+                                                                <br/>   
+                                                                <div className="row">
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome do Aplicador</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}} id="nomeEstbMed"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Email do Aplicador</label>
+                                                                            <input type="text" className="form-control" placeholder="Email do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}} id="emailEstbMed"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                                <br/> 
                                                             </div>
-                                                            <br/>
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Lote</label>
-                                                                        <input type="text" class="form-control" placeholder="Lote" disabled style={{borderBottom:    '1px solid #009fe3'}} id="loteMed"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observações</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="observacaoMed"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <br/>   
-                                                            <div class="row">
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control" placeholder="Data Aplicada"  disabled/>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="date" className="form-control" id="dataIniMed" disabled/>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control" placeholder="Proxima Aplicação"  disabled/>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="date" className="form-control" id="dataFinMed" disabled/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>  
-                                                            <br/>   
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome do Aplicador</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}} id="nomeEstbMed"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Email do Aplicador</label>
-                                                                        <input type="text" class="form-control" placeholder="Email do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}} id="emailEstbMed"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <br/> 
-                                                        </div>
-                                                    </div>                                                
-                                                </div>
+                                                        </div>                                                
+                                                    </div>
+                                                <br/>
                                             <br/>
-                                            <br/>
-                                            </div>  
+                                        </div>  
                                            
                                             <div id="Vacina" style={{display:"none"}}>    
                                                 <div className="row">
                                                     <div className="col-md-12">
-                                                        <label class="bmd-label-floating" style={{   color:"#009fe3",textAlign: "center", width: '100%',fontSize: '20px',fontWeight: '500'}}>Vacina</label>      
-                                                        <div id="Vacina">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
+                                                        <label className="bmd-label-floating" style={{   color:"#009fe3",textAlign: "center", width: '100%',fontSize: '20px',fontWeight: '500'}}>Vacina</label>      
+                                                            <div id="Vacina">
+                                                                <div className="row">
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
                                                                             <label style={{color:'#009fe3'}}>Nome da Vacina</label>
-                                                                            <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} id="nomeVacina"/>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} id="nomeVacina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Dosagem</label>
+                                                                            <input type="email" className="form-control" placeholder="Dose" disabled style={{borderBottom:    '1px solid #009fe3'}} id="qntDoseVacina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Lote</label>
+                                                                            <input type="text" className="form-control" placeholder="Lote" disabled style={{borderBottom:    '1px solid #009fe3'}} id="loteVacina"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-3">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Dosagem</label>
-                                                                        <input type="email" class="form-control" placeholder="Dose" disabled style={{borderBottom:    '1px solid #009fe3'}} id="qntDoseVacina"/>
+                                                                <br/>  
+                                                                <div className="row">
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" placeholder="Data Aplicada"  disabled/>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <div class="form-group">
-                                                                    <label style={{color:'#009fe3'}}>Lote</label>
-                                                                        <input type="text" class="form-control" placeholder="Lote" disabled style={{borderBottom:    '1px solid #009fe3'}} id="loteVacina"/>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="date" className="form-control" id="dataApliVacina" disabled/>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                            <br/>  
-                                                            <div class="row">
-                                                            <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control" placeholder="Data Aplicada"  disabled/>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" placeholder="Proxima Aplicação"  disabled/>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="date" className="form-control" id="dataApliVacina" disabled/>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="date" className="form-control" id="dataProxVacina" disabled/>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control" placeholder="Proxima Aplicação"  disabled/>
+                                                                </div> 
+                                                                <br/> 
+                                                                <div className="row">
+                                                                    <div className="col-md-12">
+                                                                        <label style={{color:'#009fe3'}}>Observações</label>
+                                                                        <input type="text" className="form-control" placeholder="Observações" disabled style={{borderBottom:    '1px solid #009fe3'}} id="observacaoVacina"/>
                                                                     </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="date" className="form-control" id="dataProxVacina" disabled/>
+                                                                </div>  
+                                                                <br/>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome do Aplicador</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}} id="nomeVetVacina" />
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div> 
-                                                            <br/> 
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                <label style={{color:'#009fe3'}}>Observações</label>
-                                                                        <input type="text" class="form-control" placeholder="Observações" disabled style={{borderBottom:    '1px solid #009fe3'}} id="observacaoVacina"/>
-                                                                </div>
-                                                            </div>  
-                                                            <br/>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome do Aplicador</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}} id="nomeVetVacina" />
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Email do Aplicador</label>
+                                                                            <input type="text" className="form-control" placeholder="Email do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}}  id="emailVetVacina"/>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Email do Aplicador</label>
-                                                                        <input type="text" class="form-control" placeholder="Email do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}}  id="emailVetVacina"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>CRMV  do Aplicador</label>
-                                                                        <input type="text" class="form-control" placeholder="CRMV  do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}}  id="crmvVetVacina"/>
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>CRMV  do Aplicador</label>
+                                                                            <input type="text" className="form-control" placeholder="CRMV  do Aplicador" disabled style={{borderBottom:    '1px solid #009fe3'}}  id="crmvVetVacina"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            <br/>   
+                                                <br/>   
                                             <br/> 
                                             </div>
                                               
                                             <div id="Exame" style={{display:"none"}}>    
-                                                <div class="col-md-12">
-                                                    <div class="row">                                                   
-                                                        <label class="bmd-label-floating" style={{    color:"#009fe3",textAlign: "center", width: '100%',fontSize: '20px',fontWeight: '500',}}>Exames</label>   
-                                
-                                                        <div className="col-md-12" id="divFezes" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Fezes"/>
+                                                <div className="col-md-12">
+                                                    <div className="row">                                                   
+                                                        <label className="bmd-label-floating" style={{    color:"#009fe3",textAlign: "center", width: '100%',fontSize: '20px',fontWeight: '500',}}>Exames</label>   
+                                                            <div className="col-md-12" id="divFezes" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div class="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Fezes"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFezes"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                                                           
+                                                            </div>
+                                                            <div className="col-md-12" id="divRadiologiaSimples" style={{display:"none"}}>
+                                                                <div className='row'>
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Radiologia Simples"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputRadiologiaSimples"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                                                            
+                                                            </div>
+                                                            <div className="col-md-12" id="divRadiologiaContrastada" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Radiologia Contrastada"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputRadiologiaContrastada"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                                                           
+                                                            </div>
+                                                            <div className="col-md-12" id="divEletrocardiograma" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Eletrocardiograma"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputEletrocardiograma"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                                                            
+                                                            </div>
+                                                            <div className="col-md-12" id="divUltrassonografiAbdominal" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Ultrassonografia Abdominal"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputUltrassonografiAbdominal"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFezes"/>
+                                                            </div>
+                                                            <div className="col-md-12" id="divHemogramaCompleto" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Hemograma Completo"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputHemogramaCompleto"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>                                                           
-                                                        </div>
-                                                        <div className="col-md-12" id="divRadiologiaSimples" style={{display:"none"}}>
-                                                            <div className='row'>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Radiologia Simples"/>
+                                                            </div>
+                                                            <div className="col-md-12" id="divPesquisaHemoparasitas" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Pesquisa Hemoparasitas"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputPesquisaHemoparasitas"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputRadiologiaSimples"/>
+                                                            </div>
+                                                            <div className="col-md-12" id="divFuncaoHepatica" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div class="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Função Hepatica"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFuncaoHepatica"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>                                                            
-                                                        </div>
-                                                        <div className="col-md-12" id="divRadiologiaContrastada" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Radiologia Contrastada"/>
+                                                            </div>
+                                                            <div className="col-md-12" id="divSorologicoFIVFELV" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div class="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Sorologico FIVFELV"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputSorologicoFIVFELV"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputRadiologiaContrastada"/>
+                                                            </div>
+                                                            <div className="col-md-12" id="divUrina" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Urina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputUrina"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>                                                           
-                                                        </div>
-                                                        <div className="col-md-12" id="divEletrocardiograma" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Eletrocardiograma"/>
+                                                            </div>
+                                                            <div className="col-md-12" id="divAcidoUrico" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Acido Urico"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputAcidoUrico"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputEletrocardiograma"/>
+                                                            </div>
+                                                            <div className="col-md-12" id="divAlbumina" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Albumina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputAlbumina"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>                                                            
-                                                        </div>
-                                                        <div className="col-md-12" id="divUltrassonografiAbdominal" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Ultrassonografia Abdominal"/>
+                                                            </div>
+                                                            <div className="col-md-12" id="divALT" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="ALT"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputALT"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputUltrassonografiAbdominal"/>
+                                                            </div>
+                                                            <div className="col-md-12" id="divAmilase" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Amilase"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputAmilase"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divAST" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="AST"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputAST"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divBilirrubina" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Bilirrubina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputBilirrubina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divCalcioSerico" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="CalcioSerico"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputCalcioSerico"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divColesterol" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Colesterol"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputColesterol"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divColinesterase" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Colinesterase"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputColinesterase"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divCreatinaQuinase" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="CreatinaQuinase"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputCreatinaQuinase"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divCreatinina" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Creatinina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputCreatinina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divFerroSerico" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Ferro Serico"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFerroSerico"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divFosfataseAlcalina" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Fosfatase Alcalina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFosfataseAlcalina"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divFosforo" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Fosforo"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFosforo"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divGama" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" clclassNameass="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Gama"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputGama"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divGlicose" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Glicose"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputGlicose"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divMagnesio" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Magnesio"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>Glicose
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputMagnesio"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divProteinasTotais" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="ProteinasTotais"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputProteinasTotais"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divNAKCL" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="NAKCL"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputNAKCL"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divTriglicerideos" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Triglicerideos"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputTriglicerideos"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divUreia" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Ureia"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputUreia"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divExameTumoral" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="ExameTumoral"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>Glicose
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputExameTumoral"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divExameGinecologico" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="ExameGinecologico"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputExameGinecologico"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divGlicemiaJejum" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Glicemia Jejum"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputGlicemiaJejum"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divBiopsia" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Biopsia"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputBiopsia"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-12" id="divSexagemAves" style={{display:"none"}}>
+                                                                <div className="row">
+                                                                    <div className="col-md-4">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Nome</label>
+                                                                            <input type="text" className="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="SexagemAves"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-8">
+                                                                        <div className="form-group">
+                                                                            <label style={{color:'#009fe3'}}>Observação</label>
+                                                                            <input type="text" className="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputSexagemAves"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div className="col-md-12" id="divHemogramaCompleto" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Hemograma Completo"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputHemogramaCompleto"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divPesquisaHemoparasitas" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Pesquisa Hemoparasitas"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputPesquisaHemoparasitas"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divFuncaoHepatica" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Função Hepatica"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFuncaoHepatica"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divSorologicoFIVFELV" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Sorologico FIVFELV"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputSorologicoFIVFELV"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divUrina" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Urina"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputUrina"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divAcidoUrico" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Acido Urico"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputAcidoUrico"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divAlbumina" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Albumina"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputAlbumina"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divALT" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="ALT"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputALT"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divAmilase" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Amilase"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputAmilase"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divAST" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="AST"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputAST"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divBilirrubina" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Bilirrubina"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputBilirrubina"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divCalcioSerico" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="CalcioSerico"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputCalcioSerico"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divColesterol" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Colesterol"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputColesterol"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divColinesterase" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Colinesterase"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputColinesterase"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divCreatinaQuinase" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="CreatinaQuinase"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputCreatinaQuinase"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divCreatinina" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Creatinina"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputCreatinina"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divFerroSerico" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Ferro Serico"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFerroSerico"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divFosfataseAlcalina" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Fosfatase Alcalina"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFosfataseAlcalina"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divFosforo" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Fosforo"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputFosforo"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divGama" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Gama"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputGama"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divGlicose" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Glicose"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputGlicose"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divMagnesio" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Magnesio"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>Glicose
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputMagnesio"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divProteinasTotais" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="ProteinasTotais"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputProteinasTotais"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divNAKCL" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="NAKCL"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputNAKCL"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divTriglicerideos" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Triglicerideos"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputTriglicerideos"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divUreia" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Ureia"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputUreia"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divExameTumoral" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="ExameTumoral"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>Glicose
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputExameTumoral"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divExameGinecologico" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="ExameGinecologico"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputExameGinecologico"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divGlicemiaJejum" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Glicemia Jejum"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputGlicemiaJejum"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divBiopsia" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="Biopsia"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputBiopsia"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12" id="divSexagemAves" style={{display:"none"}}>
-                                                            <div className="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Nome</label>
-                                                                        <input type="text" class="form-control" placeholder="Nome" disabled style={{borderBottom:    '1px solid #009fe3'}} value="SexagemAves"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label style={{color:'#009fe3'}}>Observação</label>
-                                                                        <input type="text" class="form-control" placeholder="Observação" disabled style={{borderBottom:    '1px solid #009fe3'}} id="InputSexagemAves"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                            </div>
+                                                    </div> 
+                                                </div>
                                             <br/>
-                                            <br/>                                          
-                                            
+                                        <br/>                                              
                                     </div>
                                 </div>
                             </div>

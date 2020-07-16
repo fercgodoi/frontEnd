@@ -4,11 +4,22 @@ import "../css/material-dashboard.css";
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
-
-import Confrimar from  "../img/Icon/yes.png";
-import Negar from  "../img/Icon/no.png";
-// import Blabala from "../img/imac1.png";
 import Blabala from "../img/coelhoPulando.png";
+
+import prontuario from "../img/pront.png";
+
+import aniversario from "../img/Icon/aniversario.png";
+import data from "../img/Icon/data.png";
+import genero from "../img/Icon/genero.png";
+import pet from "../img/Icon/pet.png";
+import servico from "../img/Icon/servicos.png";
+
+import inicio from "../img/Icon/inicioAzul.png";
+import calendario from "../img/Icon/calendarioAzul.png";
+import funcionario from "../img/Icon/funcionarioAzul.png";
+import shop from "../img/Icon/shopAzul.png";
+import vacinas from "../img/Icon/vacinasAzul.png";
+import prontuarios from "../img/Icon/prontuarioAzul.png";
 
 import api from '../services/api2.js';
 export default function DetalhesPet(){
@@ -65,6 +76,7 @@ export default function DetalhesPet(){
 
   async function Aparecer(){
     var id= localStorage.getItem('Codigo');
+    var idPet = "";
     if(id === "" || id === null || id === undefined){
       window.location.href="/Home";
     }else{
@@ -74,9 +86,9 @@ export default function DetalhesPet(){
       } catch (error) {
           console.log(error);               
       }    
-      // console.log(response);
+      console.log(response);
       if(response){
-        if(response.data){
+        if(response.data.response){
           var produto = response.data.response.Agendamento;
 
           var NomePet = document.getElementById("NomePet");
@@ -104,11 +116,28 @@ export default function DetalhesPet(){
           var dateInicio= produto[0].DataAgen.split('', 10);
           var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
           DataHora.innerHTML=dateCorreto+ "  -  " + produto[0].HoraAgen;
-        }
-      }
-    }
-    
 
+          idPet = produto[0].idPet;
+
+          let responsePet="";
+          
+          try {
+            responsePet = await api.post('https://agendaanimal-backend.herokuapp.com/Prontuario/BuscarInfoPet',{idPet:idPet});
+          } catch (error) {
+              console.log(error);               
+          }    
+
+          if(responsePet){
+            if(responsePet.data.message){
+              if(responsePet.data.message === "tem"){
+                var imgPront= document.getElementById("imgPront");
+                imgPront.style.display="block";
+              }
+            }
+          }
+        }
+      }      
+    }  
   }
   setTimeout(() => {Aparecer()}, 100);
 
@@ -164,6 +193,13 @@ export default function DetalhesPet(){
       }
   }
 
+  function Edit(){
+    window.location.href="/EditarPerfil";
+}
+function Login(){
+    window.location.href="/";
+}
+
     return(
     <div>
   <div class="wrapper ">
@@ -181,44 +217,44 @@ export default function DetalhesPet(){
         <ul class="nav">
         <li class="nav-item active" id="Home" style={{display:'block'}}>
                             <a class="nav-link" href="/Home">
-                            <i class="material-icons">dashboard</i>
-                            <p>Inicio</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                            <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li class="nav-item" id="Calen" style={{display:'none'}}>
                             <a class="nav-link" href="/Calendario">
-                            <i class="material-icons">event</i>
-                            <p>Calendário</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                            <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Func" style={{display:'none'}}>
                             <a class="nav-link" href="/Funcionarios">
-                            <i class="material-icons">assignment_ind</i>
-                            <p>Funcionários</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                            <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Shop" style={{display:'none'}}>
                             <a class="nav-link" href="/Shopping">
-                            <i class="material-icons">shopping_cart</i>
-                            <p>Shopping</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop}/>
+                            <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Med" style={{display:'none'}}>
                             <a class="nav-link" href="/Medicacao">
                             <i class="material-icons">alarm</i>
-                            <p>Medicações</p>
+                            <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Vac" style={{display:'none'}}>
                             <a class="nav-link" href="Vacina">
-                            <i class="material-icons">account_circle</i>
-                            <p>Vacinas</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                            <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Pront" style={{display:'none'}}>
                             <a class="nav-link" href="/Prontuarios">
-                            <i class="material-icons">assignment</i>
-                            <p>Prontuários</p>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                            <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
           <li class="nav-item active-pro ">
@@ -240,10 +276,10 @@ export default function DetalhesPet(){
     </div>
     <div class="main-panel">
       {/* <!-- Navbar --> */}
-      {/* <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Inicio > Detalhes </a>
+            <a class="navbar-brand" href="/Home">Inicio &gt; Detalhes </a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -252,41 +288,41 @@ export default function DetalhesPet(){
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            {/* <ul class="navbar-nav">
-               <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
-                  <p class="d-lg-none d-md-block">
-                    Some Actions
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="material-icons">help_outline</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
-             
-              <li class="nav-item dropdown">
-                <a>
-                    <img src={rodape} class="iconLogo" align="right" alt="" />      
-                </a>
-              </li>
-            </ul>
+          <ul class="navbar-nav">
+                            {/* <li class="nav-item dropdown">
+                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">5</span>
+                                <p class="d-lg-none d-md-block">
+                                    Some Actions
+                                </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                                <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                                <a class="dropdown-item" href="#">Another Notification</a>
+                                <a class="dropdown-item" href="#">Another One</a>
+                                </div>
+                            </li> */}
+                            <li class="nav-item">
+                                <a class="nav-link" onClick={Edit}>
+                                <i class="material-icons">help_outline</i>
+                                <p class="d-lg-none d-md-block">
+                                    Stats
+                                </p>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item dropdown" >
+                                <a onClick={Login}>
+                                    <img src={rodape} class="iconLogo" align="right" alt="" />      
+                                </a>
+                            </li>
+                            </ul>
           </div> 
       </div>
-      </nav> */}
+      </nav> 
 
 <nav class="header-nav-wrap" >
            
@@ -321,11 +357,16 @@ export default function DetalhesPet(){
                   </div>
                 </div>
               </div>
+              {/* <div class="col-lg-7 col-md-3">
+              </div> */}
+              <div class="col-lg-10 col-md-5">
+                <img src={prontuario} style={{width: '100%',height: 'auto',display:'none'}} id="imgPront" alt=""/>
+              </div>
             </div>
             <div class="col-lg-5 col-md-12">
               <div class="card">               
                 <div class="card-body table-responsive">
-                  <table class="table table-hover " style={{marginBottom:'0px'}}>
+                  <table class="table  " style={{marginBottom:'0px'}}>
                     <tbody>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td style={{paddingBottom:'03px'}}>   
@@ -335,27 +376,31 @@ export default function DetalhesPet(){
                         </tr>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td style={{paddingBottom:'03px'}}>                                   
-                                <i class="material-icons" style={{position:'absolute',color:'#009fe3'}}>edit</i> <p className="InfoDet"  id="RacaPet"> </p>                          
+                                <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={pet}/> 
+                                <p className="InfoDet"  id="RacaPet" > </p>                          
                             </td>                        
                         </tr>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td style={{paddingBottom:'03px'}}>                                  
-                                <i class="material-icons" style={{position:'absolute',color:'#009fe3'}}>edit</i> <p className="InfoDet" id="SexoPet">  </p>                          
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={genero}/> 
+                              <p className="InfoDet" id="SexoPet" >  </p>                          
                             </td>                        
                         </tr>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td style={{paddingBottom:'03px'}}>                                  
-                                <i class="material-icons" style={{position:'absolute',color:'#009fe3'}}>edit</i> <p className="InfoDet" id="DataPet" >  </p>                          
+                              <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={aniversario}/> 
+                              <p className="InfoDet" id="DataPet">  </p>                          
                             </td>                        
                         </tr>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td>                                  
-                                <i class="material-icons" style={{position:'absolute',color:'#009fe3'}}>edit</i> <p className="InfoDet" id="CastPet" >  </p>                          
+                              <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={pet}/> 
+                              <p className="InfoDet" id="CastPet"  >  </p>                          
                             </td>                        
                         </tr>
                     </tbody>
                   </table>
-                  <table class="table table-hover " style={{marginBottom:'0px'}}>
+                  <table class="table " style={{marginBottom:'0px'}}>
                     <tbody>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td style={{paddingBottom:'03px'}}>   
@@ -365,18 +410,19 @@ export default function DetalhesPet(){
                             </td>                        
                         </tr>
                         <tr style={{width: '100%'}}>                         
-                         
                           <td style={{width: '55%'}}>
-                            <a className="ParagTabGrand" >
-                            <i class="material-icons" style={{fontSize:'40px'}}>dashboard</i>
-                            <a className="ParagTabGrand" id="tipoServ"></a>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'10%'}} src={servico}/> 
+                           
+                            <a className="ParagTabGrand" style={{marginLeft:'20%',marginTop:'3%'}}>
+                              <a className="ParagTabGrand" id="tipoServ"></a>
                             </a>
+
                             <br/>
                             <br/>
                             <br/>
-                            <a className="ParagTabGrand">
-                            <i class="material-icons" style={{fontSize:'40px'}}>event</i>
-                            <a className="ParagTabGrand" id="DataHora"></a>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'10%'}} src={data}/> 
+                            <a className="ParagTabGrand" style={{marginLeft:'20%',marginTop:'3%'}}>
+                              <a className="ParagTabGrand" id="DataHora"></a>
                             </a>
                           </td>
                           <td style={{width: '25%'}}>
@@ -397,6 +443,7 @@ export default function DetalhesPet(){
         </div>
       </div> 
 
+      
     </div>
   </div>
     

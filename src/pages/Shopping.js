@@ -3,6 +3,13 @@ import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
 
+import inicio from "../img/Icon/inicioAzul.png";
+import calendario from "../img/Icon/calendarioAzul.png";
+import funcionario from "../img/Icon/funcionarioAzul.png";
+import shop from "../img/Icon/shop_branco.png";
+import vacinas from "../img/Icon/vacinasAzul.png";
+import prontuarios from "../img/Icon/prontuarioAzul.png";
+
 import api2 from '../services/api2.js';
 
 export default function Shopping(){
@@ -49,7 +56,7 @@ export default function Shopping(){
                     }
                 }
             }       
-    }
+        }
     setTimeout(() => {Validar()}, 100);
 
     async function Aparecer(){
@@ -201,7 +208,6 @@ export default function Shopping(){
                 }    
             }
         }       
-
     }
 
      
@@ -327,6 +333,13 @@ export default function Shopping(){
             }            
         }        
     }
+
+    function Edit(){
+        window.location.href="/EditarPerfil";
+    }
+    function Login(){
+        window.location.href="/";
+    }
     
 
     return(
@@ -344,46 +357,46 @@ export default function Shopping(){
                 </div>
                 <div className="sidebar-wrapper">
                     <ul className="nav">
-                    <li class="nav-item " id="Home" style={{display:'block'}}>
-                            <a class="nav-link" href="/Home">
-                            <i class="material-icons">dashboard</i>
-                            <p>Inicio</p>
+                        <li className="nav-item " id="Home" style={{display:'block'}}>
+                            <a className="nav-link" href="/Home">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Calen" style={{display:'none'}}>
-                            <a class="nav-link" href="/Calendario">
-                            <i class="material-icons">event</i>
-                            <p>Calendário</p>
+                        <li className="nav-item" id="Calen" style={{display:'none'}}>
+                            <a className="nav-link" href="/Calendario">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Func" style={{display:'none'}}>
-                            <a class="nav-link" href="/Funcionarios">
-                            <i class="material-icons">assignment_ind</i>
-                            <p>Funcionários</p>
+                        <li className="nav-item" id="Func" style={{display:'none'}}>
+                            <a className="nav-link" href="/Funcionarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
-                        <li class="nav-item active" id="Shop" style={{display:'none'}}>
-                            <a class="nav-link" href="/Shopping">
-                            <i class="material-icons">shopping_cart</i>
-                            <p>Shopping</p>
+                        <li className="nav-item active" id="Shop" style={{display:'none'}}>
+                            <a className="nav-link" href="/Shopping">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop}/>
+                                <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Med" style={{display:'none'}}>
-                            <a class="nav-link" href="/Medicacao">
-                            <i class="material-icons">alarm</i>
-                            <p>Medicações</p>
+                        <li className="nav-item " id="Med" style={{display:'none'}}>
+                            <a className="nav-link" href="/Medicacao">
+                                <i className="material-icons">alarm</i>
+                                <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Vac" style={{display:'none'}}>
-                            <a class="nav-link" href="Vacina">
-                            <i class="material-icons">account_circle</i>
-                            <p>Vacinas</p>
+                        <li className="nav-item " id="Vac" style={{display:'none'}}>
+                            <a className="nav-link" href="Vacina">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Pront" style={{display:'none'}}>
-                            <a class="nav-link" href="/Prontuarios">
-                            <i class="material-icons">assignment</i>
-                            <p>Prontuários</p>
+                        <li className="nav-item " id="Pront" style={{display:'none'}}>
+                            <a className="nav-link" href="/Prontuarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
                         <li className="nav-item active-pro ">
@@ -416,37 +429,38 @@ export default function Shopping(){
                             <span className="navbar-toggler-icon icon-bar"></span>
                         </button>
                         <div className="collapse navbar-collapse justify-content-end">
-                            {/* <ul className="navbar-nav">
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i className="material-icons">notifications</i>
-                                        <span className="notification">5</span>
-                                        <p className="d-lg-none d-md-block">
-                                            Some Actions
-                                        </p>
-                                    </a>
-                                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a className="dropdown-item" href="#">Mike John responded to your email</a>
-                                        <a className="dropdown-item" href="#">You have 5 new tasks</a>
-                                        <a className="dropdown-item" href="#">You're now friend with Andrew</a>
-                                        <a className="dropdown-item" href="#">Another Notification</a>
-                                        <a className="dropdown-item" href="#">Another One</a>
-                                    </div>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#pablo">
-                                        <i className="material-icons">help_outline</i>
-                                        <p className="d-lg-none d-md-block">
-                                            Stats
-                                        </p>
-                                    </a>
-                                </li>                                
-                                <li className="nav-item dropdown">
-                                    <a >
-                                        <img alt="" src={rodape} className="iconLogo" align="right" />      
-                                    </a>                                    
-                                </li>
-                            </ul> */}
+                        <ul class="navbar-nav">
+                            {/* <li class="nav-item dropdown">
+                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">5</span>
+                                <p class="d-lg-none d-md-block">
+                                    Some Actions
+                                </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                                <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                                <a class="dropdown-item" href="#">Another Notification</a>
+                                <a class="dropdown-item" href="#">Another One</a>
+                                </div>
+                            </li> */}
+                            <li class="nav-item">
+                                <a class="nav-link" onClick={Edit}>
+                                <i class="material-icons">help_outline</i>
+                                <p class="d-lg-none d-md-block">
+                                    Stats
+                                </p>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item dropdown" >
+                                <a onClick={Login}>
+                                    <img src={rodape} class="iconLogo" align="right" alt="" />      
+                                </a>
+                            </li>
+                            </ul>
                         </div>
                     </div>
                 </nav>
@@ -456,33 +470,32 @@ export default function Shopping(){
                             <div className="col-md-12">
                                 <div className="card" style={{borderLeft:'4px solid #009fe3'}}>
                                     <div className="card-body" style={{padding:'0 0 0 0'}}>
-                                        <div >
-                                        <div className="row" >
-                                            <div className="col-md-4">
-                                                <div className="navbar-form" style={{textAlign: '-webkit-center'}}>
-                                                    <div className="input-group no-border searchFunc" >
+                                        <div>
+                                            <div className="row" >
+                                                <div className="col-md-4">
+                                                    <div className="navbar-form" style={{textAlign: '-webkit-center'}}>
+                                                        <div className="input-group no-border searchFunc" >
                                                             <span className="material-icons" style={{color:'#009fe3'}}>
                                                             search
                                                             </span>
-                                                        <input type="text"  id="Nome" placeholder="Digite o Nome"/>
+                                                            <input type="text"  id="Nome" placeholder="Digite o Nome"/>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>  
-                                            <div className="col-md-4" style={{paddingLeft: '0'}}>
-                                                <div style={{width: '100%',textAlign: 'left',paddingRight:'5%'}}> 
-                                                    <button type="submit" className="btn btn-primary btnPrimeiroShop" onClick={Filtro} id="ButtonFiltro">Filtrar</button>
-                                                    <a type="submit" className="btn btn-primary btnSegundoShop" href="/CadastroShopping">Novo Produto</a>
-                                                </div> 
-                                            </div>                                             
-                                            <div className="col-md-4"></div>                                     
-                                        </div> 
+                                                </div>  
+                                                <div className="col-md-4" style={{paddingLeft: '0'}}>
+                                                    <div style={{width: '100%',textAlign: 'left',paddingRight:'5%'}}> 
+                                                        <button type="submit" className="btn btn-primary btnPrimeiroShop" onClick={Filtro} id="ButtonFiltro">Filtrar</button>
+                                                        <a type="submit" className="btn btn-primary btnSegundoShop" href="/CadastroShopping">Novo Produto</a>
+                                                    </div> 
+                                                </div>                                             
+                                                <div className="col-md-4"></div>                                     
+                                            </div> 
                                         <br/>
                                         </div>
                                         <div className="tab-content">
                                             <div className="tab-pane active" id="profile">
                                                 <table className="table" style={{marginBottom:'0px'}} id="table">
-                                                    <tbody id="tbody">  
-                                                                                                            
+                                                    <tbody id="tbody">                                                       
                                                     </tbody>
                                                 </table>
                                             </div>

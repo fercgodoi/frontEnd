@@ -35,7 +35,6 @@ export default function Codigo(){
             if(validarCPF(cpf)){
                 if (cod === "" || cod === null || cod === undefined) {    
                     erro.innerHTML = "Preencha os campos obrigatório";
-                    erro.style.color = "#FF0000";
                     button.innerText="Próximo";
                     button.removeAttribute("disabled");
                 }
@@ -58,6 +57,8 @@ export default function Codigo(){
                               button.innerText="Próximo";
                               button.removeAttribute("disabled");
                             }else if(response.data.message === "Código confirmado"){
+                                erro.style.color = "#09ff00";    
+                                erro.style.fontWeight= "700";  
                                 erro.innerText = "Código confirmado";
                                 setTimeout(() => {window.location.href="/Home"}, 1000);
                             }  
@@ -126,48 +127,47 @@ export default function Codigo(){
         return true;   
     }
     return(
-    <div>
-        
-    <div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-form validate-form" style={{marginBottom:'0px'}}>				
-                     <div style={{height: '100%',width: '100%',textAlign: 'center'}}>
-                        <div>
-                            <img src={Logo} alt="" style={{width: '40%', height: '20%'}}/>
-                        </div>
-                        <div style={{width: '100%',height: 'auto',marginTop:'2%'}}>
-                            <div class="col-md-12">
-                                <div class="form-group input">
-                                <InputMask type="text"  mask = "999.999.999-99" className="form-control" id="cpf" placeholder="CPF" maskChar=""/>
+    <div>    
+        <div className="limiter">
+            <div className="container-login100">
+                <div className="wrap-login100">
+                    <div className="login100-form validate-form" style={{marginBottom:'0px'}}>				
+                        <div style={{height: '100%',width: '100%',textAlign: 'center'}}>
+                            <div>
+                                <img src={Logo} alt="" style={{width: '40%', height: '20%'}}/>
+                            </div>
+                            <div style={{width: '100%',height: 'auto',marginTop:'2%'}}>
+                                <div className="col-md-12">
+                                    <div className="form-group input">
+                                        <InputMask type="text"  mask = "999.999.999-99" className="form-control" id="cpf" placeholder="CPF" maskChar=""/>
+                                    </div>
+                                </div>
+                                <div className="col-md-12">
+                                    <div className="form-group input">
+                                        <input type="text" className="form-control" id="cod" placeholder="Código"/>                                    
+                                        <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group input">
-                                    <input type="text" class="form-control" id="cod" placeholder="Código"/>                                    
-                                    <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                </div>
+                            <div style={{textAlign: '-webkit-center',paddingTop: '5%'}}>
+                                <table>
+                                    <tr>
+                                        <td style={{width:'100%'}}>
+                                            <button type="submit" className="btn btn-primary pull-right" id="buttonProximo" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Confirmar}>Verificar</button>
+                                            <div className="clearfix"></div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                        </div>
-                        <div style={{textAlign: '-webkit-center',paddingTop: '5%'}}>
-                            <table>
-                                <tr>
-                                    <td style={{width:'100%'}}>
-                                        <button type="submit" class="btn btn-primary pull-right" id="buttonProximo" style={{backgroundColor:' #009fe3',borderRadius: '32px',width:'100%'}} onClick={Confirmar}>Verificar</button>
-                                        <div class="clearfix"></div>
-                                    </td>
-                                </tr>
-                            </table>
                         </div>
                     </div>
-				</div>
-				<div class="login100-more" >
-                    <img src={Imagem}  alt="" className="ImagemTop"/>
-                    <img src={Imagem} alt="" className="ImagemBottom"/>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <div className="login100-more" >
+                        <img src={Imagem}  alt="" className="ImagemTop"/>
+                        <img src={Imagem} alt="" className="ImagemBottom"/>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     )
 }

@@ -45,6 +45,8 @@ export default function CadastroSegundo(){
                         button.innerText="Próximo";
                         button.removeAttribute("disabled");
                     }else if(response.data.message === "Alterado"){
+                        erro.style.color = "#09ff00"; 
+                        erro.style.fontWeight= "700";     
                         erro.innerHTML = "Verificação correta, vamos para a próxima etapa agora!!";
                         setTimeout(() => {window.location.href="/CadastroTerceiro"}, 2000); 
                     }
@@ -72,30 +74,28 @@ export default function CadastroSegundo(){
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
-
-                    <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
-                        <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 2</h4>
-                    </div>
-                    <div className="card-body">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="form-group">                 
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img>                    
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Você vai receber um código SMS no seu celular e no seu e-mail!</a>
+                        <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
+                            <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 2</h4>
+                        </div>
+                        <div className="card-body">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">                 
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img>                    
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Você vai receber um código SMS no seu celular e no seu e-mail!</a>
                                         <input type="text" className="form-control" placeholder="Código"id="cod" style={{color:'#009fe3',marginTop:'1%'}}/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row" style={{textAlign: '-webkit-center', marginTop:'25%'}}>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                                        <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} style={{marginRight:'0px'}} id="buttonProximo">Proximo</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                       
-                        <div className="row" style={{textAlign: '-webkit-center', marginTop:'25%'}}>
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} style={{marginRight:'0px'}} id="buttonProximo">Proximo</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

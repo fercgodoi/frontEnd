@@ -67,48 +67,6 @@ export default function CadastroTerceiro(){
         button.innerText="Aguardando";
         button.setAttribute("disabled","disabled");
 
-        if(segunda.checked === false){
-            segundaInicio.style.visibility="collapse";
-            segundaFinal.style.visibility="collapse";
-            segundaInicio.value = "00:00:00";
-            segundaFinal.value = "00:00:00";
-        }
-        if(terca.checked === false){
-            tercaInicio.style.visibility="collapse";
-            tercaFinal.style.visibility="collapse";    
-            tercaInicio.value = "00:00:00";
-            tercaFinal.value = "00:00:00";                    
-        }
-        if(quarta.checked === false){
-            quartaInicio.style.visibility="collapse";
-            quartaFinal.style.visibility="collapse";
-            quartaInicio.value = "00:00:00";
-            quartaFinal.value = "00:00:00";
-        }    
-        if(quinta.checked === false){
-            quintaInicio.style.visibility="collapse";
-            quintaFinal.style.visibility="collapse";
-            quintaInicio.value = "00:00:00";
-            quintaFinal.value = "00:00:00";
-        }    
-        if(sexta.checked === false){
-            sextaInicio.style.visibility="collapse";
-            sextaFinal.style.visibility="collapse";
-            sextaInicio.value = "00:00:00";
-            sextaFinal.value = "00:00:00";
-        }    
-        if(sabado.checked === false){
-            sabadoInicio.style.visibility="collapse";
-            sabadoFinal.style.visibility="collapse";
-            sabadoInicio.value = "00:00:00";
-            sabadoFinal.value = "00:00:00";
-        }    
-        if(domingo.checked === false){
-            domingoInicio.style.visibility="collapse";
-            domingoFinal.style.visibility="collapse";
-            domingoInicio.value = "00:00:00";
-            domingoFinal.value = "00:00:00";
-        }
 
         if (NomeFantasia === "" || NomeFantasia === null || NomeFantasia === undefined) {
             erro.innerHTML = "Preencha o campo Nome Fantasia";
@@ -274,6 +232,8 @@ export default function CadastroTerceiro(){
                                         if(response){
                                             if(response.data.message){
                                                 if(response.data.message === "Alterado"){
+                                                    erro.style.color = "#09ff00"; 
+                                                    erro.style.fontWeight= "700";     
                                                     erro.innerHTML = "Parabens mais uma etapa concluida, vamos para a proxima !!";
                                                     setTimeout(() => {window.location.href="/CadastroQuatro"}, 2000); 
                                                 }
@@ -569,219 +529,223 @@ export default function CadastroTerceiro(){
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
-
                     <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
                         <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 3</h4>
                     </div>
-                    <div className="card-body">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Qual é o seu nome fantasia?</a>
+                        <div className="card-body">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Qual é o seu nome fantasia?</a>
                                         <input type="text" className="form-control" id="NomeFantasia" placeholder="Nome Fantasia" style={{color:'#009fe3',marginTop:'1%'}}/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Descreve sua empresa em 3 (três) linhas</a>
-                                    <textarea class="form-control" rows="2" id="desc" placeholder="Descrição" style={{color:'#009fe3',marginTop:'1%'}}></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Perfeito! Qual sua área de atuação?</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-3">                                                 
-                                <br/>
-                                <button type="submit" className="btnCadFunc" id="Clinica" onClick={Clinica}>Clinica</button>
-                                <div className="clearfix"></div>
-                            </div>
-                            <div className="col-md-3">
-                                <br/>
-                                <button type="submit" className="btnCadFunc" id="PetShop"  onClick={PetShop}>PetShop</button>
-                                <div className="clearfix"></div>                                                   
-                            </div>
-                            <div className="col-md-3">
-                                <br/>
-                                <button type="submit" className="btnCadFunc" id="Hotel" onClick={Hotel}>Hotel</button>
-                                <div className="clearfix"></div>                                                   
-                            </div> 
-                            <div className="col-md-3">
-                                <br/>
-                                <button type="submit" className="btnCadFunc" id="Passeador" onClick={Passeador}>Passeador</button>
-                                <div className="clearfix"></div>                                                   
-                            </div>                           
-                        </div>
-                        <br/>   
-                        
-                        <div className="row">
-                            <div className="col-md-3">
-                                <div className="form-group">
-                                    <p  style={{color:'black'}}> Dias e horarios de trabalho:</p>
-                                </div>
-                            </div>
-                            <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-                                <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
-                                <br/>
-                                <label class="dias">Segunda-Feira
-                                    <input type="checkbox" id="segunda" onClick={Segunda}/>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="dias">Terça-Feira
-                                    <input type="checkbox" id="terca" onClick={Terca}/>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="dias">Quarta-Feira
-                                    <input type="checkbox" id="quarta" onClick={Quarta}/>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="dias">Quinta-Feira
-                                    <input type="checkbox" id="quinta" onClick={Quinta}/>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="dias">Sexta-Feira
-                                    <input type="checkbox" id="sexta" onClick={Sexta}/>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="dias">Sabado
-                                    <input type="checkbox" id="sabado" onClick={Sabado}/>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="dias">Domingo
-                                    <input type="checkbox" id="domingo" onClick={Domingo}/>
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            
-                            <div className="col-md-3">
                             <br/>
-                                <p  style={{color:'black',marginBottom:'0px'}}> Horário de Inicio de Turno:</p>
-                                <input type="time" id="segundaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Descreve sua empresa !!</a>
+                                        <textarea class="form-control" rows="2" id="desc" placeholder="Descrição" style={{color:'#009fe3',marginTop:'1%'}}></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Perfeito! Qual sua área de atuação?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-3">                                                 
+                                    <br/>
+                                    <button type="submit" className="btnCadFunc" id="Clinica" onClick={Clinica}>Clinica</button>
+                                    <div className="clearfix"></div>
+                                </div>
+                                <div className="col-md-3">
+                                    <br/>
+                                    <button type="submit" className="btnCadFunc" id="PetShop"  onClick={PetShop}>PetShop</button>
+                                    <div className="clearfix"></div>                                                   
+                                </div>
+                                <div className="col-md-3">
+                                    <br/>
+                                    <button type="submit" className="btnCadFunc" id="Hotel" onClick={Hotel}>Hotel</button>
+                                    <div className="clearfix"></div>                                                   
+                                </div> 
+                                <div className="col-md-3">
+                                    <br/>
+                                    <button type="submit" className="btnCadFunc" id="Passeador" onClick={Passeador}>Passeador</button>
+                                    <div className="clearfix"></div>                                                   
+                                </div>                           
+                            </div>
+                            <br/>   
+                            
+                            <div className="row">
+                                <div className="col-md-3">
+                                    <div className="form-group">
+                                        <p  style={{color:'black'}}> Dias e horarios de trabalho:</p>
+                                    </div>
+                                </div>
+                                <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                    <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
+                                    <br/>
+                                    <label className="dias">Segunda-Feira
+                                        <input type="checkbox" id="segunda" onClick={Segunda}/>
+                                        <span className="checkmark"></span>
+                                    </label>
 
-                                <input type="time" id="tercaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                    <label className="dias">Terça-Feira
+                                        <input type="checkbox" id="terca" onClick={Terca}/>
+                                        <span className="checkmark"></span>
+                                    </label>
 
-                                <input type="time" id="quartaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                    <label className="dias">Quarta-Feira
+                                        <input type="checkbox" id="quarta" onClick={Quarta}/>
+                                        <span className="checkmark"></span>
+                                    </label>
 
-                                <input type="time" id="quintaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                    <label className="dias">Quinta-Feira
+                                        <input type="checkbox" id="quinta" onClick={Quinta}/>
+                                        <span className="checkmark"></span>
+                                    </label>
 
-                                <input type="time" id="sextaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                    <label className="dias">Sexta-Feira
+                                        <input type="checkbox" id="sexta" onClick={Sexta}/>
+                                        <span className="checkmark"></span>
+                                    </label>
 
-                                <input type="time" id="sabadoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                    <label className="dias">Sabado
+                                        <input type="checkbox" id="sabado" onClick={Sabado}/>
+                                        <span className="checkmark"></span>
+                                    </label>
 
-                                <input type="time" id="domingoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                    <label className="dias">Domingo
+                                        <input type="checkbox" id="domingo" onClick={Domingo}/>
+                                        <span className="checkmark"></span>
+                                    </label>
+                                </div>
+                                
+                                <div className="col-md-3">
+                                    <br/>
+                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Inicio de Turno:</p>
+                                    <input type="time" id="segundaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="tercaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="quartaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="quintaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="sextaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="sabadoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="domingoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                </div>
+                                
+                                <div className="col-md-3">
+                                    <br/>
+                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Final de Turno:</p>
+                                    <input type="time" id="segundaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="tercaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="quartaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="quintaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="sextaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="sabadoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+
+                                    <input type="time" id="domingoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div className="row">
+                                <div class="col-md-12">
+                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que na segunda-freira tenha o horário seja das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 00:00 e na terça-feira 00:00 até 06:00.</p>
+                                </div>
+                            </div>
+                            <br/>
+
+                            <div className="row" >
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Legal, agora precisamos saber qual é o seu CEP do seu estabelecimento! </a>
+                                        <InputMask type="text"  mask = "99999-999" onChange={getCepInfo} className="form-control"  placeholder="CEP" id="cep" style={{color:'#009fe3',marginTop:'1%'}} maskChar=""/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row" style={{display:'none'}} id="DivEstado">
+                            <br/>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Seu estado é? </a>
+                                        <input type="text" className="form-control" placeholder="Estado" id="estado" style={{color:'#009fe3',marginTop:'1%'}} disabled/>
+                                    </div>
+                                </div>
                             </div>
                             
-                            <div className="col-md-3">
-                                <br/>
-                                <p  style={{color:'black',marginBottom:'0px'}}> Horário de Final de Turno:</p>
-                                <input type="time" id="segundaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                <input type="time" id="tercaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                <input type="time" id="quartaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                <input type="time" id="quintaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                <input type="time" id="sextaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                <input type="time" id="sabadoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                <input type="time" id="domingoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-                            </div>
-                        </div>
-                        <br/>
-                        <div className="row" >
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Legal, agora precisamos saber qual é o seu CEP do seu estabelecimento! </a>
-                                        <InputMask type="text"  mask = "99999-999" onChange={getCepInfo} className="form-control"  placeholder="CEP" id="cep" style={{color:'#009fe3',marginTop:'1%'}} maskChar=""/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="row" style={{display:'none'}} id="DivEstado">
-                        <br/>
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Seu estado é? </a>
-                                        <input type="text" className="form-control" placeholder="Estado" id="estado" style={{color:'#009fe3',marginTop:'1%'}} disabled/>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div className="row" style={{display:'none'}} id="DivCidade">
-                        <br/>
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Sua cidade é? </a>
+                            <div className="row" style={{display:'none'}} id="DivCidade">
+                            <br/>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Sua cidade é? </a>
                                         <input type="text" className="form-control" placeholder="Cidade" id="cidade" style={{color:'#009fe3',marginTop:'1%'}} disabled/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="row" style={{display:'none'}} id="DivBairro">
-                        <br/>
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Seu bairro é? </a>
+                            <div className="row" style={{display:'none'}} id="DivBairro">
+                            <br/>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Seu bairro é? </a>
                                         <input type="text" className="form-control" placeholder="Bairro" id="bairro" style={{color:'#009fe3',marginTop:'1%'}} disabled/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="row" style={{display:'none'}} id="DivRua">
-                        <br/>
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Sua rua é? </a>
+                            <div className="row" style={{display:'none'}} id="DivRua">
+                            <br/>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Sua rua é? </a>
                                         <input type="text" className="form-control" placeholder="Rua" id="rua" style={{color:'#009fe3',marginTop:'1%'}} disabled/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div className="row" >
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Show! Para poder atender melhor seus clientes, precisamos do Nº Loja/Estabelecimento.</a>
+                            
+                            <div className="row" >
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Show! Para poder atender melhor seus clientes, precisamos do Nº Loja/Estabelecimento.</a>
                                         <input type="text" className="form-control" placeholder="Número" id="numero" style={{color:'#009fe3',marginTop:'1%'}}/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div className="row" style={{textAlign: '-webkit-center'}}>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                                        <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} id="buttonProximo">Proximo</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <br/>
-                        <div className="row" style={{textAlign: '-webkit-center'}}>
-                            <div className="col-md-12">
-                                <div className="form-group">
-                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} id="buttonProximo">Proximo</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                            
-
                     </div>
                 </div>
             </div>

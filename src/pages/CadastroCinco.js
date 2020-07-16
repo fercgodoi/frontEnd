@@ -169,8 +169,10 @@ export default function CadastroCinco(){
                                         button.innerText="Próximo";
                                         button.removeAttribute("disabled");
                                     }else if(response.data.message === "Alterado"){
+                                        erro.style.color = "#09ff00";      
+                                        erro.style.fontWeight= "700";
                                         erro.innerHTML = "Verificação correta, vamos para a proxima etapa agora !!";
-                                        setTimeout(() => {window.location.href="/CadastroSeis"}, 2000); 
+                                        setTimeout(() => {window.location.href="/CadastroSete"}, 2000); 
                                     }
                                 }
                                 if(response.data.error){
@@ -432,155 +434,152 @@ export default function CadastroCinco(){
 
     return(
     <div>
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12" style={{padding:'0px',margin:'0px'}}>
-
-                    <div class="card-header card-header-blue" style={{background:'#009fe3'}}>
-                        <h4 class="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 5</h4>
-                    </div>
-                    <div class="card-body">
-                       
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Fica aberto 24h?</a>
+        <div className="content">
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
+                        <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
+                            <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 5</h4>
+                        </div>
+                        <div className="card-body">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Fica aberto 24h?</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">                                                 
-                                <br/>
-                                <button type="submit" className="btnCadFunc" onClick={EmergenciaSim} id="EmergenciaSim" >Sim</button>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-6">
-                                <br/>
-                                <button type="submit" className="btnCadFunc" onClick={EmergenciaNao} id="EmergenciaNao" >Não</button>
-                                <div class="clearfix"></div>                                                   
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>É ONG?</a>
+                            <div className="row">
+                                <div className="col-md-6">                                                 
+                                    <br/>
+                                        <button type="submit" className="btnCadFunc" onClick={EmergenciaSim} id="EmergenciaSim" >Sim</button>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div className="col-md-6">
+                                    <br/>
+                                        <button type="submit" className="btnCadFunc" onClick={EmergenciaNao} id="EmergenciaNao" >Não</button>
+                                    <div className="clearfix"></div>                                                   
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">                                                 
-                                <br/>
-                                <button type="submit" className="btnCadFunc" onClick={OngSim} id="OngSim" >Sim</button>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-6">
-                                <br/>
-                                <button type="submit" className="btnCadFunc" onClick={OngNao} id="OngNao" >Não</button>
-                                <div class="clearfix"></div>                                                   
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="">
-                                {/* form-group */}
-                                    <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                    <a style={{marginLeft:'5px',color:'#000000'}}>Ótimo, precisamos do logo da sua empresa, para aparecer bem bonito no aplicativo.</a>
-                                        <input type="file" class="form-control" accept="image/png, image/jpeg" placeholder="Foto" id="Foto" style={{color:'#009fe3',marginTop:'1%',backgroundImage:'none'}}/>
+                            <br/>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>É ONG?</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <br/>
-                       
-                        <div class="row">
-                            <div class="col-md-12">
-                            <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                <a style={{marginLeft:'5px',color:'#000000'}}>Show de bola! Agora precisamos saber, qual será a sua conta para recebimentos!</a>    <br/>             
-                                <a style={{marginLeft:'35px',color:'#000000',fontWeight:'400'}}>OBS: A conta cadastrada precisa ser a mesma do titular do CNPJ.</a>   
-                            </div>
-                        </div>
-                        <div class="row" id="DivCartao">
-                            <div class="col-md-4">                                                 
-                                <br/>
-                                <button type="submit" className="btnCadFunc" onClick={Conta} id="Conta">Conta</button>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-4">
-                                <br/>
-                                <button type="submit" className="btnCadFunc" onClick={Cielo} id="Cielo">ID Cielo</button>
-                                <div class="clearfix"></div>                                                   
-                            </div>
-                            <div class="col-md-4">
-                                <br/>
-                                <button type="submit" className="btnCadFunc" onClick={Wibx} id="Wibx">Wibx</button>
-                                <div class="clearfix"></div>                                                   
-                            </div>                            
-                        </div>                        
-                        <br/>   
-                        <div id="DivConta" style={{display:'none'}}>
-                        <div class="row" >
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Banco" id="Banco" style={{color:'#009fe3'}}/>
+                            <div className="row">
+                                <div className="col-md-6">                                                 
+                                    <br/>
+                                        <button type="submit" className="btnCadFunc" onClick={OngSim} id="OngSim" >Sim</button>
+                                    <div className="clearfix"></div>
+                                </div>
+                                <div className="col-md-6">
+                                    <br/>
+                                        <button type="submit" className="btnCadFunc" onClick={OngNao} id="OngNao" >Não</button>
+                                    <div className="clearfix"></div>                                                   
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Agência" id="Agencia" style={{color:'#009fe3'}}/>
+                            <br/>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="">
+                                    {/* form-group */}
+                                        <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Ótimo, precisamos do logo da sua empresa, para aparecer bem bonito no aplicativo.</a>
+                                        <input type="file" className="form-control" accept="image/png, image/jpeg" placeholder="Foto" id="Foto" style={{color:'#009fe3',marginTop:'1%',backgroundImage:'none'}}/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Conta com o digíto" id="NumConta" style={{color:'#009fe3'}}/>
+                            <br/>
+                        
+                            <div className="row">
+                                <div className="col-md-12">
+                                <img alt="" src={gatinho} style={{width:'30px'}}></img> 
+                                    <a style={{marginLeft:'5px',color:'#000000'}}>Show de bola! Agora precisamos saber, qual será a sua conta para recebimentos!</a>    <br/>             
+                                    <a style={{marginLeft:'35px',color:'#000000',fontWeight:'400'}}>OBS: A conta cadastrada precisa ser a mesma do titular do CNPJ.</a>   
                                 </div>
                             </div>
-                        </div>
-                        <div class="row" >
-                            <div class="col-md-6">                                                 
-                                <br/>
-                                <button type="submit" className="btnCadFunc" onClick={Corrente} id="Corrente">Corrente</button>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-6">
-                                <br/>
-                                <button type="submit" className="btnCadFunc" onClick={Poupanca} id="Poupanca">Poupança</button>
-                                <div class="clearfix"></div>                                                   
-                            </div>
-                        </div>
-                        </div>
-                        <div class="row" id="DivCielo" style={{display:'none'}}>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Codigo da Cielo" id="CodCielo" style={{color:'#009fe3'}}/>
+                            <div className="row" id="DivCartao">
+                                <div className="col-md-4">                                                 
+                                    <br/>
+                                        <button type="submit" className="btnCadFunc" onClick={Conta} id="Conta">Conta</button>
+                                    <div className="clearfix"></div>
+                                </div>
+                                <div className="col-md-4">
+                                    <br/>
+                                        <button type="submit" className="btnCadFunc" onClick={Cielo} id="Cielo">ID Cielo</button>
+                                    <div className="clearfix"></div>                                                   
+                                </div>
+                                <div className="col-md-4">
+                                    <br/>
+                                        <button type="submit" className="btnCadFunc" onClick={Wibx} id="Wibx">Wibx</button>
+                                    <div className="clearfix"></div>                                                   
+                                </div>                            
+                            </div>                        
+                            <br/>   
+                            <div id="DivConta" style={{display:'none'}}>
+                                <div className="row" >
+                                    <div className="col-md-12">
+                                        <div className="form-group">
+                                            <input type="text" className="form-control" placeholder="Banco" id="Banco" style={{color:'#009fe3'}}/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="form-group">
+                                            <input type="text" className="form-control" placeholder="Agência" id="Agencia" style={{color:'#009fe3'}}/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="form-group">
+                                            <input type="text" className="form-control" placeholder="Conta com o digíto" id="NumConta" style={{color:'#009fe3'}}/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row" >
+                                    <div className="col-md-6">                                                 
+                                        <br/>
+                                            <button type="submit" className="btnCadFunc" onClick={Corrente} id="Corrente">Corrente</button>
+                                        <div className="clearfix"></div>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <br/>
+                                            <button type="submit" className="btnCadFunc" onClick={Poupanca} id="Poupanca">Poupança</button>
+                                        <div className="clearfix"></div>                                                   
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row" id="DivWibx" style={{display:'none'}}>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Carteira Wibx" id="CodWibx" style={{color:'#009fe3'}}/>
+                            <div className="row" id="DivCielo" style={{display:'none'}}>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <input type="text" className="form-control" placeholder="Codigo da Cielo" id="CodCielo" style={{color:'#009fe3'}}/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="row" style={{textAlign: '-webkit-center'}}>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                <button type="submit" className=" btn btn-primary btnEditShop" id="buttonProximo" onClick={Proximo}>Proximo</button>
+                            <div className="row" id="DivWibx" style={{display:'none'}}>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <input type="text" className="form-control" placeholder="Carteira Wibx" id="CodWibx" style={{color:'#009fe3'}}/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>                                          
-
+                            <br/>
+                            <div className="row" style={{textAlign: '-webkit-center'}}>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                                        <button type="submit" className=" btn btn-primary btnEditShop" id="buttonProximo" onClick={Proximo}>Proximo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                          
                     </div>
                 </div>
             </div>

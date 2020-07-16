@@ -5,6 +5,13 @@ import rodape2 from  "../img/Icon/versao.png";
 
 import api2 from '../services/api2.js';
 
+import inicio from "../img/Icon/inicioAzul.png";
+import calendario from "../img/Icon/calendarioAzul.png";
+import funcionario from "../img/Icon/funcionarioAzul.png";
+import shop from "../img/Icon/shopAzul.png";
+import vacinas from "../img/Icon/vacinasAzul.png";
+import prontuarios from "../img/Icon/prontuario_branco.png";
+
 export default function CadastroProntuario(){
     localStorage.setItem('Codigo', "");
     function Validar(){
@@ -903,7 +910,10 @@ export default function CadastroProntuario(){
                                                                                         }
                                                                                         else{
                                                                                             if(response2.data.message === "Cadastrado"){
+                                                                                                erro.style.fontWeight= "700"; 
+                                                                                                erro.style.color = "#09ff00";  
                                                                                                 erro.innerHTML= "Cadastrado com Sucesso";
+                                                                                                  
                                                                                                 setTimeout(() => {window.location.href="/CadastroProntuario"}, 1000);
                                                                                             }
                                                                                         }
@@ -971,7 +981,8 @@ export default function CadastroProntuario(){
                                                         }
                                                         else{
                                                             if(response.data.message === "Cadastrado")
-                                                            {
+                                                            {erro.style.fontWeight= "700";
+                                                                erro.style.color = "#09ff00";      
                                                                 erro.innerHTML= "Cadastrado com Sucesso";
                                                                 setTimeout(() => {window.location.href="/CadastroProntuario"}, 1000);
                                                             }
@@ -1112,7 +1123,8 @@ export default function CadastroProntuario(){
                                                         }
                                                         else{
                                                             if(response.data.message === "Cadastrado")
-                                                            {
+                                                            {erro.style.fontWeight= "700";
+                                                                erro.style.color = "#09ff00";      
                                                                 idVac = response.data.id;
                                                                 erro.innerHTML ="Vacina Cadastrada com Sucesso";
                                                                 nome.setAttribute("disabled", "disabled");
@@ -1269,7 +1281,8 @@ export default function CadastroProntuario(){
                                                         }
                                                         else{
                                                             if(response.data.message === "Cadastrado")
-                                                            {
+                                                            {erro.style.fontWeight= "700";
+                                                                erro.style.color = "#09ff00";      
                                                                 idMed = response.data.id;
                                                                 erro.innerHTML ="Medicação cadastrada com sucesso";
                                                                 nome.setAttribute("disabled", "disabled");
@@ -1823,6 +1836,13 @@ export default function CadastroProntuario(){
         }
     }
 
+    function Edit(){
+        window.location.href="/EditarPerfil";
+      }
+      function Login(){
+        window.location.href="/";
+      }
+
     return(
 
     <div>
@@ -1839,46 +1859,46 @@ export default function CadastroProntuario(){
                 </div>
                 <div className="sidebar-wrapper">
                     <ul className="nav">
-                    <li class="nav-item " id="Home" style={{display:'block'}}>
-                            <a class="nav-link" href="/Home">
-                            <i class="material-icons">dashboard</i>
-                            <p>Inicio</p>
+                        <li className="nav-item " id="Home" style={{display:'block'}}>
+                            <a className="nav-link" href="/Home">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Calen" style={{display:'none'}}>
-                            <a class="nav-link" href="/Calendario">
-                            <i class="material-icons">event</i>
-                            <p>Calendário</p>
+                        <li className="nav-item" id="Calen" style={{display:'none'}}>
+                            <a className="nav-link" href="/Calendario">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Func" style={{display:'none'}}>
-                            <a class="nav-link" href="/Funcionarios">
-                            <i class="material-icons">assignment_ind</i>
-                            <p>Funcionários</p>
+                        <li className="nav-item " id="Func" style={{display:'none'}}>
+                            <a className="nav-link" href="/Funcionarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Shop" style={{display:'none'}}>
-                            <a class="nav-link" href="/Shopping">
-                            <i class="material-icons">shopping_cart</i>
-                            <p>Shopping</p>
+                        <li className="nav-item " id="Shop" style={{display:'none'}}>
+                            <a className="nav-link" href="/Shopping">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop}/>
+                                <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Med" style={{display:'none'}}>
-                            <a class="nav-link" href="/Medicacao">
-                            <i class="material-icons">alarm</i>
-                            <p>Medicações</p>
+                        <li className="nav-item " id="Med" style={{display:'none'}}>
+                            <a className="nav-link" href="/Medicacao">
+                                <i className="material-icons">alarm</i>
+                                <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Vac" style={{display:'none'}}>
-                            <a class="nav-link" href="Vacina">
-                            <i class="material-icons">account_circle</i>
-                            <p>Vacinas</p>
+                        <li className="nav-item " id="Vac" style={{display:'none'}}>
+                            <a className="nav-link" href="Vacina">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
-                        <li class="nav-item active" id="Pront" style={{display:'none'}}>
-                            <a class="nav-link" href="/Prontuarios">
-                            <i class="material-icons">assignment</i>
-                            <p>Prontuários</p>
+                        <li className="nav-item active" id="Pront" style={{display:'none'}}>
+                            <a className="nav-link" href="/Prontuarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
                         <li className="nav-item active-pro ">
@@ -1911,42 +1931,42 @@ export default function CadastroProntuario(){
                             <span className="navbar-toggler-icon icon-bar"></span>
                         </button>
                         <div className="collapse navbar-collapse justify-content-end">
-                            {/* <ul className="navbar-nav">
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i className="material-icons">notifications</i>
-                                        <span className="notification">5</span>
-                                        <p className="d-lg-none d-md-block">
-                                            Some Actions
-                                        </p>
-                                    </a>
-                                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a className="dropdown-item" href="#">Mike John responded to your email</a>
-                                        <a className="dropdown-item" href="#">You have 5 new tasks</a>
-                                        <a className="dropdown-item" href="#">You're now friend with Andrew</a>
-                                        <a className="dropdown-item" href="#">Another Notification</a>
-                                        <a className="dropdown-item" href="#">Another One</a>
-                                    </div>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#pablo">
-                                        <i className="material-icons">help_outline</i>
-                                        <p className="d-lg-none d-md-block">
-                                            Stats
-                                        </p>
-                                    </a>
-                                </li>                                
-                                <li className="nav-item dropdown">
-                                    <a >
-                                        <img  alt="" src={rodape} className="iconLogo" align="right" />      
-                                    </a>                                    
-                                </li>
-                            </ul> */}
+                        <ul class="navbar-nav">
+                            {/* <li class="nav-item dropdown">
+                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">5</span>
+                                <p class="d-lg-none d-md-block">
+                                    Some Actions
+                                </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                                <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                                <a class="dropdown-item" href="#">Another Notification</a>
+                                <a class="dropdown-item" href="#">Another One</a>
+                                </div>
+                            </li> */}
+                            <li class="nav-item">
+                                <a class="nav-link" onClick={Edit}>
+                                <i class="material-icons">help_outline</i>
+                                <p class="d-lg-none d-md-block">
+                                    Stats
+                                </p>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item dropdown" >
+                                <a onClick={Login}>
+                                    <img src={rodape} class="iconLogo" align="right" alt="" />      
+                                </a>
+                            </li>
+                            </ul>
                         </div>
                     </div>
                 </nav>
 
-                
                 <div className="content">
                     <div className="container-fluid">
                         <div className="row">
@@ -2002,170 +2022,168 @@ export default function CadastroProntuario(){
                                             <br/>
                                             <div className="row">
                                                 <div className="col-md-6"> 
-                                                <label className="bmd-label-floating">Vacinas</label>  
+                                                    <label className="bmd-label-floating">Vacinas</label>  
                                                         {/* <div id="DivVacina" style={{display:'block'}}>        */}
                                                         <button type="submit" className="btnCadFunc"  id="VacSim" onClick={VacinaSim} style={{width:'100px',marginLeft:'5%'}}>Adicionar</button>
                                                         <button type="submit" className="btnCadFunc" id="VacNao" onClick={VacinaNao} style={{width:'100px',marginLeft:'2%'}}>Sem Vacina</button>
                                                         {/* </div>      */}
                                                         <div id="DivVacinaSim" style={{display:'none'}}>
-                                                        <div className="card-body">
-                                                            <div className="row">
-                                                                <div className="col-md-6">
-                                                                    <div className="form-group">
+                                                            <div className="card-body">
+                                                                <div className="row">
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
                                                                             <input type="text" className="form-control" id="nome" placeholder="Nome"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" id="dose" placeholder="Dose"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="col-md-6">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control" id="dose" placeholder="Dose"/>
+                                                                <div className="row">
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" id="lote"placeholder="Lote"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" id="valor" placeholder="Valor"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" id="rgVacina" placeholder="RG Animal"/>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div className="row">
-                                                                <div className="col-md-6">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control" id="lote"placeholder="Lote"/>
+                                                                <br/>   
+                                                                <div className="row">
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" placeholder="Data Aplicada" disabled/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="date" id="dataIni" className="form-control"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control"  placeholder="Proxima data" disabled/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="date" id="dataProx" min="2020-01-01" className="form-control"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div> 
+                                                                <div className="row">                                                
+                                                                    <div className="col-md-12">
+                                                                        <div className="form-group">
+                                                                            <textarea className="form-control" rows="3" id="observacao" placeholder="Observação"></textarea>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control" id="valor" placeholder="Valor"/>
+                                                                <br/>   
+                                                                <div className="row" style={{textAlign: '-webkit-center'}}>
+                                                                    <div className="col-md-12">
+                                                                        <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="validaVacina"></p>
+                                                                        <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 5%',background:'#fff',border:'1px solid #009fe3',color:"#009fe3"}} onClick={SalvarVacina}id="ButtonVacina">Salvar</button>
+                                                                        <div className="clearfix"></div>
                                                                     </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control" id="rgVacina" placeholder="RG Animal"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <br/>   
-                                                            <div className="row">
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control" placeholder="Data Aplicada" disabled/>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="date" id="dataIni" className="form-control"/>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="text" className="form-control"  placeholder="Proxima data" disabled/>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-3">
-                                                                    <div className="form-group">
-                                                                        <input type="date" id="dataProx" min="2020-01-01" className="form-control"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div> 
-                                                            <div class="row">                                                
-                                                                 <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <textarea class="form-control" rows="3" id="observacao" placeholder="Observação"></textarea>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <br/>   
-                                                            <div className="row" style={{textAlign: '-webkit-center'}}>
-                                                                <div className="col-md-12">
-                                                                    <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="validaVacina"></p>
-                                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 5%',background:'#fff',border:'1px solid #009fe3',color:"#009fe3"}} onClick={SalvarVacina}id="ButtonVacina">Salvar</button>
-                                                                    <div className="clearfix"></div>
-                                                                </div>
-                                                            
-                                                            </div>   
-                                                        {/* </form> */}
-                                                    </div>
+                                                                </div>   
+                                                            {/* </form> */}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                        <div className="col-md-6">
-                                                            <label className="bmd-label-floating">Medicações</label>                                                
-                                                                <button type="submit" className="btnCadFunc" id="MedSim" onClick={MedicaSim} style={{width:'100px',marginLeft:'5%'}}>Adicionar</button>
-                                                                <button type="submit" className="btnCadFunc" id="MedNao" onClick={MedicaNao} style={{width:'150px',marginLeft:'2%'}}>Sem Medicação</button>
+                                                    <div className="col-md-6">
+                                                        <label className="bmd-label-floating">Medicações</label>                                                
+                                                            <button type="submit" className="btnCadFunc" id="MedSim" onClick={MedicaSim} style={{width:'100px',marginLeft:'5%'}}>Adicionar</button>
+                                                            <button type="submit" className="btnCadFunc" id="MedNao" onClick={MedicaNao} style={{width:'150px',marginLeft:'2%'}}>Sem Medicação</button>
 
-                                                                <div id="DivMedicacaoSim" style={{display:'none'}}>
-                                                                    <div className="card-body">
+                                                        <div id="DivMedicacaoSim" style={{display:'none'}}>
+                                                            <div className="card-body">
                                                                         {/* <form> */}
-                                                                            <div className="row">
-                                                                                <div className="col-md-6">
-                                                                                    <div className="form-group">
-                                                                                        <input type="text" className="form-control" id="nomeMed" placeholder="Nome"/>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="col-md-3">
-                                                                                    <div className="form-group">
-                                                                                        <input type="text" className="form-control" id="observMed" placeholder="Observações"/>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="col-md-3">
-                                                                                    <div className="form-group">
-                                                                                        <input type="text" className="form-control" id="rotinaMed" placeholder="Rotina"/>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="row">
-                                                                                <div className="col-md-6">
-                                                                                    <div className="form-group">
-                                                                                        <input type="text" className="form-control" id="loteMed" placeholder="Lote"/>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="col-md-3">
-                                                                                    <div className="form-group">
-                                                                                        <input type="text" className="form-control" id="doseMed" placeholder="Dose"/>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="col-md-3">
-                                                                                    <div className="form-group">
-                                                                                        <input type="text" className="form-control"  id="rgMed" placeholder="RG Animal"/>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <br/>   
-                                                                            <div className="row">
-                                                                                <div className="col-md-3">
-                                                                                    <div className="form-group">
-                                                                                        <input type="text" className="form-control" placeholder="Data de Inicio" disabled/>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="col-md-3">
-                                                                                    <div className="form-group">
-                                                                                        <input type="date"  min="2020-04-01" id="dataAtual" className="form-control"/>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="col-md-3">
-                                                                                    <div className="form-group">
-                                                                                        <input type="text" className="form-control"  placeholder="Data Final" disabled/>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="col-md-3">
-                                                                                    <div className="form-group">
-                                                                                        <input type="date" min="2020-04-01" id="dataDoseProx" className="form-control"/>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div> 
-                                                                            <br/>   
-                                                                            <div className="row" style={{textAlign: '-webkit-center'}}>
-                                                                                <div className="col-md-12">
-                                                                                    <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="validaMed"></p>
-                                                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 5%',background:'#fff',border:'1px solid #009fe3',color:"#009fe3"}}id="ButtonMed" onClick={SalvarMed}>Salvar</button>
-                                                                                    <div className="clearfix"></div>
-                                                                                </div>
-                                                                            
-                                                                            </div>   
-                                                                        {/* </form> */}
+                                                                <div className="row">
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" id="nomeMed" placeholder="Nome"/>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" id="observMed" placeholder="Observações"/>
+                                                                        </div>
+                                                                    </div>
+                                                                        <div className="col-md-3">
+                                                                            <div className="form-group">
+                                                                                <input type="text" className="form-control" id="rotinaMed" placeholder="Rotina"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                <div className="row">
+                                                                    <div className="col-md-6">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" id="loteMed" placeholder="Lote"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" id="doseMed" placeholder="Dose"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control"  id="rgMed" placeholder="RG Animal"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                <br/>   
+                                                                <div className="row">
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control" placeholder="Data de Inicio" disabled/>
+                                                                        </div>
+                                                                    </div>
+                                                                     <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="date"  min="2020-04-01" id="dataAtual" className="form-control"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="form-control"  placeholder="Data Final" disabled/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-md-3">
+                                                                        <div className="form-group">
+                                                                            <input type="date" min="2020-04-01" id="dataDoseProx" className="form-control"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div> 
+                                                                <br/>   
+                                                            <div className="row" style={{textAlign: '-webkit-center'}}>
+                                                                <div className="col-md-12">
+                                                                    <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="validaMed"></p>
+                                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 5%',background:'#fff',border:'1px solid #009fe3',color:"#009fe3"}}id="ButtonMed" onClick={SalvarMed}>Salvar</button>
+                                                                    <div className="clearfix"></div>
+                                                                </div>                                                                       
+                                                            </div>   
+                                                                {/* </form> */}
                                                         </div>
-                                                    </div>  
+                                                    </div>
+                                                </div>
+                                            </div>  
                                             <br/>   
                                             <div className="row">
                                                 <div className="col-md-6">
-                                                <label className="bmd-label-floating">Exame</label>  
-                                                        <button type="submit" className="btnCadFunc" id="ExSim" onClick={ExameSim} style={{width:'50px',marginLeft:'5%'}}>Sim</button>
-                                                        <button type="submit" className="btnCadFunc" id="ExNao" onClick={ExameNao} style={{width:'70px',marginLeft:'2%'}}>Não</button>
+                                                    <label className="bmd-label-floating">Exame</label>  
+                                                    <button type="submit" className="btnCadFunc" id="ExSim" onClick={ExameSim} style={{width:'50px',marginLeft:'5%'}}>Sim</button>
+                                                    <button type="submit" className="btnCadFunc" id="ExNao" onClick={ExameNao} style={{width:'70px',marginLeft:'2%'}}>Não</button>
                                                 </div>
                                                 <div className="col-md-6" style={{display:"none"}} id="Div">
                                                 <label className="bmd-label-floating">Selecione Tipo de Exame</label>
@@ -2195,10 +2213,9 @@ export default function CadastroProntuario(){
                                             <div id="DivParasitologico" style={{display:'none'}}>  
                                                 <div className="col-md-12">
                                                     <p  style={{color:'black',marginBottom:'0px'}}> Exames Parasitologico:</p>
-                                                   <div className="row">
+                                                    <div className="row">
                                                         <div className="col-md-4">                                                                
                                                             <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                 <label className="dias">Parasitologico de fezes
                                                                     <input type="checkbox" id="Fezes" onClick={Fezes} />
                                                                     <span className="checkmark"></span>
@@ -2218,7 +2235,6 @@ export default function CadastroProntuario(){
                                                     <div className="row">
                                                         <div className="col-md-4">                                                            
                                                             <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                 <label className="dias">Radiologia simples
                                                                     <input type="checkbox" id="RadiologiaSimples" onClick={RadiologiaSimples} />
                                                                     <span className="checkmark"></span>
@@ -2231,7 +2247,6 @@ export default function CadastroProntuario(){
                                                           {/*////////////////////////////////////////////////////// EXAME 2 /////////////////////////////*/}
                                                         <div className="col-md-4">                                                           
                                                             <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                 <label className="dias">Radiologia contrastada
                                                                     <input type="checkbox" id="RadiologiaContrastada" onClick={RadiologiaContrastada}/>
                                                                     <span className="checkmark"></span>
@@ -2245,7 +2260,6 @@ export default function CadastroProntuario(){
                                                          {/*////////////////////////////////////////////////////// EXAME 3 /////////////////////////////*/}
                                                          <div className="col-md-4">                                                           
                                                             <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                 <label className="dias">Eletrocardiograma
                                                                     <input type="checkbox" id="Eletrocardiograma" onClick={Eletrocardiograma}/>
                                                                     <span className="checkmark"></span>
@@ -2259,7 +2273,6 @@ export default function CadastroProntuario(){
                                                         {/*////////////////////////////////////////////////////// EXAME 4 /////////////////////////////*/}
                                                         <div className="col-md-4">                                                           
                                                             <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                 <label className="dias">Ultrassonografia Abdominal 
                                                                     <input type="checkbox" id="UltrassonografiAbdominal" onClick={UltrassonografiAbdominal}/>
                                                                     <span className="checkmark"></span>
@@ -2272,7 +2285,6 @@ export default function CadastroProntuario(){
                                                     </div>
                                                 </div>
                                             </div>
-
 
                                             <div id="DivHematologico" style={{display:'none'}}>    
                                                 <div className="col-md-12"> 
@@ -2341,7 +2353,6 @@ export default function CadastroProntuario(){
                                                 </div>                                            
                                             </div>
 
-
                                             <div id="DivBioquimico" style={{display:'none'}}>    
                                                 <div className="col-md-12"> 
                                                     <p  style={{color:'black',marginBottom:'0px'}}> Exames Bioquimico:</p>
@@ -2358,9 +2369,8 @@ export default function CadastroProntuario(){
                                                             <input type="text" className="form-control"  id="InputUrina" placeholder="Observação" style={{display:'none'}}/>
                                                         </div>
                                                          {/*////////////////////////////////////////////////////// EXAME 2 /////////////////////////////*/}
-                                                         <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Acido Úrico
                                                                         <input type="checkbox" id="AcidoUrico" onClick={AcidoUrico} />
                                                                         <span className="checkmark"></span>
@@ -2371,9 +2381,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputAcidoUrico" placeholder="Observação" style={{display:'none'}}/>
                                                             </div>    
                                                             {/*////////////////////////////////////////////////////// EXAME 3 /////////////////////////////*/}
-                                                         <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Albumina
                                                                         <input type="checkbox" id="Albumina" onClick={Albumina} />
                                                                         <span className="checkmark"></span>
@@ -2384,9 +2393,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputAlbumina" placeholder="Observação" style={{display:'none'}}/>
                                                             </div>    
                                                              {/*////////////////////////////////////////////////////// EXAME 4 /////////////////////////////*/}
-                                                         <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">ALT (TGP)
                                                                         <input type="checkbox" id="ALT" onClick={ALT} />
                                                                         <span className="checkmark"></span>
@@ -2399,7 +2407,6 @@ export default function CadastroProntuario(){
                                                             {/*////////////////////////////////////////////////////// EXAME 5 /////////////////////////////*/}
                                                                 <div className="col-md-4">                                                            
                                                                     <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                         <label className="dias">Amilase
                                                                             <input type="checkbox" id="Amilase" onClick={Amilase} />
                                                                             <span className="checkmark"></span>
@@ -2412,7 +2419,6 @@ export default function CadastroProntuario(){
                                                             {/*////////////////////////////////////////////////////// EXAME 6 /////////////////////////////*/}
                                                                 <div className="col-md-4">                                                            
                                                                     <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                         <label className="dias">AST (TGO)
                                                                             <input type="checkbox" id="AST" onClick={AST} />
                                                                             <span className="checkmark"></span>
@@ -2423,9 +2429,8 @@ export default function CadastroProntuario(){
                                                                     <input type="text" className="form-control"  id="InputAST" placeholder="Observação" style={{display:'none'}}/>
                                                                 </div> 
                                                         {/*////////////////////////////////////////////////////// EXAME 7 /////////////////////////////*/}
-                                                                <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Bilirrubina
                                                                         <input type="checkbox" id="Bilirrubina" onClick={Bilirrubina} />
                                                                         <span className="checkmark"></span>
@@ -2438,7 +2443,6 @@ export default function CadastroProntuario(){
                                                         {/*////////////////////////////////////////////////////// EXAME 8 /////////////////////////////*/}
                                                             <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Calcio sérico
                                                                         <input type="checkbox" id="CalcioSerico" onClick={CalcioSerico} />
                                                                         <span className="checkmark"></span>
@@ -2449,22 +2453,20 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputCalcioSerico" placeholder="Observação" style={{display:'none'}}/>
                                                             </div> 
                                                         {/*////////////////////////////////////////////////////// EXAME 9 /////////////////////////////*/}
-                                                        <div className="col-md-4">                                                            
-                                                                    <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
-                                                                        <label className="dias">Colesterol
-                                                                            <input type="checkbox" id="Colesterol" onClick={Colesterol} />
-                                                                            <span className="checkmark"></span>
-                                                                        </label>                                                                
-                                                                    </div>
-                                                                </div> 
+                                                            <div className="col-md-4">                                                            
+                                                                <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                                    <label className="dias">Colesterol
+                                                                        <input type="checkbox" id="Colesterol" onClick={Colesterol} />
+                                                                        <span className="checkmark"></span>
+                                                                    </label>                                                                
+                                                                </div>
+                                                            </div> 
                                                                 <div className="col-md-8">
                                                                     <input type="text" className="form-control"  id="InputColesterol" placeholder="Observação" style={{display:'none'}}/>
                                                                 </div> 
                                                         {/*////////////////////////////////////////////////////// EXAME 10 /////////////////////////////*/}
-                                                                <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Colinesterase
                                                                         <input type="checkbox" id="Colinesterase" onClick={Colinesterase} />
                                                                         <span className="checkmark"></span>
@@ -2477,7 +2479,6 @@ export default function CadastroProntuario(){
                                                         {/*////////////////////////////////////////////////////// EXAME 11 /////////////////////////////*/}
                                                             <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Creatina quinase (CK)
                                                                         <input type="checkbox" id="CreatinaQuinase" onClick={CreatinaQuinase} />
                                                                         <span className="checkmark"></span>
@@ -2488,9 +2489,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputCreatinaQuinase" placeholder="Observação" style={{display:'none'}}/>
                                                             </div> 
                                                          {/*////////////////////////////////////////////////////// EXAME 12 /////////////////////////////*/}
-                                                         <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Creatinina
                                                                         <input type="checkbox" id="Creatinina" onClick={Creatinina} />
                                                                         <span className="checkmark"></span>
@@ -2501,9 +2501,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputCreatinina" placeholder="Observação" style={{display:'none'}}/>
                                                             </div> 
                                                         {/*////////////////////////////////////////////////////// EXAME 13 /////////////////////////////*/}
-                                                        <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Ferro sérico
                                                                         <input type="checkbox" id="FerroSerico" onClick={FerroSerico} />
                                                                         <span className="checkmark"></span>
@@ -2514,9 +2513,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputFerroSerico" placeholder="Observação" style={{display:'none'}}/>
                                                             </div> 
                                                          {/*////////////////////////////////////////////////////// EXAME 14 /////////////////////////////*/}
-                                                         <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Fosfatase alcalina
                                                                         <input type="checkbox" id="FosfataseAlcalina" onClick={FosfataseAlcalina} />
                                                                         <span className="checkmark"></span>
@@ -2527,9 +2525,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputFosfataseAlcalina" placeholder="Observação" style={{display:'none'}}/>
                                                             </div>  
                                                         {/*////////////////////////////////////////////////////// EXAME 15 /////////////////////////////*/}
-                                                        <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Fósforo
                                                                         <input type="checkbox" id="Fosforo" onClick={Fosforo} />
                                                                         <span className="checkmark"></span>
@@ -2540,9 +2537,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputFosforo" placeholder="Observação" style={{display:'none'}}/>
                                                             </div> 
                                                          {/*////////////////////////////////////////////////////// EXAME 16 /////////////////////////////*/}
-                                                         <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Gama GT
                                                                         <input type="checkbox" id="Gama" onClick={Gama} />
                                                                         <span className="checkmark"></span>
@@ -2553,9 +2549,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputGama" placeholder="Observação" style={{display:'none'}}/>
                                                             </div>
                                                         {/*////////////////////////////////////////////////////// EXAME 17 /////////////////////////////*/}
-                                                        <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Glicose
                                                                         <input type="checkbox" id="Glicose" onClick={Glicose} />
                                                                         <span className="checkmark"></span>
@@ -2566,9 +2561,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputGlicose" placeholder="Observação" style={{display:'none'}}/>
                                                             </div> 
                                                          {/*////////////////////////////////////////////////////// EXAME 18 /////////////////////////////*/}
-                                                         <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Magnésio
                                                                         <input type="checkbox" id="Magnesio" onClick={Magnesio} />
                                                                         <span className="checkmark"></span>
@@ -2580,61 +2574,55 @@ export default function CadastroProntuario(){
                                                             </div>  
                                                         {/*////////////////////////////////////////////////////// EXAME 19 /////////////////////////////*/}
                                                         <div className="col-md-4">                                                            
-                                                                <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
-                                                                    <label className="dias">Proteínas totais
-                                                                        <input type="checkbox" id="ProteinasTotais" onClick={ProteinasTotais} />
-                                                                        <span className="checkmark"></span>
-                                                                    </label>                                                                
-                                                                </div>
-                                                            </div> 
-                                                            <div className="col-md-8">
-                                                                <input type="text" className="form-control"  id="InputProteinasTotais" placeholder="Observação" style={{display:'none'}}/>
-                                                            </div> 
+                                                            <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                                <label className="dias">Proteínas totais
+                                                                    <input type="checkbox" id="ProteinasTotais" onClick={ProteinasTotais} />
+                                                                    <span className="checkmark"></span>
+                                                                </label>                                                                
+                                                            </div>
+                                                        </div> 
+                                                        <div className="col-md-8">
+                                                            <input type="text" className="form-control"  id="InputProteinasTotais" placeholder="Observação" style={{display:'none'}}/>
+                                                        </div> 
                                                          {/*////////////////////////////////////////////////////// EXAME 20 /////////////////////////////*/}
                                                          <div className="col-md-4">                                                            
-                                                                <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
-                                                                    <label className="dias">Sódio (Na+), Potássio (K+) e Cloro (Cl-)
-                                                                        <input type="checkbox" id="NAKCL" onClick={NAKCL} />
-                                                                        <span className="checkmark"></span>
-                                                                    </label>                                                                
-                                                                </div>
-                                                            </div> 
-                                                            <div className="col-md-8">
+                                                            <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                                <label className="dias">Sódio (Na+), Potássio (K+) e Cloro (Cl-)
+                                                                    <input type="checkbox" id="NAKCL" onClick={NAKCL} />
+                                                                    <span className="checkmark"></span>
+                                                                </label>                                                                
+                                                            </div>
+                                                        </div> 
+                                                        <div className="col-md-8">
                                                                 <input type="text" className="form-control"  id="InputNAKCL" placeholder="Observação" style={{display:'none'}}/>
-                                                            </div>  
+                                                        </div>  
                                                          {/*////////////////////////////////////////////////////// EXAME 21 /////////////////////////////*/}
                                                          <div className="col-md-4">                                                            
-                                                                <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
-                                                                    <label className="dias">Triglicerídeos
-                                                                        <input type="checkbox" id="Triglicerideos" onClick={Triglicerideos} />
-                                                                        <span className="checkmark"></span>
-                                                                    </label>                                                                
-                                                                </div>
-                                                            </div> 
-                                                            <div className="col-md-8">
-                                                                <input type="text" className="form-control"  id="InputTriglicerideos" placeholder="Observação" style={{display:'none'}}/>
-                                                            </div> 
+                                                            <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                                <label className="dias">Triglicerídeos
+                                                                    <input type="checkbox" id="Triglicerideos" onClick={Triglicerideos} />
+                                                                    <span className="checkmark"></span>
+                                                                </label>                                                                
+                                                            </div>
+                                                        </div> 
+                                                        <div className="col-md-8">
+                                                            <input type="text" className="form-control"  id="InputTriglicerideos" placeholder="Observação" style={{display:'none'}}/>
+                                                        </div> 
                                                          {/*////////////////////////////////////////////////////// EXAME 22 /////////////////////////////*/}
-                                                         <div className="col-md-4">                                                            
-                                                                <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
-                                                                    <label className="dias">Uréia
-                                                                        <input type="checkbox" id="Ureia" onClick={Ureia} />
-                                                                        <span className="checkmark"></span>
-                                                                    </label>                                                                
-                                                                </div>
-                                                            </div> 
-                                                            <div className="col-md-8">
-                                                                <input type="text" className="form-control"  id="InputUreia" placeholder="Observação" style={{display:'none'}}/>
-                                                            </div>                                                       
+                                                        <div className="col-md-4">                                                            
+                                                            <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                                <label className="dias">Uréia
+                                                                    <input type="checkbox" id="Ureia" onClick={Ureia} />
+                                                                    <span className="checkmark"></span>
+                                                                </label>                                                                
+                                                            </div>
+                                                        </div> 
+                                                        <div className="col-md-8">
+                                                            <input type="text" className="form-control"  id="InputUreia" placeholder="Observação" style={{display:'none'}}/>
+                                                        </div>                                                       
                                                     </div>
                                                 </div>
                                             </div>
-
-
 
                                             <div id="DivOutros" style={{display:'none'}}>    
                                                 <div className="col-md-12"> 
@@ -2642,7 +2630,6 @@ export default function CadastroProntuario(){
                                                     <div className="row">
                                                         <div className="col-md-4">                                                            
                                                             <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                 <label className="dias">Exame tumoral
                                                                     <input type="checkbox" id="ExameTumoral" onClick={ExameTumoral} />
                                                                     <span className="checkmark"></span>
@@ -2655,7 +2642,6 @@ export default function CadastroProntuario(){
                                                           {/*////////////////////////////////////////////////////// EXAME 2 /////////////////////////////*/}
                                                             <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Exame ginecologico 
                                                                         <input type="checkbox" id="ExameGinecologico" onClick={ExameGinecologico} />
                                                                         <span className="checkmark"></span>
@@ -2668,7 +2654,6 @@ export default function CadastroProntuario(){
                                                              {/*////////////////////////////////////////////////////// EXAME 2 /////////////////////////////*/}
                                                              <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Glicemia de jejum
                                                                         <input type="checkbox" id="GlicemiaJejum" onClick={GlicemiaJejum} />
                                                                         <span className="checkmark"></span>
@@ -2679,9 +2664,8 @@ export default function CadastroProntuario(){
                                                                 <input type="text" className="form-control"  id="InputGlicemiaJejum" placeholder="Observação" style={{display:'none'}}/>
                                                             </div>
                                                              {/*////////////////////////////////////////////////////// EXAME 2 /////////////////////////////*/}
-                                                             <div className="col-md-4">                                                            
+                                                            <div className="col-md-4">                                                            
                                                                 <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
                                                                     <label className="dias">Biopsia
                                                                         <input type="checkbox" id="Biopsia" onClick={Biopsia} />
                                                                         <span className="checkmark"></span>
@@ -2691,32 +2675,31 @@ export default function CadastroProntuario(){
                                                             <div className="col-md-8">
                                                                 <input type="text" className="form-control"  id="InputBiopsia" placeholder="Observação" style={{display:'none'}}/>
                                                             </div>
-                                                             {/*////////////////////////////////////////////////////// EXAME 2 /////////////////////////////*/}
-                                                             <div className="col-md-4">                                                            
-                                                                <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-
-                                                                    <label className="dias">Sexagem de Aves
-                                                                        <input type="checkbox" id="SexagemAves" onClick={SexagemAves} />
-                                                                        <span className="checkmark"></span>
-                                                                    </label>                                                                
-                                                                </div>
-                                                            </div> 
-                                                            <div className="col-md-8">
-                                                                <input type="text" className="form-control"  id="InputSexagemAves" placeholder="Observação" style={{display:'none'}}/>
-                                                            </div>                                                          
+                                                        {/*////////////////////////////////////////////////////// EXAME 2 /////////////////////////////*/}
+                                                        <div className="col-md-4">                                                            
+                                                            <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                                                <label className="dias">Sexagem de Aves
+                                                                    <input type="checkbox" id="SexagemAves" onClick={SexagemAves} />
+                                                                    <span className="checkmark"></span>
+                                                                </label>                                                                
+                                                            </div>
+                                                        </div> 
+                                                        <div className="col-md-8">
+                                                            <input type="text" className="form-control"  id="InputSexagemAves" placeholder="Observação" style={{display:'none'}}/>
+                                                        </div>                                                          
                                                     </div>
                                                 </div>
                                             </div> 
                                         
                                         
                                             <br/>
-                                            <div className="row" style={{textAlign: '-webkit-center'}}>
-                                                <div className="col-md-12">
-                                                    <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                                    <button type="submit" className="btn btn-primary" onClick={Salvar} style={{borderRadius: '30px',padding: '1% 5%'}}>Salvar</button>
-                                                    <div className="clearfix"></div>
-                                                </div>                                              
-                                            </div>   
+                                        <div className="row" style={{textAlign: '-webkit-center'}}>
+                                            <div className="col-md-12">
+                                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                                                <button type="submit" className="btn btn-primary" onClick={Salvar} style={{borderRadius: '30px',padding: '1% 5%'}}>Salvar</button>
+                                                <div className="clearfix"></div>
+                                            </div>                                              
+                                        </div>   
                                     </div>
                                 </div>
                             </div>
@@ -2726,7 +2709,5 @@ export default function CadastroProntuario(){
             </div>
         </div>
     </div>
-    )
-
-   
+    ) 
 }

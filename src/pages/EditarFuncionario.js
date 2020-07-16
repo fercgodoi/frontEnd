@@ -4,6 +4,13 @@ import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
 
+import inicio from "../img/Icon/inicioAzul.png";
+import calendario from "../img/Icon/calendarioAzul.png";
+import funcionario from "../img/Icon/funcionarios_branco.png";
+import shop from "../img/Icon/shopAzul.png";
+import vacinas from "../img/Icon/vacinasAzul.png";
+import prontuarios from "../img/Icon/prontuarioAzul.png";
+
 import api2 from '../services/api2.js';
 
 export default function EditarFuncionario(){   
@@ -596,6 +603,8 @@ export default function EditarFuncionario(){
                                                                 button.innerText="Salvar";
                                                                 button.removeAttribute("disabled");
                                                             }else if(response.data.message === "Atualizado"){
+                                                                    erro.style.color = "#09ff00";  
+                                                                    erro.style.fontWeight= "700";    
                                                                     erro.innerText = "Atualizado com Sucesso";
                                                                     setTimeout(() => {window.location.href="/Funcionarios"}, 2000);
                                                                 }else if(response.data.message === "Ja existe CRMV"){
@@ -884,6 +893,13 @@ export default function EditarFuncionario(){
         
     }
 
+    function Edit(){
+        window.location.href="/EditarPerfil";
+    }
+    function Login(){
+        window.location.href="/";
+    }
+
     return(
     <div>
         <div className="wrapper ">
@@ -899,46 +915,46 @@ export default function EditarFuncionario(){
                 </div>
                 <div className="sidebar-wrapper">
                     <ul className="nav">
-                        <li class="nav-item " id="Home" style={{display:'block'}}>
-                            <a class="nav-link" href="/Home">
-                            <i class="material-icons">dashboard</i>
-                            <p>Inicio</p>
+                        <li className="nav-item " id="Home" style={{display:'block'}}>
+                            <a className="nav-link" href="/Home">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Calen" style={{display:'none'}}>
-                            <a class="nav-link" href="/Calendario">
-                            <i class="material-icons">event</i>
-                            <p>Calendário</p>
+                        <li className="nav-item" id="Calen" style={{display:'none'}}>
+                            <a className="nav-link" href="/Calendario">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
-                        <li class="nav-item active" id="Func" style={{display:'none'}}>
-                            <a class="nav-link" href="/Funcionarios">
-                            <i class="material-icons">assignment_ind</i>
-                            <p>Funcionários</p>
+                        <li className="nav-item active" id="Func" style={{display:'none'}}>
+                            <a className="nav-link" href="/Funcionarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Shop" style={{display:'none'}}>
-                            <a class="nav-link" href="/Shopping">
-                            <i class="material-icons">shopping_cart</i>
-                            <p>Shopping</p>
+                        <li className="nav-item " id="Shop" style={{display:'none'}}>
+                            <a className="nav-link" href="/Shopping">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop}/>
+                                <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Med" style={{display:'none'}}>
-                            <a class="nav-link" href="/Medicacao">
-                            <i class="material-icons">alarm</i>
-                            <p>Medicações</p>
+                        <li className="nav-item " id="Med" style={{display:'none'}}>
+                            <a className="nav-link" href="/Medicacao">
+                                <i className="material-icons">alarm</i>
+                                <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Vac" style={{display:'none'}}>
-                            <a class="nav-link" href="Vacina">
-                            <i class="material-icons">account_circle</i>
-                            <p>Vacinas</p>
+                        <li className="nav-item " id="Vac" style={{display:'none'}}>
+                            <a className="nav-link" href="Vacina">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Pront" style={{display:'none'}}>
-                            <a class="nav-link" href="/Prontuarios">
-                            <i class="material-icons">assignment</i>
-                            <p>Prontuários</p>
+                        <li className="nav-item " id="Pront" style={{display:'none'}}>
+                            <a className="nav-link" href="/Prontuarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
                         <li className="nav-item active-pro ">
@@ -971,37 +987,38 @@ export default function EditarFuncionario(){
                             <span className="navbar-toggler-icon icon-bar"></span>
                         </button>
                       <div className="collapse navbar-collapse justify-content-end">
-                             {/*  <ul className="navbar-nav">
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i className="material-icons">notifications</i>
-                                        <span className="notification">5</span>
-                                        <p className="d-lg-none d-md-block">
-                                        className Actions
-                                        </p>
-                                    </a>
-                                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a className="dropdown-item" href="#">Mike John responded to your email</a>
-                                        <a className="dropdown-item" href="#">You have 5 new tasks</a>
-                                        <a className="dropdown-item" href="#">You're now friend with Andrew</a>
-                                        <a className="dropdown-item" href="#">Another Notification</a>
-                                        <a className="dropdown-item" href="#">Another One</a>
-                                    </div>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#pablo">
-                                        <i className="material-icons">help_outline</i>
-                                        <p className="d-lg-none d-md-block">
-                                            Stats
-                                        </p>
-                                    </a>
-                                </li>                                
-                                <li className="nav-item dropdown">
-                                    <a >
-                                        <img src={rodape}  alt=""class="iconLogo" align="right" />      
-                                    </a>                                    
-                                </li>
-                            </ul>*/}
+                      <ul class="navbar-nav">
+                            {/* <li class="nav-item dropdown">
+                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">5</span>
+                                <p class="d-lg-none d-md-block">
+                                    Some Actions
+                                </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                                <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                                <a class="dropdown-item" href="#">Another Notification</a>
+                                <a class="dropdown-item" href="#">Another One</a>
+                                </div>
+                            </li> */}
+                            <li class="nav-item">
+                                <a class="nav-link" onClick={Edit}>
+                                <i class="material-icons">help_outline</i>
+                                <p class="d-lg-none d-md-block">
+                                    Stats
+                                </p>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item dropdown" >
+                                <a onClick={Login}>
+                                    <img src={rodape} class="iconLogo" align="right" alt="" />      
+                                </a>
+                            </li>
+                            </ul>
                         </div> 
                     </div>
                 </nav>
@@ -1019,25 +1036,25 @@ export default function EditarFuncionario(){
                                             <div className="row">
                                                 <div className="col-md-3">
                                                     <div className="form-group">
-                                                    <label style={{color:'#009fe3'}}>Nome</label>
-                                                            <input type="text" className="form-control" id="nome" placeholder="Nome"/>
+                                                        <label style={{color:'#009fe3'}}>Nome</label>
+                                                        <input type="text" className="form-control" id="nome" placeholder="Nome"/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
                                                     <div className="form-group">
-                                                    <label style={{color:'#009fe3'}}>CPF</label>
-                                                        <InputMask type="text"  mask = "999.999.999-99" className="form-control" id="cpf" placeholder="CPF" maskChar=""/>
+                                                        <label style={{color:'#009fe3'}}>CPF</label>
+                                                        <InputMask type="text"  mask = "999.999.999-99" className="form-control" id="cpf" placeholder="CPF" maskChar="" disabled/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
                                                     <div className="form-group">
-                                                    <label style={{color:'#009fe3'}}>Telefone</label>
+                                                        <label style={{color:'#009fe3'}}>Telefone</label>
                                                         <InputMask type="text"  mask = "(99) 99999 -9999" className="form-control" id="num" placeholder="Número" maskChar=""/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
                                                     <div className="form-group">
-                                                    <label style={{color:'#009fe3'}}>Email</label>
+                                                        <label style={{color:'#009fe3'}}>Email</label>
                                                         <input type="text" className="form-control" id="email" placeholder="Email"/>
                                                     </div>
                                                 </div>
@@ -1052,44 +1069,44 @@ export default function EditarFuncionario(){
                                                 <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
                                                     <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
                                                     <br/>
-                                                    <label class="dias">Segunda-Feira
+                                                    <label className="dias">Segunda-Feira
                                                         <input type="checkbox" id="segunda" onClick={Segunda}/>
-                                                        <span class="checkmark"></span>
+                                                        <span className="checkmark"></span>
                                                     </label>
 
-                                                    <label class="dias">Terça-Feira
+                                                    <label className="dias">Terça-Feira
                                                         <input type="checkbox" id="terca" onClick={Terca}/>
-                                                        <span class="checkmark"></span>
+                                                        <span className="checkmark"></span>
                                                     </label>
 
-                                                    <label class="dias">Quarta-Feira
+                                                    <label className="dias">Quarta-Feira
                                                         <input type="checkbox" id="quarta" onClick={Quarta}/>
-                                                        <span class="checkmark"></span>
+                                                        <span className="checkmark"></span>
                                                     </label>
 
-                                                    <label class="dias">Quinta-Feira
+                                                    <label className="dias">Quinta-Feira
                                                         <input type="checkbox" id="quinta" onClick={Quinta}/>
-                                                        <span class="checkmark"></span>
+                                                        <span className="checkmark"></span>
                                                     </label>
 
-                                                    <label class="dias">Sexta-Feira
+                                                    <label className="dias">Sexta-Feira
                                                         <input type="checkbox" id="sexta" onClick={Sexta}/>
-                                                        <span class="checkmark"></span>
+                                                        <span className="checkmark"></span>
                                                     </label>
 
-                                                    <label class="dias">Sabado
+                                                    <label className="dias">Sabado
                                                         <input type="checkbox" id="sabado" onClick={Sabado}/>
-                                                        <span class="checkmark"></span>
+                                                        <span className="checkmark"></span>
                                                     </label>
 
-                                                    <label class="dias">Domingo
+                                                    <label className="dias">Domingo
                                                         <input type="checkbox" id="domingo" onClick={Domingo}/>
-                                                        <span class="checkmark"></span>
+                                                        <span className="checkmark"></span>
                                                     </label>
                                                 </div>
                                              
                                                 <div className="col-md-3">
-                                                <br/>
+                                                    <br/>
                                                     <p  style={{color:'black',marginBottom:'0px'}}> Horário de Inicio de Turno:</p>
                                                     <input type="time" id="segundaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
@@ -1127,7 +1144,7 @@ export default function EditarFuncionario(){
                                            
                                             <br/>
                                             <div className="row">
-                                                <div class="col-md-12">
+                                                <div className="col-md-12">
                                                     <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 00:00 e na terça-feira 00:00 até 06:00.</p>
                                                 </div>
                                             </div>
@@ -1135,57 +1152,56 @@ export default function EditarFuncionario(){
                                             <div className="row" id="Cargos">
                                                 <div className="col-md-3"> 
                                                     <label className="bmd-label-floating">Cargos</label>                                                
-                                                    <br/>
-                                                    <button type="submit" id="recepcao" onClick={Recepcao} className="btnCadFunc">Recepção</button>
+                                                        <br/>
+                                                        <button type="submit" id="recepcao" onClick={Recepcao} className="btnCadFunc">Recepção</button>
                                                     <div className="clearfix"></div>
                                                 </div>
                                                 <div className="col-md-3">
                                                     <br/>
-                                                    <button type="submit" id="admin"  onClick={Administracao} className="btnCadFunc">Administração</button>
+                                                        <button type="submit" id="admin"  onClick={Administracao} className="btnCadFunc">Administração</button>
                                                     <div className="clearfix"></div>                                                   
                                                 </div>
                                                 <div className="col-md-3">
                                                     <br/>
-                                                    <button type="submit" id="vet" onClick={Veterinario} className="btnCadFunc">Veterinário</button>
+                                                        <button type="submit" id="vet" onClick={Veterinario} className="btnCadFunc">Veterinário</button>
                                                     <div className="clearfix"></div>                                                   
                                                 </div>
                                                 <div className="col-md-3">
                                                     <br/>
-                                                    <button type="submit" id="financeiro" onClick={Financeiro} className="btnCadFunc">Financeiro</button>
+                                                        <button type="submit" id="financeiro" onClick={Financeiro} className="btnCadFunc">Financeiro</button>
                                                     <div className="clearfix"></div>                                                   
                                                 </div>
                                             </div>  
                                             <br/>   
-                                            <div className="row">
-                                                <div className="col-md-6">
-                                                    <div className="form-group">
-                                                        <input type="text" className="form-control" id="crmv" placeholder="CRMV" style={{display:'none'}}/>
-                                                    </div>
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <div className="form-group">
+                                                    <input type="text" className="form-control" id="crmv" placeholder="CRMV" style={{display:'none'}}/>
                                                 </div>
-                                                <div className="col-md-3">
-                                                    <div className="form-group">
-                                                        <input type="text" className="form-control" id="NameDate" placeholder="Data de Emissão" disabled style={{display:'none'}}/>
-                                                    </div>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <div className="form-group">
+                                                    <input type="text" className="form-control" id="NameDate" placeholder="Data de Emissão" disabled style={{display:'none'}}/>
                                                 </div>
-                                                <div className="col-md-3">
-                                                    <div className="form-group">
-                                                        <input type="date" id="date" className="form-control" style={{display:'none'}}/>
-                                                    </div>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <div className="form-group">
+                                                    <input type="date" id="date" className="form-control" style={{display:'none'}}/>
                                                 </div>
-                                            </div> 
+                                            </div>
+                                        </div> 
                                             <div className="row">
                                                 <div className="col-md-12">
-                                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>
+                                                    <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>
                                                 </div>
                                             </div>
                                             <br/>   
                                             <div className="row" style={{textAlign: '-webkit-center'}}>
-                                               
                                                 <div className="col-md-12">                                                    
                                                     <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 10%'}} id="buttonSalvar" onClick={Salvar}>Salvar</button>
-                                                    <div className="clearfix"></div>
-                                                </div>
-                                            </div>   
+                                                <div className="clearfix"></div>
+                                            </div>
+                                        </div>   
                                     </div>
                                 </div>
                             </div>

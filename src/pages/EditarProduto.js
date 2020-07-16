@@ -7,6 +7,13 @@ import rodape2 from  "../img/Icon/versao.png";
 
 import Confrimar from  "../img/cover.jpg";
 
+import inicio from "../img/Icon/inicioAzul.png";
+import calendario from "../img/Icon/calendarioAzul.png";
+import funcionario from "../img/Icon/funcionarioAzul.png";
+import shop from "../img/Icon/shop_branco.png";
+import vacinas from "../img/Icon/vacinasAzul.png";
+import prontuarios from "../img/Icon/prontuarioAzul.png";
+
 import api from '../services/api2.js';
 
 export default function EditarProduto(){
@@ -170,7 +177,8 @@ export default function EditarProduto(){
                                     }
                                     else if(response.data.message === "Alterado"){
                                         erro.innerText = "Produto Alterado com sucesso";
-
+                                        erro.style.color = "#09ff00"; 
+                                        erro.style.fontWeight= "700";     
                                         var button = document.getElementById("buttonSalvar");
                                         nome.setAttribute("disabled", "disabled");
                                         valor.setAttribute("disabled", "disabled");
@@ -209,69 +217,76 @@ export default function EditarProduto(){
             }
         }
     }
+
+    function Edit(){
+        window.location.href="/EditarPerfil";
+      }
+      function Login(){
+        window.location.href="/";
+      }
     return(
     <div>
-        <div class="wrapper ">
-            <div class="sidebar" data-color="blue" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-                <div class="logo">
-                    <a  class="simple-text logo-normal">
-                        <img alt="" src={rodape} class="ImagemLogo" align="left" />            
+        <div className="wrapper ">
+            <div className="sidebar" data-color="blue" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+                <div className="logo">
+                    <a  className="simple-text logo-normal">
+                        <img alt="" src={rodape} className="ImagemLogo" align="left" />            
                     </a>
-                    <a  class="simple-text logo-normal">
-                        <p class="NomePrest">Cantos dos Bichos</p>
-                        <p class="TipoPrest">PetShop</p>
+                    <a  className="simple-text logo-normal">
+                        <p className="NomePrest">Cantos dos Bichos</p>
+                        <p className="TipoPrest">PetShop</p>
                     </a>
                 </div>
-                <div class="sidebar-wrapper">
-                    <ul class="nav">
-                    <li class="nav-item " id="Home" style={{display:'block'}}>
-                            <a class="nav-link" href="/Home">
-                            <i class="material-icons">dashboard</i>
-                            <p>Inicio</p>
+                <div className="sidebar-wrapper">
+                    <ul className="nav">
+                        <li className="nav-item " id="Home" style={{display:'block'}}>
+                            <a className="nav-link" href="/Home">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Calen" style={{display:'none'}}>
-                            <a class="nav-link" href="/Calendario">
-                            <i class="material-icons">event</i>
-                            <p>Calendário</p>
+                        <li className="nav-item" id="Calen" style={{display:'none'}}>
+                            <a className="nav-link" href="/Calendario">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
-                        <li class="nav-item " id="Func" style={{display:'none'}}>
-                            <a class="nav-link" href="/Funcionarios">
-                            <i class="material-icons">assignment_ind</i>
-                            <p>Funcionários</p>
+                        <li className="nav-item " id="Func" style={{display:'none'}}>
+                            <a className="nav-link" href="/Funcionarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
-                        <li class="nav-item active" id="Shop" style={{display:'none'}}>
-                            <a class="nav-link" href="/Shopping">
-                            <i class="material-icons">shopping_cart</i>
-                            <p>Shopping</p>
+                        <li className="nav-item active" id="Shop" style={{display:'none'}}>
+                            <a className="nav-link" href="/Shopping">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop}/>
+                                <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Med" style={{display:'none'}}>
-                            <a class="nav-link" href="/Medicacao">
-                            <i class="material-icons">alarm</i>
-                            <p>Medicações</p>
+                        <li className="nav-item " id="Med" style={{display:'none'}}>
+                            <a className="nav-link" href="/Medicacao">
+                                <i className="material-icons">alarm</i>
+                                <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Vac" style={{display:'none'}}>
-                            <a class="nav-link" href="Vacina">
-                            <i class="material-icons">account_circle</i>
-                            <p>Vacinas</p>
+                        <li className="nav-item " id="Vac" style={{display:'none'}}>
+                            <a className="nav-link" href="Vacina">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="Pront" style={{display:'none'}}>
-                            <a class="nav-link" href="/Prontuarios">
-                            <i class="material-icons">assignment</i>
-                            <p>Prontuários</p>
+                        <li className="nav-item " id="Pront" style={{display:'none'}}>
+                            <a className="nav-link" href="/Prontuarios">
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
-                        <li class="nav-item active-pro ">
-                            <a class="nav-link" style={{background:'none'}}>
+                        <li className="nav-item active-pro ">
+                            <a className="nav-link" style={{background:'none'}}>
                                 <table>
                                     <tr>
                                         <td style={{width: '20%'}}>
-                                            <img alt="" src={rodape2} class="material-icons"/>
+                                            <img alt="" src={rodape2} className="material-icons"/>
                                         </td>
                                         <td style={{width: '80%'}}>
                                             <p style={{color:'#009fe3'}}>Versão 1.0</p>
@@ -283,108 +298,108 @@ export default function EditarProduto(){
                     </ul>
                 </div>
             </div>    
-            <div class="main-panel">
-                <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-                    <div class="container-fluid">
-                        <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="#pablo" style={{fontSize:'21px'}}>Editar Produtos</a>
+            <div className="main-panel">
+                <nav className="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                    <div className="container-fluid">
+                        <div className="navbar-wrapper">
+                            <a className="navbar-brand" href="#pablo" style={{fontSize:'21px'}}>Editar Produtos</a>
                         </div>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="navbar-toggler-icon icon-bar"></span>
-                            <span class="navbar-toggler-icon icon-bar"></span>
-                            <span class="navbar-toggler-icon icon-bar"></span>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="sr-only">Toggle navigation</span>
+                            <span className="navbar-toggler-icon icon-bar"></span>
+                            <span className="navbar-toggler-icon icon-bar"></span>
+                            <span className="navbar-toggler-icon icon-bar"></span>
                         </button>
-                         <div class="collapse navbar-collapse justify-content-end">
-                           {/* <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">notifications</i>
-                                        <span class="notification">5</span>
-                                        <p class="d-lg-none d-md-block">
-                                            Some Actions
-                                        </p>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                                        <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                                        <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                                        <a class="dropdown-item" href="#">Another Notification</a>
-                                        <a class="dropdown-item" href="#">Another One</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#pablo">
-                                        <i class="material-icons">help_outline</i>
-                                        <p class="d-lg-none d-md-block">
-                                            Stats
-                                        </p>
-                                    </a>
-                                </li>                                
-                                <li class="nav-item dropdown">
-                                    <a >
-                                        <img alt="" src={rodape} class="iconLogo" align="right" />      
-                                    </a>                                    
-                                </li>
-                            </ul> */}
+                         <div className="collapse navbar-collapse justify-content-end">
+                         <ul class="navbar-nav">
+                            {/* <li class="nav-item dropdown">
+                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">5</span>
+                                <p class="d-lg-none d-md-block">
+                                    Some Actions
+                                </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                                <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                                <a class="dropdown-item" href="#">Another Notification</a>
+                                <a class="dropdown-item" href="#">Another One</a>
+                                </div>
+                            </li> */}
+                            <li class="nav-item">
+                                <a class="nav-link" onClick={Edit}>
+                                <i class="material-icons">help_outline</i>
+                                <p class="d-lg-none d-md-block">
+                                    Stats
+                                </p>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item dropdown" >
+                                <a onClick={Login}>
+                                    <img src={rodape} class="iconLogo" align="right" alt="" />      
+                                </a>
+                            </li>
+                            </ul>
                         </div>
                     </div>
                 </nav>
-                <div class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header card-header-blue">
-                                        <h4 class="card-title">Produtos</h4>
-                                        <p class="card-category">Revise os Dados!</p>
+                <div className="content">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="card">
+                                    <div className="card-header card-header-blue">
+                                        <h4 className="card-title">Produtos</h4>
+                                        <p className="card-category">Revise os Dados!</p>
                                     </div>
-                                    <div class="card-body">
+                                    <div className="card-body">
                                         {/* <form> */}
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <button type="submit" style={{background:'#009fe3',textAlign:'center',color:'#fff',width:'100%',height:'100%'}}>Imagem</button>
-                                                </div>
-                                                <div class="col-md-6">
-                                                <img alt="" src={Confrimar} style={{width:'100%',height:'100%'}} />   
-                                                </div>
-                                            </div>  
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <button type="submit" style={{background:'#009fe3',textAlign:'center',color:'#fff',width:'100%',height:'100%'}}>Imagem</button>
+                                            </div>
+                                            <div className="col-md-6">
+                                            <img alt="" src={Confrimar} style={{width:'100%',height:'100%'}} />   
+                                            </div>
+                                        </div>  
                                             <br/> 
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                            <input type="text" class="form-control" id="nome" placeholder="Nome"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <input type="number" class="form-control" min="0" id="quantidade" placeholder="Quantidade"/>
-                                                    </div>
-                                                </div>
-                                                <div class="input-group col-md-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" style={{color:'#009fe3'}}>R$</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="preco" placeholder="Preço Unitário"/>
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <div className="form-group">
+                                                    <input type="text" className="form-control" id="nome" placeholder="Nome"/>
                                                 </div>
                                             </div>
-                                            <div class="row">                                                
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                    <label style={{color:'#009fe3'}}>Descrição</label>
-                                                        <textarea class="form-control" rows="3" id="desc" placeholder="Descrição"></textarea>
-                                                    </div>
+                                            <div className="col-md-3">
+                                                <div className="form-group">
+                                                    <input type="number" className="form-control" min="0" id="quantidade" placeholder="Quantidade"/>
                                                 </div>
                                             </div>
+                                            <div className="input-group col-md-3">
+                                                <div className="input-group-prepend">
+                                                    <span className="input-group-text" style={{color:'#009fe3'}}>R$</span>
+                                                </div>
+                                                <input type="text" className="form-control" id="preco" placeholder="Preço Unitário"/>
+                                            </div>
+                                        </div>
+                                        <div className="row">                                                
+                                            <div className="col-md-12">
+                                                <div className="form-group">
+                                                <label style={{color:'#009fe3'}}>Descrição</label>
+                                                    <textarea className="form-control" rows="3" id="desc" placeholder="Descrição"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
                                             <br/>   
-                                            <div class="row" style={{textAlign: '-webkit-center'}}>
-                                               
-                                                <div class="col-md-12">
-                                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>
-                                                    <button type="submit" class="btn btn-primary" id="buttonProximo" style={{borderRadius: '30px',padding: '1% 05%'}} onClick={Editar} id="buttonSalvar">Salvar</button>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>   
+                                        <div className="row" style={{textAlign: '-webkit-center'}}>  
+                                            <div className="col-md-12">
+                                            <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>
+                                                <button type="submit" className="btn btn-primary" id="buttonProximo" style={{borderRadius: '30px',padding: '1% 05%'}} onClick={Editar} id="buttonSalvar">Salvar</button>
+                                                <div className="clearfix"></div>
+                                            </div>
+                                        </div>   
                                         {/* </form> */}
                                     </div>
                                 </div>
