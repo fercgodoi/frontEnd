@@ -26,7 +26,7 @@ export default function CadastroSete(){
     var ButtonSim ="Não";
     var ButtonNao ="Não";
     var tipo = "";
-    var ButtonValor = "";
+    var ButtonValor = "Não";
     
     async function Proximo(){
         var nome = document.getElementById("nome").value;
@@ -95,13 +95,14 @@ export default function CadastroSete(){
             }
             else{
                 if(validarCPF(cpf)){
-                    if(ButtonNao !== "Não" || ButtonNao !== "Não" ){
+                    if(ButtonNao !== "Não" || ButtonSim !== "Não" ){
                         if(ButtonNao === "Sim"){
                             if(email === "" || email === null){
                                 tipo="Pendente";
                             }else{
-                                tipo="Concluido";
+                                tipo="";
                             }
+			}
 
 
                             erro.innerHTML = "";
@@ -255,6 +256,7 @@ export default function CadastroSete(){
                                         button.innerText="Próximo";
                                         button.removeAttribute("disabled");
                                     }else{
+                                        tipo="";
                                         erro.innerHTML = "";
                                         let response="";
                                         try {
@@ -262,6 +264,8 @@ export default function CadastroSete(){
                                         } catch (error) {
                                             console.log(error);               
                                         } 
+
+console.log(response);
                                         
                                         if(response){
                                             if(response.data.message){
