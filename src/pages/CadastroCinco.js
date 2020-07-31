@@ -176,6 +176,8 @@ export default function CadastroCinco(){
                                 // button.removeAttribute("disabled");               
                             }
                             
+                            console.log(response);
+                            
                             if(response){
                                 if(response.data.message){
                                     if(response.data.message === "Codigo incorreto"){
