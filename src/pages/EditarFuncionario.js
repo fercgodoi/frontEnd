@@ -64,7 +64,7 @@ export default function EditarFuncionario(){
 
         let response="";
         try {
-            response = await api2.post('/Prestador/BuscarPrest2');
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -640,7 +640,7 @@ export default function EditarFuncionario(){
 
                                                 let response="";
                                                 try {
-                                                    response = await api2.post('/Funcionario/AtualizarFunc', {NomeFunc: nome,EmailFunc: email,CpfFunc: cpf ,RecepFunc: recepcao,VetFunc: Vet,AdminFunc:  Admin ,FinanFunc: finan ,AcessoFunc: AcessoTotal,idFunc: id,CRMVFunc:crmv,DateEmiFunc:date,CelFunc:num,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value});
+                                                    response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/AtualizarFunc', {NomeFunc: nome,EmailFunc: email,CpfFunc: cpf ,RecepFunc: recepcao,VetFunc: Vet,AdminFunc:  Admin ,FinanFunc: finan ,AcessoFunc: AcessoTotal,idFunc: id,CRMVFunc:crmv,DateEmiFunc:date,CelFunc:num,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value});
                                                 } catch (error) {
                                                     console.log(error);               
                                                 }   
