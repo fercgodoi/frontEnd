@@ -156,7 +156,7 @@ export default function CadastroCinco(){
 
                                 // response = await api.post('/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
 
-                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadCincoPrest', dados);
+                                response = await api.post('http://localhost:3000/Prestador/CadCincoPrest', dados);
 
                                 
                                 //  response = await api.post('',);
