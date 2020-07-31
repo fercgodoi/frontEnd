@@ -64,7 +64,7 @@ export default function CadastroVacina(){
 
         let response="";
         try {
-            response = await api2.post('/Prestador/BuscarPrest2');
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -186,7 +186,7 @@ export default function CadastroVacina(){
                                             valor= valor.replace(/,/g, '.');
 
                                             try {
-                                                response = await api2.post('/Vacina/inserirVac', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,rgPet: rg,observacaoVacina: observacao});
+                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Vacina/inserirVac', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,rgPet: rg,observacaoVacina: observacao});
                                             } catch (error) {
                                                 console.log(error);               
                                             }  
