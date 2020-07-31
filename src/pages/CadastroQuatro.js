@@ -717,6 +717,113 @@ export default function CdastroQuatro(){
     //     }
     // }
 
+    // function Formato(){
+    //     // var atual = 10529.89;
+
+    //     var valor = (document.getElementById("inputValor1"));
+
+    //     valor.value= valor.value.replace(/,/g, '.');
+
+    //     var atual = new Intl.NumberFormat('pt-BR').format(valor.value);
+    //     //
+
+    //     console.log(atual)
+    //     valor.value= atual;
+
+    // //    atual.toLocaleString('pt-br');
+
+    //     console.log(atual);
+
+        // var into = atual.split('',10);
+        // console.log(atual.length)
+
+        // if()
+
+        // if(atual.value.length === 3){
+        //     atual.value = atual.value[0] + "," + atual.value[1] + atual.value[2];
+        // }else if(atual.value.length === 5){
+        //     var into = atual.value.split('',10);
+        //     atual.value= into[0] + into[2] + into[3] + into[4] ;
+        //     console.log(atual.value)
+        //     atual.value = atual.value[0] + atual.value[1]+ "," +  + atual.value[2]+atual.value[3];
+        //     console.log(atual.value)
+        // }else if(atual.value.length === 6){
+        //     var into = atual.value.split('',10);
+        //     atual.value= into[0] + into[1] +into[3] + into[4] +  into[5];
+        //     console.log(atual.value)
+        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+  "," + atual.value[3] + atual.value[4];
+        //     console.log(atual.value)
+        // }else if(atual.value.length === 7){
+        //     var into = atual.value.split('',10);
+        //     atual.value= into[0] + into[1] +into[2] + into[4] +  into[5] +  into[6];
+        //     console.log(into)
+        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+ atual.value[3]+ "," + atual.value[4] + atual.value[5];
+        //     console.log(atual.value)
+        // }
+        // }else  if(atual.value.length === 6){
+        //     var into = atual.value.split('',10);
+        //     atual.value= into[0] + into[1] + into[2] + into[4] + into[5];
+        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+ atual.value[3] +  "," + atual.value[5] + atual.value[6];
+        // }
+        // else if(atual.value.length > 3) {
+
+        //     var into = atual.value.split('',10);
+        //     atual.value= into[0] + into[2] + into[3] + into[4] ;
+
+        //     console.log(into)
+            // if(atual.value.length === 4){
+            //     atual.value = atual.value[0] + atual.value[1]+ "," +  + atual.value[2]+atual.value[3];
+            // }else if(atual.value.length > 4 && atual.value.length < 6 ) {
+
+                // var into = atual.value.split('',10);
+                //     atual.value= into[0] + into[1] + into[3] + into[4];
+                // console.log(into)
+                // if(atual.value.length === 5){
+                //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+  "," + atual.value[3] + atual.value[5];
+                // }
+                // else if(atual.value.length > 5){
+                //     var into = atual.value.split('',10);
+                //     atual.value= into[0] + into[1] + into[2] + into[4] + into[5];
+                //     console.log(into)
+                //     if(atual.value.length === 6){
+                //         atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+ atual.value[3] +  "," + atual.value[5] + atual.value[6];
+                //     }
+                //     else{
+                //         alert("passou")
+
+                //     }
+                // }
+            // }
+        // }
+        
+        
+        
+        // if(atual.value.length === 5){
+        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+  "," + atual.value[3] + atual.value[5];
+            
+        //     console.log(atual.value)
+        // }else if(atual.value.length === 6){
+        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+ atual.value[3] +  "," + atual.value[5] + atual.value[6];
+            
+        //     console.log(atual.value)
+        // }else {
+        //    console.log("passou")
+        // }
+
+        // if(into.lenght)
+        // if(into[1]
+
+        // // //com R$
+        // // var f = atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+        // //sem R$
+        // // var f2 = atual.toLocaleString('pt-br', {minimumFractionDigits: 2});
+
+        // var f2 = atual.toLocaleString('pt-br');
+
+        // // console.log(f);
+        // console.log(f2);
+    // }
     
     return(
     <div>
@@ -747,7 +854,7 @@ export default function CdastroQuatro(){
                                     <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
                                     </div>
-                                    <input type="text" className="form-control"  id="inputValor1" placeholder="Valor"/>
+                                    <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" />
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar1}>Adicionar</button>

@@ -4,6 +4,7 @@ import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
+// import InputMask from 'react-input-mask';
 
 import api from "../services/api2";
 
@@ -94,14 +95,16 @@ export default function CadastroSete(){
                 button.removeAttribute("disabled");
             }
             else{
+                erro.innerHTML = "";
                 if(validarCPF(cpf)){
-                    if(ButtonNao !== "Não" || ButtonNao !== "Não" ){
-                        if(ButtonNao === "Sim"){
-                            if(email === "" || email === null){
+                    if(ButtonSim !== "Não" || ButtonNao !== "Não" ){
+                        if(ButtonNao === "Sim"){                            
+                            if(email === "" || email === null || email=== undefined){
                                 tipo="Pendente";
                             }else{
                                 tipo="Concluido";
                             }
+                        }
 
 
                             erro.innerHTML = "";
@@ -119,6 +122,7 @@ export default function CadastroSete(){
                                     }
                                 }
                             }
+
                             if(terca.checked === true){
                                 ValidaTerca = "Pendente";
                                 if(tercaInicio.value === "" || tercaInicio.value === null || tercaInicio.value === undefined){
@@ -133,6 +137,7 @@ export default function CadastroSete(){
                                     }
                                 }
                             }
+
                             if(quarta.checked === true){
                                 ValidaQuarta = "Pendente";
                                 if(quartaInicio.value === "" || quartaInicio.value === null || quartaInicio.value === undefined || quartaInicio.value === "00:00:00"){
@@ -208,6 +213,7 @@ export default function CadastroSete(){
                                     }
                                 }
                             }
+
                             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
                            
                             if(ValidaSegunda === "Não" && ValidaTerca ==="Não" && ValidaQuarta ==="Não" && ValidaQuinta === "Não" && ValidaSexta === "Não" && ValidaSabado === "Não" && ValidaDomingo === "Não" ) {
@@ -310,9 +316,8 @@ export default function CadastroSete(){
                                         }
                                     }
                                 }   
-                            }           
+                            }   
                        
-                    }
                     }else{
                         erro.innerHTML = "Escolha se vai querer usar o email";
                         button.innerText="Próximo";
@@ -321,6 +326,8 @@ export default function CadastroSete(){
                 }
                 else{
                     erro.innerHTML = "CPF Inválido";
+                    button.innerText="Próximo";
+                    button.removeAttribute("disabled");
                 }
             }
         }
@@ -667,7 +674,7 @@ export default function CadastroSete(){
                                     <div className="col-md-12">
                                         <div className="form-group">
                                             <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                            <a style={{marginLeft:'5px',color:'#000000'}}>Agora vamos cadastrar um funcionario do estabelecimento!!</a>
+                                            <a style={{marginLeft:'5px',color:'#000000'}}>Agora vamos realizar seu cadastro na plataforma!!</a>
                                             <input type="text" className="form-control" placeholder="Nome" id="nome" style={{color:'#009fe3',marginTop:'1%'}}/>
                                         </div>
                                     </div>
@@ -697,7 +704,7 @@ export default function CadastroSete(){
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
                                         <a style={{marginLeft:'5px',color:'#000000'}}>E o email?</a>
-                                        <input type="text" className="form-control" id="email" placeholder="Email" style={{color:'#009fe3',marginTop:'1%'}}/>
+                                        <input type="text" className="form-control" id="email" placeholder="Email" style={{color:'#009fe3',marginTop:'1%'}} disabled/>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
@@ -764,40 +771,40 @@ export default function CadastroSete(){
                                 </div>
                                     
                                 <div className="col-md-3">
-                                    <br/>
-                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Inicio de Turno:</p>
-                                    <input type="time" id="segundaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                <br/>
+                                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Inicio de Turno:</p>
+                                                    <input type="time" id="segundaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="tercaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="tercaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="quartaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="quartaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="quintaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="quintaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="sextaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="sextaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="sabadoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="sabadoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="domingoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-                                </div>
-                                    
-                                <div className="col-md-3">
-                                    <br/>
-                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Final de Turno:</p>
-                                    <input type="time" id="segundaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="domingoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                </div>
+                                                
+                                                <div className="col-md-3">
+                                                    <br/>
+                                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Final de Turno:</p>
+                                                    <input type="time" id="segundaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="tercaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="tercaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="quartaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="quartaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="quintaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="quintaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="sextaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="sextaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="sabadoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                    <input type="time" id="sabadoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
 
-                                    <input type="time" id="domingoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-                                </div>
+                                                    <input type="time" id="domingoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+                                                </div>
                             </div>
 
                             <div className="row">
@@ -865,7 +872,7 @@ export default function CadastroSete(){
                                         <a style={{marginLeft:'5px',color:'#000000'}}>Você é veterinario?</a>
                                     </div>
                                 </div>
-                                <div className="col-md-3"> </div>
+                                {/* <div className="col-md-3"> </div> */}
                                 <div className="col-md-3"> 
                                     <button type="submit" className="btnCadFunc" onClick={VeterinarioSim} id="VeterinarioSim">Sim</button>
                                     <div className="clearfix"></div>

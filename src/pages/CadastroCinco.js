@@ -4,6 +4,7 @@ import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
 import axios from "axios";
+//import React, { useState } from 'react';                //--------alteração rodrigo-----//
 
 import api from "../services/api3";
 
@@ -29,9 +30,13 @@ export default function CadastroCinco(){
     var ButtonCorrente= "Não";
     var ButtonPoupanca= "Não";
 
+    //alteração rdsq
+    var imageSrc = null;
+
     async function Proximo(){
+
         var erro = document.getElementById("valida");
-        var Foto = document.getElementById("Foto").value;
+        //var Foto = document.getElementById("Foto").value;
         var button = document.getElementById("buttonProximo");
 
         button.innerText="Aguardando";
@@ -47,7 +52,7 @@ export default function CadastroCinco(){
                 button.innerText="Próximo";
                 button.removeAttribute("disabled");
             }else{
-                if (Foto === "" || Foto === null || Foto === undefined) {    
+                if (imageSrc === "" || imageSrc === null || imageSrc === undefined) {    
                     erro.innerHTML = "Preencha o campo Logo";
                     button.innerText="Próximo";
                     button.removeAttribute("disabled");
@@ -132,22 +137,28 @@ export default function CadastroCinco(){
 
                             let response="";
 
-                            // let dados  = new FormData();
-
-                            // var ooi = "oooi";
-                            // dados.set("Conta","ooi");
-                            // dados.set('BancoCont', Banco);
-                            // dados.append("AgenciaCont", Agencia);
-                            // dados.append('TipoCont', tipo);
-                            // dados.append('CartCont', CodWibx);
-                            // dados.append('CieloCont', CodCielo);
-                            // dados.append('EmergenciaPrest', Emergencia);
-                            // dados.append('LogoPrest', Foto);
-                            // dados.append('OngPrest', Ong);
-                           
-                            // console.log(dados)
                             try {
-                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
+
+                                let dados = new FormData();
+
+                                dados.set("ContaCont","ooi");
+                                dados.set('BancoCont', Banco);
+                                dados.append("AgenciaCont", Agencia);
+                                dados.append('TipoCont', tipo);
+                                dados.append('CartCont', CodWibx);
+                                dados.append('CieloCont', CodCielo);
+                                dados.append('EmergenciaPrest', Emergencia);
+                                dados.append('LogoPrest', imageSrc);
+                                dados.append('OngPrest', Ong);
+
+                                console.log('---------------rdsq envio de dados-------------')
+                                console.log(dados)
+
+                                // response = await api.post('/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
+
+                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadCincoPrest', dados);
+
+                                
                                 //  response = await api.post('',);
                                 // const token = localStorage.getItem('token');
                                
@@ -159,13 +170,16 @@ export default function CadastroCinco(){
                                 //     headers: {'Authorization': `Bearer ${token}`}
                                 //     })
                             } catch (error) {
-                                console.log(error);               
+                                console.log(error);
+                                erro.innerHTML = "Error Server";
+                                // button.innerText="Aguarde um momento e tente novamente";
+                                // button.removeAttribute("disabled");               
                             }
                             
                             if(response){
                                 if(response.data.message){
                                     if(response.data.message === "Codigo incorreto"){
-                                        erro.innerHTML = "O código esta incorreto";
+                                        erro.innerHTML = "O código esta incorreto"; 
                                         button.innerText="Próximo";
                                         button.removeAttribute("disabled");
                                     }else if(response.data.message === "Alterado"){
@@ -187,7 +201,7 @@ export default function CadastroCinco(){
                                         erro.innerHTML = "Tente Novamente";
                                         button.innerText="Próximo";
                                         button.removeAttribute("disabled");
-                                    }
+                                    } 
                                 }
                             }                            
                         }
@@ -196,6 +210,35 @@ export default function CadastroCinco(){
             }            
         }
     }
+
+    //--------------------------------alteraçoes rdsq------------------------------------------------//
+
+    //const [imgPreviw, setImage] = useState({ preview: "", raw: "" });
+ 
+    const fileChangedHandler = event => {
+        console.log('----------alteraçoes rdsq------------')
+        if(event.target.files.length > 0){
+            const file = event.target.files[0];
+            imageSrc = file;
+            console.log(file)
+
+            const reader = new FileReader();
+            reader.onload = function(){
+                var imgPrev = reader.result;
+                document.getElementById("TheImagePreview").innerHTML = '<p><img width="20%" src="'+imgPrev+'" /></p>';
+            };
+            reader.readAsDataURL(file);
+
+        } else {
+            imageSrc = null
+            document.getElementById("TheImagePreview").innerHTML = '<h5>Nenhuma imagem selecionada</h5>';
+
+        }
+
+    } 
+     
+
+    //--------------------------------------------------------------------------------------------//
 
     function EmergenciaSim(){
         var buttonNao = document.getElementById("EmergenciaNao");
@@ -318,6 +361,7 @@ export default function CadastroCinco(){
             ButtonConta="Sim";
             div.style.display="block";
         }
+
     }
 
     function Corrente(){ 
@@ -393,7 +437,7 @@ export default function CadastroCinco(){
             button.style.color="#fff";
             ButtonCielo="Sim";
             div.style.display="block";
-        }        
+        }      
     }
 
     function Wibx(){
@@ -484,13 +528,17 @@ export default function CadastroCinco(){
                                 </div>
                             </div>
                             <br/>
+
+
+                            {/*-----------------------image------------------*/}
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="">
-                                    {/* form-group */}
+                                    
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
                                         <a style={{marginLeft:'5px',color:'#000000'}}>Ótimo, precisamos do logo da sua empresa, para aparecer bem bonito no aplicativo.</a>
-                                        <input type="file" className="form-control" accept="image/png, image/jpeg" placeholder="Foto" id="Foto" style={{color:'#009fe3',marginTop:'1%',backgroundImage:'none'}}/>
+                                        <input type="file" name="avatar" onChange={fileChangedHandler}  className="form-control" accept="image/png, image/jpeg" placeholder="Foto" id="Foto" style={{color:'#009fe3',marginTop:'1%',backgroundImage:'none'}}/>
+                                        <div id="TheImagePreview" ></div>
                                     </div>
                                 </div>
                             </div>
