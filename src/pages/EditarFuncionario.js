@@ -136,7 +136,7 @@ export default function EditarFuncionario(){
             let response="";
 
             try {
-                response = await api2.post('/Funcionario/Buscar', {idFunc:id});
+                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/Buscar', {idFunc:id});
             } catch (error) {
                 console.log(error);               
             } 
