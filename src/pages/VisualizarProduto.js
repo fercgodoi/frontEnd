@@ -67,7 +67,7 @@ export default function Visualizar(){
 
         let response="";
         try {
-            response = await api2.post('/Prestador/BuscarPrest2');
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -133,7 +133,7 @@ export default function Visualizar(){
             let response="";
 
             try {
-                response = await api2.post('/Produto/Buscar', {idProd:id});
+                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/Buscar', {idProd:id});
             } catch (error) {
                 console.log(error);               
             } 
