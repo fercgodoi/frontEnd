@@ -116,6 +116,10 @@ export default function Login(){
         }
     }
 
+    function Cadastro(){
+      window.location.href="/CadastroPrimeiro";
+    }
+
     return(
       <div>
         <div className="limiter">
@@ -150,7 +154,7 @@ export default function Login(){
                           <div className="clearfix"></div>
                         </td>
                         <td style={{width:'50%', paddingLeft: '2%',}}>
-                          <a type="submit" className="btn btn-primary pull-right Cadastro" href="/CadastroPrimeiro">Cadastro</a>
+                          <button type="submit" className="btn btn-primary pull-right Cadastro" onClick={Cadastro}>Cadastro</button>
                           <div className="clearfix"></div>
                         </td>
                       </tr>
