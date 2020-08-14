@@ -279,6 +279,8 @@ export default function CadastroTerceiro(){
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";  
             ButtonClinica="Sim"; 
+
+            
         }      
     }
 
@@ -353,6 +355,7 @@ export default function CadastroTerceiro(){
         var DivBairro = document.getElementById("DivBairro");
         var DivRua = document.getElementById("DivRua");
 
+        erro.innerHTML= "";
        array.push(cep)
        novo = cep.split('', 9)
        num= novo[0]+novo[1]+novo[2]+novo[3]+novo[4]+novo[6]+novo[7]+novo[8];

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import InputMask from 'react-input-mask';
 import "../css/Login/main.css";
@@ -269,6 +268,7 @@ export default function CadastroSete(){
                                         } catch (error) {
                                             console.log(error);               
                                         } 
+                                        console.log(response)
                                         
                                         if(response){
                                             if(response.data.message){

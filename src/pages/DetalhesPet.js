@@ -14,6 +14,8 @@ import genero from "../img/Icon/genero.png";
 import pet from "../img/Icon/pet.png";
 import servico from "../img/Icon/servicos.png";
 
+import "../js/menu.js";
+
 import inicio from "../img/Icon/inicio.png";
 import calendario from "../img/Icon/calendarioAzul.png";
 import funcionario from "../img/Icon/funcionarioAzul.png";
@@ -286,7 +288,7 @@ function Login(){
                         </li>
                         <li class="nav-item " id="Func" style={{display:'none'}}>
                             <a class="nav-link" href="/Funcionarios">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
                             <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -296,12 +298,12 @@ function Login(){
                             <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li> */}
-                        <li class="nav-item " id="Med" style={{display:'none'}}>
-                            <a class="nav-link" href="/Medicacao">
-                            <i class="material-icons">alarm</i>
-                            <p style={{textAlign: '-webkit-center'}}>Medicações</p>
-                            </a>
-                        </li>
+                       <li className="nav-item " id="Med" style={{display:'none'}}>
+                        <a className="nav-link" href="/Medicacao">
+                        <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+                          <p style={{textAlign: '-webkit-center'}}>Medicações</p>
+                        </a>
+                      </li>
                         <li class="nav-item " id="Vac" style={{display:'none'}}>
                             <a class="nav-link" href="Vacina">
                             <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
@@ -398,7 +400,7 @@ function Login(){
       <div class="content" style={{minHeight:'0px',paddingBottom:'0px'}}>
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-7 col-md-12">
+            <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-body">
                   <div class="tab-content">
@@ -416,7 +418,7 @@ function Login(){
                 <img src={prontuario} style={{width: '100%',height: 'auto',display:'none'}} id="imgPront" alt=""/>
               </div>
             </div>
-            <div class="col-lg-5 col-md-12">
+            <div class="col-lg-6 col-md-12">
               <div class="card">               
                 <div class="card-body table-responsive">
                   <table class="table  " style={{marginBottom:'0px'}}>

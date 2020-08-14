@@ -13,6 +13,8 @@ import vacinas from "../img/Icon/vacinasAzul.png";
 import prontuarios from "../img/Icon/prontuarioAzul.png";
 import medicacao from "../img/Icon/medicacaoAzul.png";
 
+import "../js/menu.js";
+
 export default function Funcionarios(){
     localStorage.setItem('Codigo', "");
     
@@ -64,7 +66,7 @@ export default function Funcionarios(){
 
         let response="";
         try {
-            response = await api2.post('/Prestador/BuscarPrest2');
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -118,7 +120,7 @@ export default function Funcionarios(){
         let response="";
 
         try {
-            response = await api2.post('/Funcionario/BuscarFunc');
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/BuscarFunc');
         } catch (error) {
             console.log(error);               
         } 
@@ -223,7 +225,7 @@ export default function Funcionarios(){
         button.setAttribute("disabled","disabled");
 
         try {
-            response = await api2.post('/Funcionario/ExcluirFunc', {idFunc:c});
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/ExcluirFunc', {idFunc:c});
         } catch (error) {
             console.log(error);               
         }
@@ -280,7 +282,7 @@ export default function Funcionarios(){
             tbody.innerText="";
             
             try {
-                response = await api2.post('/Funcionario/FiltroFunc', {EmailFunc:Nome.value});
+                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/FiltroFunc', {EmailFunc:Nome.value});
             } catch (error) {
                 console.log(error);               
             } 
@@ -409,7 +411,7 @@ export default function Funcionarios(){
                         </li>
                         <li className="nav-item active" id="Func" style={{display:'none'}}>
                             <a className="nav-link" href="/Funcionarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>

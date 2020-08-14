@@ -3,6 +3,8 @@ import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
 
+import "../js/menu.js";
+
 import inicio from "../img/Icon/inicioAzul.png";
 import calendario from "../img/Icon/calendarioAzul.png";
 import funcionario from "../img/Icon/funcionarioAzul.png";
@@ -64,7 +66,7 @@ export default function CadastroVacina(){
 
         let response="";
         try {
-            response = await api2.post('/Prestador/BuscarPrest2');
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -186,7 +188,7 @@ export default function CadastroVacina(){
                                             valor= valor.replace(/,/g, '.');
 
                                             try {
-                                                response = await api2.post('/Vacina/inserirVac', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,rgPet: rg,observacaoVacina: observacao});
+                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Vacina/inserirVac', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,rgPet: rg,observacaoVacina: observacao});
                                             } catch (error) {
                                                 console.log(error);               
                                             }  
@@ -270,7 +272,7 @@ export default function CadastroVacina(){
                         </li>
                         <li className="nav-item " id="Func" style={{display:'none'}}>
                             <a className="nav-link" href="/Funcionarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>

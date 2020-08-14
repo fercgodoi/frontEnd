@@ -175,6 +175,8 @@ export default function CadastroCinco(){
                                 // button.innerText="Aguarde um momento e tente novamente";
                                 // button.removeAttribute("disabled");               
                             }
+
+                            console.log(response)
                             
                             if(response){
                                 if(response.data.message){

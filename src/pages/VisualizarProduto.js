@@ -18,6 +18,8 @@ import medicacao from "../img/Icon/medicacaoAzul.png";
 
 import api2 from '../services/api2.js';
 
+import "../js/menu.js";
+
 export default function Visualizar(){
     function Validar(){
         var validar  = localStorage.getItem('token');
@@ -67,7 +69,7 @@ export default function Visualizar(){
 
         let response="";
         try {
-            response = await api2.post('/Prestador/BuscarPrest2');
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -133,7 +135,7 @@ export default function Visualizar(){
             let response="";
 
             try {
-                response = await api2.post('/Produto/Buscar', {idProd:id});
+                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/Buscar', {idProd:id});
             } catch (error) {
                 console.log(error);               
             } 
@@ -202,7 +204,7 @@ export default function Visualizar(){
                         </li>
                         <li className="nav-item " id="Func" style={{display:'none'}}>
                             <a className="nav-link" href="/Funcionarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>

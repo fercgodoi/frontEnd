@@ -1,4 +1,5 @@
 import React from 'react';
+import CurrencyInput from 'react-currency-input';
 import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
@@ -847,14 +848,17 @@ export default function CdastroQuatro(){
                             <div className="row" id="div">
                                 <div className="col-md-3">                                                                
                                     <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-                                        <input type="text" className="form-control"  id="inputNome1" placeholder="Nome" style={{display:'block'}}/>                                                        
+                                        <input type="text" className="form-control"  id="inputNome1" placeholder="Nome" style={{display:'block'}}/>   
+                                       
+ 
                                     </div>
                                 </div>
                                 <div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                    {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor1" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar1}>Adicionar</button>
@@ -868,10 +872,11 @@ export default function CdastroQuatro(){
                                     </div>
                                 </div>
                                 <div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                     {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor2" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor2" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar2}>Adicionar</button>
@@ -885,10 +890,11 @@ export default function CdastroQuatro(){
                                     </div>
                                 </div>
                                 <div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                     {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor3" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor3" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar3}>Adicionar</button>
@@ -902,10 +908,11 @@ export default function CdastroQuatro(){
                                     </div>
                                 </div>
                                 <div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                     {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor4" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor4" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
@@ -920,10 +927,11 @@ export default function CdastroQuatro(){
                                     </div>
                                 </div>
                                 <div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                     {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor5" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor5" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar5}>Adicionar</button>
@@ -937,10 +945,11 @@ export default function CdastroQuatro(){
                                     </div>
                                 </div>
                                 <div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                     {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor6" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor6" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar6}>Adicionar</button>
@@ -954,10 +963,11 @@ export default function CdastroQuatro(){
                                     </div>
                                 </div>
                                 <div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                    {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor7" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor7" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar7}>Adicionar</button>
@@ -971,10 +981,11 @@ export default function CdastroQuatro(){
                                     </div>
                                 </div>
                                 <div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                     {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor8" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor8" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar8}>Adicionar</button>
@@ -987,10 +998,11 @@ export default function CdastroQuatro(){
                                         <input type="text" className="form-control"  id="inputNome9" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
                                 </div><div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                    {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor9" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor9" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar9}>Adicionar</button>
@@ -1004,10 +1016,11 @@ export default function CdastroQuatro(){
                                     </div>
                                 </div>
                                 <div className="input-group col-md-5">
-                                    <div className="input-group-prepend">
+                                    {/* <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" className="form-control"  id="inputValor10" placeholder="Valor" />
+                                    </div> */}
+                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                    <CurrencyInput  className="form-control"  id="inputValor10" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
                                 </div>
                                 <div className="col-md-4" style={{textAlign: 'center'}}>
                                     <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar10}>Adicionar</button>

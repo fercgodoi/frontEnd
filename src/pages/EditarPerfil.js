@@ -13,6 +13,7 @@ import prontuarios from "../img/Icon/prontuarioAzul.png";
 import medicacao from "../img/Icon/medicacaoAzul.png";
 
 import api from '../services/api2.js';
+import "../js/menu.js";
 
 export default function EditarPerfil(){
     localStorage.setItem('Codigo', "");
@@ -988,7 +989,7 @@ export default function EditarPerfil(){
         }        
     }
 
-    function Clinica(){
+    async function Clinica(){
         var button = document.getElementById("Clinica");
         if(ButtonClinica === "Sim"){
             button.style.color="#009fe3";
@@ -999,6 +1000,39 @@ export default function EditarPerfil(){
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";  
             ButtonClinica="Sim"; 
+
+            var erro= document.getElementById("clinicaValida");
+
+            let response= "";
+
+            try {
+                response = await api.post('https://agendaanimal-backend.herokuapp.com/Funcionario/FuncClinica');
+            } catch (error) {
+                console.log(error);               
+            }
+            
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "Usuario inexistente"){
+                        erro.innerHTML = "Você terá que cadastrar um funcionário que seja veterinário antes";
+                        setTimeout(() => {window.location.href="/CadastroFuncionario"}, 2000);
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "error sql"){
+                        erro.innerHTML = "Tente Novamente";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        erro.value = "Tente Novamente";
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else{
+                        erro.innerHTML = "Tente Novamente";
+                        button.innerText="Próximo";
+                        button.removeAttribute("disabled");
+                    }
+                }
+            }
         }      
     }
 
@@ -1073,6 +1107,7 @@ export default function EditarPerfil(){
         var DivBairro = document.getElementById("DivBairro");
         var DivRua = document.getElementById("DivRua");
 
+        erro.innerHTML= "";
        array.push(cep)
        novo = cep.split('', 9)
        num= novo[0]+novo[1]+novo[2]+novo[3]+novo[4]+novo[6]+novo[7]+novo[8];
@@ -1464,7 +1499,7 @@ export default function EditarPerfil(){
                         </li>
                         <li class="nav-item " id="Func" style={{display:'none'}}>
                             <a class="nav-link" href="/Funcionarios">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
                             <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -1791,7 +1826,13 @@ export default function EditarPerfil(){
                                                 <div className="col-md-3">
                                                     <button type="submit" className="btnCadFunc" id="Passeador" onClick={Passeador}>Passeador</button>
                                                     <div className="clearfix"></div>                                                   
-                                                </div>                           
+                                                </div> 
+
+                                                <div className="col-md-12">
+                                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px',marginTop:'1%',textAlign: 'center'}} id="clinicaValida"></p>                                                                          
+                                                </div> 
+                                                
+                                                
                                             </div>
                                             <br/>   
                     

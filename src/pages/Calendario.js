@@ -6,6 +6,8 @@ import rodape2 from  "../img/Icon/versao.png";
 import Calendar from 'react-calendar';
 import notas from "../img/pata.png";
 
+import "../js/menu.js";
+
 import inicio from "../img/Icon/inicioAzul.png";
 import calendario from "../img/Icon/calendario_branco.png";
 import funcionario from "../img/Icon/funcionarioAzul.png";
@@ -15,6 +17,7 @@ import prontuarios from "../img/Icon/prontuarioAzul.png";
 import medicacao from "../img/Icon/medicacaoAzul.png";
 
 import api from "../services/api2";
+
 export default function Calendario(){
 
   localStorage.setItem('Codigo', "");
@@ -230,10 +233,123 @@ setTimeout(() => {Dados()}, 1);
 
  function Edit(){
   window.location.href="/EditarPerfil";
-}
-function Login(){
-  window.location.href="/";
-}
+  }
+  function Login(){
+    window.location.href="/";
+  }
+
+  async function Dia(valor){
+
+    if(valor[5] === "9"){
+      valor = valor[0] + valor[1] + valor[2] + valor[3] + valor[4] +  (parseInt(valor[5]) +1) + valor[6] + valor[7]+ valor[8];
+
+    }else if(valor[5] + valor[6] === "10" || valor[5] + valor[6] === "11" ){
+      valor = valor[0] + valor[1] + valor[2] + valor[3] + valor[4] + valor[5] + (parseInt(valor[6]) + 1) + valor[7]+ valor[8] + valor[9];
+    }
+
+    var mes = valor[5] + valor[6];
+
+    if(mes.indexOf("-") === 1 ){
+      valor = valor[0] + valor[1] + valor[2] + valor[3] + valor[4] +"0" + (parseInt(valor[5]) +1) + valor[6] + valor[7]+ valor[8];
+    }
+
+    if(valor.indexOf("undefined") === 9){
+      valor = valor[0] + valor[1] + valor[2] + valor[3] + valor[4] + valor[5] + valor[6] + valor[7] + "0"+ valor[8];
+    }
+
+    if(valor[9] !== undefined){
+      let response="";
+      try {
+          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAprovadosDia',{dataCorreta: valor});
+      } catch (error) {
+          console.log(error);               
+      }
+      var tbody = document.getElementById("tbody");
+      tbody.innerText="";
+
+      if(response){
+        if(response.data.response){
+          var produto = response.data.response.Agendamento;
+          if(produto.length > 0){
+            
+            for(let i=0; i< produto.length;i++){ 
+              // document.getElementById("imgAparecer").style.display="none";
+              var tr = document.createElement("tr");
+              // var tdImg = document.createElement("td");
+              // var imgPet = document.createElement("img");
+              var tdNomePet = document.createElement("td");
+              var PNomePet = document.createElement("p");
+              var aRaca = document.createElement("p");
+              var aTipo = document.createElement("p");
+              var aData = document.createElement("p");
+              var tdPagamento = document.createElement("td");
+              var PNomeDono = document.createElement("p");
+              var PFormaPagamento = document.createElement("p");
+              var br = document.createElement("BR");
+      
+              tr.style.width="100%";
+              // tr.style.borderBottom="1px solid #009fe3";
+              tr.style.marginTop="2%";
+              // tdImg.style.width="20%";
+              tdNomePet.style.width="55%";
+              // imgPet.className="ImagemTabGrand";
+              // imgPet.setAttribute("alt","");
+              // imgPet.src="data:image/png;base64,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";
+              PNomePet.className="TituloTabGrand";
+              PNomePet.innerHTML=produto[i].nomePet;
+              aRaca.className="ParagTabGrand";
+              aRaca.style.marginBottom="0";
+              aRaca.innerHTML=produto[i].racaPet + "&nbsp;&nbsp;";
+              aTipo.className="ParagTabGrand" + "&nbsp;&nbsp;";
+              aTipo.innerHTML=produto[i].tipoServicoAgen;
+              aTipo.style.marginBottom="0";
+              aData.className="ParagTabGrand";
+              
+              var dateInicio= produto[i].DataAgen.split('', 10);
+              var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+
+              aData.innerHTML=dateCorreto+ "  -  " + produto[0].HoraAgen;
+              aData.style.marginBottom="0";
+              tdPagamento.style.width="25%";
+              tdPagamento.style.textAlignLast="right";
+              PNomeDono.className="DonoTabGrand";
+              PNomeDono.innerHTML=produto[i].nomeCli;
+              PFormaPagamento.className="TituloTabGrand";
+              PFormaPagamento.innerHTML=produto[i].formaPagtAgen;
+
+              tdPagamento.appendChild(PNomeDono);
+              tdPagamento.appendChild(PFormaPagamento);              
+              tdNomePet.appendChild(PNomePet);
+              tdNomePet.appendChild(aRaca);
+              tdNomePet.appendChild(aTipo);
+              tdNomePet.appendChild(aData);  
+              // tdImg.appendChild(imgPet);
+              // tr.appendChild(tdImg);
+              tr.appendChild(tdNomePet);              
+              tr.appendChild(tdPagamento);             
+              tbody.appendChild(tr);
+              tbody.appendChild(br);
+            }
+          }else{
+            var img = document.createElement("img");
+            img.setAttribute("src",'/static/media/aprovacoes.edcaf57e.png');
+            img.style.width="100%";
+            img.setAttribute("id",'imgAparecer');
+            img.className ="material-icons"
+            img.setAttribute("alt","");
+
+            tbody.appendChild(img);
+            // <img src={rodape} style={{width:'100%'}} id="imgAparecer" className= alt=""/>
+          }
+        }
+        if(response.data.error){
+          var a = document.createElement("p");
+          a.innerHTML="Tente Novamente";
+          tbody.appendChild(a);
+        }
+      }
+    }
+  }
 
     return(
         <div>
@@ -265,7 +381,7 @@ function Login(){
             </li>
             <li className="nav-item " id="Func" style={{display:'none'}}>
               <a className="nav-link" href="/Funcionarios">
-                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
               </a>
             </li>
@@ -363,7 +479,7 @@ function Login(){
                 <div className="card-body">
                   <div className="tab-content">
                     <div className="tab-pane active" id="profile">
-                      <Calendar />
+                    <Calendar onClickDay={(value, event) =>Dia(value.getFullYear()+ "-"+ value.getMonth()+ "-" +value.getDate())} />
                     </div>
                   </div>
                 </div>

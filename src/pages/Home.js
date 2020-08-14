@@ -12,6 +12,8 @@ import recebimentos from  "../img/recebimentos.png";
 import recebimentosMensais from  "../img/rebebimentos_mensais.png";
 import pata from  "../img/pata.png";
 
+import "../js/menu.js";
+
 import inicio from "../img/Icon/inicio.png";
 import calendario from "../img/Icon/calendarioAzul.png";
 import funcionario from "../img/Icon/funcionarioAzul.png";
@@ -157,6 +159,9 @@ export default function Home(){
                 // tr.style.borderBottom="1px solid #009fe3";
                 tr.style.marginTop="2%";
                 // 
+
+                tdImg.onclick = function() { Detalhes(produto[i].idAgend) };
+                tdNomePet.onclick = function() { Detalhes(produto[i].idAgend) };
                 tdImg.style.width="20%";
                 tdNomePet.style.width="55%";
                 imgPet.className="ImagemTabGrand";
@@ -662,7 +667,7 @@ export default function Home(){
                         </li>
                         <li class="nav-item " id="Func" style={{display:'none'}}>
                             <a class="nav-link" href="/Funcionarios">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
                             <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -853,22 +858,22 @@ export default function Home(){
                     <div class="nav-tabs-wrapper">
                       <ul class="nav nav-tabs">
                         <li class="nav-item" id="Pendente" onClick={Pendente}>
-                          <a class="nav-link " id="APendente">
+                          <button class="nav-link " id="APendente">
                               Pendentes
                             <div class="ripple-container"></div>
-                          </a>
+                          </button>
                         </li>
                         <li class="nav-item" id="Aprovado" onClick={Aprovado}>
-                          <a class="nav-link" id="AAprovado">
+                          <button class="nav-link" id="AAprovado">
                               Aprovados
                             <div class="ripple-container"></div>
-                          </a>
+                          </button>
                         </li>
                         <li class="nav-item" id="Cancelado" onClick={Cancelado}>
-                          <a class="nav-link" id="ACancelado">
+                          <button class="nav-link" id="ACancelado">
                               Cancelados
                             <div class="ripple-container"></div>
-                          </a>
+                          </button>
                         </li>
                       </ul>
                     </div>

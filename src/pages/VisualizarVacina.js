@@ -13,6 +13,8 @@ import vacinas from "../img/Icon/vacina_branco.png";
 import prontuarios from "../img/Icon/prontuarioAzul.png";
 import medicacao from "../img/Icon/medicacaoAzul.png";
 
+import "../js/menu.js";
+
 
 export default function VisualizarVacna(){
 
@@ -220,7 +222,7 @@ export default function VisualizarVacna(){
                         </li>
                         <li className="nav-item " id="Func" style={{display:'none'}}>
                             <a className="nav-link" href="/Funcionarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>

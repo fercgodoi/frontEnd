@@ -4,6 +4,7 @@ import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
 
 import api2 from '../services/api2.js';
+import "../js/menu.js";
 
 import inicio from "../img/Icon/inicioAzul.png";
 import calendario from "../img/Icon/calendarioAzul.png";
@@ -63,7 +64,7 @@ export default function CadastroProntuario(){
 
         let response="";
         try {
-            response = await api2.post('/Prestador/BuscarPrest2');
+            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -140,7 +141,7 @@ export default function CadastroProntuario(){
 
             let response="";
             try {
-                response = await api2.post('/Funcionario/BuscarFuncPrest');
+                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/BuscarFuncPrest');
             } catch (error) {
                 console.log(error);               
             }  
@@ -924,7 +925,7 @@ export default function CadastroProntuario(){
                                                        
                                                         let response="";
                                                         try {
-                                                            response = await api2.post('/Exame/CadExame', {rgPet:rg,Fezes:InputFezes.value,Urina:InputUrina.value,AcidoUrico:InputAcidoUrico.value,Albumina:InputAlbumina.value,ALT:InputALT.value,Amilase:InputAmilase.value,AST:InputAST.value,Bilirrubina:InputBilirrubina.value,CalcioSerico:InputCalcioSerico.value,Colesterol:InputColesterol.value,Colinesterase:InputColinesterase.value,CreatinaQuinase:InputCreatinaQuinase.value,Creatinina:InputCreatinina.value,FerroSerico:InputFerroSerico.value,FosfataseAlcalina:InputFosfataseAlcalina.value,Fosforo:InputFosforo.value,Gama:InputGama.value,Glicose:InputGlicose.value,Magnesio:InputMagnesio.value,ProteinasTotais:InputProteinasTotais.value,NAKCL:InputNAKCL.value,Triglicerideos:InputTriglicerideos.value,Ureia:InputUreia.value,ExameTumoral:InputExameTumoral.value,ExameGinecologico:InputExameGinecologico.value,GlicemiaJejum:InputGlicemiaJejum.value,Biopsia:InputBiopsia.value,SexagemAves:InputSexagemAves.value,HemogramaCompleto:InputHemogramaCompleto.value,Fribrinogenio:InputFribrinogenio.value,PesquisaHemoparasitas:InputPesquisaHemoparasitas.value,FuncaoHepatica:InputFuncaoHepatica.value,SorologicoFIVFELV:InputSorologicoFIVFELV.value,RadiologiaSimples:InputRadiologiaSimples.value,RadiologiaContrastada:InputRadiologiaContrastada.value,Eletrocardiograma:InputEletrocardiograma.value,UltrassonografiAbdominal:InputUltrassonografiAbdominal.value});
+                                                            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Exame/CadExame', {rgPet:rg,Fezes:InputFezes.value,Urina:InputUrina.value,AcidoUrico:InputAcidoUrico.value,Albumina:InputAlbumina.value,ALT:InputALT.value,Amilase:InputAmilase.value,AST:InputAST.value,Bilirrubina:InputBilirrubina.value,CalcioSerico:InputCalcioSerico.value,Colesterol:InputColesterol.value,Colinesterase:InputColinesterase.value,CreatinaQuinase:InputCreatinaQuinase.value,Creatinina:InputCreatinina.value,FerroSerico:InputFerroSerico.value,FosfataseAlcalina:InputFosfataseAlcalina.value,Fosforo:InputFosforo.value,Gama:InputGama.value,Glicose:InputGlicose.value,Magnesio:InputMagnesio.value,ProteinasTotais:InputProteinasTotais.value,NAKCL:InputNAKCL.value,Triglicerideos:InputTriglicerideos.value,Ureia:InputUreia.value,ExameTumoral:InputExameTumoral.value,ExameGinecologico:InputExameGinecologico.value,GlicemiaJejum:InputGlicemiaJejum.value,Biopsia:InputBiopsia.value,SexagemAves:InputSexagemAves.value,HemogramaCompleto:InputHemogramaCompleto.value,Fribrinogenio:InputFribrinogenio.value,PesquisaHemoparasitas:InputPesquisaHemoparasitas.value,FuncaoHepatica:InputFuncaoHepatica.value,SorologicoFIVFELV:InputSorologicoFIVFELV.value,RadiologiaSimples:InputRadiologiaSimples.value,RadiologiaContrastada:InputRadiologiaContrastada.value,Eletrocardiograma:InputEletrocardiograma.value,UltrassonografiAbdominal:InputUltrassonografiAbdominal.value});
                                                         } catch (error) {
                                                             console.log(error);               
                                                         }
@@ -947,7 +948,7 @@ export default function CadastroProntuario(){
                                                                             idExames = response.data.id;
                                                                             let response2="";
                                                                             try {
-                                                                                response2 = await api2.post('/Prontuario/CadProtuario', {rgPet:rg,dataConst:date,idVacina:idVac,idMed:idMed,idExames: idExames});
+                                                                                response2 = await api2.post('https://agendaanimal-backend.herokuapp.com/Prontuario/CadProtuario', {rgPet:rg,dataConst:date,idVacina:idVac,idMed:idMed,idExames: idExames});
                                                                             } catch (error) {
                                                                                 console.log(error);               
                                                                             }
@@ -1016,7 +1017,7 @@ export default function CadastroProntuario(){
 
                                             let response="";
                                             try {
-                                                response = await api2.post('/Prontuario/CadProtuario', {rgPet:rg,dataConst:date,idVacina:idVac,idMed:idMed,idExames: idExames});
+                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prontuario/CadProtuario', {rgPet:rg,dataConst:date,idVacina:idVac,idMed:idMed,idExames: idExames});
                                             } catch (error) {
                                                 console.log(error);               
                                             }  
@@ -1157,7 +1158,7 @@ export default function CadastroProntuario(){
                                         else{
                                             let response="";
                                             try {
-                                                response = await api2.post('/Vacina/inserirVac', {dataApliVacina: dataIni.value,dataProxVacina: dataProx.value,nomeVacina: nome.value ,qntDoseVacina: dose.value,loteVacina: lote.value,valorVacina:  valor.value ,idFunc: 1,rgPet: rg.value,observacaoVacina: observacao.value});
+                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Vacina/inserirVac', {dataApliVacina: dataIni.value,dataProxVacina: dataProx.value,nomeVacina: nome.value ,qntDoseVacina: dose.value,loteVacina: lote.value,valorVacina:  valor.value ,idFunc: 1,rgPet: rg.value,observacaoVacina: observacao.value});
                                             } catch (error) {
                                                 console.log(error);               
                                             }  
@@ -1315,7 +1316,7 @@ export default function CadastroProntuario(){
 
                                             let response="";
                                             try {
-                                                response = await api2.post('/Medicamento/CadastroMed', {idFunc: 1,rgPet: rg.value,statusMed: "Vigente" ,doseMed: dose.value,rotinaMed: rotina.value,dataIniMed: dataIni.value,dataFinMed: dataProx.value,nomeMed: nome.value,loteMed: lote.value,observacaoMed:observ.value });
+                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Medicamento/CadastroMed', {idFunc: 1,rgPet: rg.value,statusMed: "Vigente" ,doseMed: dose.value,rotinaMed: rotina.value,dataIniMed: dataIni.value,dataFinMed: dataProx.value,nomeMed: nome.value,loteMed: lote.value,observacaoMed:observ.value });
                                             } catch (error) {
                                                 console.log(error);               
                                             }  
@@ -1926,7 +1927,7 @@ export default function CadastroProntuario(){
                         </li>
                         <li className="nav-item " id="Func" style={{display:'none'}}>
                             <a className="nav-link" href="/Funcionarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'06%'}} src={funcionario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -2231,8 +2232,8 @@ export default function CadastroProntuario(){
                                             <div className="row">
                                                 <div className="col-md-6">
                                                     <label className="bmd-label-floating">Exame</label>  
-                                                    <button type="submit" className="btnCadFunc" id="ExSim" onClick={ExameSim} style={{width:'50px',marginLeft:'5%'}}>Sim</button>
-                                                    <button type="submit" className="btnCadFunc" id="ExNao" onClick={ExameNao} style={{width:'70px',marginLeft:'2%'}}>Não</button>
+                                                    <button type="submit" className="btnCadFunc" id="ExSim" onClick={ExameSim} style={{width:'20%',marginLeft:'5%'}}>Sim</button>
+                                                    <button type="submit" className="btnCadFunc" id="ExNao" onClick={ExameNao} style={{width:'20%',marginLeft:'2%'}}>Não</button>
                                                 </div>
                                                 <div className="col-md-6" style={{display:"none"}} id="Div">
                                                 <label className="bmd-label-floating">Selecione Tipo de Exame</label>
