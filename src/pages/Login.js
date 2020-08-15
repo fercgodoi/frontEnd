@@ -116,9 +116,9 @@ export default function Login(){
         }
     }
 
-    // function CadastroPri(){
-    //   window.location.href="/CadastroPrimeiro";
-    // }
+    function CadastroPri(){
+      window.location.href="/CadastroPrimeiro";
+    }
 
     return(
       <div>
@@ -154,7 +154,7 @@ export default function Login(){
                           <div className="clearfix"></div>
                         </td>
                         <td style={{width:'50%', paddingLeft: '2%'}}>
-                          <button type="submit" className="btn btn-primary pull-right Cadastro" id="buttonProximo2"  href="/CadastroPrimeiro" >Cadastro</button>
+                          <a type="submit" className="btn btn-primary pull-right Cadastro" id="buttonProximo2"  onClick={CadastroPri} >Cadastro</a>
                           <div className="clearfix"></div>
                         </td>
                       </tr>
