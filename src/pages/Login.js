@@ -154,7 +154,7 @@ export default function Login(){
                           <div className="clearfix"></div>
                         </td>
                         <td style={{width:'50%', paddingLeft: '2%'}}>
-                          <button type="submit" className="btn btn-primary pull-right Cadastro" id="buttonProximo2"  onClick={Cadastrar(() => window.location.href="/CadastroPrimeiro")} >Cadastro</button>
+                          <button type="submit" className="btn btn-primary pull-right Cadastro" id="buttonProximo2"  onClick={"/CadastroPrimeiro"} >Cadastro</button>
                           <div className="clearfix"></div>
                         </td>
                       </tr>
