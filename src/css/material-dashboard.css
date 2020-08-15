@@ -15020,7 +15020,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 
 li.nav-item {
   /* height: 90%; */
-  height: 10%;
+  /* height: 10%; */
 }
 
 .sidebar .logo-tim {
@@ -18842,7 +18842,7 @@ Copyright (c) 2015 Daniel Eden
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: #282828;
+    background-color: #fff;
     display: block;
     content: "";
     z-index: 1;
