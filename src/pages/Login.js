@@ -153,8 +153,8 @@ export default function Login(){
                           <button type="submit" className="btn btn-primary pull-right Login" id="buttonProximo" onClick={Logar}>Login</button>
                           <div className="clearfix"></div>
                         </td>
-                        <td style={{width:'50%', paddingLeft: '2%',}}>
-                          <button type="submit" className="btn btn-primary pull-right Cadastro" onClick={Cadastro}>Cadastro</button>
+                        <td style={{width:'50%', paddingLeft: '2%'}}>
+                          <button type="submit" className="btn btn-primary pull-right Cadastro" onClick={Cadastro} >Cadastro</button>
                           <div className="clearfix"></div>
                         </td>
                       </tr>
