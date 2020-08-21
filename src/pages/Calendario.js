@@ -173,7 +173,9 @@ setTimeout(() => {Dados()}, 1);
               aData.className="ParagTabGrand";
               
               var dateInicio= produto[i].DataAgen.split('', 10);
-              var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+              // var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+              
+              var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
 
               aData.innerHTML=dateCorreto+ "  -  " + produto[0].HoraAgen;
               aData.style.marginBottom="0";
@@ -306,7 +308,7 @@ setTimeout(() => {Dados()}, 1);
               aData.className="ParagTabGrand";
               
               var dateInicio= produto[i].DataAgen.split('', 10);
-              var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+              var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
 
               aData.innerHTML=dateCorreto+ "  -  " + produto[0].HoraAgen;
               aData.style.marginBottom="0";

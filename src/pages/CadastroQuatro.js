@@ -57,6 +57,8 @@ export default function CdastroQuatro(){
     async function Adicionar1(){
         var nome = document.getElementById("inputNome1");
         var valor = document.getElementById("inputValor1");
+        var button = document.getElementById("button1");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -78,19 +80,21 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled"); 
+                            button.setAttribute("name", response.data.id);
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -101,6 +105,8 @@ export default function CdastroQuatro(){
     async function Adicionar2(){
         var nome = document.getElementById("inputNome2");
         var valor = document.getElementById("inputValor2");
+        var button = document.getElementById("button2");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -121,8 +127,12 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled");   
+                            button.setAttribute("name", response.data.id);                                                                            
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
@@ -130,11 +140,9 @@ export default function CdastroQuatro(){
                     }
 
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -145,6 +153,8 @@ export default function CdastroQuatro(){
     async function Adicionar3(){
         var nome = document.getElementById("inputNome3");
         var valor = document.getElementById("inputValor3");
+        var button = document.getElementById("button3");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -165,19 +175,21 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled");  
+                            button.setAttribute("name", response.data.id);                                                                             
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -188,6 +200,8 @@ export default function CdastroQuatro(){
     async function Adicionar4(){
         var nome = document.getElementById("inputNome4");
         var valor = document.getElementById("inputValor4");
+        var button = document.getElementById("button4");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -209,19 +223,21 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled"); 
+                            button.setAttribute("name", response.data.id);                                                                              
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -232,6 +248,8 @@ export default function CdastroQuatro(){
     async function Adicionar5(){
         var nome = document.getElementById("inputNome5");
         var valor = document.getElementById("inputValor5");
+        var button = document.getElementById("button5");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -253,19 +271,21 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled");  
+                            button.setAttribute("name", response.data.id);                                                                             
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -276,6 +296,8 @@ export default function CdastroQuatro(){
     async function Adicionar6(){
         var nome = document.getElementById("inputNome6");
         var valor = document.getElementById("inputValor6");
+        var button = document.getElementById("button6");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -297,19 +319,21 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled"); 
+                            button.setAttribute("name", response.data.id);                                                                              
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -320,6 +344,8 @@ export default function CdastroQuatro(){
     async function Adicionar7(){
         var nome = document.getElementById("inputNome7");
         var valor = document.getElementById("inputValor7");
+        var button = document.getElementById("button7");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -341,19 +367,21 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled"); 
+                            button.setAttribute("name", response.data.id);                                                                              
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -365,6 +393,8 @@ export default function CdastroQuatro(){
     async function Adicionar8(){
         var nome = document.getElementById("inputNome8");
         var valor = document.getElementById("inputValor8");
+        var button = document.getElementById("button8");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -386,19 +416,21 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled");  
+                            button.setAttribute("name", response.data.id);                                                                             
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -410,6 +442,8 @@ export default function CdastroQuatro(){
     async function Adicionar9(){
         var nome = document.getElementById("inputNome9");
         var valor = document.getElementById("inputValor9");
+        var button = document.getElementById("button9");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -431,19 +465,21 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled");    
+                            button.setAttribute("name", response.data.id);                                                                           
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -455,6 +491,8 @@ export default function CdastroQuatro(){
     async function Adicionar10(){
         var nome = document.getElementById("inputNome10");
         var valor = document.getElementById("inputValor10");
+        var button = document.getElementById("button10");
+        var erro = document.getElementById("valida");
 
         if (nome.value === "" || nome.value === null || nome.value === undefined ) {
             nome.value = "Preencha o campo Nome";
@@ -476,19 +514,21 @@ export default function CdastroQuatro(){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
                             valida1 = "Sim";
-                            nome.setAttribute("disabled","disabled");
-                            valor.setAttribute("disabled","disabled");                                                                               
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                            erro.innerHTML="Adicionado com sucesso";
+                            // nome.setAttribute("disabled","disabled");
+                            // valor.setAttribute("disabled","disabled");    
+                            button.setAttribute("name", response.data.id);                                                                           
                         }else if(response.data.message === "ja existe"){
                             nome.style.color="#ff0000";
                             nome.value = "Serviço já cadastrado";
                         }
                     }
                     if(response.data.error){
-                        if(response.data.error === "error sql"){
-                            nome.value = "Tente Novamente";
-                            valor.value="";
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
                         }else if(response.data.error === "falha na autenticação do token"){
-                            nome.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 2000);
                         }
                     }
@@ -718,113 +758,881 @@ export default function CdastroQuatro(){
     //     }
     // }
 
-    // function Formato(){
-    //     // var atual = 10529.89;
 
-    //     var valor = (document.getElementById("inputValor1"));
+    async function Excluir1(){
+        var nome = document.getElementById("inputNome1");
+        var valor = document.getElementById("inputValor1");
+        var button = document.getElementById("button1").name;
+        var erro = document.getElementById("valida");
 
-    //     valor.value= valor.value.replace(/,/g, '.');
+       if (valida1 !== "Não"){
+            let response= "";       
 
-    //     var atual = new Intl.NumberFormat('pt-BR').format(valor.value);
-    //     //
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+            }catch(erro){
+                console.log(erro);
+            }
 
-    //     console.log(atual)
-    //     valor.value= atual;
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                        erro.innerHTML="Excluido com sucesso";                       
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                        nome.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
 
-    // //    atual.toLocaleString('pt-br');
-
-    //     console.log(atual);
-
-        // var into = atual.split('',10);
-        // console.log(atual.length)
-
-        // if()
-
-        // if(atual.value.length === 3){
-        //     atual.value = atual.value[0] + "," + atual.value[1] + atual.value[2];
-        // }else if(atual.value.length === 5){
-        //     var into = atual.value.split('',10);
-        //     atual.value= into[0] + into[2] + into[3] + into[4] ;
-        //     console.log(atual.value)
-        //     atual.value = atual.value[0] + atual.value[1]+ "," +  + atual.value[2]+atual.value[3];
-        //     console.log(atual.value)
-        // }else if(atual.value.length === 6){
-        //     var into = atual.value.split('',10);
-        //     atual.value= into[0] + into[1] +into[3] + into[4] +  into[5];
-        //     console.log(atual.value)
-        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+  "," + atual.value[3] + atual.value[4];
-        //     console.log(atual.value)
-        // }else if(atual.value.length === 7){
-        //     var into = atual.value.split('',10);
-        //     atual.value= into[0] + into[1] +into[2] + into[4] +  into[5] +  into[6];
-        //     console.log(into)
-        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+ atual.value[3]+ "," + atual.value[4] + atual.value[5];
-        //     console.log(atual.value)
-        // }
-        // }else  if(atual.value.length === 6){
-        //     var into = atual.value.split('',10);
-        //     atual.value= into[0] + into[1] + into[2] + into[4] + into[5];
-        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+ atual.value[3] +  "," + atual.value[5] + atual.value[6];
-        // }
-        // else if(atual.value.length > 3) {
-
-        //     var into = atual.value.split('',10);
-        //     atual.value= into[0] + into[2] + into[3] + into[4] ;
-
-        //     console.log(into)
-            // if(atual.value.length === 4){
-            //     atual.value = atual.value[0] + atual.value[1]+ "," +  + atual.value[2]+atual.value[3];
-            // }else if(atual.value.length > 4 && atual.value.length < 6 ) {
-
-                // var into = atual.value.split('',10);
-                //     atual.value= into[0] + into[1] + into[3] + into[4];
-                // console.log(into)
-                // if(atual.value.length === 5){
-                //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+  "," + atual.value[3] + atual.value[5];
-                // }
-                // else if(atual.value.length > 5){
-                //     var into = atual.value.split('',10);
-                //     atual.value= into[0] + into[1] + into[2] + into[4] + into[5];
-                //     console.log(into)
-                //     if(atual.value.length === 6){
-                //         atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+ atual.value[3] +  "," + atual.value[5] + atual.value[6];
-                //     }
-                //     else{
-                //         alert("passou")
-
-                //     }
-                // }
-            // }
-        // }
+    async function Excluir2(){
+        var nome = document.getElementById("inputNome2");
+        var valor = document.getElementById("inputValor2");
+        var button = document.getElementById("button2").name;
+        var erro = document.getElementById("valida");
         
+
+       if (valida2 !== "Não"){
+            let response= "";       
+
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+            }catch(erro){
+                console.log(erro);
+            }
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                        erro.innerHTML="Excluido com sucesso";
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                        nome.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
+
+    async function Excluir3(){
+        var nome = document.getElementById("inputNome3");
+        var valor = document.getElementById("inputValor3");
+        var button = document.getElementById("button3").name;
+        var erro = document.getElementById("valida");
+
+       if (valida3 !== "Não"){
+            let response= "";       
+
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ: button});
+            }catch(erro){
+                console.log(erro);
+            }
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                        erro.innerHTML="Excluido com sucesso";
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                        nome.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
+
+    async function Excluir4(){
+        var nome = document.getElementById("inputNome4");
+        var valor = document.getElementById("inputValor4");
+        var button = document.getElementById("button4").name;
+        var erro = document.getElementById("valida");
         
-        
-        // if(atual.value.length === 5){
-        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+  "," + atual.value[3] + atual.value[5];
+
+       if (valida4 !== "Não"){
+            let response= "";       
+
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ: button});
+            }catch(erro){
+                console.log(erro);
+            }
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                       erro.innerHTML="Excluido com sucesso";
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                        nome.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
+
+    async function Excluir5(){
+        var nome = document.getElementById("inputNome5");
+        var valor = document.getElementById("inputValor5");
+        var button = document.getElementById("button5").name;
+        var erro = document.getElementById("valida");
+       
+
+       if (valida5 !== "Não"){
+            let response= "";       
+
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ: button});
+            }catch(erro){
+                console.log(erro);
+            }
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                        erro.innerHTML="Excluido com sucesso";
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                        nome.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
+
+    async function Excluir6(){
+        var nome = document.getElementById("inputNome6");
+        var valor = document.getElementById("inputValor6");
+        var button = document.getElementById("button6").name;
+        var erro = document.getElementById("valida");
+
+       if (valida6 !== "Não"){
+            let response= "";       
+
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+            }catch(erro){
+                console.log(erro);
+            }
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                        erro.innerHTML="Excluido com sucesso";
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                        nome.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
+
+    async function Excluir7(){
+        var nome = document.getElementById("inputNome7");
+        var valor = document.getElementById("inputValor7");
+        var button = document.getElementById("button7").name;
+        var erro = document.getElementById("valida");
+
+       if (valida7 !== "Não"){
+            let response= "";       
+
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+            }catch(erro){
+                console.log(erro);
+            }
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                        erro.innerHTML="Excluido com sucesso";
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                        nome.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
+
+    async function Excluir8(){
+        var nome = document.getElementById("inputNome8");
+        var valor = document.getElementById("inputValor8");
+        var button = document.getElementById("button8").name;
+        var erro = document.getElementById("valida");
+
+       if (valida8 !== "Não"){
+            let response= "";       
+
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+            }catch(erro){
+                console.log(erro);
+            }
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                        erro.innerHTML="Excluido com sucesso";
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                        nome.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
+
+    async function Excluir9(){
+        var nome = document.getElementById("inputNome9");
+        var valor = document.getElementById("inputValor9");
+        var button = document.getElementById("button9").name;
+        var erro = document.getElementById("valida");
+
+       if (valida9 !== "Não"){
+            let response= "";       
+
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+            }catch(erro){
+                console.log(erro);
+            }
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                        erro.innerHTML="Excluido com sucesso";
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                        nome.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
+
+    async function Excluir10(){
+        var nome = document.getElementById("inputNome10");
+        var valor = document.getElementById("inputValor10");
+        var button = document.getElementById("button10").name;
+        var erro = document.getElementById("valida");
+
+       if (valida10 !== "Não"){
+            let response= "";       
+
+            try{
+                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest2',{idServ:button});
+            }catch(erro){
+                console.log(erro);
+            }
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "excluido"){
+                        nome.style.color="black";
+                        valor.style.color="black";
+                        erro.innerHTML="Excluido com sucesso";
+                        // nome.removeAttribute("disabled");
+                        // valor.removeAttribute("disabled");
+                        valor.value="";
+                    }
+                }
+                if(response.data.error){
+                    if(response.data.error === "erro sql"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }else if(response.data.error === "falha na autenticação do token"){
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }
+    }
+
+    async function Editar1(){
+        var nome = document.getElementById("inputNome1");
+        var valor = document.getElementById("inputValor1");
+        var button = document.getElementById("button1").name;
+        var erro = document.getElementById("valida");
+
+        if (valida1 !== "Não"){
+            let response= "";   
             
-        //     console.log(atual.value)
-        // }else if(atual.value.length === 6){
-        //     atual.value = atual.value[0] + atual.value[1]+ atual.value[2]+ atual.value[3] +  "," + atual.value[5] + atual.value[6];
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }      
+    }
+
+
+    async function Editar2(){
+        var nome = document.getElementById("inputNome2");
+        var valor = document.getElementById("inputValor2");
+        var button = document.getElementById("button2").name;
+        var erro = document.getElementById("valida");
+
+        if (valida2 !== "Não"){
+            let response= "";   
             
-        //     console.log(atual.value)
-        // }else {
-        //    console.log("passou")
-        // }
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }    
+    }
+    async function Editar3(){
+        var nome = document.getElementById("inputNome3");
+        var valor = document.getElementById("inputValor3");
+        var button = document.getElementById("button3").name;
+        var erro = document.getElementById("valida");
 
-        // if(into.lenght)
-        // if(into[1]
+        if (valida3 !== "Não"){
+            let response= "";   
+            
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }    
+    }
+    async function Editar4(){
+        var nome = document.getElementById("inputNome4");
+        var valor = document.getElementById("inputValor4");
+        var button = document.getElementById("button4").name;
+        var erro = document.getElementById("valida");
 
-        // // //com R$
-        // // var f = atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        if (valida4 !== "Não"){
+            let response= "";   
+            
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }    
+    }
 
-        // //sem R$
-        // // var f2 = atual.toLocaleString('pt-br', {minimumFractionDigits: 2});
+    
+    async function Editar5(){
+        var nome = document.getElementById("inputNome5");
+        var valor = document.getElementById("inputValor5");
+        var button = document.getElementById("button5").name;
+        var erro = document.getElementById("valida");
 
-        // var f2 = atual.toLocaleString('pt-br');
+        if (valida5 !== "Não"){
+            let response= "";   
+            
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }    
+    }
 
-        // // console.log(f);
-        // console.log(f2);
-    // }
+
+    async function Editar6(){
+        var nome = document.getElementById("inputNome6");
+        var valor = document.getElementById("inputValor6");
+        var button = document.getElementById("button6").name;
+        var erro = document.getElementById("valida");
+
+        if (valida6 !== "Não"){
+            let response= "";   
+            
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }    
+    }
+
+
+    async function Editar7(){
+        var nome = document.getElementById("inputNome7");
+        var valor = document.getElementById("inputValor7");
+        var button = document.getElementById("button7").name;
+        var erro = document.getElementById("valida");
+
+        if (valida7 !== "Não"){
+            let response= "";   
+            
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }    
+    }
+
+    async function Editar8(){
+        var nome = document.getElementById("inputNome8");
+        var valor = document.getElementById("inputValor8");
+        var button = document.getElementById("button8").name;
+        var erro = document.getElementById("valida");
+
+        if (valida8 !== "Não"){
+            let response= "";   
+            
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }    
+    }
+
+    async function Editar9(){
+        var nome = document.getElementById("inputNome9");
+        var valor = document.getElementById("inputValor9");
+        var button = document.getElementById("button9").name;
+        var erro = document.getElementById("valida");
+
+        if (valida9 !== "Não"){
+            let response= "";   
+            
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }    
+    }
+
+    async function Editar10(){
+        var nome = document.getElementById("inputNome10");
+        var valor = document.getElementById("inputValor10");
+        var button = document.getElementById("button10").name;
+        var erro = document.getElementById("valida");
+
+        if (valida10 !== "Não"){
+            let response= "";   
+            
+            if (nome.value === "" || nome.value === null || nome.value === undefined ) {
+                nome.value = "Preencha o campo Nome";
+            }else if (valor.value === "" || valor.value === null || valor.value === undefined ) {
+                valor.value = "Preencha o campo valor";
+            }
+            else{
+    
+                valor.value= valor.value.replace(/,/g, '.');
+    
+                try{
+                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                }catch(erro){
+                    console.log(erro);
+                }
+        
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "alterado"){
+                            erro.innerHTML="Alterado com sucesso";
+                            nome.style.color="#009fe3";
+                            valor.style.color="#009fe3";
+                        }
+                    }
+    
+                    if(response.data.error){
+                        if(response.data.error === "erro sql"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }else if(response.data.error === "falha na autenticação do token"){
+                            setTimeout(() => {window.location.href="/"}, 2000);
+                        }
+                    }
+                }
+            }
+        }else{
+            erro.innerHTML= "Realize o cadastro primeiro!!"
+        }    
+    }
+
     
     return(
     <div>
@@ -849,19 +1657,23 @@ export default function CdastroQuatro(){
                                 <div className="col-md-3">                                                                
                                     <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
                                         <input type="text" className="form-control"  id="inputNome1" placeholder="Nome" style={{display:'block'}}/>   
-                                       
- 
                                     </div>
                                 </div>
-                                <div className="input-group col-md-5">
-                                    {/* <div className="input-group-prepend">
+                                <div className="input-group col-md-3">
+                                    <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor1" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor1" precision="2" decimalSeparator="," thousandSeparator="."/>
                                 </div>
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar1}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button1" onClick={Adicionar1}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar1" onClick={Editar1}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir1" onClick={Excluir1}>Excluir</button>
                                 </div>
                             </div>
                             {/*--------------------------------- SEGUNDO SERVICO--------------------------- */}
@@ -871,15 +1683,21 @@ export default function CdastroQuatro(){
                                         <input type="text" className="form-control"  id="inputNome2" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
                                 </div>
-                                <div className="input-group col-md-5">
-                                     {/* <div className="input-group-prepend">
+                                <div className="input-group col-md-3">
+                                     <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor2" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor2" precision="2" decimalSeparator="," thousandSeparator="." />
                                 </div>
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar2}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button2" onClick={Adicionar2}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar2" onClick={Editar2}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir2"  onClick={Excluir2} >Excluir</button>
                                 </div>
                             </div>
                             {/*--------------------------------- TERCEIRO SERVICO--------------------------- */}
@@ -889,15 +1707,21 @@ export default function CdastroQuatro(){
                                         <input type="text" className="form-control"  id="inputNome3" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
                                 </div>
-                                <div className="input-group col-md-5">
-                                     {/* <div className="input-group-prepend">
+                                <div className="input-group col-md-3">
+                                     <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor3" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor3"  precision="2" decimalSeparator="," thousandSeparator="." />
                                 </div>
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar3}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button3" onClick={Adicionar3}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar3" onClick={Editar3}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir3" onClick={Excluir3}>Excluir</button>
                                 </div>
                             </div>
                             {/*--------------------------------- QUARTA SERVICO--------------------------- */}
@@ -907,16 +1731,22 @@ export default function CdastroQuatro(){
                                         <input type="text" className="form-control"  id="inputNome4" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
                                 </div>
-                                <div className="input-group col-md-5">
-                                     {/* <div className="input-group-prepend">
+                                <div className="input-group col-md-3">
+                                     <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor4" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor4"  precision="2" decimalSeparator="," thousandSeparator="." />
                                 </div>
                                 
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar4}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button4" onClick={Adicionar4}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar4" onClick={Editar4}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir4" onClick={Excluir4}>Excluir</button>
                                 </div>
                             </div>
                             {/*--------------------------------- CINCO SERVICO--------------------------- */}
@@ -926,15 +1756,21 @@ export default function CdastroQuatro(){
                                         <input type="text" className="form-control"  id="inputNome5" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
                                 </div>
-                                <div className="input-group col-md-5">
-                                     {/* <div className="input-group-prepend">
+                                <div className="input-group col-md-3">
+                                     <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor5" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor5" precision="2" decimalSeparator="," thousandSeparator="." />
                                 </div>
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar5}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button5" onClick={Adicionar5}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar5" onClick={Editar5}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir5" onClick={Excluir5}>Excluir</button>
                                 </div>
                             </div>
                             {/*--------------------------------- SEIS SERVICO--------------------------- */}
@@ -944,15 +1780,21 @@ export default function CdastroQuatro(){
                                         <input type="text" className="form-control"  id="inputNome6" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
                                 </div>
-                                <div className="input-group col-md-5">
-                                     {/* <div className="input-group-prepend">
+                                <div className="input-group col-md-3">
+                                     <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor6" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor6" precision="2" decimalSeparator="," thousandSeparator="." />
                                 </div>
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar6}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button6" onClick={Adicionar6}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar6" onClick={Editar6}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir6" onClick={Excluir6} >Excluir</button>
                                 </div>
                             </div>
                             {/*--------------------------------- SETE SERVICO--------------------------- */}
@@ -962,15 +1804,21 @@ export default function CdastroQuatro(){
                                         <input type="text" className="form-control"  id="inputNome7" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
                                 </div>
-                                <div className="input-group col-md-5">
-                                    {/* <div className="input-group-prepend">
+                                <div className="input-group col-md-3">
+                                    <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor7" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor7"  precision="2" decimalSeparator="," thousandSeparator="." />
                                 </div>
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar7}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button7" onClick={Adicionar7}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar7" onClick={Editar7}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir7" onClick={Excluir7} >Excluir</button>
                                 </div>
                             </div>
                             {/*--------------------------------- OITO SERVICO--------------------------- */}
@@ -980,15 +1828,21 @@ export default function CdastroQuatro(){
                                         <input type="text" className="form-control"  id="inputNome8" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
                                 </div>
-                                <div className="input-group col-md-5">
-                                     {/* <div className="input-group-prepend">
+                                <div className="input-group col-md-3">
+                                     <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor8" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor8"  precision="2" decimalSeparator="," thousandSeparator="." />
                                 </div>
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar8}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button8" onClick={Adicionar8}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar8" onClick={Editar8}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir8" onClick={Excluir8}>Excluir</button>
                                 </div>
                             </div>
                             {/*--------------------------------- NOVE SERVICO--------------------------- */}
@@ -997,15 +1851,21 @@ export default function CdastroQuatro(){
                                     <div className="col-md-12" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
                                         <input type="text" className="form-control"  id="inputNome9" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
-                                </div><div className="input-group col-md-5">
-                                    {/* <div className="input-group-prepend">
+                                </div><div className="input-group col-md-3">
+                                    <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor9" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor9"  precision="2" decimalSeparator="," thousandSeparator="." />
                                 </div>
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar9}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button9" onClick={Adicionar9}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar9" onClick={Editar9}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir9" onClick={Excluir9}>Excluir</button>
                                 </div>
                             </div>
                             {/*--------------------------------- DEZ SERVICO--------------------------- */}
@@ -1015,15 +1875,21 @@ export default function CdastroQuatro(){
                                         <input type="text" className="form-control"  id="inputNome10" placeholder="Nome" style={{display:'block'}}/>                                                        
                                     </div>
                                 </div>
-                                <div className="input-group col-md-5">
-                                    {/* <div className="input-group-prepend">
+                                <div className="input-group col-md-3">
+                                    <div className="input-group-prepend">
                                         <span className="input-group-text">R$</span>
-                                    </div> */}
+                                    </div>
                                     {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
-                                    <CurrencyInput  className="form-control"  id="inputValor10" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
+                                    <CurrencyInput  className="form-control"  id="inputValor10"  precision="2" decimalSeparator="," thousandSeparator="." />
                                 </div>
-                                <div className="col-md-4" style={{textAlign: 'center'}}>
-                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'50%',height:'auto'}} id="button1" onClick={Adicionar10}>Adicionar</button>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:'auto'}} id="button1" onClick={Adicionar10}>Adicionar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop" style={{width:'100%',height:"auto"}} id="buttonEditar10" onClick={Editar10}>Editar</button>
+                                </div>
+                                <div className="col-md-2" style={{textAlign: 'center'}}>
+                                    <button type="submit" className="btn btn-primary btnEditShop"  style={{width:'100%',height:"auto"}}  id="buttonExcluir10" onClick={Excluir10}>Excluir</button>
                                 </div>
                             </div>
                             {/* --------------------------------- ONZE SERVICO---------------------------

@@ -538,7 +538,7 @@ export default function Shopping(){
                                                 <div className="col-md-4" style={{paddingLeft: '0'}}>
                                                     <div style={{width: '100%',textAlign: 'left',paddingRight:'5%'}}> 
                                                         <button type="submit" className="btn btn-primary btnPrimeiroShop" onClick={Filtro} id="ButtonFiltro">Filtrar</button>
-                                                        <a type="submit" className="btn btn-primary btnSegundoShop" href="/CadastroShopping">Novo Produto</a>
+                                                        <button type="submit" className="btn btn-primary btnSegundoShop" href="/CadastroShopping">Novo Produto</button>
                                                     </div> 
                                                 </div>                                             
                                                 <div className="col-md-4"></div>                                     

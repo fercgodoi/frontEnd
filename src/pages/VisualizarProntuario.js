@@ -199,13 +199,13 @@ export default function VisualizarProntuario(){
                                 crmvVetVacina.value = produtoVacina[0].crmvVetVacina;
                                         
                                 dateInicio= produto[0].dataConst.split('', 10);
-                                dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                                dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
                                 dataConst.value = dateCorreto;                        
                                 dateInicioProxVac= produtoVacina[0].dataProxVacina.split('', 10);
-                                dateCorretoProxVac = dateInicioProxVac[0] + dateInicioProxVac[1] + dateInicioProxVac[2] + dateInicioProxVac[3] + dateInicioProxVac[4] + dateInicioProxVac[5] + dateInicioProxVac[6] + dateInicioProxVac[7] + dateInicioProxVac[8] + dateInicioProxVac[9];
+                                dateCorretoProxVac = dateInicioProxVac[8] + dateInicioProxVac[9] +  dateInicioProxVac[7] + dateInicioProxVac[5] + dateInicioProxVac[6] +  dateInicioProxVac[4] +  dateInicioProxVac[2] + dateInicioProxVac[3] + dateInicioProxVac[0]  + dateInicioProxVac[1]  ;
                                 dataProxVacina.value = dateCorretoProxVac;                        
                                 dateInicioApliVac= produtoVacina[0].dataApliVacina.split('', 10);
-                                dateCorretoApliVac = dateInicioApliVac[0] + dateInicioApliVac[1] + dateInicioApliVac[2] + dateInicioApliVac[3] + dateInicioApliVac[4] + dateInicioApliVac[5] + dateInicioApliVac[6] + dateInicioApliVac[7] + dateInicioApliVac[8] + dateInicioApliVac[9];
+                                dateCorretoApliVac = dateInicioApliVac[8] + dateInicioApliVac[9] +  dateInicioApliVac[7] + dateInicioApliVac[5] + dateInicioApliVac[6] +  dateInicioApliVac[4] +  dateInicioApliVac[2] + dateInicioApliVac[3] + dateInicioApliVac[0]  + dateInicioApliVac[1]  ;
                                 dataApliVacina.value = dateCorretoApliVac;    
                                 Vacina.style.display="block";
                             }
@@ -252,13 +252,13 @@ export default function VisualizarProntuario(){
                                 nomeEstbMed.value = produtoMed[0].nomeEstbMed;
                                 
                                 dateInicio= produto[0].dataConst.split('', 10);
-                                dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                                dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
                                 dataConst.value = dateCorreto;     
                                 dateInicioApliMed= produtoMed[0].dataIniMed.split('', 10);
-                                dateCorretoApliMed = dateInicioApliMed[0] + dateInicioApliMed[1] + dateInicioApliMed[2] + dateInicioApliMed[3] + dateInicioApliMed[4] + dateInicioApliMed[5] + dateInicioApliMed[6] + dateInicioApliMed[7] + dateInicioApliMed[8] + dateInicioApliMed[9];
+                                dateCorretoApliMed = dateInicioApliMed[8] + dateInicioApliMed[9] +  dateInicioApliMed[7] + dateInicioApliMed[5] + dateInicioApliMed[6] +  dateInicioApliMed[4] +  dateInicioApliMed[2] + dateInicioApliMed[3] + dateInicioApliMed[0]  + dateInicioApliMed[1]  ;
                                 dataIniMed.value = dateCorretoApliMed;
                                 dateInicioProxMed= produtoMed[0].dataFinMed.split('', 10);
-                                dateCorretoProxMed = dateInicioProxMed[0] + dateInicioProxMed[1] + dateInicioProxMed[2] + dateInicioProxMed[3] + dateInicioProxMed[4] + dateInicioProxMed[5] + dateInicioProxMed[6] + dateInicioProxMed[7] + dateInicioProxMed[8] + dateInicioProxMed[9];
+                                dateCorretoProxMed = dateInicioProxMed[8] + dateInicioProxMed[9] +  dateInicioProxMed[7] + dateInicioProxMed[5] + dateInicioProxMed[6] +  dateInicioProxMed[4] +  dateInicioProxMed[2] + dateInicioProxMed[3] + dateInicioProxMed[0]  + dateInicioProxMed[1]  ;
                                 dataFinMed.value = dateCorretoProxMed;
                             
                                 Medicacao.style.display="block";
@@ -299,7 +299,7 @@ export default function VisualizarProntuario(){
                                 rgPet.value = produto[0].rgPet;
                                 nomePet.value = produto[0].nomePet;
                                 dateInicio= produto[0].dataConst.split('', 10);
-                                dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                                dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
                                 dataConst.value = dateCorreto;
                                 Exame.style.display="block";
 
@@ -619,7 +619,7 @@ export default function VisualizarProntuario(){
                         nomePet.value = produto[0].nomePet;  
                    
                         dateInicio= produto[0].dataConst.split('', 10);
-                        dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                        dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
                         dataConst.value = dateCorreto;                      
     
                         Medicacao.style.display="none";

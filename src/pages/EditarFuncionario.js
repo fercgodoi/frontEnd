@@ -217,7 +217,7 @@ export default function EditarFuncionario(){
                         if(vete === "Sim"){     
                             ///////////////// Data de Emissão //////////////////
                             var dateInicio= produto[0].DateEmiFunc.split('', 10);
-                            var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                            var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
                             ////////////////////////////////////////////////////
         
                             buttonVet.style.backgroundColor="#009fe3";

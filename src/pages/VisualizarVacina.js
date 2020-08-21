@@ -147,13 +147,13 @@ export default function VisualizarVacna(){
     
                     var dataApliVacina= document.getElementById("dataApliVacina");
                     var dateInicio= produto[0].dataApliVacina.split('', 10);
-                    var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                    var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
                     dataApliVacina.value  = dateCorreto;
                     ////////////////////////////////////////////////////
     
                     var dataProxVacina= document.getElementById("dataProxVacina");
                     var dateInicio2= produto[0].dataProxVacina.split('', 10);
-                    var dateCorreto2 = dateInicio2[0] + dateInicio2[1] + dateInicio2[2] + dateInicio2[3] + dateInicio2[4] + dateInicio2[5] + dateInicio2[6] + dateInicio2[7] + dateInicio2[8] + dateInicio2[9];
+                    var dateCorreto2 = dateInicio2[8] + dateInicio2[9] +  dateInicio2[7] + dateInicio2[5] + dateInicio2[6] +  dateInicio2[4] +  dateInicio2[2] + dateInicio2[3] + dateInicio2[0]  + dateInicio2[1]  ;
                     dataProxVacina.value  = dateCorreto2;
                     ////////////////////////////////////////////////////
     

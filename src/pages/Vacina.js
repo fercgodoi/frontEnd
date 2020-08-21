@@ -133,7 +133,7 @@ export default function Vacina(){
                     for(let i=0; i< produto.length;i++){
     
                         var dateInicio= produto[0].dataApliVacina.split('', 10);
-                        var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                        var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
                         ////////////////////////////////////////////////////
                         var tbody = document.getElementById("tobdy");
                         var tr = document.createElement("tr");
@@ -290,7 +290,7 @@ export default function Vacina(){
                         for(let i=0; i< produto.length;i++){
 
                             var dateInicio= produto[0].dataApliVacina.split('', 10);
-                            var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                            var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
                             ////////////////////////////////////////////////////
                             var tr = document.createElement("tr");
                             var div1 = document.createElement("div");
@@ -418,7 +418,7 @@ export default function Vacina(){
                     for(let i=0; i< produto.length;i++){
     
                         var dateInicio= produto[0].dataApliVacina.split('', 10);
-                        var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
+                        var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
                         ////////////////////////////////////////////////////
                         var tbody = document.getElementById("tobdySolicitadas");
                         var tr = document.createElement("tr");

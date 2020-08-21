@@ -15020,7 +15020,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 
 li.nav-item {
   /* height: 90%; */
-  /* height: 10%; */
+  height: 10%;
 }
 
 .sidebar .logo-tim {

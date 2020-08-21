@@ -488,7 +488,7 @@ export default function CadastroShopping(){
                                             <br/> 
                                             <div className="row" style={{textAlign: '-webkit-center'}}>
                                                 <div className="col-md-6">
-                                                    <a type="submit" className="btn btn-primary" id="buttonProximo2"  style={{borderRadius: '30px',padding: '2% 10%'}} onClick={Novo}>Novo</a>
+                                                    <button type="submit" className="btn btn-primary" id="buttonProximo2"  style={{borderRadius: '30px',padding: '2% 10%'}} onClick={Novo}>Novo</button>
                                                     <div className="clearfix"></div>
                                                 </div>
                                                 <div className="col-md-6">

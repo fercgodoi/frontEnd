@@ -260,7 +260,7 @@ export default function CadastroPrimeiro(){
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Certo, agora precisamos confirmar é o celular da sua empresa? </a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Certo, agora para completar as validações de segurança adicione o celular da empresa </a>
                                         <InputMask type="text"  mask = "(99) 99999-9999" className="form-control" placeholder="Celular" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="celular" />
                                     </div>
                                 </div>

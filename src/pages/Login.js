@@ -48,6 +48,8 @@ export default function Login(){
               } catch (error) {
                 console.log(error);               
               } 
+
+              console.log(responseFunc)
               
               if(responseFunc.data){
                 if(responseFunc.data.message){                            
@@ -56,8 +58,7 @@ export default function Login(){
                     erro.innerText = "Email inexistente";
                     button.innerText="Próximo";
                       button.removeAttribute("disabled");
-                  }
-                  else{
+                  }                  else{
                     var acesso = responseFunc.data.acesso.split('', 4);
                     localStorage.setItem('Acesso', acesso);
                     localStorage.setItem('token', responseFunc.data.token); 
@@ -114,9 +115,11 @@ export default function Login(){
             }   
           }           
         }
+
     }
 
-    function CadastroPri(){
+    function Cadastrar(e){
+      e.preventDefault();
       window.location.href="/CadastroPrimeiro";
     }
 
@@ -136,6 +139,7 @@ export default function Login(){
                         <input type="text" className="form-control" id="email" placeholder="Email"/>
                       </div>
                     </div>
+                   
                     <div className="col-md-12 ">
                       <div className="form-group input">
                         <input type="password" className="form-control"  id="senha" placeholder="Senha"/>
@@ -145,6 +149,7 @@ export default function Login(){
                   </div>
                   <div className="DivEsqueceuSenha">
                     <a style={{color:'#009fe3',fontFamily:'Arial'}} href="/EsqueciSenha"> Esqueceu Senha?</a>
+                   
                   </div>
                   <div style={{textAlign: '-webkit-center',paddingTop: '5%'}}>
                     <table>
@@ -153,8 +158,8 @@ export default function Login(){
                           <button type="submit" className="btn btn-primary pull-right Login" id="buttonProximo" onClick={Logar}>Login</button>
                           <div className="clearfix"></div>
                         </td>
-                        <td style={{width:'50%', paddingLeft: '2%'}}>
-                          <a type="submit" className="btn btn-primary pull-right Cadastro" id="buttonProximo2"  onClick={CadastroPri} >Cadastro</a>
+                        <td style={{width:'50%', paddingLeft: '2%',}}>
+                        <button className="btn btn-primary pull-right Cadastro" id="buttonProximo2" onClick={Cadastrar} >Cadastro</button>
                           <div className="clearfix"></div>
                         </td>
                       </tr>

@@ -1,5 +1,6 @@
 import React from 'react';
 import InputMask from 'react-input-mask';
+import CurrencyInput from 'react-currency-input';
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
@@ -439,10 +440,11 @@ export default function EditarPerfil(){
             
                             tr.style.width="100%";
                             div.className="row";
-                            // div1.className="col-md-5";
+                            div1.className="col-md-5";
                             div2.className="col-md-5";
                             div2.style.verticalAlign = "middle";
                             div2.style.display = "inline-grid";
+                                // <CurrencyInput  className="form-control"  id="inputValor3" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
 
                             inputNome.value= servico[i].tipoServ;
                             inputNome.setAttribute("type","text");
