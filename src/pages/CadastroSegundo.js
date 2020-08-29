@@ -33,7 +33,7 @@ export default function CadastroSegundo(){
             erro.innerHTML ="";              
             let response="";
             try {
-                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadSegPrest',{CodPrest : cod});
+                response = await api.post('https://agendaback.herokuapp.com/Prestador/CadSegPrest',{CodPrest : cod});
             } catch (error) {
                 console.log(error);               
             }

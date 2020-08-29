@@ -17,15 +17,15 @@ export default function CadastroSete(){
     }
     Validar();
     
-    // var recepcao = "Não";
-    // var Admin ="Não";
-    // var Vet ="Não";
-    // var finan="Não";
+    // var recepcao = "false";
+    // var Admin ="false";
+    // var Vet ="false";
+    // var finan="false";
 
-    var VetSim = "Não";
-    var VetNao = "Não";
-    var ButtonSim ="Não";
-    var ButtonNao ="Não";
+    var VetSim = "false";
+    var VetNao = "false";
+    var ButtonSim ="false";
+    var ButtonNao ="false";
     var tipo = "";
     var ButtonValor = "";
     
@@ -48,13 +48,13 @@ export default function CadastroSete(){
         var sabado = document.getElementById("sabado");
         var domingo = document.getElementById("domingo");
 
-        var ValidaSegunda = "Não";
-        var ValidaTerca = "Não";
-        var ValidaQuarta = "Não";
-        var ValidaQuinta = "Não";
-        var ValidaSexta = "Não";
-        var ValidaSabado = "Não";
-        var ValidaDomingo = "Não";
+        var ValidaSegunda = "false";
+        var ValidaTerca = "false";
+        var ValidaQuarta = "false";
+        var ValidaQuinta = "false";
+        var ValidaSexta = "false";
+        var ValidaSabado = "false";
+        var ValidaDomingo = "false";
         
         var segundaInicio = document.getElementById("segundaInicio");
         var tercaInicio = document.getElementById("tercaInicio");
@@ -97,8 +97,8 @@ export default function CadastroSete(){
             else{
                 erro.innerHTML = "";
                 if(validarCPF(cpf)){
-                    if(ButtonSim !== "Não" || ButtonNao !== "Não" ){
-                        if(ButtonNao === "Sim"){                            
+                    if(ButtonSim !== "false" || ButtonNao !== "false" ){
+                        if(ButtonNao === "true"){                            
                             if(email === "" || email === null || email=== undefined){
                                 tipo="Pendente";
                             }else{
@@ -118,7 +118,7 @@ export default function CadastroSete(){
                                     segundaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     segundaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                                     if(segundaInicio.value < segundaFinal.value){
-                                        ValidaSegunda = "Sim";
+                                        ValidaSegunda = "true";
                                     }
                                 }
                             }
@@ -133,7 +133,7 @@ export default function CadastroSete(){
                                     tercaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     tercaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                                     if(tercaInicio.value < tercaFinal.value){
-                                        ValidaTerca = "Sim";
+                                        ValidaTerca = "true";
                                     }
                                 }
                             }
@@ -148,7 +148,7 @@ export default function CadastroSete(){
                                     quartaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     quartaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                                     if(quartaInicio.value < quartaFinal.value){
-                                        ValidaQuarta = "Sim";
+                                        ValidaQuarta = "true";
                                     }
                                 }
                             }
@@ -163,7 +163,7 @@ export default function CadastroSete(){
                                     quintaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     quintaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                                     if(quintaInicio.value < quintaFinal.value){
-                                        ValidaQuinta = "Sim";
+                                        ValidaQuinta = "true";
                                     }
                                 }
                             }
@@ -179,7 +179,7 @@ export default function CadastroSete(){
                                     sextaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     sextaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                                     if(sextaInicio.value < sextaFinal.value){
-                                        ValidaSexta = "Sim";
+                                        ValidaSexta = "true";
                                     }
                                 }
                             }
@@ -194,7 +194,7 @@ export default function CadastroSete(){
                                     sabadoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     sabadoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                                     if(sabadoInicio.value < sabadoFinal.value){
-                                        ValidaSabado = "Sim";
+                                        ValidaSabado = "true";
                                     }
                                 }
                             }
@@ -209,14 +209,14 @@ export default function CadastroSete(){
                                     domingoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                                     domingoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                                     if(domingoInicio.value < domingoFinal.value){
-                                        ValidaDomingo = "Sim";
+                                        ValidaDomingo = "true";
                                     }
                                 }
                             }
 
                             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
                            
-                            if(ValidaSegunda === "Não" && ValidaTerca ==="Não" && ValidaQuarta ==="Não" && ValidaQuinta === "Não" && ValidaSexta === "Não" && ValidaSabado === "Não" && ValidaDomingo === "Não" ) {
+                            if(ValidaSegunda === "false" && ValidaTerca ==="false" && ValidaQuarta ==="false" && ValidaQuinta === "false" && ValidaSexta === "false" && ValidaSabado === "false" && ValidaDomingo === "false" ) {
                                 erro.innerHTML = "Escolha pelo menos um dia para o horário";
                                 button.innerText="Próximo";
                                 button.removeAttribute("disabled");
@@ -224,13 +224,13 @@ export default function CadastroSete(){
                                 erro.innerHTML = "Verefique os dados dos horarios";
                                 button.innerText="Próximo";
                                 button.removeAttribute("disabled");
-                            }else if(VetSim === "Não" && VetNao === "Não"){
+                            }else if(VetSim === "false" && VetNao === "false"){
                                 erro.innerHTML = "Responda se você é veterinario";
                                 button.innerText="Próximo";
                                 button.removeAttribute("disabled");
                             }
                             else{
-                                if(VetSim === "Sim"){  
+                                if(VetSim === "true"){  
                                     if (CRMV === "" || CRMV === null || CRMV === undefined ) {
                                         erro.innerHTML = "Preencha seu CRMV";
                                         button.innerText="Próximo";
@@ -243,13 +243,13 @@ export default function CadastroSete(){
                                         }else{
                                             VetSim = "Pedente";
 
-                                            vet = "Sim";
+                                            vet = "true";
                                         }
                                     }
                                 }
-                                if(VetNao === "Sim"){
+                                if(VetNao === "true"){
                                     VetNao = "Pedente";
-                                    vet = "Não";
+                                    vet = "false";
                                 }
 
                                 if(VetSim === "Pedente" || VetNao === "Pedente"){
@@ -264,7 +264,7 @@ export default function CadastroSete(){
                                         erro.innerHTML = "";
                                         let response="";
                                         try {
-                                            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadSetePrest', {NomeFunc: nome,EmailFunc: email,CpfFunc: cpf ,RecepFunc: "Não",VetFunc: "Não",AdminFunc: "Sim"  ,FinanFunc: "Não" ,CelFunc:num, CRMVFunc: CRMV,DateEmiFunc:date,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value,ButtonValor:ButtonValor});
+                                            response = await api.post('https://agendaback.herokuapp.com/Prestador/CadSetePrest', {NomeFunc: nome,EmailFunc: email,CpfFunc: cpf ,RecepFunc: "false",VetFunc: "false",AdminFunc: "true"  ,FinanFunc: "false" ,CelFunc:num, CRMVFunc: CRMV,DateEmiFunc:date,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value,ButtonValor:ButtonValor});
                                         } catch (error) {
                                             console.log(error);               
                                         } 
@@ -449,124 +449,130 @@ export default function CadastroSete(){
 
     function Segunda(){
         var segunda = document.getElementById("segunda");
+        var horarioInicio = document.getElementById("segundaInicio");
+        var horarioFinal = document.getElementById("segundaFinal");
+        var pSegunda = document.getElementById("pSegunda");
+        
 
-        if(segunda.checked === true){
-            var horarioInicio = document.getElementById("segundaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("segundaFinal");
-            horarioFinal.style.visibility="inherit";
+        if(segunda.checked === true){           
+            horarioInicio.style.display="block";          
+            horarioFinal.style.display="block";
+            pSegunda.style.display="block";
         }
-        else{            
-            var horarioInicio = document.getElementById("segundaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("segundaFinal");
-            horarioFinal.style.visibility="collapse";
+        else{    
+            horarioInicio.style.display="none";
+            horarioFinal.style.display="none";
+            pSegunda.style.display="none";
         }
     }
 
     function Terca(){
         var terca = document.getElementById("terca");
-        if(terca.checked === true){
-            var horarioInicio = document.getElementById("tercaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("tercaFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        var horarioInicio = document.getElementById("tercaInicio");
+        var horarioFinal = document.getElementById("tercaFinal");
+        var pTerca = document.getElementById("pTerca");
+
+
+        if(terca.checked === true){            
+            horarioInicio.style.display="block";
+            horarioFinal.style.display="block";
+            pTerca.style.display="block";
         }
         else{
-            var horarioInicio = document.getElementById("tercaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("tercaFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";            
+            horarioFinal.style.display="none";
+            pTerca.style.display="none";
         }
     }
 
     function Quarta(){        
         var quarta = document.getElementById("quarta");
+        var horarioInicio = document.getElementById("quartaInicio");
+        var horarioFinal = document.getElementById("quartaFinal");
+        var pQuarta = document.getElementById("pQuarta");
         
-        if(quarta.checked === true){
-            var horarioInicio = document.getElementById("quartaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("quartaFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        if(quarta.checked === true){            
+            horarioInicio.style.display="block";            
+            horarioFinal.style.display="block";
+            pQuarta.style.display="block";
         }
         else{
-            var horarioInicio = document.getElementById("quartaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("quartaFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";
+            horarioFinal.style.display="none";
+            pQuarta.style.display="none";
         }
     }
 
     function Quinta(){        
         var quinta = document.getElementById("quinta");
+        var pQuinta = document.getElementById("pQuinta");
+        var horarioInicio = document.getElementById("quintaInicio");
+        var horarioFinal = document.getElementById("quintaFinal");
 
-        if(quinta.checked === true){
-            var horarioInicio = document.getElementById("quintaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("quintaFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        if(quinta.checked === true){            
+            horarioInicio.style.display="block";            
+            horarioFinal.style.display="block";
+            pQuinta.style.display="block";            
         }
         else{
-            var horarioInicio = document.getElementById("quintaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("quintaFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";
+            horarioFinal.style.display="none";
+            pQuinta.style.display="none";
         }        
     }
 
     function Sexta(){        
         var sexta = document.getElementById("sexta");
+        var pSexta = document.getElementById("pSexta");
+        var horarioInicio = document.getElementById("sextaInicio");
+        var horarioFinal = document.getElementById("sextaFinal");
 
-        if(sexta.checked === true){
-            var horarioInicio = document.getElementById("sextaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("sextaFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        if(sexta.checked === true){      
+            horarioInicio.style.display="block";
+            horarioFinal.style.display="block";
+            pSexta.style.display="block";
         }
-        else{
-            var horarioInicio = document.getElementById("sextaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("sextaFinal");
-            horarioFinal.style.visibility="collapse";
+        else{                 
+            horarioInicio.style.display="none";           
+            horarioFinal.style.display="none";
+            pSexta.style.display="none";
         }       
     }
 
     function Sabado(){        
         var sabado = document.getElementById("sabado");
-        if(sabado.checked === true){
-            var horarioInicio = document.getElementById("sabadoInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("sabadoFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        var pSabado = document.getElementById("pSabado");        
+        var horarioFinal = document.getElementById("sabadoFinal");
+        var horarioInicio = document.getElementById("sabadoInicio");
+
+
+        if(sabado.checked === true){            
+            horarioInicio.style.display="block";
+            horarioFinal.style.display="block";
+            pSabado.style.display="block";
         }
         else{
-            var horarioInicio = document.getElementById("sabadoInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("sabadoFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";
+            horarioFinal.style.display="none";
+            pSabado.style.display="none";
         }
     }
 
     function Domingo(){        
         var domingo = document.getElementById("domingo");
+        var pDomingo = document.getElementById("pDomingo");   
+        var horarioInicio = document.getElementById("domingoInicio");
+        var horarioFinal = document.getElementById("domingoFinal");
 
         if(domingo.checked === true){
-            var horarioInicio = document.getElementById("domingoInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("domingoFinal");
-            horarioFinal.style.visibility="inherit";
-           
+            horarioInicio.style.display="block";
+            horarioFinal.style.display="block";
+            pDomingo.style.display="block";          
         }
         else{
-            var horarioInicio = document.getElementById("domingoInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("domingoFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";           
+            horarioFinal.style.display="none";
+            pDomingo.style.display="none";
         }        
     }
 
@@ -577,7 +583,7 @@ export default function CadastroSete(){
         var button = document.getElementById("VeterinarioNao");
         button.style.backgroundColor="#009fe3";
         button.style.color="#fff";
-        VetNao="Sim";
+        VetNao="true";
         var div=document.getElementById("DivVet");
         div.style.display="none";
 
@@ -586,7 +592,7 @@ export default function CadastroSete(){
         VeterinarioSim.style.backgroundColor="#fff";
         VeterinarioSim.style.border="1px solid #009fe3"; 
         VeterinarioSim.style.color="#009fe3";
-        VetSim="Não";
+        VetSim="false";
     }    
 
     function VeterinarioSim(){
@@ -596,7 +602,7 @@ export default function CadastroSete(){
         var VeterinarioSim = document.getElementById("VeterinarioSim");
         VeterinarioSim.style.backgroundColor="#009fe3";
         VeterinarioSim.style.color="#fff";
-        VetSim="Sim";
+        VetSim="true";
         var div=document.getElementById("DivVet");
         div.style.display="block";
 
@@ -604,7 +610,7 @@ export default function CadastroSete(){
         VeterinarioNao.style.backgroundColor="#fff";
         VeterinarioNao.style.border="1px solid #009fe3"; 
         VeterinarioNao.style.color="#009fe3";
-        VetNao="Não";
+        VetNao="false";
     }
 
 
@@ -614,23 +620,23 @@ export default function CadastroSete(){
         buttonNao.style.backgroundColor="#fff";
         buttonNao.style.border="1px solid #009fe3"; 
         buttonNao.style.color="#009fe3";
-        ButtonNao="Não";
+        ButtonNao="false";
 
         var input = document.getElementById('email');
 
         var button = document.getElementById("Sim");
-        if(ButtonSim ==="Sim"){
+        if(ButtonSim ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonSim="Não";
-            ButtonValor="Nao";
+            ButtonSim="false";
+            ButtonValor="false";
             input.removeAttribute('disabled');
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonSim="Sim";
-            ButtonValor="Sim";
+            ButtonSim="true";
+            ButtonValor="true";
             input.setAttribute('disabled','disabled');
         }
     }
@@ -640,23 +646,23 @@ export default function CadastroSete(){
         buttonSim.style.backgroundColor="#fff";
         buttonSim.style.border="1px solid #009fe3"; 
         buttonSim.style.color="#009fe3";
-        buttonSim="Não";
+        buttonSim="false";
 
         var input = document.getElementById('email');
 
         var button = document.getElementById("Nao");
-        if(ButtonNao ==="Sim"){
+        if(ButtonNao ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonNao="Não";
-            ButtonValor="Nao";
+            ButtonNao="false";
+            ButtonValor="false";
             input.setAttribute('disabled','disabled');
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonNao="Sim";
-            ButtonValor="Nao";
+            ButtonNao="true";
+            ButtonValor="false";
             input.removeAttribute('disabled');
         }
     }
@@ -726,91 +732,139 @@ export default function CadastroSete(){
                                 </div>
                             </div>
 
-                            <div className="row">
-                                <div className="col-md-3">
-                                    <div className="form-group">
-                                        <p  style={{color:'black'}}> Dias e horarios de trabalho:</p>
-                                    </div>
-                                </div>
-                                <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-                                    <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
+                            <br/>
+
+                            <div className="col-md-12">
+                                <p  style={{color:'black',marginBottom:'0px'}}> Dias e horarios de trabalho:</p>
+                            </div>
+
+                            <div className="row form-group" style={{marginTop:'0px'}}>                                
+                                <div className="col-md-3 form-group" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
                                     <br/>
                                     <label className="dias">Segunda-Feira
                                         <input type="checkbox" id="segunda" onClick={Segunda}/>
                                         <span className="checkmark"></span>
                                     </label>
+                                    <div className='row form-group'>                                        
+                                        <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSegunda"> Horário de Inicio e Termino do Turno:</p>
+                                        <div className="col-md-6">
+                                            <input type="time" id="segundaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>
+                                        <div className="col-md-6">
+                                        <input type="time" id="segundaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>                                  
+                                    </div>
+                                </div>
 
+
+                                <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                    <br/>
                                     <label className="dias">Terça-Feira
                                         <input type="checkbox" id="terca" onClick={Terca}/>
                                         <span className="checkmark"></span>
                                     </label>
+                                    <div className='row form-group'>                                        
+                                        <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pTerca"> Horário de Inicio e Termino do Turno:</p>
+                                        <div className="col-md-6">
+                                        <input type="time" id="tercaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>  
+                                        </div>
+                                        <div className="col-md-6">
+                                        <input type="time" id="tercaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>                                  
+                                    </div>
+                                </div>
 
+                                <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                    <br/>
                                     <label className="dias">Quarta-Feira
                                         <input type="checkbox" id="quarta" onClick={Quarta}/>
                                         <span className="checkmark"></span>
                                     </label>
+                                    <div className='row form-group'>                                        
+                                        <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pQuarta"> Horário de Inicio e Termino do Turno:</p>
+                                        <div className="col-md-6">
+                                        <input type="time" id="quartaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>
+                                        <div className="col-md-6">
+                                        <input type="time" id="quartaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>                                  
+                                    </div>
+                                </div>
 
+                                
+                                <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                    <br/>
                                     <label className="dias">Quinta-Feira
                                         <input type="checkbox" id="quinta" onClick={Quinta}/>
                                         <span className="checkmark"></span>
                                     </label>
+                                    <div className='row form-group'>                                        
+                                        <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pQuinta"> Horário de Inicio e Termino do Turno:</p>
+                                        <div className="col-md-6">
+                                        <input type="time" id="quintaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>
+                                        <div className="col-md-6">
+                                        <input type="time" id="quintaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>                                  
+                                    </div>
+                                </div>
 
+                                <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                    <br/>
                                     <label className="dias">Sexta-Feira
                                         <input type="checkbox" id="sexta" onClick={Sexta}/>
                                         <span className="checkmark"></span>
                                     </label>
+                                    <div className='row form-group'>                                        
+                                        <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSexta"> Horário de Inicio e Termino do Turno:</p>
+                                        <div className="col-md-6">
+                                        <input type="time" id="sextaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>
+                                        <div className="col-md-6">
+                                        <input type="time" id="sextaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>                                  
+                                    </div>
+                                </div>
 
-                                    <label className="dias">Sabado
+                                <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                    <br/>
+                                    <label className="dias">Sábado
                                         <input type="checkbox" id="sabado" onClick={Sabado}/>
                                         <span className="checkmark"></span>
                                     </label>
+                                    <div className='row form-group'>                                        
+                                        <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSabado"> Horário de Inicio e Termino do Turno:</p>
+                                        <div className="col-md-6">
+                                        <input type="time" id="sabadoInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>
+                                        <div className="col-md-6">
+                                        <input type="time" id="sabadoFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>                                  
+                                    </div>
+                                </div>
 
+                                <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+                                    <br/>
                                     <label className="dias">Domingo
                                         <input type="checkbox" id="domingo" onClick={Domingo}/>
                                         <span className="checkmark"></span>
                                     </label>
+                                    <div className='row form-group'>                                        
+                                        <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pDomingo"> Horário de Inicio e Termino do Turno:</p>
+                                        <div className="col-md-6">
+                                        <input type="time" id="domingoInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>
+                                        <div className="col-md-6">
+                                        <input type="time" id="domingoFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                                        </div>                                  
+                                    </div>
                                 </div>
-                                    
-                                <div className="col-md-3">
-                                                <br/>
-                                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Inicio de Turno:</p>
-                                                    <input type="time" id="segundaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="tercaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="quartaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="quintaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="sextaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="sabadoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="domingoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-                                                </div>
-                                                
-                                                <div className="col-md-3">
-                                                    <br/>
-                                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Final de Turno:</p>
-                                                    <input type="time" id="segundaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="tercaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="quartaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="quintaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="sextaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="sabadoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="domingoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-                                                </div>
                             </div>
+                                  
 
                             <div className="row">
                                 <div className="col-md-12">
-                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 00:00 e na terça-feira 00:00 até 06:00.</p>
+                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
                                 </div>
                             </div>
                                 

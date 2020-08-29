@@ -65,7 +65,7 @@ export default function Prontuarios(){
 
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
+            response = await api.post('https://agendaback.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -79,19 +79,19 @@ export default function Prontuarios(){
   
             var Tipo = document.getElementById("TipoLogo");
             var nomeTipo="";
-            if(produto.PetShopPrest === "Sim"){
+            if(produto.PetShopPrest === "true"){
                 nomeTipo= nomeTipo + "PetShop";
             }
-            if(produto.ClinicaPrest === "Sim"){
+            if(produto.ClinicaPrest === "true"){
                 nomeTipo= nomeTipo + " Clinica";
             }
-            if(produto.OngPrest === "Sim"){
+            if(produto.OngPrest === "true"){
                 nomeTipo= nomeTipo + " ONG";
             }
-            if(produto.PasseadorPrest === "Sim"){
+            if(produto.PasseadorPrest === "true"){
                 nomeTipo= nomeTipo + " Passeador";
             }
-            if(produto.HotelPrest === "Sim"){
+            if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
             }
   
@@ -118,7 +118,7 @@ export default function Prontuarios(){
         var Nome = document.getElementById("rg");
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prontuario/BuscarPront');
+            response = await api.post('https://agendaback.herokuapp.com/Prontuario/BuscarPront');
         } catch (error) {
             console.log(error);               
         }  
@@ -252,7 +252,7 @@ export default function Prontuarios(){
 
     async function Filtro(){
             var Nome = document.getElementById("rg");
-            var ButtonFiltro = document.getElementById("ButtonFiltro");
+            // var ButtonFiltro = document.getElementById("ButtonFiltro");
 
             if (Nome.value === "" || Nome.value === null || Nome.value === undefined) {    
                 Nome.value = "Preencha o campo Nome";
@@ -266,7 +266,7 @@ export default function Prontuarios(){
                 tbody.innerText="";
                 
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prontuario/FiltroPront', {rgPet:Nome.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prontuario/FiltroPront', {rgPet:Nome.value});
                 } catch (error) {
                     console.log(error);               
                 }  
@@ -417,19 +417,19 @@ export default function Prontuarios(){
                     <ul className="nav">
                         <li className="nav-item " id="Home" style={{display:'block'}}>
                             <a className="nav-link" href="/Home">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio} alt=""/> 
                                 <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li className="nav-item" id="Calen" style={{display:'none'}}>
                             <a className="nav-link" href="/Calendario">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Func" style={{display:'none'}}>
                             <a className="nav-link" href="/Funcionarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -441,19 +441,19 @@ export default function Prontuarios(){
                         </li> */}
                         <li className="nav-item " id="Med" style={{display:'none'}}>
                             <a className="nav-link" href="/Medicacao">
-                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Vac" style={{display:'none'}}>
                             <a className="nav-link" href="Vacina">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li className="nav-item active" id="Pront" style={{display:'none'}}>
                             <a className="nav-link" href="/Prontuarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>

@@ -18,7 +18,7 @@ import $ from 'jquery';
 $(document).on('click', '.navbar-toggler', function() {
     var $toggle = $(this);
 
-    if (mobile_menu_visible == 1) {
+    if (mobile_menu_visible === 1) {
       $('html').removeClass('nav-open');
 
       $('.close-layer').remove();
@@ -34,7 +34,7 @@ $(document).on('click', '.navbar-toggler', function() {
 
       var $layer = $('<div class="close-layer"></div>');
 
-      if ($('body').find('.main-panel').length != 0) {
+      if ($('body').find('.main-panel').length !== 0) {
         $layer.appendTo(".main-panel");
 
       } else if (($('body').hasClass('off-canvas-sidebar'))) {

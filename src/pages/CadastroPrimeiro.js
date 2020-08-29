@@ -11,8 +11,8 @@ export default function CadastroPrimeiro(){
     localStorage.setItem('Codigo', "");
     localStorage.setItem('token', "");
 
-    var ButtonSim ="Não";
-    var ButtonNao ="Não";
+    var ButtonSim ="false";
+    var ButtonNao ="false";
     var tipo= "";
    
     async function Proximo() {
@@ -54,7 +54,7 @@ export default function CadastroPrimeiro(){
                             button.removeAttribute("disabled");
                         } 
                         else{
-                            if(ButtonSim === "Não" && ButtonNao === "Não"){ 
+                            if(ButtonSim === "false" && ButtonNao === "false"){ 
                                 erro.innerHTML = "Selecione se é WhatsApp";
                                 button.innerText="Próximo";
                                 button.removeAttribute("disabled");
@@ -64,7 +64,7 @@ export default function CadastroPrimeiro(){
 
                                 let response="";
                                 try {
-                                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadPriPrest',{CnpjPrest: cnpj,CelularPrest:celular,EmailPrest:email,WhatsPrest:tipo});
+                                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadPriPrest',{CnpjPrest: cnpj,CelularPrest:celular,EmailPrest:email,WhatsPrest:tipo});
                                 } catch (error) {
                                     console.log(error);               
                                 }
@@ -184,20 +184,20 @@ export default function CadastroPrimeiro(){
         buttonNao.style.backgroundColor="#fff";
         buttonNao.style.border="1px solid #009fe3"; 
         buttonNao.style.color="#009fe3";
-        ButtonNao="Não";
+        ButtonNao="false";
 
         var button = document.getElementById("Sim");
-        if(ButtonSim ==="Sim"){
+        if(ButtonSim ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonSim="Não";
-            tipo="Nao";
+            ButtonSim="false";
+            tipo="false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonSim="Sim";
-            tipo="Sim";
+            ButtonSim="true";
+            tipo="true";
         }
     }
 
@@ -206,20 +206,20 @@ export default function CadastroPrimeiro(){
         buttonSim.style.backgroundColor="#fff";
         buttonSim.style.border="1px solid #009fe3"; 
         buttonSim.style.color="#009fe3";
-        buttonSim="Não";
+        buttonSim="false";
 
         var button = document.getElementById("Nao");
-        if(ButtonNao ==="Sim"){
+        if(ButtonNao ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonNao="Não";
-            tipo="Nao";
+            ButtonNao="false";
+            tipo="false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonNao="Sim";
-            tipo="Nao";
+            ButtonNao="true";
+            tipo="false";
         }
     }
 

@@ -65,7 +65,7 @@ export default function VisualizarProntuario(){
 
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
+            response = await api.post('https://agendaback.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -79,19 +79,19 @@ export default function VisualizarProntuario(){
   
             var Tipo = document.getElementById("TipoLogo");
             var nomeTipo="";
-            if(produto.PetShopPrest === "Sim"){
+            if(produto.PetShopPrest === "true"){
                 nomeTipo= nomeTipo + "PetShop";
             }
-            if(produto.ClinicaPrest === "Sim"){
+            if(produto.ClinicaPrest === "true"){
                 nomeTipo= nomeTipo + " Clinica";
             }
-            if(produto.OngPrest === "Sim"){
+            if(produto.OngPrest === "true"){
                 nomeTipo= nomeTipo + " ONG";
             }
-            if(produto.PasseadorPrest === "Sim"){
+            if(produto.PasseadorPrest === "true"){
                 nomeTipo= nomeTipo + " Passeador";
             }
-            if(produto.HotelPrest === "Sim"){
+            if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
             }
   
@@ -124,7 +124,7 @@ export default function VisualizarProntuario(){
 
             let response="";
             try {
-                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prontuario/BuscarInfo', {idConst:id});
+                response = await api.post('https://agendaback.herokuapp.com/Prontuario/BuscarInfo', {idConst:id});
             } catch (error) {
                 console.log(error);               
             }  
@@ -174,11 +174,11 @@ export default function VisualizarProntuario(){
                     var dateInicioApliVac= "";
                     var dateCorretoApliVac = "";
     
-                    if(produto[0].idVacina !== "Não"){                       
+                    if(produto[0].idVacina !== "false"){                       
                         var idVacinaa = produto[0].idVacina;
                         let responseVacina="";
                         try {
-                            responseVacina = await api.post('https://agendaanimal-backend.herokuapp.com/Vacina/BuscarInfo', {idVacina:idVacinaa});
+                            responseVacina = await api.post('https://agendaback.herokuapp.com/Vacina/BuscarInfo', {idVacina:idVacinaa});
                         } catch (error) {
                             console.log(error);               
                         } 
@@ -227,11 +227,11 @@ export default function VisualizarProntuario(){
                         Vacina.style.display="none";
                     }
                     ///////////////////////////////////////////////////////////////////////////////////////
-                    if(produto[0].idMed !== "Não"){ 
+                    if(produto[0].idMed !== "false"){ 
                         var idMedd = produto[0].idMed;  
                         let responseMed="";
                         try {
-                            responseMed = await api.post('https://agendaanimal-backend.herokuapp.com/Medicamento/BuscarInfo', {idMed:idMedd});
+                            responseMed = await api.post('https://agendaback.herokuapp.com/Medicamento/BuscarInfo', {idMed:idMedd});
                         } catch (error) {
                             console.log(error);               
                         } 
@@ -282,11 +282,11 @@ export default function VisualizarProntuario(){
                         Medicacao.style.display="none";
                     }
                     ////////////////////////////////////////////////////////////////////////////////////
-                    if(produto[0].idExames !== "Não"){   
+                    if(produto[0].idExames !== "false"){   
                         var idExamess = produto[0].idExames;
                         let responseExames="";
                         try {
-                            responseExames = await api.post('https://agendaanimal-backend.herokuapp.com/Exame/BuscarInfo', {idExames:idExamess});
+                            responseExames = await api.post('https://agendaback.herokuapp.com/Exame/BuscarInfo', {idExames:idExamess});
                         } catch (error) {
                             console.log(error);               
                         } 
@@ -612,7 +612,7 @@ export default function VisualizarProntuario(){
                         Exame.style.display="none";
                     }
                     //////////////////////////////////////////////////////////////////////////////////////
-                    if (produto[0].idExames === "Não" && produto[0].idMed === "Não" && produto[0].idVacina === "Não"){   
+                    if (produto[0].idExames === "false" && produto[0].idMed === "false" && produto[0].idVacina === "false"){   
                         nomePrest.value = produto[0].nomePrest;
                         nomeFunc.value = produto[0].nomeFunc;  
                         rgPet.value = produto[0].rgPet;
@@ -679,19 +679,19 @@ export default function VisualizarProntuario(){
                     <ul className="nav">
                         <li className="nav-item " id="Home" style={{display:'block'}}>
                             <a className="nav-link" href="/Home">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio} alt=""/> 
                                 <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li className="nav-item" id="Calen" style={{display:'none'}}>
                             <a className="nav-link" href="/Calendario">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Func" style={{display:'none'}}>
                             <a className="nav-link" href="/Funcionarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -703,19 +703,19 @@ export default function VisualizarProntuario(){
                         </li> */}
                         <li className="nav-item " id="Med" style={{display:'none'}}>
                             <a className="nav-link" href="/Medicacao">
-                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Vac" style={{display:'none'}}>
                             <a className="nav-link" href="Vacina">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li className="nav-item active" id="Pront" style={{display:'none'}}>
                             <a className="nav-link" href="/Prontuarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>

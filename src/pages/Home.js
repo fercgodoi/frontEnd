@@ -70,7 +70,7 @@ export default function Home(){
 
       let response="";
       try {
-          response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
+          response = await api.post('https://agendaback.herokuapp.com/Prestador/BuscarPrest2');
       } catch (error) {
           console.log(error);               
       }          
@@ -84,19 +84,19 @@ export default function Home(){
 
           var Tipo = document.getElementById("TipoLogo");
           var nomeTipo="";
-          if(produto.PetShopPrest === "Sim"){
+          if(produto.PetShopPrest === "true"){
               nomeTipo= nomeTipo + "PetShop";
           }
-          if(produto.ClinicaPrest === "Sim"){
+          if(produto.ClinicaPrest === "true"){
               nomeTipo= nomeTipo + " Clinica";
           }
-          if(produto.OngPrest === "Sim"){
+          if(produto.OngPrest === "true"){
               nomeTipo= nomeTipo + " ONG";
           }
-          if(produto.PasseadorPrest === "Sim"){
+          if(produto.PasseadorPrest === "true"){
               nomeTipo= nomeTipo + " Passeador";
           }
-          if(produto.HotelPrest === "Sim"){
+          if(produto.HotelPrest === "true"){
               nomeTipo= nomeTipo + " Hotel";
           }
 
@@ -118,14 +118,14 @@ export default function Home(){
   
   setTimeout(() => {Dados()}, 1);
 
-    var cancelado = "Não";
-    var aprovado = "Não";
-    var pendente = "Não";
+    var cancelado = "false";
+    var aprovado = "false";
+    var pendente = "false";
 
     async function Aparecer(){
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAgendamento');
+            response = await api.post('https://agendaback.herokuapp.com/Agendamento/BuscarAgendamento');
         } catch (error) {
             console.log(error);               
         }          
@@ -238,7 +238,7 @@ export default function Home(){
     async function Confrimar(id){
       let response="";
       try {
-          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/ConfAgendamento', {idAgend:id});
+          response = await api.post('https://agendaback.herokuapp.com/Agendamento/ConfAgendamento', {idAgend:id});
       } catch (error) {
           console.log(error);               
       }
@@ -259,7 +259,7 @@ export default function Home(){
     async function Negar(id){
       let response="";
       try {
-          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/NegarAgendamento', {idAgend:id});
+          response = await api.post('https://agendaback.herokuapp.com/Agendamento/NegarAgendamento', {idAgend:id});
       } catch (error) {
           console.log(error);               
       }
@@ -287,32 +287,32 @@ export default function Home(){
       var divAprovado = document.getElementById("DivAprovado");
       buttonAprovado.className="nav-link";
       divAprovado.style.display="none";
-      aprovado= "Não";
+      aprovado= "false";
 
       var buttonCancelado = document.getElementById("ACancelado");
       var divCancelado = document.getElementById("DivCancelado");
       buttonCancelado.className="nav-link";
       divCancelado.style.display="none";
-      cancelado= "Não";
+      cancelado= "false";
 
 
       var button = document.getElementById("APendente");
       var div = document.getElementById("DivPendente");
       var tbody = document.getElementById("TbodyPendente");
-      if(pendente === "Sim"){
+      if(pendente === "true"){
         button.className="nav-link";
         div.style.display="none";
-        pendente= "Não";
+        pendente= "false";
         tbody.innerText="";
       }else{        
         button.className="nav-link active";
         div.style.display="block";
-        pendente= "Sim";
+        pendente= "true";
         tbody.innerText=""; 
 
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarPendente');
+            response = await api.post('https://agendaback.herokuapp.com/Agendamento/BuscarPendente');
         } catch (error) {
             console.log(error);               
         }
@@ -398,31 +398,31 @@ export default function Home(){
       var divCancelado = document.getElementById("DivCancelado");
       buttonCancelado.className="nav-link";
       divCancelado.style.display="none";
-      cancelado= "Não";
+      cancelado= "false";
 
       var buttonPendente = document.getElementById("APendente");
       var divPendente = document.getElementById("DivPendente");
       buttonPendente.className="nav-link";
       divPendente.style.display="none";
-      pendente= "Não";
+      pendente= "false";
 
       var button = document.getElementById("AAprovado");
       var div = document.getElementById("DivAprovado");
       var tbody = document.getElementById("TbodyAprovados");      
-      if(aprovado === "Sim"){
+      if(aprovado === "true"){
         button.className="nav-link";
         div.style.display="none";
-        aprovado= "Não";
+        aprovado= "false";
         tbody.innerText="";
       }else{        
         button.className="nav-link active";
         div.style.display="block";
-        aprovado= "Sim";
+        aprovado= "true";
         tbody.innerText=""; 
         
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAprovados');
+            response = await api.post('https://agendaback.herokuapp.com/Agendamento/BuscarAprovados');
         } catch (error) {
             console.log(error);               
         }
@@ -510,31 +510,31 @@ export default function Home(){
       var divPendente = document.getElementById("DivPendente");
       buttonPendente.className="nav-link";
       divPendente.style.display="none";
-      pendente= "Não";
+      pendente= "false";
 
       var buttonAprovado = document.getElementById("AAprovado");
       var divAprovado = document.getElementById("DivAprovado");
       buttonAprovado.className="nav-link";
       divAprovado.style.display="none";
-      aprovado= "Não";
+      aprovado= "false";
       
       var button = document.getElementById("ACancelado");
       var div = document.getElementById("DivCancelado");
       var tbody = document.getElementById("TbodyCancelado");    
-      if(cancelado === "Sim"){
+      if(cancelado === "true"){
         button.className="nav-link";
         div.style.display="none";
-        cancelado= "Não";
+        cancelado= "false";
         tbody.innerText="";        
       }else{        
         button.className="nav-link active";
         div.style.display="block";
-        cancelado= "Sim";
+        cancelado= "true";
         tbody.innerText=""; 
 
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarNegado');
+            response = await api.post('https://agendaback.herokuapp.com/Agendamento/BuscarNegado');
         } catch (error) {
             console.log(error);               
         }
@@ -619,7 +619,7 @@ export default function Home(){
      
       let response="";
        try {
-           response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/ContAgendamentoDia');
+           response = await api.post('https://agendaback.herokuapp.com/Agendamento/ContAgendamentoDia');
        } catch (error) {
            console.log(error);               
        } 
@@ -663,19 +663,19 @@ export default function Home(){
         <ul class="nav">
         <li class="nav-item active" id="Home" style={{display:'block'}}>
                             <a class="nav-link" href="/Home">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio} alt=""/> 
                             <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li class="nav-item" id="Calen" style={{display:'none'}}>
                             <a class="nav-link" href="/Calendario">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Func" style={{display:'none'}}>
                             <a class="nav-link" href="/Funcionarios">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -687,19 +687,19 @@ export default function Home(){
                         </li> */}
                         <li class="nav-item " id="Med" style={{display:'none'}}>
                             <a class="nav-link" href="/Medicacao">
-                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Vac" style={{display:'none'}}>
                             <a class="nav-link" href="Vacina">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Pront" style={{display:'none'}}>
                             <a class="nav-link" href="/Prontuarios">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>

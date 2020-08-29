@@ -1,6 +1,6 @@
 import React from 'react';
 import InputMask from 'react-input-mask';
-import CurrencyInput from 'react-currency-input';
+// import CurrencyInput from 'react-currency-input';
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
@@ -67,7 +67,7 @@ export default function EditarPerfil(){
 
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
+            response = await api.post('https://agendaback.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -81,19 +81,19 @@ export default function EditarPerfil(){
   
             var Tipo = document.getElementById("TipoLogo");
             var nomeTipo="";
-            if(produto.PetShopPrest === "Sim"){
+            if(produto.PetShopPrest === "true"){
                 nomeTipo= nomeTipo + "PetShop";
             }
-            if(produto.ClinicaPrest === "Sim"){
+            if(produto.ClinicaPrest === "true"){
                 nomeTipo= nomeTipo + " Clinica";
             }
-            if(produto.OngPrest === "Sim"){
+            if(produto.OngPrest === "true"){
                 nomeTipo= nomeTipo + " ONG";
             }
-            if(produto.PasseadorPrest === "Sim"){
+            if(produto.PasseadorPrest === "true"){
                 nomeTipo= nomeTipo + " Passeador";
             }
-            if(produto.HotelPrest === "Sim"){
+            if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
             }
   
@@ -115,28 +115,28 @@ export default function EditarPerfil(){
     
     setTimeout(() => {Dados()}, 1);
     
-    var recepcao = "Não";
-    var Admin ="Não";
-    var Vet ="Não";
-    var finan="Não";
-    var ButtonClinica="Não";
-    var ButtonPetShop="Não";
-    var ButtonHotel ="Não";
-    var ButtonPasseador = "Não";
-    var btnCEP = "Não";
+    // var recepcao = "false";
+    // var Admin ="false";
+    // var Vet ="false";
+    // var finan="false";
+    var ButtonClinica="false";
+    var ButtonPetShop="false";
+    var ButtonHotel ="false";
+    var ButtonPasseador = "false";
+    var btnCEP = "false";
     var Latitude = "";
     var Longitude = "";
-    var ButtonEmergenciaSim = "Não";
-    var ButtonEmergenciaNao = "Não";
-    var ButtonOngSim = "Não";
-    var ButtonOngNao = "Não";
-    var Ong = "Não";
-    var Emergencia = "Não";
-    var ButtonConta= "Não";
-    var ButtonCielo= "Não";
-    var ButtonWibx= "Não";
-    var ButtonCorrente= "Não";
-    var ButtonPoupanca= "Não";
+    var ButtonEmergenciaSim = "false";
+    var ButtonEmergenciaNao = "false";
+    var ButtonOngSim = "false";
+    var ButtonOngNao = "false";
+    var Ong = "false";
+    var Emergencia = "false";
+    var ButtonConta= "false";
+    var ButtonCielo= "false";
+    var ButtonWibx= "false";
+    var ButtonCorrente= "false";
+    var ButtonPoupanca= "false";
 
     var idResp = "";
     var idFunc = "";
@@ -148,7 +148,7 @@ export default function EditarPerfil(){
 
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscaPrest');
+            response = await api.post('https://agendaback.herokuapp.com/Prestador/BuscaPrest');
         } catch (error) {
             console.log(error);               
         }   
@@ -176,83 +176,83 @@ export default function EditarPerfil(){
                 celular.value = dados[0].CelularPrest;
 
 
-                if(dados[0].EmergenciaPrest === "Sim"){
+                if(dados[0].EmergenciaPrest === "true"){
                     var buttonEmergSim = document.getElementById("EmergenciaSim");
                     buttonEmergSim.style.backgroundColor="#009fe3";
                     buttonEmergSim.style.color="#fff";
-                    ButtonEmergenciaSim="Sim";
-                    Emergencia = "Sim";
+                    ButtonEmergenciaSim="true";
+                    Emergencia = "true";
                 }else{
                     var buttonEmergNao = document.getElementById("EmergenciaNao");
                     buttonEmergNao.style.backgroundColor="#009fe3";
                     buttonEmergNao.style.color="#fff";
-                    ButtonEmergenciaNao="Sim";
-                    Emergencia = "Não";
+                    ButtonEmergenciaNao="true";
+                    Emergencia = "false";
                 }
 
-                if(dados[0].OngPrest === "Sim"){
+                if(dados[0].OngPrest === "true"){
                     var buttonOngSim = document.getElementById("OngSim");
                     buttonOngSim.style.backgroundColor="#009fe3";
                     buttonOngSim.style.color="#fff";
-                    ButtonOngSim="Sim";
-                    Ong = "Sim";
+                    ButtonOngSim="true";
+                    Ong = "true";
                 }else{
                     var buttonOngNao = document.getElementById("OngNao");
                     buttonOngNao.style.backgroundColor="#009fe3";
                     buttonOngNao.style.color="#fff";
-                    ButtonOngNao="Sim";
-                    Ong = "Não";
+                    ButtonOngNao="true";
+                    Ong = "Nãfalseo";
                 }
 
                
                 var buttonClinica = document.getElementById("Clinica");
-                if(dados[0].ClinicaPrest === "Sim"){
+                if(dados[0].ClinicaPrest === "true"){
                     buttonClinica.style.backgroundColor="#009fe3";
                     buttonClinica.style.color="#fff";  
-                    ButtonClinica="Sim"; 
+                    ButtonClinica="true"; 
                 }else{          
                     buttonClinica.style.color="#009fe3";
                     buttonClinica.style.border="1px solid #009fe3";
                     buttonClinica.style.background="#fff";                    
-                    ButtonClinica ="Não";
+                    ButtonClinica ="false";
                 }      
 
                 var buttonPetShop = document.getElementById("PetShop");
-                if(dados[0].PetShopPrest === "Sim"){
+                if(dados[0].PetShopPrest === "true"){
                     buttonPetShop.style.backgroundColor="#009fe3";
                     buttonPetShop.style.color="#fff";
-                    ButtonPetShop="Sim";
+                    ButtonPetShop="true";
                 }else{  
                     buttonPetShop.style.color="#009fe3";
                     buttonPetShop.style.border="1px solid #009fe3";
                     buttonPetShop.style.background="#fff";
-                    ButtonPetShop="Não";
+                    ButtonPetShop="false";
                 }
                 
                 var buttonHotel = document.getElementById("Hotel");
-                if(dados[0].HotelPrest === "Sim"){
+                if(dados[0].HotelPrest === "true"){
                     buttonHotel.style.backgroundColor="#009fe3";
                     buttonHotel.style.color="#fff";
-                    ButtonHotel="Sim";
+                    ButtonHotel="true";
                 }else{ 
                     buttonHotel.style.color="#009fe3";
                     buttonHotel.style.border="1px solid #009fe3";
                     buttonHotel.style.background="#fff";
-                    ButtonHotel="Não";
+                    ButtonHotel="false";
                 }
                 
             
                 var buttonPasseador= document.getElementById("Passeador");
-                if(dados[0].PasseadorPrest  === "Sim"){
+                if(dados[0].PasseadorPrest  === "true"){
                     buttonPasseador.style.backgroundColor="#009fe3";
                     buttonPasseador.style.color="#fff";
-                    ButtonPasseador="Sim";
+                    ButtonPasseador="true";
                     
                 }else{
                     buttonPasseador.style.color="#009fe3";
                     buttonPasseador.style.border="1px solid #009fe3";
                     buttonPasseador.style.background="#fff";
-                    ButtonPasseador="Não";
+                    ButtonPasseador="false";
                 }
                 
 
@@ -267,7 +267,7 @@ export default function EditarPerfil(){
 
                     buttonConta.style.backgroundColor="#009fe3";
                     buttonConta.style.color="#fff";
-                    ButtonConta="Sim";
+                    ButtonConta="true";
                     divConta.style.display="block";
 
                     Banco.value = dados[0].BancoCont;
@@ -277,11 +277,11 @@ export default function EditarPerfil(){
                     if(dados[0].innerHTML === "Poupanca"){
                         buttonPoupa.style.backgroundColor="#009fe3";
                         buttonPoupa.style.color="#fff";
-                        ButtonPoupanca="Sim";
+                        ButtonPoupanca="true";
                     }else{
                         buttonCorrent.style.backgroundColor="#009fe3";
                         buttonCorrent.style.color="#fff";
-                        ButtonCorrente="Sim";
+                        ButtonCorrente="true";
                     }
 
                 }else if(dados[0].CartCont !== ""){
@@ -292,7 +292,7 @@ export default function EditarPerfil(){
                     buttonWibx.style.backgroundColor="#009fe3";
                     buttonWibx.style.color="#fff";
                     divWibx.style.display="block"; 
-                    ButtonWibx="Sim";
+                    ButtonWibx="true";
                     CodWibx.value = dados[0].CartCont;
 
                 }else if(dados[0].CieloCont !== ""){
@@ -302,7 +302,7 @@ export default function EditarPerfil(){
 
                     buttonCielo.style.backgroundColor="#009fe3";
                     buttonCielo.style.color="#fff";
-                    ButtonCielo="Sim";
+                    ButtonCielo="true";
                     divCielo.style.display="block"; 
                     CodCielo.value = dados[0].CieloCont;
                 }
@@ -412,7 +412,7 @@ export default function EditarPerfil(){
 
                 let responseServ= "";
                 try{
-                    responseServ= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscaServicoPrest');
+                    responseServ= await api.post('https://agendaback.herokuapp.com/Prestador/BuscaServicoPrest');
                 }catch(erro){
                     console.log(erro)
                 }
@@ -554,13 +554,13 @@ export default function EditarPerfil(){
         var sabado = document.getElementById("sabado");
         var domingo = document.getElementById("domingo");
 
-        var ValidaSegunda = "Não";
-        var ValidaTerca = "Não";
-        var ValidaQuarta = "Não";
-        var ValidaQuinta = "Não";
-        var ValidaSexta = "Não";
-        var ValidaSabado = "Não";
-        var ValidaDomingo = "Não";
+        var ValidaSegunda = "false";
+        var ValidaTerca = "false";
+        var ValidaQuarta = "false";
+        var ValidaQuinta = "false";
+        var ValidaSexta = "false";
+        var ValidaSabado = "false";
+        var ValidaDomingo = "false";
         
         var segundaInicio = document.getElementById("segundaInicio");
         var tercaInicio = document.getElementById("tercaInicio");
@@ -619,12 +619,12 @@ export default function EditarPerfil(){
             erro.innerHTML ="Preencha o campo CNPJ Empresa";
             button.innerText="Salvar";
             button.removeAttribute("disabled");
-        }else if(btnCEP === "Sim"){
+        }else if(btnCEP === "true"){
             if (numero === "" || numero === null || numero === undefined) {    
                 erro.innerHTML = "Preencha o campo Número Empresa";
                 button.innerText="Salvar";
                 button.removeAttribute("disabled");
-            }else if (ButtonClinica === "Não" && ButtonPetShop === "Não" && ButtonHotel=== "Não" && ButtonPasseador=== "Não") {
+            }else if (ButtonClinica === "false" && ButtonPetShop === "false" && ButtonHotel=== "false" && ButtonPasseador=== "false") {
                 erro.innerHTML = "Escolha uma atuação";
                 button.innerText="Salvar";
                 button.removeAttribute("disabled");
@@ -641,7 +641,7 @@ export default function EditarPerfil(){
                         segundaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                         segundaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                         if(segundaInicio.value < segundaFinal.value){
-                            ValidaSegunda = "Sim";
+                            ValidaSegunda = "true";
                         }
                     }
                 }
@@ -655,7 +655,7 @@ export default function EditarPerfil(){
                         tercaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                         tercaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                         if(tercaInicio.value < tercaFinal.value){
-                            ValidaTerca = "Sim";
+                            ValidaTerca = "true";
                         }
                     }
                 }
@@ -669,7 +669,7 @@ export default function EditarPerfil(){
                         quartaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                         quartaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                         if(quartaInicio.value < quartaFinal.value){
-                            ValidaQuarta = "Sim";
+                            ValidaQuarta = "true";
                         }
                     }
                 }
@@ -684,7 +684,7 @@ export default function EditarPerfil(){
                         quintaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                         quintaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                         if(quintaInicio.value < quintaFinal.value){
-                            ValidaQuinta = "Sim";
+                            ValidaQuinta = "true";
                         }
                     }
                 }
@@ -700,7 +700,7 @@ export default function EditarPerfil(){
                         sextaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                         sextaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                         if(sextaInicio.value < sextaFinal.value){
-                            ValidaSexta = "Sim";
+                            ValidaSexta = "true";
                         }
                     }
                 }
@@ -715,7 +715,7 @@ export default function EditarPerfil(){
                         sabadoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                         sabadoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                         if(sabadoInicio.value < sabadoFinal.value){
-                            ValidaSabado = "Sim";
+                            ValidaSabado = "true";
                         }
                     }
                 }
@@ -730,13 +730,13 @@ export default function EditarPerfil(){
                         domingoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
                         domingoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
                         if(domingoInicio.value < domingoFinal.value){
-                            ValidaDomingo = "Sim";
+                            ValidaDomingo = "true";
                         }
                     }
                 }
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
             
-                if(ValidaSegunda === "Não" && ValidaTerca ==="Não" && ValidaQuarta ==="Não" && ValidaQuinta === "Não" && ValidaSexta === "Não" && ValidaSabado === "Não" && ValidaDomingo === "Não" ) {
+                if(ValidaSegunda === "false" && ValidaTerca ==="false" && ValidaQuarta ==="false" && ValidaQuinta === "false" && ValidaSexta === "false" && ValidaSabado === "false" && ValidaDomingo === "false" ) {
                     erro.innerHTML = "Escolha pelo menos um dia para o horário";
                     button.innerText="Salvar";
                     button.removeAttribute("disabled");
@@ -744,15 +744,15 @@ export default function EditarPerfil(){
                     erro.innerHTML = "Verefique os dados dos horarios";
                     button.innerText="Salvar";
                     button.removeAttribute("disabled");
-                }else if(ButtonEmergenciaSim === "Não" && ButtonEmergenciaNao === "Não"){
+                }else if(ButtonEmergenciaSim === "false" && ButtonEmergenciaNao === "false"){
                     erro.innerHTML = "Selecione se é 24horas.";
                     button.innerText="Salvar";
                     button.removeAttribute("disabled");
-                }else if(ButtonOngSim === "Não" && ButtonOngNao === "Não"){
+                }else if(ButtonOngSim === "false" && ButtonOngNao === "false"){
                     erro.innerHTML = "Selecione se é ONG";
                     button.innerText="Salvar";
                     button.removeAttribute("disabled");
-                }else if( ButtonConta === "Não" && ButtonCielo === "Não" && ButtonWibx === "Não"){
+                }else if( ButtonConta === "false" && ButtonCielo === "false" && ButtonWibx === "false"){
                     erro.innerHTML = "Escolha um tipo de conta";
                     button.innerText="Salvar";
                     button.removeAttribute("disabled");
@@ -767,7 +767,7 @@ export default function EditarPerfil(){
                     var CodWibx = document.getElementById("CodWibx").value;
                     var tipo =""; 
 
-                    if(ButtonConta === "Sim"){                        
+                    if(ButtonConta === "true"){                        
                         if (Banco === "" || Banco === null || Banco === undefined) {
                             erro.innerHTML = "Preencha o campo Banco";
                             button.innerText="Salvar";
@@ -780,21 +780,21 @@ export default function EditarPerfil(){
                             erro.innerHTML = "Preencha o campo Conta";
                             button.innerText="Salvar";
                             button.removeAttribute("disabled");
-                        }else if(ButtonCorrente === "Não" && ButtonPoupanca === "Não"){ 
+                        }else if(ButtonCorrente === "false" && ButtonPoupanca === "false"){ 
                             erro.innerHTML = "Selecione um tipo de conta";
                             button.innerText="Salvar";
                             button.removeAttribute("disabled");
                         }else{
                             ButtonConta= "Pendente";
-                            if(ButtonCorrente === "Sim"){
+                            if(ButtonCorrente === "true"){
                                 tipo = "Corrente";
-                            }else if(ButtonPoupanca === "Sim"){
+                            }else if(ButtonPoupanca === "true"){
                                 tipo = "Poupança"; 
                             }                                           
                         }
                     }
 
-                    if(ButtonCielo === "Sim"){
+                    if(ButtonCielo === "true"){
                         if (CodCielo === "" || CodCielo === null || CodCielo === undefined) {
                             erro.innerHTML = "Preencha o campo do Codigo da Cielo";
                             button.innerText="Salvar";
@@ -804,7 +804,7 @@ export default function EditarPerfil(){
                         }
                     }
 
-                    if(ButtonWibx === "Sim"){
+                    if(ButtonWibx === "true"){
                         if (CodWibx === "" || CodWibx === null || CodWibx === undefined) {
                             erro.innerHTML = "Preencha o campo do Codigo da Wibx";
                             button.innerText="Salvar";
@@ -814,7 +814,7 @@ export default function EditarPerfil(){
                         }
                     }
 
-                    if(ButtonConta === "Pendente" || ButtonWibx == "Pendente" || ButtonCielo === "Pendente"){                    
+                    if(ButtonConta === "Pendente" || ButtonWibx === "Pendente" || ButtonCielo === "Pendente"){                    
                         
                         button.innerText="Aguardando";
                         button.setAttribute("disabled","disabled");
@@ -824,7 +824,7 @@ export default function EditarPerfil(){
                         let response="";
                         console.log(idResp);
                         try {
-                            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarPrest',{EmailPrest:email,EmergenciaPrest:Emergencia,CnpjPrest:cnpj,CelularPrest:celular,ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,idCont:idConta,SegundInicio:segundaInicio.value,SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value,idHorarioPrest:idHorarioPrest,NomeFantsPrest:NomeFantasia,PetShopPrest:ButtonPetShop,ClinicaPrest:ButtonClinica,PasseadorPrest:ButtonPasseador,HotelPrest:ButtonHotel,CepPrest:cep,NumPrest:numero,descricaoPrest:desc,latitude:Latitude,longitude:Longitude,NomeResp:nomeResp,CpfResp:cpfResp,CelResp:numResp,idResp:idResp,EmailFunc:emailResp,idFunc:idFunc});
+                            response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarPrest',{EmailPrest:email,EmergenciaPrest:Emergencia,CnpjPrest:cnpj,CelularPrest:celular,ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,idCont:idConta,SegundInicio:segundaInicio.value,SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value,idHorarioPrest:idHorarioPrest,NomeFantsPrest:NomeFantasia,PetShopPrest:ButtonPetShop,ClinicaPrest:ButtonClinica,PasseadorPrest:ButtonPasseador,HotelPrest:ButtonHotel,CepPrest:cep,NumPrest:numero,descricaoPrest:desc,latitude:Latitude,longitude:Longitude,NomeResp:nomeResp,CpfResp:cpfResp,CelResp:numResp,idResp:idResp,EmailFunc:emailResp,idFunc:idFunc});
                         } catch (error) {
                             console.log(error);               
                         }
@@ -870,145 +870,151 @@ export default function EditarPerfil(){
 
     function Segunda(){
         var segunda = document.getElementById("segunda");
+        var horarioInicio = document.getElementById("segundaInicio");
+        var horarioFinal = document.getElementById("segundaFinal");
+        var pSegunda = document.getElementById("pSegunda");
+        
 
-        if(segunda.checked === true){
-            var horarioInicio = document.getElementById("segundaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("segundaFinal");
-            horarioFinal.style.visibility="inherit";
+        if(segunda.checked === true){           
+            horarioInicio.style.display="block";          
+            horarioFinal.style.display="block";
+            pSegunda.style.display="block";
         }
-        else{            
-            var horarioInicio = document.getElementById("segundaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("segundaFinal");
-            horarioFinal.style.visibility="collapse";
+        else{    
+            horarioInicio.style.display="none";
+            horarioFinal.style.display="none";
+            pSegunda.style.display="none";
         }
     }
 
     function Terca(){
         var terca = document.getElementById("terca");
-        if(terca.checked === true){
-            var horarioInicio = document.getElementById("tercaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("tercaFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        var horarioInicio = document.getElementById("tercaInicio");
+        var horarioFinal = document.getElementById("tercaFinal");
+        var pTerca = document.getElementById("pTerca");
+
+
+        if(terca.checked === true){            
+            horarioInicio.style.display="block";
+            horarioFinal.style.display="block";
+            pTerca.style.display="block";
         }
         else{
-            var horarioInicio = document.getElementById("tercaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("tercaFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";            
+            horarioFinal.style.display="none";
+            pTerca.style.display="none";
         }
     }
 
     function Quarta(){        
         var quarta = document.getElementById("quarta");
+        var horarioInicio = document.getElementById("quartaInicio");
+        var horarioFinal = document.getElementById("quartaFinal");
+        var pQuarta = document.getElementById("pQuarta");
         
-        if(quarta.checked === true){
-            var horarioInicio = document.getElementById("quartaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("quartaFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        if(quarta.checked === true){            
+            horarioInicio.style.display="block";            
+            horarioFinal.style.display="block";
+            pQuarta.style.display="block";
         }
         else{
-            var horarioInicio = document.getElementById("quartaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("quartaFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";
+            horarioFinal.style.display="none";
+            pQuarta.style.display="none";
         }
     }
 
     function Quinta(){        
         var quinta = document.getElementById("quinta");
+        var pQuinta = document.getElementById("pQuinta");
+        var horarioInicio = document.getElementById("quintaInicio");
+        var horarioFinal = document.getElementById("quintaFinal");
 
-        if(quinta.checked === true){
-            var horarioInicio = document.getElementById("quintaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("quintaFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        if(quinta.checked === true){            
+            horarioInicio.style.display="block";            
+            horarioFinal.style.display="block";
+            pQuinta.style.display="block";            
         }
         else{
-            var horarioInicio = document.getElementById("quintaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("quintaFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";
+            horarioFinal.style.display="none";
+            pQuinta.style.display="none";
         }        
     }
 
     function Sexta(){        
         var sexta = document.getElementById("sexta");
+        var pSexta = document.getElementById("pSexta");
+        var horarioInicio = document.getElementById("sextaInicio");
+        var horarioFinal = document.getElementById("sextaFinal");
 
-        if(sexta.checked === true){
-            var horarioInicio = document.getElementById("sextaInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("sextaFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        if(sexta.checked === true){      
+            horarioInicio.style.display="block";
+            horarioFinal.style.display="block";
+            pSexta.style.display="block";
         }
-        else{
-            var horarioInicio = document.getElementById("sextaInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("sextaFinal");
-            horarioFinal.style.visibility="collapse";
+        else{                 
+            horarioInicio.style.display="none";           
+            horarioFinal.style.display="none";
+            pSexta.style.display="none";
         }       
     }
 
     function Sabado(){        
         var sabado = document.getElementById("sabado");
-        if(sabado.checked === true){
-            var horarioInicio = document.getElementById("sabadoInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("sabadoFinal");
-            horarioFinal.style.visibility="inherit";
-            
+        var pSabado = document.getElementById("pSabado");        
+        var horarioFinal = document.getElementById("sabadoFinal");
+        var horarioInicio = document.getElementById("sabadoInicio");
+
+
+        if(sabado.checked === true){            
+            horarioInicio.style.display="block";
+            horarioFinal.style.display="block";
+            pSabado.style.display="block";
         }
         else{
-            var horarioInicio = document.getElementById("sabadoInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("sabadoFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";
+            horarioFinal.style.display="none";
+            pSabado.style.display="none";
         }
     }
 
     function Domingo(){        
         var domingo = document.getElementById("domingo");
+        var pDomingo = document.getElementById("pDomingo");   
+        var horarioInicio = document.getElementById("domingoInicio");
+        var horarioFinal = document.getElementById("domingoFinal");
 
         if(domingo.checked === true){
-            var horarioInicio = document.getElementById("domingoInicio");
-            horarioInicio.style.visibility="inherit";
-            var horarioFinal = document.getElementById("domingoFinal");
-            horarioFinal.style.visibility="inherit";
-           
+            horarioInicio.style.display="block";
+            horarioFinal.style.display="block";
+            pDomingo.style.display="block";          
         }
         else{
-            var horarioInicio = document.getElementById("domingoInicio");
-            horarioInicio.style.visibility="collapse";
-            var horarioFinal = document.getElementById("domingoFinal");
-            horarioFinal.style.visibility="collapse";
+            horarioInicio.style.display="none";           
+            horarioFinal.style.display="none";
+            pDomingo.style.display="none";
         }        
     }
 
     async function Clinica(){
         var button = document.getElementById("Clinica");
-        if(ButtonClinica === "Sim"){
+        if(ButtonClinica === "true"){
             button.style.color="#009fe3";
             button.style.border="1px solid #009fe3";
             button.style.background="#fff";                    
-            ButtonClinica ="Não";
+            ButtonClinica ="false";
         }else{          
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";  
-            ButtonClinica="Sim"; 
+            ButtonClinica="true"; 
 
             var erro= document.getElementById("clinicaValida");
 
             let response= "";
 
             try {
-                response = await api.post('https://agendaanimal-backend.herokuapp.com/Funcionario/FuncClinica');
+                response = await api.post('https://agendaback.herokuapp.com/Funcionario/FuncClinica');
             } catch (error) {
                 console.log(error);               
             }
@@ -1040,43 +1046,43 @@ export default function EditarPerfil(){
 
     function PetShop(){
         var button = document.getElementById("PetShop");
-        if(ButtonPetShop === "Sim"){
+        if(ButtonPetShop === "true"){
             button.style.color="#009fe3";
             button.style.border="1px solid #009fe3";
             button.style.background="#fff";
-            ButtonPetShop="Não";
+            ButtonPetShop="false";
         }else{  
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonPetShop="Sim";
+            ButtonPetShop="true";
         }
     }
 
     function Hotel(){
         var button = document.getElementById("Hotel");
-        if(ButtonHotel === "Sim"){
+        if(ButtonHotel === "true"){
             button.style.color="#009fe3";
             button.style.border="1px solid #009fe3";
             button.style.background="#fff";
-            ButtonHotel="Não";
+            ButtonHotel="false";
         }else{ 
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonHotel="Sim";
+            ButtonHotel="true";
         }
     }
 
     function Passeador(){
         var button = document.getElementById("Passeador");
-        if(ButtonPasseador === "Sim"){
+        if(ButtonPasseador === "true"){
             button.style.color="#009fe3";
             button.style.border="1px solid #009fe3";
             button.style.background="#fff";
-            ButtonPasseador="Não";
+            ButtonPasseador="false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonPasseador="Sim";
+            ButtonPasseador="true";
         }
     }
 
@@ -1097,7 +1103,7 @@ export default function EditarPerfil(){
 
     //Pesquisa do CEP
     async function getCepInfo(){
-        btnCEP = "Não";
+        btnCEP = "false";
         var array = [];
         var num =0;
         var novo =0;
@@ -1122,7 +1128,7 @@ export default function EditarPerfil(){
                 if(response.data.erro){
                     if(response.data.erro === true){
                         erro.innerHTML = "CEP não encontrado";
-                        btnCEP = "Não";
+                        btnCEP = "false";
                         return false;
                     }
                 }
@@ -1141,7 +1147,7 @@ export default function EditarPerfil(){
                     bairro.value = response.data.bairro;
                     var rua = document.getElementById("rua");
                     rua.value = response.data.logradouro;
-                    btnCEP = "Sim";
+                    btnCEP = "true";
                     return true;
                 }
             }
@@ -1152,7 +1158,7 @@ export default function EditarPerfil(){
             DivBairro.style.display="none";
             DivRua.style.display="none";
             erro.innerHTML = "Preencha o CEP corretamente";
-            btnCEP = "Não";
+            btnCEP = "false";
             return false;
         }        
     }
@@ -1162,20 +1168,20 @@ export default function EditarPerfil(){
         buttonNao.style.backgroundColor="#fff";
         buttonNao.style.border="1px solid #009fe3"; 
         buttonNao.style.color="#009fe3";
-        ButtonEmergenciaNao="Não";
+        ButtonEmergenciaNao="false";
 
         var button = document.getElementById("EmergenciaSim");
-        if(ButtonEmergenciaSim === "Sim"){
+        if(ButtonEmergenciaSim === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonEmergenciaSim="Não";
-            Emergencia = "Não";
+            ButtonEmergenciaSim="false";
+            Emergencia = "false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonEmergenciaSim="Sim";
-            Emergencia = "Sim";
+            ButtonEmergenciaSim="true";
+            Emergencia = "true";
         }
     }
     function EmergenciaNao(){
@@ -1183,20 +1189,20 @@ export default function EditarPerfil(){
         buttonSim.style.backgroundColor="#fff";
         buttonSim.style.border="1px solid #009fe3"; 
         buttonSim.style.color="#009fe3";
-        ButtonEmergenciaSim="Não";
+        ButtonEmergenciaSim="false";
 
         var button = document.getElementById("EmergenciaNao");
-        if(ButtonEmergenciaNao === "Sim"){
+        if(ButtonEmergenciaNao === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonEmergenciaNao="Não";
-            Emergencia = "Não";
+            ButtonEmergenciaNao="false";
+            Emergencia = "false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonEmergenciaNao="Sim";
-            Emergencia = "Não";
+            ButtonEmergenciaNao="true";
+            Emergencia = "false";
         }
     }
 
@@ -1205,20 +1211,20 @@ export default function EditarPerfil(){
         buttonNao.style.backgroundColor="#fff";
         buttonNao.style.border="1px solid #009fe3"; 
         buttonNao.style.color="#009fe3";
-        ButtonOngNao="Não";
+        ButtonOngNao="false";
 
         var button = document.getElementById("OngSim");
-        if(ButtonOngSim === "Sim"){
+        if(ButtonOngSim === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonOngSim="Não";
-            Ong = "Não";
+            ButtonOngSim="false";
+            Ong = "false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonOngSim="Sim";
-            Ong = "Sim";
+            ButtonOngSim="true";
+            Ong = "true";
         }
     }
     function OngNao(){
@@ -1226,20 +1232,20 @@ export default function EditarPerfil(){
         buttonSim.style.backgroundColor="#fff";
         buttonSim.style.border="1px solid #009fe3"; 
         buttonSim.style.color="#009fe3";
-        ButtonOngSim="Não";
+        ButtonOngSim="false";
 
         var button = document.getElementById("OngNao");
-        if(ButtonOngNao === "Sim"){
+        if(ButtonOngNao === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonOngNao="Não";
-            Ong = "Não";
+            ButtonOngNao="false";
+            Ong = "false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonOngNao="Sim";
-            Ong = "Não";
+            ButtonOngNao="true";
+            Ong = "false";
         }
     }
 
@@ -1252,7 +1258,7 @@ export default function EditarPerfil(){
         buttonCielo.style.backgroundColor="#fff";
         buttonCielo.style.border="1px solid #009fe3"; 
         buttonCielo.style.color="#009fe3";
-        ButtonCielo="Não";
+        ButtonCielo="false";
         var divCielo=document.getElementById("DivCielo");
         divCielo.style.display="none";
 
@@ -1260,22 +1266,22 @@ export default function EditarPerfil(){
         buttonWibx.style.backgroundColor="#fff";
         buttonWibx.style.border="1px solid #009fe3"; 
         buttonWibx.style.color="#009fe3";
-        ButtonWibx="Não";
+        ButtonWibx="false";
         var divWibx=document.getElementById("DivWibx");
         divWibx.style.display="none";
 
         var button = document.getElementById("Conta");
         var div=document.getElementById("DivConta");
-        if(ButtonConta === "Sim"){
+        if(ButtonConta === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonConta="Não";
+            ButtonConta="false";
             div.style.display="none";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonConta="Sim";
+            ButtonConta="true";
             div.style.display="block";
         }
     }
@@ -1285,18 +1291,18 @@ export default function EditarPerfil(){
         buttonPoupa.style.backgroundColor="#fff";
         buttonPoupa.style.border="1px solid #009fe3"; 
         buttonPoupa.style.color="#009fe3";
-        ButtonPoupanca="Não";
+        ButtonPoupanca="false";
 
         var button = document.getElementById("Corrente");
-        if(ButtonCorrente ==="Sim"){
+        if(ButtonCorrente ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonCorrente="Não";
+            ButtonCorrente="false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonCorrente="Sim";
+            ButtonCorrente="true";
         }
     }
 
@@ -1305,18 +1311,18 @@ export default function EditarPerfil(){
         buttonCorrent.style.backgroundColor="#fff";
         buttonCorrent.style.border="1px solid #009fe3"; 
         buttonCorrent.style.color="#009fe3";
-        ButtonCorrente="Não";
+        ButtonCorrente="false";
 
         var button = document.getElementById("Poupanca");
-        if(ButtonPoupanca ==="Sim"){
+        if(ButtonPoupanca ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonPoupanca="Não";
+            ButtonPoupanca="false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonPoupanca="Sim";
+            ButtonPoupanca="true";
         }
     }
 
@@ -1328,7 +1334,7 @@ export default function EditarPerfil(){
         buttonConta.style.backgroundColor="#fff";
         buttonConta.style.border="1px solid #009fe3"; 
         buttonConta.style.color="#009fe3";
-        ButtonConta="Não";
+        ButtonConta="false";
         var divConta=document.getElementById("DivConta");
         divConta.style.display="none";
 
@@ -1336,22 +1342,22 @@ export default function EditarPerfil(){
         buttonWibx.style.backgroundColor="#fff";
         buttonWibx.style.border="1px solid #009fe3"; 
         buttonWibx.style.color="#009fe3";
-        ButtonWibx="Não";
+        ButtonWibx="false";
         var divWibx=document.getElementById("DivWibx");
         divWibx.style.display="none";
 
         var button = document.getElementById("Cielo");
         var div=document.getElementById("DivCielo");
-        if(ButtonCielo ==="Sim"){
+        if(ButtonCielo ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonCielo="Não";
+            ButtonCielo="false";
             div.style.display="none";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonCielo="Sim";
+            ButtonCielo="true";
             div.style.display="block";
         }        
     }
@@ -1364,7 +1370,7 @@ export default function EditarPerfil(){
         buttonCielo.style.backgroundColor="#fff";
         buttonCielo.style.border="1px solid #009fe3"; 
         buttonCielo.style.color="#009fe3";
-        ButtonCielo="Não";
+        ButtonCielo="false";
         var divCielo=document.getElementById("DivCielo");
         divCielo.style.display="none";
 
@@ -1372,22 +1378,22 @@ export default function EditarPerfil(){
         buttonConta.style.backgroundColor="#fff";
         buttonConta.style.border="1px solid #009fe3"; 
         buttonConta.style.color="#009fe3";
-        ButtonConta="Não";
+        ButtonConta="false";
         var divConta=document.getElementById("DivConta");
         divConta.style.display="none";
 
         var button = document.getElementById("Wibx");
         var div=document.getElementById("DivWibx");
-        if(ButtonWibx ==="Sim"){
+        if(ButtonWibx ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonWibx="Não";
+            ButtonWibx="false";
             div.style.display="none";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonWibx="Sim";
+            ButtonWibx="true";
             div.style.display="block";
         }   
     }
@@ -1397,7 +1403,7 @@ export default function EditarPerfil(){
         var erro= document.getElementById("valida");
 
         try{
-            response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:id});
+            response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:id});
         }catch(erro){
             console.log(erro);
         }
@@ -1438,7 +1444,7 @@ export default function EditarPerfil(){
             inputValor.value= inputValor.value.replace(/,/g, '.');
 
             try{
-                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: inputNome.value, valorServ:inputValor.value, idServ:id});
+                response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: inputNome.value, valorServ:inputValor.value, idServ:id});
             }catch(erro){
                 console.log(erro);
             }
@@ -1489,19 +1495,19 @@ export default function EditarPerfil(){
                     <ul className="nav">
                         <li class="nav-item active" id="Home" style={{display:'block'}}>
                             <a class="nav-link" href="/Home">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio} alt=""/> 
                             <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li class="nav-item" id="Calen" style={{display:'none'}}>
                             <a class="nav-link" href="/Calendario">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Func" style={{display:'none'}}>
                             <a class="nav-link" href="/Funcionarios">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -1513,19 +1519,19 @@ export default function EditarPerfil(){
                         </li> */}
                         <li class="nav-item " id="Med" style={{display:'none'}}>
                             <a class="nav-link" href="/Medicacao">
-                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Vac" style={{display:'none'}}>
                             <a class="nav-link" href="Vacina">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Pront" style={{display:'none'}}>
                             <a class="nav-link" href="/Prontuarios">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios} alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
@@ -1715,95 +1721,139 @@ export default function EditarPerfil(){
                                             </div>
                                             <br/>
 
-                                            
-                                            <div className="row">
-                                                <div className="col-md-3">
-                                                    <div className="form-group">
-                                                        <p  style={{color:'black'}}> Dias e horarios de trabalho:</p>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
-                                                    <p  style={{color:'black',visibility:'collapse',marginBottom:'0px'}}> Dias</p>
-                                                    <br/>
-                                                    <label class="dias">Segunda-Feira
-                                                        <input type="checkbox" id="segunda" onClick={Segunda}/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
+<div className="col-md-12">
+    <p  style={{color:'black',marginBottom:'0px'}}> Dias e horarios de trabalho:</p>
+</div>
 
-                                                    <label class="dias">Terça-Feira
-                                                        <input type="checkbox" id="terca" onClick={Terca}/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
+<div className="row form-group" style={{marginTop:'0px'}}>                                
+    <div className="col-md-3 form-group" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+        <br/>
+        <label className="dias">Segunda-Feira
+            <input type="checkbox" id="segunda" onClick={Segunda}/>
+            <span className="checkmark"></span>
+        </label>
+        <div className='row form-group'>                                        
+            <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSegunda"> Horário de Inicio e Termino do Turno:</p>
+            <div className="col-md-6">
+                <input type="time" id="segundaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>
+            <div className="col-md-6">
+            <input type="time" id="segundaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>                                  
+        </div>
+    </div>
 
-                                                    <label class="dias">Quarta-Feira
-                                                        <input type="checkbox" id="quarta" onClick={Quarta}/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
 
-                                                    <label class="dias">Quinta-Feira
-                                                        <input type="checkbox" id="quinta" onClick={Quinta}/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
+    <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+        <br/>
+        <label className="dias">Terça-Feira
+            <input type="checkbox" id="terca" onClick={Terca}/>
+            <span className="checkmark"></span>
+        </label>
+        <div className='row form-group'>                                        
+            <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pTerca"> Horário de Inicio e Termino do Turno:</p>
+            <div className="col-md-6">
+            <input type="time" id="tercaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>  
+            </div>
+            <div className="col-md-6">
+            <input type="time" id="tercaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>                                  
+        </div>
+    </div>
 
-                                                    <label class="dias">Sexta-Feira
-                                                        <input type="checkbox" id="sexta" onClick={Sexta}/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
+    <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+        <br/>
+        <label className="dias">Quarta-Feira
+            <input type="checkbox" id="quarta" onClick={Quarta}/>
+            <span className="checkmark"></span>
+        </label>
+        <div className='row form-group'>                                        
+            <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pQuarta"> Horário de Inicio e Termino do Turno:</p>
+            <div className="col-md-6">
+            <input type="time" id="quartaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>
+            <div className="col-md-6">
+            <input type="time" id="quartaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>                                  
+        </div>
+    </div>
 
-                                                    <label class="dias">Sabado
-                                                        <input type="checkbox" id="sabado" onClick={Sabado}/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
+    
+    <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+        <br/>
+        <label className="dias">Quinta-Feira
+            <input type="checkbox" id="quinta" onClick={Quinta}/>
+            <span className="checkmark"></span>
+        </label>
+        <div className='row form-group'>                                        
+            <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pQuinta"> Horário de Inicio e Termino do Turno:</p>
+            <div className="col-md-6">
+            <input type="time" id="quintaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>
+            <div className="col-md-6">
+            <input type="time" id="quintaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>                                  
+        </div>
+    </div>
 
-                                                    <label class="dias">Domingo
-                                                        <input type="checkbox" id="domingo" onClick={Domingo}/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                             
-                                                <div className="col-md-3">
-                                                <br/>
-                                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Inicio de Turno:</p>
-                                                    <input type="time" id="segundaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+    <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+        <br/>
+        <label className="dias">Sexta-Feira
+            <input type="checkbox" id="sexta" onClick={Sexta}/>
+            <span className="checkmark"></span>
+        </label>
+        <div className='row form-group'>                                        
+            <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSexta"> Horário de Inicio e Termino do Turno:</p>
+            <div className="col-md-6">
+            <input type="time" id="sextaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>
+            <div className="col-md-6">
+            <input type="time" id="sextaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>                                  
+        </div>
+    </div>
 
-                                                    <input type="time" id="tercaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+    <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+        <br/>
+        <label className="dias">Sábado
+            <input type="checkbox" id="sabado" onClick={Sabado}/>
+            <span className="checkmark"></span>
+        </label>
+        <div className='row form-group'>                                        
+            <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSabado"> Horário de Inicio e Termino do Turno:</p>
+            <div className="col-md-6">
+            <input type="time" id="sabadoInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>
+            <div className="col-md-6">
+            <input type="time" id="sabadoFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>                                  
+        </div>
+    </div>
 
-                                                    <input type="time" id="quartaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
+    <div className="col-md-3" style={{verticalAlign: 'middle',display: 'inline-grid'}}>
+        <br/>
+        <label className="dias">Domingo
+            <input type="checkbox" id="domingo" onClick={Domingo}/>
+            <span className="checkmark"></span>
+        </label>
+        <div className='row form-group'>                                        
+            <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pDomingo"> Horário de Inicio e Termino do Turno:</p>
+            <div className="col-md-6">
+            <input type="time" id="domingoInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>
+            <div className="col-md-6">
+            <input type="time" id="domingoFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            </div>                                  
+        </div>
+    </div>
+</div>
+      
 
-                                                    <input type="time" id="quintaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="sextaInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="sabadoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="domingoInicio" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-                                                </div>
-                                                
-                                                <div className="col-md-3">
-                                                    <br/>
-                                                    <p  style={{color:'black',marginBottom:'0px'}}> Horário de Final de Turno:</p>
-                                                    <input type="time" id="segundaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="tercaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="quartaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="quintaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="sextaFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="sabadoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-
-                                                    <input type="time" id="domingoFinal" className="form-control" style={{width: '40%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",visibility:'collapse'}}/>
-                                                </div>
-                                            </div>
-                                           
-                                            <br/>
-                                            <div className="row">
-                                                <div class="col-md-12">
-                                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 00:00 e na terça-feira 00:00 até 06:00.</p>
-                                                </div>
-                                            </div>
+<div className="row">
+    <div className="col-md-12">
+        <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
+    </div>
+</div>
                                             
                                             <div className="row">
                                                 <div className="col-md-12">

@@ -4,7 +4,6 @@ import "../css/material-dashboard.css";
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
-import Blabala from "../img/coelhoPulando.png";
 
 import prontuario from "../img/pront.png";
 
@@ -76,7 +75,7 @@ export default function DetalhesPet(){
 
     let response="";
     try {
-        response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
+        response = await api.post('https://agendaback.herokuapp.com/Prestador/BuscarPrest2');
     } catch (error) {
         console.log(error);               
     }          
@@ -90,19 +89,19 @@ export default function DetalhesPet(){
 
         var Tipo = document.getElementById("TipoLogo");
         var nomeTipo="";
-        if(produto.PetShopPrest === "Sim"){
+        if(produto.PetShopPrest === "true"){
             nomeTipo= nomeTipo + "PetShop";
         }
-        if(produto.ClinicaPrest === "Sim"){
+        if(produto.ClinicaPrest === "true"){
             nomeTipo= nomeTipo + " Clinica";
         }
-        if(produto.OngPrest === "Sim"){
+        if(produto.OngPrest === "true"){
             nomeTipo= nomeTipo + " ONG";
         }
-        if(produto.PasseadorPrest === "Sim"){
+        if(produto.PasseadorPrest === "true"){
             nomeTipo= nomeTipo + " Passeador";
         }
-        if(produto.HotelPrest === "Sim"){
+        if(produto.HotelPrest === "true"){
             nomeTipo= nomeTipo + " Hotel";
         }
 
@@ -132,7 +131,7 @@ setTimeout(() => {Dados()}, 1);
     }else{
       let response="";
       try {
-          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAgend',{idAgend:id});
+          response = await api.post('https://agendaback.herokuapp.com/Agendamento/BuscarAgend',{idAgend:id});
       } catch (error) {
           console.log(error);               
       }    
@@ -186,7 +185,7 @@ setTimeout(() => {Dados()}, 1);
           let responsePet="";
           
           try {
-            responsePet = await api.post('https://agendaanimal-backend.herokuapp.com/Prontuario/BuscarInfoPet',{idPet:idPet});
+            responsePet = await api.post('https://agendaback.herokuapp.com/Prontuario/BuscarInfoPet',{idPet:idPet});
           } catch (error) {
               console.log(error);               
           }    
@@ -212,7 +211,7 @@ setTimeout(() => {Dados()}, 1);
     }else{
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/ConfAgendamento', {idAgend:id});
+            response = await api.post('https://agendaback.herokuapp.com/Agendamento/ConfAgendamento', {idAgend:id});
         } catch (error) {
             console.log(error);               
         }
@@ -238,7 +237,7 @@ setTimeout(() => {Dados()}, 1);
     }else{
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/NegarAgendamento', {idAgend:id});
+            response = await api.post('https://agendaback.herokuapp.com/Agendamento/NegarAgendamento', {idAgend:id});
         } catch (error) {
             console.log(error);               
         }
@@ -281,19 +280,19 @@ function Login(){
         <ul class="nav">
         <li class="nav-item active" id="Home" style={{display:'block'}}>
                             <a class="nav-link" href="/Home">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}  alt=""/> 
                             <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li class="nav-item" id="Calen" style={{display:'none'}}>
                             <a class="nav-link" href="/Calendario">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}  alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Func" style={{display:'none'}}>
                             <a class="nav-link" href="/Funcionarios">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}  alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -305,19 +304,19 @@ function Login(){
                         </li> */}
                        <li className="nav-item " id="Med" style={{display:'none'}}>
                         <a className="nav-link" href="/Medicacao">
-                        <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+                        <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}  alt=""/>
                           <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                         </a>
                       </li>
                         <li class="nav-item " id="Vac" style={{display:'none'}}>
                             <a class="nav-link" href="Vacina">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}  alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Pront" style={{display:'none'}}>
                             <a class="nav-link" href="/Prontuarios">
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}  alt=""/>
                             <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
@@ -436,25 +435,25 @@ function Login(){
                         </tr>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td style={{paddingBottom:'03px'}}>                                   
-                                <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={pet}/> 
+                                <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={pet}  alt=""/> 
                                 <p className="InfoDet"  id="RacaPet" > </p>                          
                             </td>                        
                         </tr>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td style={{paddingBottom:'03px'}}>                                  
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={genero}/> 
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={genero}  alt=""/> 
                               <p className="InfoDet" id="SexoPet" >  </p>                          
                             </td>                        
                         </tr>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td style={{paddingBottom:'03px'}}>                                  
-                              <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={aniversario}/> 
+                              <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={aniversario}  alt=""/> 
                               <p className="InfoDet" id="DataPet">  </p>                          
                             </td>                        
                         </tr>
                         <tr style={{width: '100%',background:'none'}}>      
                             <td>                                  
-                              <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={pet}/> 
+                              <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'07%'}} src={pet}  alt=""/> 
                               <p className="InfoDet" id="CastPet"  >  </p>                          
                             </td>                        
                         </tr>
@@ -471,7 +470,7 @@ function Login(){
                         </tr>
                         <tr style={{width: '100%'}}>                         
                           <td style={{width: '55%'}}>
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'10%'}} src={servico}/> 
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'10%'}} src={servico}  alt=""/> 
                            
                             <a className="ParagTabGrand" style={{marginLeft:'20%',marginTop:'3%'}}>
                               <a className="ParagTabGrand" id="tipoServ"></a>
@@ -480,7 +479,7 @@ function Login(){
                             <br/>
                             <br/>
                             <br/>
-                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'10%'}} src={data}/> 
+                            <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'10%'}} src={data}  alt=""/> 
                             <a className="ParagTabGrand" style={{marginLeft:'20%',marginTop:'3%'}}>
                               <a className="ParagTabGrand" id="DataHora"></a>
                             </a>

@@ -68,7 +68,7 @@ export default function EditarProduto(){
 
         let response="";
         try {
-            response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
+            response = await api.post('https://agendaback.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -134,7 +134,7 @@ export default function EditarProduto(){
             let response="";
 
             try {
-                response = await api.post('https://agendaanimal-backend.herokuapp.com/Produto/Buscar', {idProd:id});
+                response = await api.post('https://agendaback.herokuapp.com/Produto/Buscar', {idProd:id});
             } catch (error) {
                 console.log(error);               
             } 
@@ -218,7 +218,7 @@ export default function EditarProduto(){
                             let response="";
 
                             try {
-                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Produto/EditarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi",idProd:id});
+                                response = await api.post('https://agendaback.herokuapp.com/Produto/EditarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi",idProd:id});
                             } catch (error) {
                                 console.log(error);               
                             } 
@@ -234,7 +234,7 @@ export default function EditarProduto(){
                                         erro.innerText = "Produto Alterado com sucesso";
                                         erro.style.color = "#09ff00"; 
                                         erro.style.fontWeight= "700";     
-                                        var button = document.getElementById("buttonSalvar");
+                                        button = document.getElementById("buttonSalvar");
                                         nome.setAttribute("disabled", "disabled");
                                         valor.setAttribute("disabled", "disabled");
                                         valor.setAttribute("disabled", "disabled");
@@ -296,43 +296,43 @@ export default function EditarProduto(){
                     <ul className="nav">
                         <li className="nav-item " id="Home" style={{display:'block'}}>
                             <a className="nav-link" href="/Home">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio} alt=""/> 
                                 <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li className="nav-item" id="Calen" style={{display:'none'}}>
                             <a className="nav-link" href="/Calendario">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Func" style={{display:'none'}}>
                             <a className="nav-link" href="/Funcionarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
                         <li className="nav-item active" id="Shop" style={{display:'none'}}>
                             <a className="nav-link" href="/Shopping">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Med" style={{display:'none'}}>
                             <a className="nav-link" href="/Medicacao">
-                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Vac" style={{display:'none'}}>
                             <a className="nav-link" href="Vacina">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Pront" style={{display:'none'}}>
                             <a className="nav-link" href="/Prontuarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>
@@ -447,7 +447,7 @@ export default function EditarProduto(){
                                         <div className="row" style={{textAlign: '-webkit-center'}}>  
                                             <div className="col-md-12">
                                             <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>
-                                                <button type="submit" className="btn btn-primary" id="buttonProximo" style={{borderRadius: '30px',padding: '1% 05%'}} onClick={Editar} id="buttonSalvar">Salvar</button>
+                                                <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 05%'}} onClick={Editar} id="buttonSalvar">Salvar</button>
                                                 <div className="clearfix"></div>
                                             </div>
                                         </div>   

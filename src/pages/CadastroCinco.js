@@ -3,7 +3,7 @@ import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
-import axios from "axios";
+// import axios from "axios";
 //import React, { useState } from 'react';                //--------alteração rodrigo-----//
 
 import api from "../services/api3";
@@ -18,17 +18,17 @@ export default function CadastroCinco(){
     }
     Validar();
 
-    var ButtonEmergenciaSim = "Não";
-    var ButtonEmergenciaNao = "Não";
-    var ButtonOngSim = "Não";
-    var ButtonOngNao = "Não";
-    var Ong = "Não";
-    var Emergencia = "Não";
-    var ButtonConta= "Não";
-    var ButtonCielo= "Não";
-    var ButtonWibx= "Não";
-    var ButtonCorrente= "Não";
-    var ButtonPoupanca= "Não";
+    var ButtonEmergenciaSim = "false";
+    var ButtonEmergenciaNao = "false";
+    var ButtonOngSim = "false";
+    var ButtonOngNao = "false";
+    var Ong = "false";
+    var Emergencia = "false";
+    var ButtonConta= "false";
+    var ButtonCielo= "false";
+    var ButtonWibx= "false";
+    var ButtonCorrente= "false";
+    var ButtonPoupanca= "false";
 
     //alteração rdsq
     var imageSrc = null;
@@ -42,12 +42,12 @@ export default function CadastroCinco(){
         button.innerText="Aguardando";
         button.setAttribute("disabled","disabled");
 
-        if(ButtonEmergenciaSim === "Não" && ButtonEmergenciaNao === "Não"){
+        if(ButtonEmergenciaSim === "false" && ButtonEmergenciaNao === "false"){
             erro.innerHTML = "Selecione se você é 24horas.";
             button.innerText="Próximo";
             button.removeAttribute("disabled");
         }else{
-            if(ButtonOngSim === "Não" && ButtonOngNao === "Não"){
+            if(ButtonOngSim === "false" && ButtonOngNao === "false"){
                 erro.innerHTML = "Selecione se você é ONG.";
                 button.innerText="Próximo";
                 button.removeAttribute("disabled");
@@ -58,7 +58,7 @@ export default function CadastroCinco(){
                     button.removeAttribute("disabled");
                 }
                 else{
-                    if( ButtonConta === "Não" && ButtonCielo === "Não" && ButtonWibx === "Não"){
+                    if( ButtonConta === "false" && ButtonCielo === "false" && ButtonWibx === "false"){
                         erro.innerHTML = "Escolha um tipo de conta";
                         button.innerText="Próximo";
                         button.removeAttribute("disabled");
@@ -74,7 +74,7 @@ export default function CadastroCinco(){
                         var CodWibx = document.getElementById("CodWibx").value;
                         var tipo =""; 
 
-                        if(ButtonConta === "Sim"){                        
+                        if(ButtonConta === "true"){                        
                             if (Banco === "" || Banco === null || Banco === undefined) {
                                 erro.innerHTML = "Preencha o campo Banco";
                                 button.innerText="Próximo";
@@ -93,15 +93,15 @@ export default function CadastroCinco(){
                                         button.removeAttribute("disabled");
                                     }
                                     else{
-                                        if(ButtonCorrente === "Não" && ButtonPoupanca === "Não"){ 
+                                        if(ButtonCorrente === "false" && ButtonPoupanca === "false"){ 
                                             erro.innerHTML = "Selecione um tipo de conta";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else{
                                             ButtonConta= "Pendente";
-                                            if(ButtonCorrente === "Sim"){
+                                            if(ButtonCorrente === "true"){
                                                 tipo = "Corrente";
-                                            }else if(ButtonPoupanca === "Sim"){
+                                            }else if(ButtonPoupanca === "true"){
                                                 tipo = "Poupança";                                            
                                             }
                                         }
@@ -110,7 +110,7 @@ export default function CadastroCinco(){
                             }
                         }
     
-                        if(ButtonCielo === "Sim"){
+                        if(ButtonCielo === "true"){
                             if (CodCielo === "" || CodCielo === null || CodCielo === undefined) {
                                 erro.innerHTML = "Preencha o campo do Codigo da Cielo";
                                 button.innerText="Próximo";
@@ -120,7 +120,7 @@ export default function CadastroCinco(){
                             }
                         }
     
-                        if(ButtonWibx === "Sim"){
+                        if(ButtonWibx === "true"){
                             if (CodWibx === "" || CodWibx === null || CodWibx === undefined) {
                                 erro.innerHTML = "Preencha o campo do Codigo da Wibx";
                                 button.innerText="Próximo";
@@ -130,7 +130,7 @@ export default function CadastroCinco(){
                             }
                         }
     
-                        if(ButtonConta === "Pendente" || ButtonWibx == "Pendente" || ButtonCielo === "Pendente"){                    
+                        if(ButtonConta === "Pendente" || ButtonWibx === "Pendente" || ButtonCielo === "Pendente"){                    
                             
                             button.innerText="Aguardando";
                             button.setAttribute("disabled","disabled");
@@ -156,7 +156,7 @@ export default function CadastroCinco(){
 
                                 // response = await api.post('/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
 
-                                response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadCincoPrest', dados);
+                                response = await api.post('https://agendaback.herokuapp.com/Prestador/CadCincoPrest', dados);
 
                                 
                                 //  response = await api.post('',);
@@ -247,20 +247,20 @@ export default function CadastroCinco(){
         buttonNao.style.backgroundColor="#fff";
         buttonNao.style.border="1px solid #009fe3"; 
         buttonNao.style.color="#009fe3";
-        ButtonEmergenciaNao="Não";
+        ButtonEmergenciaNao="false";
 
         var button = document.getElementById("EmergenciaSim");
-        if(ButtonEmergenciaSim === "Sim"){
+        if(ButtonEmergenciaSim === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonEmergenciaSim="Não";
-            Emergencia = "Não";
+            ButtonEmergenciaSim="false";
+            Emergencia = "false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonEmergenciaSim="Sim";
-            Emergencia = "Sim";
+            ButtonEmergenciaSim="true";
+            Emergencia = "true";
         }
     }
     function EmergenciaNao(){
@@ -268,20 +268,20 @@ export default function CadastroCinco(){
         buttonSim.style.backgroundColor="#fff";
         buttonSim.style.border="1px solid #009fe3"; 
         buttonSim.style.color="#009fe3";
-        ButtonEmergenciaSim="Não";
+        ButtonEmergenciaSim="false";
 
         var button = document.getElementById("EmergenciaNao");
-        if(ButtonEmergenciaNao === "Sim"){
+        if(ButtonEmergenciaNao === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonEmergenciaNao="Não";
-            Emergencia = "Não";
+            ButtonEmergenciaNao="false";
+            Emergencia = "false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonEmergenciaNao="Sim";
-            Emergencia = "Não";
+            ButtonEmergenciaNao="true";
+            Emergencia = "false";
         }
     }
 
@@ -290,20 +290,20 @@ export default function CadastroCinco(){
         buttonNao.style.backgroundColor="#fff";
         buttonNao.style.border="1px solid #009fe3"; 
         buttonNao.style.color="#009fe3";
-        ButtonOngNao="Não";
+        ButtonOngNao="false";
 
         var button = document.getElementById("OngSim");
-        if(ButtonOngSim === "Sim"){
+        if(ButtonOngSim === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonOngSim="Não";
-            Ong = "Não";
+            ButtonOngSim="false";
+            Ong = "false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonOngSim="Sim";
-            Ong = "Sim";
+            ButtonOngSim="true";
+            Ong = "true";
         }
     }
     function OngNao(){
@@ -311,20 +311,20 @@ export default function CadastroCinco(){
         buttonSim.style.backgroundColor="#fff";
         buttonSim.style.border="1px solid #009fe3"; 
         buttonSim.style.color="#009fe3";
-        ButtonOngSim="Não";
+        ButtonOngSim="false";
 
         var button = document.getElementById("OngNao");
-        if(ButtonOngNao === "Sim"){
+        if(ButtonOngNao === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonOngNao="Não";
-            Ong = "Não";
+            ButtonOngNao="false";
+            Ong = "false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonOngNao="Sim";
-            Ong = "Não";
+            ButtonOngNao="true";
+            Ong = "false";
         }
     }
 
@@ -337,7 +337,7 @@ export default function CadastroCinco(){
         buttonCielo.style.backgroundColor="#fff";
         buttonCielo.style.border="1px solid #009fe3"; 
         buttonCielo.style.color="#009fe3";
-        ButtonCielo="Não";
+        ButtonCielo="false";
         var divCielo=document.getElementById("DivCielo");
         divCielo.style.display="none";
 
@@ -345,22 +345,22 @@ export default function CadastroCinco(){
         buttonWibx.style.backgroundColor="#fff";
         buttonWibx.style.border="1px solid #009fe3"; 
         buttonWibx.style.color="#009fe3";
-        ButtonWibx="Não";
+        ButtonWibx="false";
         var divWibx=document.getElementById("DivWibx");
         divWibx.style.display="none";
 
         var button = document.getElementById("Conta");
         var div=document.getElementById("DivConta");
-        if(ButtonConta === "Sim"){
+        if(ButtonConta === "true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonConta="Não";
+            ButtonConta="false";
             div.style.display="none";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonConta="Sim";
+            ButtonConta="true";
             div.style.display="block";
         }
 
@@ -371,18 +371,18 @@ export default function CadastroCinco(){
         buttonPoupa.style.backgroundColor="#fff";
         buttonPoupa.style.border="1px solid #009fe3"; 
         buttonPoupa.style.color="#009fe3";
-        ButtonPoupanca="Não";
+        ButtonPoupanca="false";
 
         var button = document.getElementById("Corrente");
-        if(ButtonCorrente ==="Sim"){
+        if(ButtonCorrente ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonCorrente="Não";
+            ButtonCorrente="false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonCorrente="Sim";
+            ButtonCorrente="true";
         }
     }
 
@@ -391,18 +391,18 @@ export default function CadastroCinco(){
         buttonCorrent.style.backgroundColor="#fff";
         buttonCorrent.style.border="1px solid #009fe3"; 
         buttonCorrent.style.color="#009fe3";
-        ButtonCorrente="Não";
+        ButtonCorrente="false";
 
         var button = document.getElementById("Poupanca");
-        if(ButtonPoupanca ==="Sim"){
+        if(ButtonPoupanca ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonPoupanca="Não";
+            ButtonPoupanca="false";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonPoupanca="Sim";
+            ButtonPoupanca="true";
         }
     }
 
@@ -414,7 +414,7 @@ export default function CadastroCinco(){
         buttonConta.style.backgroundColor="#fff";
         buttonConta.style.border="1px solid #009fe3"; 
         buttonConta.style.color="#009fe3";
-        ButtonConta="Não";
+        ButtonConta="false";
         var divConta=document.getElementById("DivConta");
         divConta.style.display="none";
 
@@ -422,22 +422,22 @@ export default function CadastroCinco(){
         buttonWibx.style.backgroundColor="#fff";
         buttonWibx.style.border="1px solid #009fe3"; 
         buttonWibx.style.color="#009fe3";
-        ButtonWibx="Não";
+        ButtonWibx="false";
         var divWibx=document.getElementById("DivWibx");
         divWibx.style.display="none";
 
         var button = document.getElementById("Cielo");
         var div=document.getElementById("DivCielo");
-        if(ButtonCielo ==="Sim"){
+        if(ButtonCielo ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonCielo="Não";
+            ButtonCielo="false";
             div.style.display="none";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonCielo="Sim";
+            ButtonCielo="true";
             div.style.display="block";
         }      
     }
@@ -450,7 +450,7 @@ export default function CadastroCinco(){
         buttonCielo.style.backgroundColor="#fff";
         buttonCielo.style.border="1px solid #009fe3"; 
         buttonCielo.style.color="#009fe3";
-        ButtonCielo="Não";
+        ButtonCielo="false";
         var divCielo=document.getElementById("DivCielo");
         divCielo.style.display="none";
 
@@ -458,22 +458,22 @@ export default function CadastroCinco(){
         buttonConta.style.backgroundColor="#fff";
         buttonConta.style.border="1px solid #009fe3"; 
         buttonConta.style.color="#009fe3";
-        ButtonConta="Não";
+        ButtonConta="false";
         var divConta=document.getElementById("DivConta");
         divConta.style.display="none";
 
         var button = document.getElementById("Wibx");
         var div=document.getElementById("DivWibx");
-        if(ButtonWibx ==="Sim"){
+        if(ButtonWibx ==="true"){
             button.style.backgroundColor="#fff";
             button.style.border="1px solid #009fe3"; 
             button.style.color="#009fe3";
-            ButtonWibx="Não";
+            ButtonWibx="false";
             div.style.display="none";
         }else{
             button.style.backgroundColor="#009fe3";
             button.style.color="#fff";
-            ButtonWibx="Sim";
+            ButtonWibx="true";
             div.style.display="block";
         }   
     }

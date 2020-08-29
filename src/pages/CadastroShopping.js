@@ -67,7 +67,7 @@ export default function CadastroShopping(){
 
         let response="";
         try {
-            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
+            response = await api2.post('https://agendaback.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -162,7 +162,7 @@ export default function CadastroShopping(){
                             let response="";
 
                             try {
-                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/CadastrarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi"});
+                                response = await api2.post('https://agendaback.herokuapp.com/Produto/CadastrarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi"});
                             } catch (error) {
                                 console.log(error);               
                             } 
@@ -262,7 +262,7 @@ export default function CadastroShopping(){
                             let response="";
 
                             try {
-                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Produto/CadastrarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi"});
+                                response = await api2.post('https://agendaback.herokuapp.com/Produto/CadastrarProd', {NomeProd:nome.value ,DescProd: desc.value ,PrecoProd:valor.value ,QuantProd:quant.value ,ImgProd:"Ooi",ImgsProd:"ooi"});
                             } catch (error) {
                                 console.log(error);               
                             } 
@@ -333,43 +333,43 @@ export default function CadastroShopping(){
                     <ul className="nav">
                         <li className="nav-item " id="Home" style={{display:'block'}}>
                             <a className="nav-link" href="/Home">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio} alt=""/> 
                                 <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li className="nav-item" id="Calen" style={{display:'none'}}>
                             <a className="nav-link" href="/Calendario">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li class="nav-item " id="Func" style={{display:'none'}}>
                             <a class="nav-link" href="/Funcionarios">
-                                <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
+                                <img class="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
                         <li className="nav-item active" id="Shop" style={{display:'none'}}>
                             <a className="nav-link" href="/Shopping">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={shop} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Shopping</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Med" style={{display:'none'}}>
                             <a className="nav-link" href="/Medicacao">
-                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Vac" style={{display:'none'}}>
                             <a className="nav-link" href="Vacina">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Pront" style={{display:'none'}}>
                             <a className="nav-link" href="/Prontuarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>

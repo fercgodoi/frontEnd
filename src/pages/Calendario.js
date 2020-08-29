@@ -40,12 +40,6 @@ export default function Calendario(){
               if(dados[2] === "0" && dados[0] === "0" && dados[6] === "0"  ){
                   setTimeout(() => {window.location.href="/"});  
               }else{
-                var Calen = document.getElementById("Calen");
-                var Func= document.getElementById("Func");
-                // var Shop= document.getElementById("Shop");
-                var Med= document.getElementById("Med");
-                var Vac= document.getElementById("Vac");
-                var Pront= document.getElementById("Pront");
 
                 if(dados[1] === "1"){
                   Calen.style.display="block";
@@ -77,7 +71,7 @@ export default function Calendario(){
 
     let response="";
     try {
-        response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
+        response = await api.post('https://agendaback.herokuapp.com/Prestador/BuscarPrest2');
     } catch (error) {
         console.log(error);               
     }          
@@ -91,19 +85,19 @@ export default function Calendario(){
 
         var Tipo = document.getElementById("TipoLogo");
         var nomeTipo="";
-        if(produto.PetShopPrest === "Sim"){
+        if(produto.PetShopPrest === "true"){
             nomeTipo= nomeTipo + "PetShop";
         }
-        if(produto.ClinicaPrest === "Sim"){
+        if(produto.ClinicaPrest === "true"){
             nomeTipo= nomeTipo + " Clinica";
         }
-        if(produto.OngPrest === "Sim"){
+        if(produto.OngPrest === "true"){
             nomeTipo= nomeTipo + " ONG";
         }
-        if(produto.PasseadorPrest === "Sim"){
+        if(produto.PasseadorPrest === "true"){
             nomeTipo= nomeTipo + " Passeador";
         }
-        if(produto.HotelPrest === "Sim"){
+        if(produto.HotelPrest === "true"){
             nomeTipo= nomeTipo + " Hotel";
         }
 
@@ -128,7 +122,7 @@ setTimeout(() => {Dados()}, 1);
   async function Aparecer(){
       let response="";
       try {
-          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAprovados');
+          response = await api.post('https://agendaback.herokuapp.com/Agendamento/BuscarAprovados');
       } catch (error) {
           console.log(error);               
       } 
@@ -173,8 +167,6 @@ setTimeout(() => {Dados()}, 1);
               aData.className="ParagTabGrand";
               
               var dateInicio= produto[i].DataAgen.split('', 10);
-              // var dateCorreto = dateInicio[0] + dateInicio[1] + dateInicio[2] + dateInicio[3] + dateInicio[4] + dateInicio[5] + dateInicio[6] + dateInicio[7] + dateInicio[8] + dateInicio[9];
-              
               var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
 
               aData.innerHTML=dateCorreto+ "  -  " + produto[0].HoraAgen;
@@ -215,7 +207,7 @@ setTimeout(() => {Dados()}, 1);
      
      let response="";
       try {
-          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/ContAgendamentoDia');
+          response = await api.post('https://agendaback.herokuapp.com/Agendamento/ContAgendamentoDia');
       } catch (error) {
           console.log(error);               
       } 
@@ -262,7 +254,7 @@ setTimeout(() => {Dados()}, 1);
     if(valor[9] !== undefined){
       let response="";
       try {
-          response = await api.post('https://agendaanimal-backend.herokuapp.com/Agendamento/BuscarAprovadosDia',{dataCorreta: valor});
+          response = await api.post('https://agendaback.herokuapp.com/Agendamento/BuscarAprovadosDia',{dataCorreta: valor});
       } catch (error) {
           console.log(error);               
       }
@@ -308,9 +300,9 @@ setTimeout(() => {Dados()}, 1);
               aData.className="ParagTabGrand";
               
               var dateInicio= produto[i].DataAgen.split('', 10);
-              var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1]  ;
+              var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +  dateInicio[2] + dateInicio[3] + dateInicio[0]  + dateInicio[1];
 
-              aData.innerHTML=dateCorreto+ "  -  " + produto[0].HoraAgen;
+              aData.innerHTML= dateCorreto+ "  -  " + produto[0].HoraAgen;
               aData.style.marginBottom="0";
               tdPagamento.style.width="25%";
               tdPagamento.style.textAlignLast="right";
@@ -371,19 +363,19 @@ setTimeout(() => {Dados()}, 1);
         <ul className="nav">
           <li className="nav-item " id="Home" style={{display:'block'}}>
             <a className="nav-link" href="/Home">
-              <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+              <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio} alt=""/> 
               <p style={{textAlign: '-webkit-center'}}>Inicio</p>
               </a>
             </li>
             <li className="nav-item active" id="Calen" style={{display:'none'}}>
               <a className="nav-link" href="/Calendario">
-                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario} alt=""/>
                 <p style={{textAlign: '-webkit-center'}}>Calendário</p>
               </a>
             </li>
             <li className="nav-item " id="Func" style={{display:'none'}}>
               <a className="nav-link" href="/Funcionarios">
-                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
+                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario} alt=""/>
                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
               </a>
             </li>
@@ -395,19 +387,19 @@ setTimeout(() => {Dados()}, 1);
             </li> */}
             <li className="nav-item " id="Med" style={{display:'none'}}>
                <a className="nav-link" href="/Medicacao">
-               <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+               <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao} alt=""/>
                 <p style={{textAlign: '-webkit-center'}}>Medicações</p>
               </a>
             </li>
             <li className="nav-item " id="Vac" style={{display:'none'}}>
               <a className="nav-link" href="Vacina">
-                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas} alt=""/>
                 <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
               </a>
             </li>
             <li className="nav-item " id="Pront" style={{display:'none'}}>
               <a className="nav-link" href="/Prontuarios">
-                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios} alt=""/>
                 <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
               </a>
             </li>

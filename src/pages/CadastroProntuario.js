@@ -64,7 +64,7 @@ export default function CadastroProntuario(){
 
         let response="";
         try {
-            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prestador/BuscarPrest2');
+            response = await api2.post('https://agendaback.herokuapp.com/Prestador/BuscarPrest2');
         } catch (error) {
             console.log(error);               
         }          
@@ -78,19 +78,19 @@ export default function CadastroProntuario(){
   
             var Tipo = document.getElementById("TipoLogo");
             var nomeTipo="";
-            if(produto.PetShopPrest === "Sim"){
+            if(produto.PetShopPrest === "true"){
                 nomeTipo= nomeTipo + "PetShop";
             }
-            if(produto.ClinicaPrest === "Sim"){
+            if(produto.ClinicaPrest === "true"){
                 nomeTipo= nomeTipo + " Clinica";
             }
-            if(produto.OngPrest === "Sim"){
+            if(produto.OngPrest === "true"){
                 nomeTipo= nomeTipo + " ONG";
             }
-            if(produto.PasseadorPrest === "Sim"){
+            if(produto.PasseadorPrest === "true"){
                 nomeTipo= nomeTipo + " Passeador";
             }
-            if(produto.HotelPrest === "Sim"){
+            if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
             }
   
@@ -112,26 +112,26 @@ export default function CadastroProntuario(){
     
     setTimeout(() => {Dados()}, 1);
     
-    var idVac = "Não";
-    var idMed = "Não";
-    var idExames = "Não";
+    var idVac = "false";
+    var idMed = "false";
+    var idExames = "false";
 
-    var VacSim ="Não";
-    var VacNao = "Não";
-    var VacInfo = "Não";
+    var VacSim ="false";
+    var VacNao = "false";
+    var VacInfo = "false";
 
-    var MedSim ="Não";
-    var MedNao ="Não";
+    var MedSim ="false";
+    var MedNao ="false";
 
-    var ExSim ="Não";
-    var ExNao ="Não";
-    var MedInfo="Não";
+    var ExSim ="false";
+    var ExNao ="false";
+    var MedInfo="false";
 
-    var ButtonImagem= "Não";
-    var ButtonHematologico = "Não";
-    var ButtonBioquimico = "Não";
-    var ButtonParasitologico = "Não";
-    var ButtonOutros = "Não";
+    var ButtonImagem= "false";
+    var ButtonHematologico = "false";
+    var ButtonBioquimico = "false";
+    var ButtonParasitologico = "false";
+    var ButtonOutros = "false";
 
     async function Aparecer(){
 
@@ -141,7 +141,7 @@ export default function CadastroProntuario(){
 
             let response="";
             try {
-                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Funcionario/BuscarFuncPrest');
+                response = await api2.post('https://agendaback.herokuapp.com/Funcionario/BuscarFuncPrest');
             } catch (error) {
                 console.log(error);               
             }  
@@ -252,13 +252,13 @@ export default function CadastroProntuario(){
                     erro.innerHTML = "O data deve ser menor ou igual a de hoje";
                 }
                 else{
-                    if(VacSim === "Não" && VacNao === "Não"){
+                    if(VacSim === "false" && VacNao === "false"){
                         erro.innerHTML = "Escolha pelo menos uma opção na vacina";
                         var buttonVacSimm = document.getElementById("VacSim");
                         buttonVacSimm.style.backgroundColor="#fff";
                         buttonVacSimm.style.border="1px solid #009fe3"; 
                         buttonVacSimm.style.color="#009fe3";        
-                        VacSim="Não";
+                        VacSim="false";
                 
                         var DivVacinaSim = document.getElementById("DivVacinaSim");
                         DivVacinaSim.style.display="none";  
@@ -267,20 +267,20 @@ export default function CadastroProntuario(){
                         buttonVacNaoo.style.backgroundColor="#fff";
                         buttonVacNaoo.style.border="1px solid #009fe3"; 
                         buttonVacNaoo.style.color="#009fe3";  
-                        VacNao="Não";
+                        VacNao="false";
                     }else{
-                        if(VacSim === "Sim"){
+                        if(VacSim === "true"){
                             if(VacInfo === "Pendente"){
                                 SalvarVacina();   
                             }                               
                         }
-                        if(MedSim === "Não" && MedNao === "Não"){
+                        if(MedSim === "false" && MedNao === "false"){
                             erro.innerHTML = "Escolha pelo menos uma opção de medicação";
                             var buttonMedSimm = document.getElementById("MedSim");
                             buttonMedSimm.style.backgroundColor="#fff";
                             buttonMedSimm.style.border="1px solid #009fe3"; 
                             buttonMedSimm.style.color="#009fe3";        
-                            MedSim="Não";
+                            MedSim="false";
                 
                             var DivMedicacaoSim = document.getElementById("DivMedicacaoSim");
                             DivMedicacaoSim.style.display="none";  
@@ -289,9 +289,9 @@ export default function CadastroProntuario(){
                             buttonMedNaoo.style.backgroundColor="#fff";
                             buttonMedNaoo.style.border="1px solid #009fe3"; 
                             buttonMedNaoo.style.color="#009fe3";  
-                            MedNao="Não";
+                            MedNao="false";
                         }else{
-                            if(MedSim === "Sim"){
+                            if(MedSim === "true"){
                                 if(MedInfo === "Pendente"){
                                     SalvarMed();   
                                 }                                                                         
@@ -301,45 +301,45 @@ export default function CadastroProntuario(){
                                 erro.innerHTML = "Verifique os dados da vacina ou da medicação";
                             }
                             else{
-                                if(ExSim === "Sim" && ExNao === "Sim"){
+                                if(ExSim === "true" && ExNao === "true"){
                                     erro.innerHTML = "Escolha apenas uma opção no exame";
                                     var buttonExeSim = document.getElementById("ExSim");
                                     buttonExeSim.style.backgroundColor="#fff";
                                     buttonExeSim.style.border="1px solid #009fe3"; 
                                     buttonExeSim.style.color="#009fe3";        
-                                    ExSim="Não";
+                                    ExSim="false";
                     
                                     var buttonExeNao = document.getElementById("ExNao");
                                     buttonExeNao.style.backgroundColor="#fff";
                                     buttonExeNao.style.border="1px solid #009fe3"; 
                                     buttonExeNao.style.color="#009fe3";  
-                                    ExNao="Não";
+                                    ExNao="false";
                                 }
                                 else{
-                                    if(ExSim === "Não" && ExNao === "Não"){
+                                    if(ExSim === "false" && ExNao === "false"){
                                         erro.innerHTML = "Escolha pelo menos uma opção de exame";
                                         var buttonExeSimm = document.getElementById("ExSim");
                                         buttonExeSimm.style.backgroundColor="#fff";
                                         buttonExeSimm.style.border="1px solid #009fe3"; 
                                         buttonExeSimm.style.color="#009fe3";        
-                                        ExSim="Não";
+                                        ExSim="false";
                     
                                         var buttonExeNaoo = document.getElementById("ExNao");
                                         buttonExeNaoo.style.backgroundColor="#fff";
                                         buttonExeNaoo.style.border="1px solid #009fe3"; 
                                         buttonExeNaoo.style.color="#009fe3";  
-                                        ExNao="Não";
+                                        ExNao="false";
                                     }
                                     else{
-                                        if(ExSim === "Sim"){
-                                            if(ButtonImagem === "Não" && ButtonHematologico === "Não" && ButtonBioquimico === "Não" && ButtonParasitologico === "Não" && ButtonOutros === "Não" ){
+                                        if(ExSim === "true"){
+                                            if(ButtonImagem === "false" && ButtonHematologico === "false" && ButtonBioquimico === "false" && ButtonParasitologico === "false" && ButtonOutros === "false" ){
                     
                                                 erro.innerHTML = "Escolha pelo menos uma opção de exame";
                                                 var buttonImagemm = document.getElementById("Imagem");
                                                 buttonImagemm.style.backgroundColor="#fff";
                                                 buttonImagemm.style.border="1px solid #009fe3"; 
                                                 buttonImagemm.style.color="#009fe3";  
-                                                ButtonImagem="Não";
+                                                ButtonImagem="false";
                                                 var DivImagem = document.getElementById("DivImagem");
                                                 DivImagem.style.display="none";
                     
@@ -348,7 +348,7 @@ export default function CadastroProntuario(){
                                                 buttonHematologicoo.style.backgroundColor="#fff";
                                                 buttonHematologicoo.style.border="1px solid #009fe3"; 
                                                 buttonHematologicoo.style.color="#009fe3";  
-                                                ButtonHematologico="Não";
+                                                ButtonHematologico="false";
                                                 var DivHematologico = document.getElementById("DivHematologico");
                                                 DivHematologico.style.display="none";
                     
@@ -357,7 +357,7 @@ export default function CadastroProntuario(){
                                                 buttonBioquimicoo.style.backgroundColor="#fff";
                                                 buttonBioquimicoo.style.border="1px solid #009fe3"; 
                                                 buttonBioquimicoo.style.color="#009fe3";  
-                                                ButtonBioquimico="Não";
+                                                ButtonBioquimico="false";
                                                 var DivBioquimico = document.getElementById("DivBioquimico");
                                                 DivBioquimico.style.display="none";
                                                 // var DivBioquimico2 = document.getElementById("DivBioquimico2");
@@ -368,7 +368,7 @@ export default function CadastroProntuario(){
                                                 buttonParasitologicoo.style.backgroundColor="#fff";
                                                 buttonParasitologicoo.style.border="1px solid #009fe3"; 
                                                 buttonParasitologicoo.style.color="#009fe3";  
-                                                ButtonParasitologico="Não";
+                                                ButtonParasitologico="false";
                                                 var DivParasitologico = document.getElementById("DivParasitologico");
                                                 DivParasitologico.style.display="none";
                     
@@ -377,38 +377,38 @@ export default function CadastroProntuario(){
                                                 buttonOutross.style.backgroundColor="#fff";
                                                 buttonOutross.style.border="1px solid #009fe3"; 
                                                 buttonOutross.style.color="#009fe3";  
-                                                ButtonOutros="Não";
+                                                ButtonOutros="false";
                                                 var DivOutros = document.getElementById("DivOutros");
                                                 DivOutros.style.display="none";
                                             }
                                             else{
-                                                if(ButtonImagem === "Sim" || ButtonHematologico === "Sim" || ButtonBioquimico === "Sim" || ButtonParasitologico === "Sim" || ButtonOutros === "Sim" ) {
+                                                if(ButtonImagem === "true" || ButtonHematologico === "true" || ButtonBioquimico === "true" || ButtonParasitologico === "true" || ButtonOutros === "true" ) {
                                                     
                     
-                                                    var OpcaoParasitologico = "Não";                                                    
+                                                    var OpcaoParasitologico = "false";                                                    
                                                     var InputFezes = document.getElementById("InputFezes");
 
-                                                    var OpcaoImagem= "Não";
+                                                    var OpcaoImagem= "false";
                                                     var InputRadiologiaSimples = document.getElementById("InputRadiologiaSimples");
                                                     var InputRadiologiaContrastada = document.getElementById("InputRadiologiaContrastada");
                                                     var InputEletrocardiograma = document.getElementById("InputEletrocardiograma");
                                                     var InputUltrassonografiAbdominal = document.getElementById("InputUltrassonografiAbdominal");                                                        
                                                                
-                                                    var OpcaoHematologico = "Não";
+                                                    var OpcaoHematologico = "false";
                                                     var InputHemogramaCompleto = document.getElementById("InputHemogramaCompleto");
                                                     var InputFribrinogenio = document.getElementById("InputFribrinogenio");      
                                                     var InputPesquisaHemoparasitas = document.getElementById("InputPesquisaHemoparasitas");
                                                     var InputFuncaoHepatica = document.getElementById("InputFuncaoHepatica");
                                                     var InputSorologicoFIVFELV = document.getElementById("InputSorologicoFIVFELV");
 
-                                                    var OpcaoOutros = "Não";
+                                                    var OpcaoOutros = "false";
                                                     var InputExameTumoral = document.getElementById("InputExameTumoral");
                                                     var InputExameGinecologico = document.getElementById("InputExameGinecologico");
                                                     var InputGlicemiaJejum = document.getElementById("InputGlicemiaJejum");
                                                     var InputBiopsia = document.getElementById("InputBiopsia");
                                                     var InputSexagemAves = document.getElementById("InputSexagemAves");
                                                                     
-                                                    var OpcaoBioquimico = "Não";
+                                                    var OpcaoBioquimico = "false";
                                                     var InputUrina = document.getElementById("InputUrina");
                                                     var InputAcidoUrico = document.getElementById("InputAcidoUrico");
                                                     var InputAlbumina = document.getElementById("InputAlbumina");
@@ -432,7 +432,7 @@ export default function CadastroProntuario(){
                                                     var InputTriglicerideos = document.getElementById("InputTriglicerideos");
                                                     var InputUreia = document.getElementById("InputUreia");
                     
-                                                    if(ButtonParasitologico === "Sim") {
+                                                    if(ButtonParasitologico === "true") {
                                                         if(Fezes.checked === false){
                                                             erro.innerHTML = "Escolha pelo menos uma opção de exame Parasitologico ";
                                                             OpcaoParasitologico= "Pendente";
@@ -441,16 +441,16 @@ export default function CadastroProntuario(){
                                                             if(InputFezes.value === "" || InputFezes.value === null || InputFezes.value === undefined){
                                                                 erro.innerHTML = "Preencha a observação do exame de fezes."
                                                             }else{
-                                                                OpcaoParasitologico= "Sim";
+                                                                OpcaoParasitologico= "true";
                                                             }
                                                         }
                                                     }
                                                     else{
-                                                        OpcaoParasitologico= "Não";
+                                                        OpcaoParasitologico= "false";
                                                         InputFezes.value="0";
                                                     }
                     
-                                                    if(ButtonImagem === "Sim") {
+                                                    if(ButtonImagem === "true") {
                                                         if(RadiologiaSimples.checked === false && RadiologiaContrastada.checked === false && Eletrocardiograma.checked === false && UltrassonografiAbdominal.checked === false){
                                                             erro.innerHTML = "Escolha pelo menos uma opção de exame Imagem";
                                                             OpcaoImagem= "Pendente";
@@ -460,7 +460,7 @@ export default function CadastroProntuario(){
                                                                 if(InputRadiologiaSimples.value === "" || InputRadiologiaSimples.value === null || InputRadiologiaSimples.value === undefined){
                                                                     erro.innerHTML = "Preencha a observação do exame de InputRadiologiaSimples.";
                                                                 }else{
-                                                                    OpcaoImagem= "Sim";
+                                                                    OpcaoImagem= "true";
                                                                 }
                                                             }else{
                                                                 InputRadiologiaContrastada.value="0";                                                                
@@ -471,7 +471,7 @@ export default function CadastroProntuario(){
                                                                 if(InputRadiologiaContrastada.value === "" || InputRadiologiaContrastada.value === null || InputRadiologiaContrastada.value === undefined){
                                                                     erro.innerHTML = "Preencha a observação do exame de RadiologiaContrastada.";
                                                                 }else{
-                                                                    OpcaoImagem= "Sim";
+                                                                    OpcaoImagem= "true";
                                                                 }
                                                             }else{
                                                                 InputRadiologiaContrastada.value="0";                                                                
@@ -482,7 +482,7 @@ export default function CadastroProntuario(){
                                                                 if(InputEletrocardiograma.value === "" || InputEletrocardiograma.value === null || InputEletrocardiograma.value === undefined){
                                                                     erro.innerHTML = "Preencha a observação do exame de Eletrocardiograma.";
                                                                 }else{
-                                                                    OpcaoImagem= "Sim";
+                                                                    OpcaoImagem= "true";
                                                                 }
                                                             }else{
                                                                 InputEletrocardiograma.value="0";                                                                
@@ -493,7 +493,7 @@ export default function CadastroProntuario(){
                                                                 if(InputUltrassonografiAbdominal.value === "" || InputUltrassonografiAbdominal.value === null || InputUltrassonografiAbdominal.value === undefined){
                                                                     erro.innerHTML = "Preencha a observação do exame de Ultrassonografia Abdominal."
                                                                 }else{
-                                                                    OpcaoImagem= "Sim";
+                                                                    OpcaoImagem= "true";
                                                                 }
                                                             }else{
                                                                 InputUltrassonografiAbdominal.value="0";                                                                
@@ -501,7 +501,7 @@ export default function CadastroProntuario(){
                                                         }
                                                     }
                                                     else{
-                                                        OpcaoImagem= "Não";
+                                                        OpcaoImagem= "false";
                                                         InputRadiologiaSimples.value="0";
                                                         InputRadiologiaContrastada.value="0";
                                                         InputEletrocardiograma.value="0";
@@ -509,7 +509,7 @@ export default function CadastroProntuario(){
                                                     }
 
 
-                                                    if(ButtonHematologico === "Sim") {
+                                                    if(ButtonHematologico === "true") {
                                                         if(HemogramaCompleto.checked === false && Fribrinogenio.checked === false && PesquisaHemoparasitas.checked === false && FuncaoHepatica.checked === false && SorologicoFIVFELV.checked === false){
                                                             erro.innerHTML = "Escolha pelo menos uma opção de exame Hematologico";
                                                             OpcaoHematologico= "Pendente";      
@@ -518,7 +518,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoHematologico= "Pendente";
                                                                  if(InputHemogramaCompleto.value === "" || InputHemogramaCompleto.value === null || InputHemogramaCompleto.value === undefined){
                                                                 }else{
-                                                                    OpcaoHematologico= "Sim";
+                                                                    OpcaoHematologico= "true";
                                                                 }
                                                             }else{
                                                                 InputHemogramaCompleto.value="0";                                                                
@@ -529,7 +529,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoHematologico= "Pendente";
                                                                 if(InputFribrinogenio.value === "" || InputFribrinogenio.value === null || InputFribrinogenio.value === undefined){
                                                                 }else{
-                                                                    OpcaoHematologico= "Sim";
+                                                                    OpcaoHematologico= "true";
                                                                 }
                                                             }else{
                                                                 InputFribrinogenio.value="0";                                                                
@@ -539,7 +539,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoHematologico= "Pendente";
                                                                 if(InputPesquisaHemoparasitas.value === "" || InputPesquisaHemoparasitas.value === null || InputPesquisaHemoparasitas.value === undefined){
                                                                 }else{
-                                                                    OpcaoHematologico= "Sim";
+                                                                    OpcaoHematologico= "true";
                                                                 }
                                                             }else{
                                                                 InputPesquisaHemoparasitas.value="0";                                                                
@@ -549,7 +549,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoHematologico= "Pendente";
                                                                 if(InputFuncaoHepatica.value === "" || InputFuncaoHepatica.value === null || InputFuncaoHepatica.value === undefined){
                                                                 }else{
-                                                                    OpcaoHematologico= "Sim";
+                                                                    OpcaoHematologico= "true";
                                                                 }
                                                             }else{
                                                                 InputFuncaoHepatica.value="0";                                                                
@@ -559,7 +559,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoHematologico= "Pendente";
                                                                 if(InputSorologicoFIVFELV.value === "" || InputSorologicoFIVFELV.value === null || InputSorologicoFIVFELV.value === undefined){
                                                                 }else{
-                                                                    OpcaoHematologico= "Sim";
+                                                                    OpcaoHematologico= "true";
                                                                 }
                                                             }else{
                                                                 InputSorologicoFIVFELV.value="0";                                                                
@@ -567,7 +567,7 @@ export default function CadastroProntuario(){
 
                                                         }
                                                     }else{
-                                                        OpcaoHematologico = "Não";                                                                                                                
+                                                        OpcaoHematologico = "false";                                                                                                                
                                                         InputHemogramaCompleto.value="0";
                                                         InputFribrinogenio.value="0";
                                                         InputPesquisaHemoparasitas.value="0";
@@ -575,7 +575,7 @@ export default function CadastroProntuario(){
                                                         InputSorologicoFIVFELV.value="0";
                                                     }
 
-                                                    if(ButtonOutros === "Sim") {
+                                                    if(ButtonOutros === "true") {
                                                         if(ExameTumoral.checked === false && ExameGinecologico.checked === false && GlicemiaJejum.checked === false && Biopsia.checked === false && SexagemAves.checked === false){
                                                             erro.innerHTML = "Escolha pelo menos uma opção de exame Imagem";
                                                             OpcaoOutros= "Pendente";
@@ -584,7 +584,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoOutros= "Pendente";
                                                                  if(InputExameTumoral.value === "" || InputExameTumoral.value === null || InputExameTumoral.value === undefined){
                                                                     }else{
-                                                                    OpcaoOutros= "Sim";
+                                                                    OpcaoOutros= "true";
                                                                 }
                                                             }else{
                                                                 InputExameTumoral.value="0";                                                                
@@ -594,7 +594,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoOutros= "Pendente";
                                                                if(InputExameGinecologico.value === "" || InputExameGinecologico.value === null || InputExameGinecologico.value === undefined){
                                                                 }else{
-                                                                    OpcaoOutros= "Sim";
+                                                                    OpcaoOutros= "true";
                                                                 }
                                                             }else{
                                                                 InputExameGinecologico.value="0";                                                                
@@ -604,7 +604,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoOutros= "Pendente";
                                                                  if(InputGlicemiaJejum.value === "" || InputGlicemiaJejum.value === null || InputGlicemiaJejum.value === undefined){
                                                                    }else{
-                                                                    OpcaoOutros= "Sim";
+                                                                    OpcaoOutros= "true";
                                                                 }
                                                             }else{
                                                                 InputGlicemiaJejum.value="0";                                                                
@@ -614,7 +614,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoOutros= "Pendente";
                                                                 if(InputBiopsia.value === "" || InputBiopsia.value === null || InputBiopsia.value === undefined){
                                                                 }else{
-                                                                    OpcaoOutros= "Sim";
+                                                                    OpcaoOutros= "true";
                                                                 }
                                                             }else{
                                                                 InputBiopsia.value="0";
@@ -624,14 +624,14 @@ export default function CadastroProntuario(){
                                                                 OpcaoOutros= "Pendente";
                                                                 if(InputSexagemAves.value === "" || InputSexagemAves.value === null || InputSexagemAves.value === undefined){
                                                                 }else{
-                                                                    OpcaoOutros= "Sim";
+                                                                    OpcaoOutros= "true";
                                                                 }
                                                             }else{
                                                                 InputSexagemAves.value="0";
                                                             }
                                                         }
                                                     }else{
-                                                        OpcaoOutros= "Não";
+                                                        OpcaoOutros= "false";
                                                         InputExameTumoral.value="0";
                                                         InputExameGinecologico.value="0";
                                                         InputGlicemiaJejum.value="0";
@@ -641,7 +641,7 @@ export default function CadastroProntuario(){
 
                                                     
 
-                                                    if(ButtonBioquimico === "Sim") {
+                                                    if(ButtonBioquimico === "true") {
                                                         if(Urina.checked === false && 
                                                             AcidoUrico.checked === false && 
                                                             Albumina.checked === false &&
@@ -671,7 +671,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputUrina.value === "" || InputUrina.value === null || InputUrina.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputUrina.value="0";
@@ -680,7 +680,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputAcidoUrico.value === "" || InputAcidoUrico.value === null || InputAcidoUrico.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputAcidoUrico.value="0";
@@ -689,7 +689,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputAlbumina.value === "" || InputAlbumina.value === null || InputAlbumina.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputAlbumina.value="0";
@@ -698,7 +698,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                if(InputALT.value === "" || InputALT.value === null || InputALT.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputALT.value="0";
@@ -708,7 +708,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputAmilase.value === "" || InputAmilase.value === null || InputAmilase.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputAmilase.value="0";
@@ -718,7 +718,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputAST.value === "" || InputAST.value === null || InputAST.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputAST.value="0";
@@ -728,7 +728,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputBilirrubina.value === "" || InputBilirrubina.value === null || InputBilirrubina.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputBilirrubina.value="0";
@@ -738,7 +738,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputCalcioSerico.value === "" || InputCalcioSerico.value === null || InputCalcioSerico.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputCalcioSerico.value="0";
@@ -748,7 +748,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputColesterol.value === "" || InputColesterol.value === null || InputColesterol.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputColesterol.value="0";
@@ -758,7 +758,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputColinesterase.value === "" || InputColinesterase.value === null || InputColinesterase.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputColinesterase.value="0";
@@ -768,7 +768,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputCreatinaQuinase.value === "" || InputCreatinaQuinase.value === null || InputCreatinaQuinase.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputCreatinaQuinase.value="0";
@@ -778,7 +778,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                  if(InputCreatinina.value === "" || InputCreatinina.value === null || InputCreatinina.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputCreatinina.value="0";
@@ -788,7 +788,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputFerroSerico.value === "" || InputFerroSerico.value === null || InputFerroSerico.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputFerroSerico.value="0";
@@ -798,7 +798,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputFosfataseAlcalina.value === "" || InputFosfataseAlcalina.value === null || InputFosfataseAlcalina.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputFosfataseAlcalina.value="0";
@@ -808,7 +808,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputFosforo.value === "" || InputFosforo.value === null || InputFosforo.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputFosforo.value="0";
@@ -818,7 +818,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputGama.value === "" || InputGama.value === null || InputGama.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputGama.value="0";
@@ -828,7 +828,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputGlicose.value === "" || InputGlicose.value === null || InputGlicose.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }else{
                                                                 InputGlicose.value="0";
@@ -838,7 +838,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputMagnesio.value === "" || InputMagnesio.value === null || InputMagnesio.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }
                                                             else{
@@ -849,7 +849,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputProteinasTotais.value === "" || InputProteinasTotais.value === null || InputProteinasTotais.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }
                                                             else{
@@ -860,7 +860,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                 if(InputNAKCL.value === "" || InputNAKCL.value === null || InputNAKCL.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }
                                                             else{
@@ -871,7 +871,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                if(InputTriglicerideos.value === "" || InputTriglicerideos.value === null || InputTriglicerideos.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }
                                                             else{
@@ -882,7 +882,7 @@ export default function CadastroProntuario(){
                                                                 OpcaoBioquimico= "Pendente";
                                                                if(InputUreia.value === "" || InputUreia.value === null || InputUreia.value === undefined){
                                                                 }else{
-                                                                    OpcaoBioquimico= "Sim";
+                                                                    OpcaoBioquimico= "true";
                                                                 }
                                                             }
                                                             else{
@@ -892,7 +892,7 @@ export default function CadastroProntuario(){
                                                         }
                                                     }
                                                     else{
-                                                        OpcaoBioquimico = "Não";
+                                                        OpcaoBioquimico = "false";
                                                         InputUrina.value="0";
                                                         InputAcidoUrico.value="0";
                                                         InputAlbumina.value="0";
@@ -921,11 +921,11 @@ export default function CadastroProntuario(){
                                                         erro.innerHTML = "Verifique se nenhum exame esta vazio";
                                                     }
                                                     
-                                                    else if( OpcaoParasitologico === "Sim" ||  OpcaoImagem === "Sim" ||OpcaoHematologico === "Sim" || OpcaoOutros === "Sim" || OpcaoBioquimico === "Sim" ){                                                     
+                                                    else if( OpcaoParasitologico === "true" ||  OpcaoImagem === "true" ||OpcaoHematologico === "true" || OpcaoOutros === "true" || OpcaoBioquimico === "true" ){                                                     
                                                        
                                                         let response="";
                                                         try {
-                                                            response = await api2.post('https://agendaanimal-backend.herokuapp.com/Exame/CadExame', {rgPet:rg,Fezes:InputFezes.value,Urina:InputUrina.value,AcidoUrico:InputAcidoUrico.value,Albumina:InputAlbumina.value,ALT:InputALT.value,Amilase:InputAmilase.value,AST:InputAST.value,Bilirrubina:InputBilirrubina.value,CalcioSerico:InputCalcioSerico.value,Colesterol:InputColesterol.value,Colinesterase:InputColinesterase.value,CreatinaQuinase:InputCreatinaQuinase.value,Creatinina:InputCreatinina.value,FerroSerico:InputFerroSerico.value,FosfataseAlcalina:InputFosfataseAlcalina.value,Fosforo:InputFosforo.value,Gama:InputGama.value,Glicose:InputGlicose.value,Magnesio:InputMagnesio.value,ProteinasTotais:InputProteinasTotais.value,NAKCL:InputNAKCL.value,Triglicerideos:InputTriglicerideos.value,Ureia:InputUreia.value,ExameTumoral:InputExameTumoral.value,ExameGinecologico:InputExameGinecologico.value,GlicemiaJejum:InputGlicemiaJejum.value,Biopsia:InputBiopsia.value,SexagemAves:InputSexagemAves.value,HemogramaCompleto:InputHemogramaCompleto.value,Fribrinogenio:InputFribrinogenio.value,PesquisaHemoparasitas:InputPesquisaHemoparasitas.value,FuncaoHepatica:InputFuncaoHepatica.value,SorologicoFIVFELV:InputSorologicoFIVFELV.value,RadiologiaSimples:InputRadiologiaSimples.value,RadiologiaContrastada:InputRadiologiaContrastada.value,Eletrocardiograma:InputEletrocardiograma.value,UltrassonografiAbdominal:InputUltrassonografiAbdominal.value});
+                                                            response = await api2.post('https://agendaback.herokuapp.com/Exame/CadExame', {rgPet:rg,Fezes:InputFezes.value,Urina:InputUrina.value,AcidoUrico:InputAcidoUrico.value,Albumina:InputAlbumina.value,ALT:InputALT.value,Amilase:InputAmilase.value,AST:InputAST.value,Bilirrubina:InputBilirrubina.value,CalcioSerico:InputCalcioSerico.value,Colesterol:InputColesterol.value,Colinesterase:InputColinesterase.value,CreatinaQuinase:InputCreatinaQuinase.value,Creatinina:InputCreatinina.value,FerroSerico:InputFerroSerico.value,FosfataseAlcalina:InputFosfataseAlcalina.value,Fosforo:InputFosforo.value,Gama:InputGama.value,Glicose:InputGlicose.value,Magnesio:InputMagnesio.value,ProteinasTotais:InputProteinasTotais.value,NAKCL:InputNAKCL.value,Triglicerideos:InputTriglicerideos.value,Ureia:InputUreia.value,ExameTumoral:InputExameTumoral.value,ExameGinecologico:InputExameGinecologico.value,GlicemiaJejum:InputGlicemiaJejum.value,Biopsia:InputBiopsia.value,SexagemAves:InputSexagemAves.value,HemogramaCompleto:InputHemogramaCompleto.value,Fribrinogenio:InputFribrinogenio.value,PesquisaHemoparasitas:InputPesquisaHemoparasitas.value,FuncaoHepatica:InputFuncaoHepatica.value,SorologicoFIVFELV:InputSorologicoFIVFELV.value,RadiologiaSimples:InputRadiologiaSimples.value,RadiologiaContrastada:InputRadiologiaContrastada.value,Eletrocardiograma:InputEletrocardiograma.value,UltrassonografiAbdominal:InputUltrassonografiAbdominal.value});
                                                         } catch (error) {
                                                             console.log(error);               
                                                         }
@@ -948,7 +948,7 @@ export default function CadastroProntuario(){
                                                                             idExames = response.data.id;
                                                                             let response2="";
                                                                             try {
-                                                                                response2 = await api2.post('https://agendaanimal-backend.herokuapp.com/Prontuario/CadProtuario', {rgPet:rg,dataConst:date,idVacina:idVac,idMed:idMed,idExames: idExames});
+                                                                                response2 = await api2.post('https://agendaback.herokuapp.com/Prontuario/CadProtuario', {rgPet:rg,dataConst:date,idVacina:idVac,idMed:idMed,idExames: idExames});
                                                                             } catch (error) {
                                                                                 console.log(error);               
                                                                             }
@@ -1017,7 +1017,7 @@ export default function CadastroProntuario(){
 
                                             let response="";
                                             try {
-                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Prontuario/CadProtuario', {rgPet:rg,dataConst:date,idVacina:idVac,idMed:idMed,idExames: idExames});
+                                                response = await api2.post('https://agendaback.herokuapp.com/Prontuario/CadProtuario', {rgPet:rg,dataConst:date,idVacina:idVac,idMed:idMed,idExames: idExames});
                                             } catch (error) {
                                                 console.log(error);               
                                             }  
@@ -1072,8 +1072,8 @@ export default function CadastroProntuario(){
     function VacinaSim(){
         var button = document.getElementById("VacSim");
         button.style.display = "none";      
-        VacSim="Sim";
-        VacInfo = "Não";
+        VacSim="true";
+        VacInfo = "false";
 
         var div = document.getElementById("DivVacinaSim");
         div.style.display="block";  
@@ -1088,8 +1088,8 @@ export default function CadastroProntuario(){
         var button = document.getElementById("VacNao");
         button.style.backgroundColor="#009fe3";
         button.style.color="#fff";
-        VacNao="Sim";
-        VacInfo = "Não";
+        VacNao="true";
+        VacInfo = "false";
     }
 
     async function SalvarVacina(){
@@ -1158,7 +1158,7 @@ export default function CadastroProntuario(){
                                         else{
                                             let response="";
                                             try {
-                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Vacina/inserirVac', {dataApliVacina: dataIni.value,dataProxVacina: dataProx.value,nomeVacina: nome.value ,qntDoseVacina: dose.value,loteVacina: lote.value,valorVacina:  valor.value ,idFunc: 1,rgPet: rg.value,observacaoVacina: observacao.value});
+                                                response = await api2.post('https://agendaback.herokuapp.com/Vacina/inserirVac', {dataApliVacina: dataIni.value,dataProxVacina: dataProx.value,nomeVacina: nome.value ,qntDoseVacina: dose.value,loteVacina: lote.value,valorVacina:  valor.value ,idFunc: 1,rgPet: rg.value,observacaoVacina: observacao.value});
                                             } catch (error) {
                                                 console.log(error);               
                                             }  
@@ -1188,7 +1188,7 @@ export default function CadastroProntuario(){
                                                                 rg.setAttribute("disabled", "disabled");
                                                                 dataIni.setAttribute("disabled", "disabled");
                                                                 dataProx.setAttribute("disabled", "disabled");
-                                                                VacInfo = "Sim";
+                                                                VacInfo = "true";
                                                                 var ButtonVacina = document.getElementById("ButtonVacina");
                                                                 ButtonVacina.style.display="none";
                                                                 return true;
@@ -1229,7 +1229,7 @@ export default function CadastroProntuario(){
     function MedicaSim(){
         var button = document.getElementById("MedSim");
         button.style.display = "none";        
-        MedSim="Sim";       
+        MedSim="true";       
 
         var div = document.getElementById("DivMedicacaoSim");
         div.style.display="block"; 
@@ -1244,7 +1244,7 @@ export default function CadastroProntuario(){
         var button = document.getElementById("MedNao");
         button.style.backgroundColor="#009fe3";
         button.style.color="#fff";
-        MedNao="Sim";
+        MedNao="true";
     }
 
     async function SalvarMed(){
@@ -1316,7 +1316,7 @@ export default function CadastroProntuario(){
 
                                             let response="";
                                             try {
-                                                response = await api2.post('https://agendaanimal-backend.herokuapp.com/Medicamento/CadastroMed', {idFunc: 1,rgPet: rg.value,statusMed: "Vigente" ,doseMed: dose.value,rotinaMed: rotina.value,dataIniMed: dataIni.value,dataFinMed: dataProx.value,nomeMed: nome.value,loteMed: lote.value,observacaoMed:observ.value });
+                                                response = await api2.post('https://agendaback.herokuapp.com/Medicamento/CadastroMed', {idFunc: 1,rgPet: rg.value,statusMed: "Vigente" ,doseMed: dose.value,rotinaMed: rotina.value,dataIniMed: dataIni.value,dataFinMed: dataProx.value,nomeMed: nome.value,loteMed: lote.value,observacaoMed:observ.value });
                                             } catch (error) {
                                                 console.log(error);               
                                             }  
@@ -1348,7 +1348,7 @@ export default function CadastroProntuario(){
                                                                 dataProx.setAttribute("disabled", "disabled");
                                                                 erro.setAttribute("disabled", "disabled");
                                                                 rotina.setAttribute("disabled", "disabled");
-                                                                MedInfo="Sim";
+                                                                MedInfo="true";
                                                                 var ButtonMed = document.getElementById("ButtonMed");
                                                                 ButtonMed.style.display="none";
                                                                 return true; 
@@ -1390,7 +1390,7 @@ export default function CadastroProntuario(){
         var button = document.getElementById("ExSim");
         button.style.backgroundColor="#009fe3";
         button.style.color="#fff";        
-        ExSim="Sim";  
+        ExSim="true";  
         
         var div = document.getElementById("Div");
         div.style.display="block";
@@ -1400,13 +1400,13 @@ export default function CadastroProntuario(){
         var button = document.getElementById("ExNao");
         button.style.backgroundColor="#009fe3";
         button.style.color="#fff";
-        ExNao="Sim";
+        ExNao="true";
     }
 
     function Hematologico(){
         var button = document.getElementById("DivHematologico");
         button.style.display="block";
-        ButtonHematologico = "Sim";
+        ButtonHematologico = "true";
 
         var button2 = document.getElementById("Hematologico");
         button2.style.backgroundColor="#009fe3";        
@@ -1416,7 +1416,7 @@ export default function CadastroProntuario(){
     function Imagem(){
         var button = document.getElementById("DivImagem");
         button.style.display="block";
-        ButtonImagem = "Sim";
+        ButtonImagem = "true";
         
         var button2 = document.getElementById("Imagem");
         button2.style.backgroundColor="#009fe3";        
@@ -1426,7 +1426,7 @@ export default function CadastroProntuario(){
     function Bioquimico(){
         var button = document.getElementById("DivBioquimico");
         button.style.display="block";
-        ButtonBioquimico = "Sim";
+        ButtonBioquimico = "true";
 
         var button2 = document.getElementById("Bioquimico");
         button2.style.backgroundColor="#009fe3";        
@@ -1436,7 +1436,7 @@ export default function CadastroProntuario(){
     function Parasitologico(){
         var button = document.getElementById("DivParasitologico");
         button.style.display="block";
-        ButtonParasitologico = "Sim";
+        ButtonParasitologico = "true";
         
         var button2 = document.getElementById("Parasitologico");
         button2.style.backgroundColor="#009fe3";        
@@ -1446,7 +1446,7 @@ export default function CadastroProntuario(){
     function Outros(){
         var button = document.getElementById("DivOutros");
         button.style.display="block";
-        ButtonOutros = "Sim";
+        ButtonOutros = "true";
 
         var button2 = document.getElementById("Outros");
         button2.style.backgroundColor="#009fe3";        
@@ -1915,19 +1915,19 @@ export default function CadastroProntuario(){
                     <ul className="nav">
                         <li className="nav-item " id="Home" style={{display:'block'}}>
                             <a className="nav-link" href="/Home">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio}/> 
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={inicio} alt=""/> 
                                 <p style={{textAlign: '-webkit-center'}}>Inicio</p>
                             </a>
                         </li>
                         <li className="nav-item" id="Calen" style={{display:'none'}}>
                             <a className="nav-link" href="/Calendario">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={calendario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Calendário</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Func" style={{display:'none'}}>
                             <a className="nav-link" href="/Funcionarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'11%',height:'5%'}} src={funcionario} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Funcionários</p>
                             </a>
                         </li>
@@ -1939,19 +1939,19 @@ export default function CadastroProntuario(){
                         </li> */}
                         <li className="nav-item " id="Med" style={{display:'none'}}>
                             <a className="nav-link" href="/Medicacao">
-                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao}/>
+                            <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={medicacao} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Medicações</p>
                             </a>
                         </li>
                         <li className="nav-item " id="Vac" style={{display:'none'}}>
                             <a className="nav-link" href="Vacina">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={vacinas} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Vacinas</p>
                             </a>
                         </li>
                         <li className="nav-item active" id="Pront" style={{display:'none'}}>
                             <a className="nav-link" href="/Prontuarios">
-                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios}/>
+                                <img className="material-icons" style={{position:'absolute',color:'#009fe3',width:'12%'}} src={prontuarios} alt=""/>
                                 <p style={{textAlign: '-webkit-center'}}>Prontuários</p>
                             </a>
                         </li>

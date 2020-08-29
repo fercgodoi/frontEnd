@@ -17,21 +17,21 @@ export default function CdastroQuatro(){
     }
     Validar();
 
-    var valida1 = "Não";
-    var valida2 = "Não";
-    var valida3 = "Não";
-    var valida4 = "Não";
-    var valida5 = "Não";
-    var valida6 = "Não";
-    var valida7 = "Não";
-    var valida8 = "Não";
-    var valida9 = "Não";
-    var valida10 = "Não";
-    var valida11 = "Não";
-    var valida12 = "Não";
-    var valida13 = "Não";
-    var valida14 = "Não";
-    var valida15 = "Não";
+    var valida1 = "false";
+    var valida2 = "false";
+    var valida3 = "false";
+    var valida4 = "false";
+    var valida5 = "false";
+    var valida6 = "false";
+    var valida7 = "false";
+    var valida8 = "false";
+    var valida9 = "false";
+    var valida10 = "false";
+    var valida11 = "false";
+    var valida12 = "false";
+    var valida13 = "false";
+    var valida14 = "false";
+    var valida15 = "false";
 
     function Proximo(){
         var erro = document.getElementById("valida");
@@ -40,9 +40,9 @@ export default function CdastroQuatro(){
         button.innerText="Aguardando";
         button.setAttribute("disabled","disabled");
 
-        if(valida1 === "Não" && valida2 === "Não" && valida3 === "Não" && valida4 === "Não" && valida5 === "Não" && valida6 === "Não" &&
-        valida7 === "Não" && valida8 === "Não" && valida9 === "Não" && valida10 === "Não" && valida11 === "Não" && valida12 === "Não" &&
-        valida13 === "Não" && valida14 === "Não" && valida15 === "Não"){
+        if(valida1 === "false" && valida2 === "false" && valida3 === "false" && valida4 === "false" && valida5 === "false" && valida6 === "false" &&
+        valida7 === "false" && valida8 === "false" && valida9 === "false" && valida10 === "false" && valida11 === "false" && valida12 === "false" &&
+        valida13 === "false" && valida14 === "false" && valida15 === "false"){
             erro.innerHTML = "Não esqueça de clicar no botões de adicionar para prosseguir!!";
             button.innerText="Próximo";
             button.removeAttribute("disabled");
@@ -71,7 +71,7 @@ export default function CdastroQuatro(){
 
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -79,7 +79,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -118,7 +118,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -126,7 +126,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -166,7 +166,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -174,7 +174,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -214,7 +214,7 @@ export default function CdastroQuatro(){
 
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -222,7 +222,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -262,7 +262,7 @@ export default function CdastroQuatro(){
 
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -270,7 +270,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -310,7 +310,7 @@ export default function CdastroQuatro(){
 
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -318,7 +318,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -358,7 +358,7 @@ export default function CdastroQuatro(){
 
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -366,7 +366,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -407,7 +407,7 @@ export default function CdastroQuatro(){
 
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -415,7 +415,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -456,7 +456,7 @@ export default function CdastroQuatro(){
 
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -464,7 +464,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -505,7 +505,7 @@ export default function CdastroQuatro(){
 
                 let response="";
                 try {
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/CadQuartPrest',{tipoServ: nome.value,valorServ:valor.value});
                 } catch (error) {
                     console.log(error);               
                 }
@@ -513,7 +513,7 @@ export default function CdastroQuatro(){
                 if(response){
                     if(response.data.message){
                         if(response.data.message === "Salvo"){
-                            valida1 = "Sim";
+                            valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
                             erro.innerHTML="Adicionado com sucesso";
@@ -559,7 +559,7 @@ export default function CdastroQuatro(){
     //             if(response){
     //                 if(response.data.message){
     //                     if(response.data.message === "Salvo"){
-    //                         valida1 = "Sim";
+    //                         valida1 = "true";
     //                         nome.setAttribute("disabled","disabled");
     //                         valor.setAttribute("disabled","disabled");                                                                               
     //                     }else if(response.data.message === "ja existe"){
@@ -604,7 +604,7 @@ export default function CdastroQuatro(){
     //             if(response){
     //                 if(response.data.message){
     //                     if(response.data.message === "Salvo"){
-    //                         valida1 = "Sim";
+    //                         valida1 = "true";
     //                         nome.setAttribute("disabled","disabled");
     //                         valor.setAttribute("disabled","disabled");                                                                               
     //                     }else if(response.data.message === "ja existe"){
@@ -648,7 +648,7 @@ export default function CdastroQuatro(){
     //             if(response){
     //                 if(response.data.message){
     //                     if(response.data.message === "Salvo"){
-    //                         valida1 = "Sim";
+    //                         valida1 = "true";
     //                         nome.setAttribute("disabled","disabled");
     //                         valor.setAttribute("disabled","disabled");                                                                               
     //                     }else if(response.data.message === "ja existe"){
@@ -692,7 +692,7 @@ export default function CdastroQuatro(){
     //             if(response){
     //                 if(response.data.message){
     //                     if(response.data.message === "Salvo"){
-    //                         valida1 = "Sim";
+    //                         valida1 = "true";
     //                         nome.setAttribute("disabled","disabled");
     //                         valor.setAttribute("disabled","disabled");                                                                               
     //                     }else if(response.data.message === "ja existe"){
@@ -736,7 +736,7 @@ export default function CdastroQuatro(){
     //             if(response){
     //                 if(response.data.message){
     //                     if(response.data.message === "Salvo"){
-    //                         valida1 = "Sim";
+    //                         valida1 = "true";
     //                         nome.setAttribute("disabled","disabled");
     //                         valor.setAttribute("disabled","disabled");                                                                               
     //                     }else if(response.data.message === "ja existe"){
@@ -765,11 +765,11 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button1").name;
         var erro = document.getElementById("valida");
 
-       if (valida1 !== "Não"){
+       if (valida1 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
             }catch(erro){
                 console.log(erro);
             }
@@ -806,11 +806,11 @@ export default function CdastroQuatro(){
         var erro = document.getElementById("valida");
         
 
-       if (valida2 !== "Não"){
+       if (valida2 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
             }catch(erro){
                 console.log(erro);
             }
@@ -846,11 +846,11 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button3").name;
         var erro = document.getElementById("valida");
 
-       if (valida3 !== "Não"){
+       if (valida3 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ: button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ: button});
             }catch(erro){
                 console.log(erro);
             }
@@ -887,11 +887,11 @@ export default function CdastroQuatro(){
         var erro = document.getElementById("valida");
         
 
-       if (valida4 !== "Não"){
+       if (valida4 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ: button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ: button});
             }catch(erro){
                 console.log(erro);
             }
@@ -928,11 +928,11 @@ export default function CdastroQuatro(){
         var erro = document.getElementById("valida");
        
 
-       if (valida5 !== "Não"){
+       if (valida5 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ: button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ: button});
             }catch(erro){
                 console.log(erro);
             }
@@ -968,11 +968,11 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button6").name;
         var erro = document.getElementById("valida");
 
-       if (valida6 !== "Não"){
+       if (valida6 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
             }catch(erro){
                 console.log(erro);
             }
@@ -1008,11 +1008,11 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button7").name;
         var erro = document.getElementById("valida");
 
-       if (valida7 !== "Não"){
+       if (valida7 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
             }catch(erro){
                 console.log(erro);
             }
@@ -1048,11 +1048,11 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button8").name;
         var erro = document.getElementById("valida");
 
-       if (valida8 !== "Não"){
+       if (valida8 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
             }catch(erro){
                 console.log(erro);
             }
@@ -1088,11 +1088,11 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button9").name;
         var erro = document.getElementById("valida");
 
-       if (valida9 !== "Não"){
+       if (valida9 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest',{idServ:button});
             }catch(erro){
                 console.log(erro);
             }
@@ -1128,11 +1128,11 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button10").name;
         var erro = document.getElementById("valida");
 
-       if (valida10 !== "Não"){
+       if (valida10 !== "false"){
             let response= "";       
 
             try{
-                response= await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/ExcluirServicosPrest2',{idServ:button});
+                response= await api.post('https://agendaback.herokuapp.com/Prestador/ExcluirServicosPrest2',{idServ:button});
             }catch(erro){
                 console.log(erro);
             }
@@ -1167,7 +1167,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button1").name;
         var erro = document.getElementById("valida");
 
-        if (valida1 !== "Não"){
+        if (valida1 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1180,7 +1180,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
@@ -1215,7 +1215,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button2").name;
         var erro = document.getElementById("valida");
 
-        if (valida2 !== "Não"){
+        if (valida2 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1228,7 +1228,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
@@ -1261,7 +1261,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button3").name;
         var erro = document.getElementById("valida");
 
-        if (valida3 !== "Não"){
+        if (valida3 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1274,7 +1274,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
@@ -1307,7 +1307,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button4").name;
         var erro = document.getElementById("valida");
 
-        if (valida4 !== "Não"){
+        if (valida4 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1320,7 +1320,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
@@ -1355,7 +1355,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button5").name;
         var erro = document.getElementById("valida");
 
-        if (valida5 !== "Não"){
+        if (valida5 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1368,7 +1368,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
@@ -1403,7 +1403,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button6").name;
         var erro = document.getElementById("valida");
 
-        if (valida6 !== "Não"){
+        if (valida6 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1416,7 +1416,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
@@ -1451,7 +1451,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button7").name;
         var erro = document.getElementById("valida");
 
-        if (valida7 !== "Não"){
+        if (valida7 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1464,7 +1464,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
@@ -1498,7 +1498,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button8").name;
         var erro = document.getElementById("valida");
 
-        if (valida8 !== "Não"){
+        if (valida8 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1511,7 +1511,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
@@ -1545,7 +1545,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button9").name;
         var erro = document.getElementById("valida");
 
-        if (valida9 !== "Não"){
+        if (valida9 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1558,7 +1558,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
@@ -1592,7 +1592,7 @@ export default function CdastroQuatro(){
         var button = document.getElementById("button10").name;
         var erro = document.getElementById("valida");
 
-        if (valida10 !== "Não"){
+        if (valida10 !== "false"){
             let response= "";   
             
             if (nome.value === "" || nome.value === null || nome.value === undefined ) {
@@ -1605,7 +1605,7 @@ export default function CdastroQuatro(){
                 valor.value= valor.value.replace(/,/g, '.');
     
                 try{
-                    response = await api.post('https://agendaanimal-backend.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
+                    response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: nome.value, valorServ:valor.value, idServ:button});
                 }catch(erro){
                     console.log(erro);
                 }
