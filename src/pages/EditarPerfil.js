@@ -312,71 +312,83 @@ export default function EditarPerfil(){
                     var segundaInicio = document.getElementById("segundaInicio");
                     var segundaFinal = document.getElementById("segundaFinal");
                     var segunda = document.getElementById("segunda");
+ 		    var pSegunda = document.getElementById("pSegunda");
 
                     segunda.checked = true;
-                    segundaInicio.style.visibility="inherit";
+                    segundaInicio.style.display="block";  
                     segundaInicio.value = dados[0].SegundInicio;
-                    segundaFinal.style.visibility="inherit";
-                    segundaFinal.value = dados[0].SegundFinal;     
+                    segundaFinal.style.display="block";  
+                    segundaFinal.value = dados[0].SegundFinal;  
+		pSegunda.style.display="block";   
                 }
 
                 if(dados[0].TercaInicio !== "" && dados[0].TercaInicio !== null && dados[0].TercaFinal !== "" && dados[0].TercaFinal !== null){
                     var tercaInicio = document.getElementById("tercaInicio");
                     var tercaFinal = document.getElementById("tercaFinal");
                     var terca = document.getElementById("terca");
+ var pTerca = document.getElementById("pTerca");
 
                     terca.checked = true;
-                    tercaInicio.style.visibility="inherit";
+                    tercaInicio.style.display="block";  
                     tercaInicio.value = dados[0].TercaInicio;
-                    tercaFinal.style.visibility="inherit";
-                    tercaFinal.value = dados[0].TercaFinal;   
+                    tercaFinal.style.display="block";  
+                    tercaFinal.value = dados[0].TercaFinal;  
+ pTerca.style.display="block"; 
                 }
 
                 if(dados[0].QuartInicio !== "" && dados[0].QuartInicio !== null && dados[0].QuartFinal !== "" && dados[0].QuartFinal !== null){
                     var quartaInicio = document.getElementById("quartaInicio");
                     var quartaFinal = document.getElementById("quartaFinal");
                     var quarta = document.getElementById("quarta");
+ var pQuarta = document.getElementById("pQuarta");
 
                     quarta.checked = true;
-                    quartaInicio.style.visibility="inherit";
+                    quartaInicio.style.display="block";  
                     quartaInicio.value = dados[0].QuartInicio;
-                    quartaFinal.style.visibility="inherit";
-                    quartaFinal.value = dados[0].QuartFinal;   
+                    quartaFinal.style.display="block";  
+                    quartaFinal.value = dados[0].QuartFinal; 
+  pQuarta.style.display="block";  
                 }
 
                 if(dados[0].QuintInicio !== "" && dados[0].QuintInicio !== null && dados[0].QuintFinal !== "" && dados[0].QuintFinal !== null){
                     var quintaInicio = document.getElementById("quintaInicio");
                     var quintaFinal = document.getElementById("quintaFinal");
                     var quinta = document.getElementById("quinta");
+ var pQuinta = document.getElementById("pQuinta");
 
                     quinta.checked = true;
-                    quintaInicio.style.visibility="inherit";
+                    quintaInicio.style.display="block";  
                     quintaInicio.value = dados[0].QuintInicio;
-                    quintaFinal.style.visibility="inherit";
+                    quintaFinal.style.display="block";  
                     quintaFinal.value = dados[0].QuintFinal;   
+pQuinta.style.display="block";         
                 }
 
                 if(dados[0].SextInicio !== "" && dados[0].SextInicio !== null && dados[0].SextFinal !== "" && dados[0].SextFinal !== null){
                     var sextaInicio = document.getElementById("sextaInicio");
                     var sextaFinal = document.getElementById("sextaFinal");
                     var sexta = document.getElementById("sexta");
+ var pSexta = document.getElementById("pSexta");
 
                     sexta.checked = true;
-                    sextaInicio.style.visibility="inherit";
+                    sextaInicio.style.display="block";  
                     sextaInicio.value = dados[0].SextInicio;
-                    sextaFinal.style.visibility="inherit";
-                    sextaFinal.value = dados[0].SextFinal;   
+                    sextaFinal.style.display="block";  
+                    sextaFinal.value = dados[0].SextFinal;
+ pSexta.style.display="block";   
                 }
 
                 if(dados[0].SabInicio !== "" && dados[0].SabInicio !== null && dados[0].SabFinal !== "" && dados[0].SabFinal !== null){
                     var sabadoInicio = document.getElementById("sabadoInicio");
                     var sabadoFinal = document.getElementById("sabadoFinal");
                     var sabado = document.getElementById("sabado");
+ var pSabado = document.getElementById("pSabado");    
+pSabado.style.display="block";
 
                     sabado.checked = true;
-                    sabadoInicio.style.visibility="inherit";
+                    sabadoInicio.style.display="block";  
                     sabadoInicio.value = dados[0].SabInicio;
-                    sabadoFinal.style.visibility="inherit";
+                    sabadoFinal.style.display="block";  
                     sabadoFinal.value = dados[0].SabFinal;   
                 }
 
@@ -384,12 +396,14 @@ export default function EditarPerfil(){
                     var domingoInicio = document.getElementById("domingoInicio");
                     var domingoFinal = document.getElementById("domingoFinal");
                     var domingo = document.getElementById("domingo");
+ var pDomingo = document.getElementById("pDomingo");   
 
                     domingo.checked = true;
-                    domingoInicio.style.visibility="inherit";
+                    domingoInicio.style.display="block";  
                     domingoInicio.value = dados[0].DomingInicio;
-                    domingoFinal.style.visibility="inherit";
-                    domingoFinal.value = dados[0].DomingFinal;   
+                    domingoFinal.style.display="block";  
+                    domingoFinal.value = dados[0].DomingFinal;  
+ pDomingo.style.display="block";  
                 }  
 
                 var nomeResp = document.getElementById("nome");
@@ -1735,10 +1749,10 @@ export default function EditarPerfil(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSegunda"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-                <input type="time" id="segundaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                <input type="time" id="segundaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="segundaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="segundaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1753,10 +1767,10 @@ export default function EditarPerfil(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pTerca"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="tercaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>  
+            <input type="time" id="tercaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>  
             </div>
             <div className="col-md-6">
-            <input type="time" id="tercaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="tercaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1770,10 +1784,10 @@ export default function EditarPerfil(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pQuarta"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="quartaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="quartaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="quartaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="quartaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1788,10 +1802,10 @@ export default function EditarPerfil(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pQuinta"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="quintaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="quintaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="quintaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="quintaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1805,10 +1819,10 @@ export default function EditarPerfil(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSexta"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="sextaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="sextaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="sextaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="sextaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1822,10 +1836,10 @@ export default function EditarPerfil(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSabado"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="sabadoInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="sabadoInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="sabadoFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="sabadoFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1839,10 +1853,10 @@ export default function EditarPerfil(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pDomingo"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="domingoInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="domingoInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="domingoFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="domingoFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
