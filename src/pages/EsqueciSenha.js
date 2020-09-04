@@ -63,7 +63,7 @@ export default function EsqueciSenha(){
                                 button.innerText="Próximo";
                                 button.removeAttribute("disabled");
                             }else if(response.data.message === "Enviamos uma nova senha, verifique seu email"){
-                                erro.style.color = "#09ff00";
+                                erro.style.color = "#006600";
                                 erro.style.fontWeight= "700";      
                                 erro.innerText = "Enviamos um email contendo uma nova senha para ser trocada.";
                                 setTimeout(() => {window.location.href="/"}, 2000);

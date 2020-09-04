@@ -97,7 +97,7 @@ export default function CadastroSeis(){
                                         if(response){
                                             if(response.data.message){
                                                 if(response.data.message === "Alterado"){
-                                                    erro.style.color = "#09ff00";      
+                                                    erro.style.color = "#006600";      
                                                     erro.style.fontWeight= "700";
                                                     erro.innerHTML = "Agora tem que realizar o cadastro para logar";
                                                     setTimeout(() => {window.location.href="/CadastroSete"}, 2000); 

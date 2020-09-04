@@ -99,6 +99,9 @@ export default function Home(){
           if(produto.HotelPrest === "true"){
               nomeTipo= nomeTipo + " Hotel";
           }
+          if(produto.AdestradorPrest === "true"){
+            nomeTipo= nomeTipo + " Adestrador";
+        }
 
           Tipo.innerHTML= nomeTipo;
 
@@ -654,7 +657,7 @@ export default function Home(){
           <img src={rodape} class="ImagemLogo" id="LogoImg" align="left"  alt=""/>       
           </picture>     
         </a>
-        <a  class="simple-text logo-normal">
+        <a class="simple-text logo-normal">
           <p class="NomePrest" id="NomeLogo"></p>
           <p class="TipoPrest" id="TipoLogo"></p>
         </a>
@@ -742,7 +745,7 @@ export default function Home(){
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
                         <div className="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav" >
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src={rodape} class="iconLogo" align="right" alt="" id="SairImg"/> 
@@ -864,7 +867,7 @@ export default function Home(){
                 <div class="card-header card-header-blue">
                 <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
-                      <ul class="nav nav-tabs">
+                      <ul class="nav nav-tabs" style={{justifyContent: "center"}}>
                         <li class="nav-item" id="Pendente" onClick={Pendente}>
                           <button class="nav-link " id="APendente">
                               Pendentes

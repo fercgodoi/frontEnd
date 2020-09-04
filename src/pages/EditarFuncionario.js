@@ -95,6 +95,9 @@ export default function EditarFuncionario(){
             if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
             }
+            if(produto.AdestradorPrest === "true"){
+                nomeTipo= nomeTipo + " Adestrador";
+            }
   
             Tipo.innerHTML= nomeTipo;
   
@@ -265,112 +268,118 @@ export default function EditarFuncionario(){
                     var sabadoFinal = document.getElementById("sabadoFinal");
                     var domingoFinal = document.getElementById("domingoFinal");
 
-                    var SegundInicio= produto[0].SegundInicio;
-                    var SegundFinal= produto[0].SegundFinal;
-                    var TercaInicio= produto[0].TercaInicio; 
-                    var TercaFinal= produto[0].TercaFinal;
-                    var QuartInicio= produto[0].QuartInicio; 
-                    var QuartFinal= produto[0].QuartFinal;
-                    var QuintInicio= produto[0].QuintInicio; 
-                    var QuintFinal= produto[0].QuintFinal; 
-                    var SextInicio= produto[0].SextInicio; 
-                    var SextFinal= produto[0].SextFinal;
-                    var SabInicio= produto[0].SabInicio; 
-                    var SabFinal= produto[0].SabFinal; 
-                    var DomingInicio= produto[0].DomingInicio; 
-                    var DomingFinal= produto[0].DomingFinal;
+                    // var SegundInicio= produto[0].SegundInicio;
+                    // var SegundFinal= produto[0].SegundFinal;
+                    // var TercaInicio= produto[0].TercaInicio; 
+                    // var TercaFinal= produto[0].TercaFinal;
+                    // var QuartInicio= produto[0].QuartInicio; 
+                    // var QuartFinal= produto[0].QuartFinal;
+                    // var QuintInicio= produto[0].QuintInicio; 
+                    // var QuintFinal= produto[0].QuintFinal; 
+                    // var SextInicio= produto[0].SextInicio; 
+                    // var SextFinal= produto[0].SextFinal;
+                    // var SabInicio= produto[0].SabInicio; 
+                    // var SabFinal= produto[0].SabFinal; 
+                    // var DomingInicio= produto[0].DomingInicio; 
+                    // var DomingFinal= produto[0].DomingFinal;
 
-                    if(SegundInicio !== null || SegundFinal !== null ){  
-                        segunda.checked = "true";                     
-                        segundaInicio.style.visibility="inherit";
-                        segundaFinal.style.visibility="inherit";
-                        segundaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
-                        segundaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                        segundaInicio.value= SegundInicio;
-                        segundaFinal.value= SegundFinal;
-                    
-                    }else{
-                        segundaInicio.style.visibility="collapse";
-                        segundaFinal.style.visibility="collapse";
+                    if(produto[0].SegundInicio !== "" && produto[0].SegundInicio !== null && produto[0].SegundFinal !== "" && produto[0].SegundFinal !== null){
+                        var segundaInicio = document.getElementById("segundaInicio");
+                        var segundaFinal = document.getElementById("segundaFinal");
+                        var segunda = document.getElementById("segunda");
+                 var pSegunda = document.getElementById("pSegunda");
+    
+                        segunda.checked = true;
+                        segundaInicio.style.display="block";  
+                        segundaInicio.value = produto[0].SegundInicio;
+                        segundaFinal.style.display="block";  
+                        segundaFinal.value = produto[0].SegundFinal;  
+            pSegunda.style.display="block";   
                     }
-
-                    if(TercaInicio !== null || TercaFinal !== null ){    
-                        terca.checked = "true";                     
-                        tercaInicio.style.visibility="inherit";
-                        tercaFinal.style.visibility="inherit";
-                        tercaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
-                        tercaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                        tercaInicio.value= TercaInicio;
-                        tercaFinal.value= TercaFinal;                    
-                    }else{
-                        tercaInicio.style.visibility="collapse";
-                        tercaFinal.style.visibility="collapse";
+    
+                    if(produto[0].TercaInicio !== "" && produto[0].TercaInicio !== null && produto[0].TercaFinal !== "" && produto[0].TercaFinal !== null){
+                        var tercaInicio = document.getElementById("tercaInicio");
+                        var tercaFinal = document.getElementById("tercaFinal");
+                        var terca = document.getElementById("terca");
+     var pTerca = document.getElementById("pTerca");
+    
+                        terca.checked = true;
+                        tercaInicio.style.display="block";  
+                        tercaInicio.value = produto[0].TercaInicio;
+                        tercaFinal.style.display="block";  
+                        tercaFinal.value = produto[0].TercaFinal;  
+     pTerca.style.display="block"; 
                     }
-
-                    if(QuartInicio !== null || QuartFinal !== null ){   
-                        quarta.checked = "true";                      
-                        quartaInicio.style.visibility="inherit";
-                        quartaFinal.style.visibility="inherit";
-                        quartaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
-                        quartaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                        quartaInicio.value= QuartInicio;
-                        quartaFinal.value= QuartFinal;                    
-                    }else{
-                        quartaInicio.style.visibility="collapse";
-                        quartaFinal.style.visibility="collapse";
+    
+                    if(produto[0].QuartInicio !== "" && produto[0].QuartInicio !== null && produto[0].QuartFinal !== "" && produto[0].QuartFinal !== null){
+                        var quartaInicio = document.getElementById("quartaInicio");
+                        var quartaFinal = document.getElementById("quartaFinal");
+                        var quarta = document.getElementById("quarta");
+     var pQuarta = document.getElementById("pQuarta");
+    
+                        quarta.checked = true;
+                        quartaInicio.style.display="block";  
+                        quartaInicio.value = produto[0].QuartInicio;
+                        quartaFinal.style.display="block";  
+                        quartaFinal.value = produto[0].QuartFinal; 
+      pQuarta.style.display="block";  
                     }
-
-                    if(QuintInicio !== null || QuintFinal !== null ){
-                        quinta.checked = "true";                         
-                        quintaInicio.style.visibility="inherit";
-                        quintaFinal.style.visibility="inherit";
-                        quintaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
-                        quintaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                        quintaInicio.value= QuintInicio;
-                        quintaFinal.value= QuintFinal;                    
-                    }else{
-                        quintaInicio.style.visibility="collapse";
-                        quintaFinal.style.visibility="collapse";
+    
+                    if(produto[0].QuintInicio !== "" && produto[0].QuintInicio !== null && produto[0].QuintFinal !== "" && produto[0].QuintFinal !== null){
+                        var quintaInicio = document.getElementById("quintaInicio");
+                        var quintaFinal = document.getElementById("quintaFinal");
+                        var quinta = document.getElementById("quinta");
+     var pQuinta = document.getElementById("pQuinta");
+    
+                        quinta.checked = true;
+                        quintaInicio.style.display="block";  
+                        quintaInicio.value = produto[0].QuintInicio;
+                        quintaFinal.style.display="block";  
+                        quintaFinal.value = produto[0].QuintFinal;   
+    pQuinta.style.display="block";         
                     }
-
-                    if(SextInicio !== null || SextFinal !== null ){ 
-                        sexta.checked = "true";                        
-                        sextaInicio.style.visibility="inherit";
-                        sextaFinal.style.visibility="inherit";
-                        sextaInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
-                        sextaFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                        sextaInicio.value= SextInicio;
-                        sextaFinal.value= SextFinal;                    
-                    }else{
-                        sextaInicio.style.visibility="collapse";
-                        sextaFinal.style.visibility="collapse";
+    
+                    if(produto[0].SextInicio !== "" && produto[0].SextInicio !== null && produto[0].SextFinal !== "" && produto[0].SextFinal !== null){
+                        var sextaInicio = document.getElementById("sextaInicio");
+                        var sextaFinal = document.getElementById("sextaFinal");
+                        var sexta = document.getElementById("sexta");
+     var pSexta = document.getElementById("pSexta");
+    
+                        sexta.checked = true;
+                        sextaInicio.style.display="block";  
+                        sextaInicio.value = produto[0].SextInicio;
+                        sextaFinal.style.display="block";  
+                        sextaFinal.value = produto[0].SextFinal;
+     pSexta.style.display="block";   
                     }
-
-                    if(SabInicio !== null || SabFinal !== null ){  
-                        sabado.checked = "true";                       
-                        sabadoInicio.style.visibility="inherit";
-                        sabadoFinal.style.visibility="inherit";
-                        sabadoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
-                        sabadoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                        sabadoInicio.value= SabInicio;
-                        sabadoFinal.value= SabFinal                    
-                    }else{
-                        sabadoInicio.style.visibility="collapse";
-                        sabadoFinal.style.visibility="collapse";
+    
+                    if(produto[0].SabInicio !== "" && produto[0].SabInicio !== null && produto[0].SabFinal !== "" && produto[0].SabFinal !== null){
+                        var sabadoInicio = document.getElementById("sabadoInicio");
+                        var sabadoFinal = document.getElementById("sabadoFinal");
+                        var sabado = document.getElementById("sabado");
+     var pSabado = document.getElementById("pSabado");    
+    pSabado.style.display="block";
+    
+                        sabado.checked = true;
+                        sabadoInicio.style.display="block";  
+                        sabadoInicio.value = produto[0].SabInicio;
+                        sabadoFinal.style.display="block";  
+                        sabadoFinal.value = produto[0].SabFinal;   
                     }
-
-                    if(DomingInicio !== null || DomingFinal !== null ){   
-                        domingo.checked = "true";                      
-                        domingoInicio.style.visibility="inherit";
-                        domingoFinal.style.visibility="inherit";
-                        domingoInicio.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)";  
-                        domingoFinal.style.backgroundImage="linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)"; 
-                        domingoInicio.value= DomingInicio;
-                        domingoFinal.value= DomingFinal;                    
-                    }else{
-                        domingoInicio.style.visibility="collapse";
-                        domingoFinal.style.visibility="collapse";
-                    }
+    
+                    if(produto[0].DomingInicio !== "" && produto[0].DomingInicio !== null && produto[0].DomingFinal !== "" && produto[0].DomingFinal !== null){
+                        var domingoInicio = document.getElementById("domingoInicio");
+                        var domingoFinal = document.getElementById("domingoFinal");
+                        var domingo = document.getElementById("domingo");
+     var pDomingo = document.getElementById("pDomingo");   
+    
+                        domingo.checked = true;
+                        domingoInicio.style.display="block";  
+                        domingoInicio.value = produto[0].DomingInicio;
+                        domingoFinal.style.display="block";  
+                        domingoFinal.value = produto[0].DomingFinal;  
+     pDomingo.style.display="block";  
+                    }  
                 }
     
                 if(response.data.error){
@@ -521,7 +530,7 @@ export default function EditarFuncionario(){
                                     }
                                 }
                             }
-
+            
                             if(sexta.checked === true){
                                 ValidaSexta = "Pendente";
                                 if(sextaInicio.value === "" || sextaInicio.value === null || sextaInicio.value === undefined || sextaInicio.value === "00:00:00"){
@@ -537,7 +546,7 @@ export default function EditarFuncionario(){
                                     }
                                 }
                             }
-
+            
                             if(sabado.checked === true){
                                 ValidaSabado = "Pendente";
                                 if(sabadoInicio.value === "" || sabadoInicio.value === null || sabadoInicio.value === undefined || sabadoInicio.value === "00:00:00"){
@@ -552,7 +561,7 @@ export default function EditarFuncionario(){
                                     }
                                 }
                             }
-
+            
                             if(domingo.checked === true){
                                 ValidaDomingo = "Pendente";
                                 if(domingoInicio.value === "" || domingoInicio.value === null || domingoInicio.value === undefined || domingoInicio.value === "00:00:00"){
@@ -658,7 +667,7 @@ export default function EditarFuncionario(){
                                                                 button.innerText="Salvar";
                                                                 button.removeAttribute("disabled");
                                                             }else if(response.data.message === "Atualizado"){
-                                                                    erro.style.color = "#09ff00";  
+                                                                    erro.style.color = "#006600";  
                                                                     erro.style.fontWeight= "700";    
                                                                     erro.innerText = "Atualizado com Sucesso";
                                                                     setTimeout(() => {window.location.href="/Funcionarios"}, 2000);
@@ -1117,7 +1126,7 @@ export default function EditarFuncionario(){
                                             </div>
                                             <br/>
 
-<div className="col-md-12">
+                                            <div className="col-md-12">
     <p  style={{color:'black',marginBottom:'0px'}}> Dias e horarios de trabalho:</p>
 </div>
 
@@ -1131,10 +1140,10 @@ export default function EditarFuncionario(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSegunda"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-                <input type="time" id="segundaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+                <input type="time" id="segundaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="segundaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="segundaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1149,10 +1158,10 @@ export default function EditarFuncionario(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pTerca"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="tercaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>  
+            <input type="time" id="tercaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>  
             </div>
             <div className="col-md-6">
-            <input type="time" id="tercaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="tercaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1166,10 +1175,10 @@ export default function EditarFuncionario(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pQuarta"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="quartaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="quartaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="quartaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="quartaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1184,10 +1193,10 @@ export default function EditarFuncionario(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pQuinta"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="quintaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="quintaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="quintaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="quintaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1201,10 +1210,10 @@ export default function EditarFuncionario(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSexta"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="sextaInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="sextaInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="sextaFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="sextaFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1218,10 +1227,10 @@ export default function EditarFuncionario(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pSabado"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="sabadoInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="sabadoInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="sabadoFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="sabadoFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>
@@ -1235,10 +1244,10 @@ export default function EditarFuncionario(){
         <div className='row form-group'>                                        
             <p  style={{color:'black',marginBottom:'0px',display:'none'}} id="pDomingo"> Horário de Inicio e Termino do Turno:</p>
             <div className="col-md-6">
-            <input type="time" id="domingoInicio" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="domingoInicio" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>
             <div className="col-md-6">
-            <input type="time" id="domingoFinal" className="form-control" style={{width: '60%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
+            <input type="time" id="domingoFinal" className="form-control" style={{width: '100%',backgroundImage:"linear-gradient(to top, #009fe3  2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #009fe3 1px, rgba(210, 210, 210, 0) 1px)",display:'none'}}/>
             </div>                                  
         </div>
     </div>

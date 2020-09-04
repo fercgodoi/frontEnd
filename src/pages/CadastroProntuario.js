@@ -93,6 +93,9 @@ export default function CadastroProntuario(){
             if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
             }
+            if(produto.AdestradorPrest === "true"){
+                nomeTipo= nomeTipo + " Adestrador";
+            }
   
             Tipo.innerHTML= nomeTipo;
   
@@ -965,7 +968,7 @@ export default function CadastroProntuario(){
                                                                                         else{
                                                                                             if(response2.data.message === "Cadastrado"){
                                                                                                 erro.style.fontWeight= "700"; 
-                                                                                                erro.style.color = "#09ff00";  
+                                                                                                erro.style.color = "#006600";  
                                                                                                 erro.innerHTML= "Cadastrado com Sucesso";
                                                                                                   
                                                                                                 setTimeout(() => {window.location.href="/CadastroProntuario"}, 1000);
@@ -1036,7 +1039,7 @@ export default function CadastroProntuario(){
                                                         else{
                                                             if(response.data.message === "Cadastrado")
                                                             {erro.style.fontWeight= "700";
-                                                                erro.style.color = "#09ff00";      
+                                                                erro.style.color = "#006600";      
                                                                 erro.innerHTML= "Cadastrado com Sucesso";
                                                                 setTimeout(() => {window.location.href="/CadastroProntuario"}, 1000);
                                                             }
@@ -1178,7 +1181,7 @@ export default function CadastroProntuario(){
                                                         else{
                                                             if(response.data.message === "Cadastrado")
                                                             {erro.style.fontWeight= "700";
-                                                                erro.style.color = "#09ff00";      
+                                                                erro.style.color = "#006600";      
                                                                 idVac = response.data.id;
                                                                 erro.innerHTML ="Vacina Cadastrada com Sucesso";
                                                                 nome.setAttribute("disabled", "disabled");
@@ -1336,7 +1339,7 @@ export default function CadastroProntuario(){
                                                         else{
                                                             if(response.data.message === "Cadastrado")
                                                             {erro.style.fontWeight= "700";
-                                                                erro.style.color = "#09ff00";      
+                                                                erro.style.color = "#006600";      
                                                                 idMed = response.data.id;
                                                                 erro.innerHTML ="Medicação cadastrada com sucesso";
                                                                 nome.setAttribute("disabled", "disabled");

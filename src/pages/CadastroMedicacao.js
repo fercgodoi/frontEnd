@@ -95,6 +95,9 @@ export default function CadastroMedicacao(){
             if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
             }
+            if(produto.AdestradorPrest === "true"){
+                nomeTipo= nomeTipo + " Adestrador";
+            }
   
             Tipo.innerHTML= nomeTipo;
   
@@ -204,7 +207,7 @@ export default function CadastroMedicacao(){
                                                     }
                                                     else{
                                                         if(response.data.message === "Cadastrado"){ 
-                                                            erro.style.color = "#09ff00";    
+                                                            erro.style.color = "#006600";    
                                                             erro.style.fontWeight= "700";  
                                                             erro.innerHTML= "Cadastrado com Sucesso";
                                                             setTimeout(() => {window.location.href="/cadastroMedicacao"}, 1000);
@@ -373,19 +376,14 @@ export default function CadastroMedicacao(){
                                             <div className="row">
                                                 <div className="col-md-6">
                                                     <div className="form-group">
-                                                        <input type="text" className="form-control" id="nome" placeholder="Nome"/>
+                                                        <input type="text" className="form-control" id="nome" placeholder="Nome do medicamento"/>
                                                     </div>
                                                 </div>
-                                                <div className="col-md-3">
+                                                <div className="col-md-6">
                                                     <div className="form-group">
-                                                        <input type="text" className="form-control" id="rotina" placeholder="Rotina"/>
+                                                        <input type="text" className="form-control"  id="rg" placeholder="RG Animal"/>
                                                     </div>
-                                                </div>
-                                                <div className="col-md-3">
-                                                    <div className="form-group">
-                                                        <input type="text" className="form-control" id="observ" placeholder="Observações"/>
-                                                    </div>
-                                                </div>
+                                                </div>                                               
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-6">
@@ -393,18 +391,13 @@ export default function CadastroMedicacao(){
                                                         <input type="text" className="form-control" id="lote" placeholder="Lote"/>
                                                     </div>
                                                 </div>
-                                                <div className="col-md-3">
+                                                <div className="col-md-6">
                                                     <div className="form-group">
                                                         <input type="text" className="form-control" id="dose" placeholder="Dose"/>
                                                     </div>
-                                                </div>
-                                                <div className="col-md-3">
-                                                    <div className="form-group">
-                                                        <input type="text" className="form-control"  id="rg" placeholder="RG Animal"/>
-                                                    </div>
-                                                </div>
+                                                </div>                                               
                                             </div>
-                                            <br/>   
+
                                             <div className="row">
                                                 <div className="col-md-3">
                                                     <div className="form-group">
@@ -427,6 +420,21 @@ export default function CadastroMedicacao(){
                                                     </div>
                                                 </div>
                                             </div> 
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <div className="form-group">
+                                                        <textarea type="text"   rows="2" className="form-control" id="rotina" placeholder="Aqui você poderá colocar sua anotação de rotinas exemplo 1 gota a cada 15 dias, 2 pilulas por semana e etc…"/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <div className="form-group">
+                                                        <textarea type="text"  rows="2" className="form-control" id="observ" placeholder="Observações"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            
                                             <br/>   
                                             <div className="row" style={{textAlign: '-webkit-center'}}>
                                                 <div className="col-md-12">

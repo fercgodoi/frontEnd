@@ -281,7 +281,7 @@ export default function CadastroSete(){
                                                         button.innerText="Próximo";
                                                         button.removeAttribute("disabled");
                                                     }else if(response.data.message === "Cadastrado"){
-                                                            erro.style.color = "#09ff00";     
+                                                            erro.style.color = "#006600";     
                                                             erro.style.fontWeight= "700";     
                                                             erro.innerText = "Agora é só logar com a senha que foi enviada pelo email cadastrado !!";
                                                             setTimeout(() => {window.location.href="/CadastroConcluido"}, 2000);
@@ -710,7 +710,7 @@ export default function CadastroSete(){
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>E o email?</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Esse será o seu e-mail para entrar na Plataforma</a>
                                         <input type="text" className="form-control" id="email" placeholder="Email" style={{color:'#009fe3',marginTop:'1%'}} disabled/>
                                     </div>
                                 </div>
@@ -947,7 +947,7 @@ export default function CadastroSete(){
                                     </div>
                                     <div className="col-md-3">
                                         <div className="form-group">
-                                            <input type="text" className="form-control"  placeholder="Data de Emissão"  disabled/>
+                                            <input type="text" className="form-control"  placeholder="Data de Emissão do CRMV"  disabled/>
                                         </div>
                                     </div>
                                     <div className="col-md-3">
@@ -957,11 +957,17 @@ export default function CadastroSete(){
                                     </div>
                                 </div>
                             </div>
+                            <div className="col-md-12">
+                                <div className="form-group">
+                                    <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: "center"}} id="valida"></p>
+                                </div>
+                            </div>
+                           
                             <br/>
                                 <div className="row" style={{textAlign: '-webkit-center'}}>
                                     <div className="col-md-12">
                                         <div className="form-group">
-                                            <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
+                                            
                                             <button type="submit" className=" btn btn-primary btnEditShop" id="buttonProximo" onClick={Proximo}>Proximo</button>
                                         </div>
                                     </div>

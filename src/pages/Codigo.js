@@ -57,7 +57,7 @@ export default function Codigo(){
                               button.innerText="Próximo";
                               button.removeAttribute("disabled");
                             }else if(response.data.message === "Código confirmado"){
-                                erro.style.color = "#09ff00";    
+                                erro.style.color = "#006600";    
                                 erro.style.fontWeight= "700";  
                                 erro.innerText = "Código confirmado";
                                 setTimeout(() => {window.location.href="/Home"}, 1000);

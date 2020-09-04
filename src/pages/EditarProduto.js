@@ -97,6 +97,9 @@ export default function EditarProduto(){
             if(produto.HotelPrest === "Sim"){
                 nomeTipo= nomeTipo + " Hotel";
             }
+                if(produto.AdestradorPrest === "true"){
+                    nomeTipo= nomeTipo + " Adestrador";
+                }
   
             Tipo.innerHTML= nomeTipo;
   
@@ -232,7 +235,7 @@ export default function EditarProduto(){
                                     }
                                     else if(response.data.message === "Alterado"){
                                         erro.innerText = "Produto Alterado com sucesso";
-                                        erro.style.color = "#09ff00"; 
+                                        erro.style.color = "#006600"; 
                                         erro.style.fontWeight= "700";     
                                         button = document.getElementById("buttonSalvar");
                                         nome.setAttribute("disabled", "disabled");

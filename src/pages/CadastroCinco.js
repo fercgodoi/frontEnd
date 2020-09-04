@@ -154,7 +154,7 @@ export default function CadastroCinco(){
                                 console.log('---------------rdsq envio de dados-------------')
                                 console.log(dados)
 
-                                // response = await api.post('/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
+                                // response = await api.post('https://agendaback.herokuapp.com/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
 
                                 response = await api.post('https://agendaback.herokuapp.com/Prestador/CadCincoPrest', dados);
 
@@ -185,7 +185,7 @@ export default function CadastroCinco(){
                                         button.innerText="Próximo";
                                         button.removeAttribute("disabled");
                                     }else if(response.data.message === "Alterado"){
-                                        erro.style.color = "#09ff00";      
+                                        erro.style.color = "#006600";      
                                         erro.style.fontWeight= "700";
                                         erro.innerHTML = "Verificação correta, vamos para a proxima etapa agora !!";
                                         setTimeout(() => {window.location.href="/CadastroSete"}, 2000); 

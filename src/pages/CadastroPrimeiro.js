@@ -72,22 +72,22 @@ export default function CadastroPrimeiro(){
                                 if(response){
                                     if(response.data.message){
                                         if(response.data.message === "cnpj ja existe"){
-                                            erro.innerHTML = "CNPJ ja existente";
+                                            erro.innerHTML = " CNPJ já existente!";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else if(response.data.message === "email ja existe"){
-                                            erro.innerHTML = "Email ja existente";
+                                            erro.innerHTML = "Emailjá existente!";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else if(response.data.message === "numero ja existe"){
-                                            erro.innerHTML = "Celular ja existente";
+                                            erro.innerHTML = "Celular já existente!";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else if(response.data.message === "Enviado"){
-                                            erro.style.color = "#09ff00";     
+                                            erro.style.color = "#006600";     
                                             erro.style.fontWeight= "700"; 
                                             localStorage.setItem('token', response.data.token);
-                                            erro.innerHTML = "Foi enviado um código por email para que digite na tela que será direcionado";
+                                            erro.innerHTML = "Você vai receber um código no seu e-mail e/ou SMS para confirmação!";
                                             setTimeout(() => {window.location.href="/CadastroSegundo"}, 2000);                                                                               
                                         }
                                     }
@@ -98,7 +98,7 @@ export default function CadastroPrimeiro(){
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else if(response.data.error === "nao deu"){
-                                            erro.innerHTML = "Verifique o email digitado";
+                                            erro.innerHTML = "Verifique o e-mail digitado!";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }
@@ -108,7 +108,7 @@ export default function CadastroPrimeiro(){
                         }
                     }
                     else{
-                        erro.innerHTML = "CNPJ inválido";
+                        erro.innerHTML = "CNPJ inválido!";
                         button.innerText="Próximo";
                         button.removeAttribute("disabled");
                     }                    
@@ -260,7 +260,7 @@ export default function CadastroPrimeiro(){
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Certo, agora para completar as validações de segurança adicione o celular da empresa </a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Certo, agora para completar as validações de segurança adicione o celular da empresa. </a>
                                         <InputMask type="text"  mask = "(99) 99999-9999" className="form-control" placeholder="Celular" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="celular" />
                                     </div>
                                 </div>

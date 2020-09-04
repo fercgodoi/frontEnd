@@ -96,6 +96,9 @@ export default function EditarPerfil(){
             if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
             }
+            if(produto.AdestradorPrest === "true"){
+                nomeTipo= nomeTipo + " Adestrador";
+            }
   
             Tipo.innerHTML= nomeTipo;
   
@@ -123,6 +126,7 @@ export default function EditarPerfil(){
     var ButtonPetShop="false";
     var ButtonHotel ="false";
     var ButtonPasseador = "false";
+    var ButtonAdestrador = "false";
     var btnCEP = "false";
     var Latitude = "";
     var Longitude = "";
@@ -253,6 +257,19 @@ export default function EditarPerfil(){
                     buttonPasseador.style.border="1px solid #009fe3";
                     buttonPasseador.style.background="#fff";
                     ButtonPasseador="false";
+                }
+
+                var buttonAdestrador= document.getElementById("Adestrador");
+                if(dados[0].AdestradorPrest  === "true"){
+                    buttonAdestrador.style.backgroundColor="#009fe3";
+                    buttonAdestrador.style.color="#fff";
+                    ButtonAdestrador="true";
+                    
+                }else{
+                    buttonAdestrador.style.color="#009fe3";
+                    buttonAdestrador.style.border="1px solid #009fe3";
+                    buttonAdestrador.style.background="#fff";
+                    ButtonAdestrador="false";
                 }
                 
 
@@ -638,7 +655,7 @@ pSabado.style.display="block";
                 erro.innerHTML = "Preencha o campo Número Empresa";
                 button.innerText="Salvar";
                 button.removeAttribute("disabled");
-            }else if (ButtonClinica === "false" && ButtonPetShop === "false" && ButtonHotel=== "false" && ButtonPasseador=== "false") {
+            }else if (ButtonClinica === "false" && ButtonPetShop === "false" && ButtonHotel=== "false" && ButtonPasseador=== "false" && ButtonAdestrador=== 'false') {
                 erro.innerHTML = "Escolha uma atuação";
                 button.innerText="Salvar";
                 button.removeAttribute("disabled");
@@ -838,7 +855,7 @@ pSabado.style.display="block";
                         let response="";
                         console.log(idResp);
                         try {
-                            response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarPrest',{EmailPrest:email,EmergenciaPrest:Emergencia,CnpjPrest:cnpj,CelularPrest:celular,ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,idCont:idConta,SegundInicio:segundaInicio.value,SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value,idHorarioPrest:idHorarioPrest,NomeFantsPrest:NomeFantasia,PetShopPrest:ButtonPetShop,ClinicaPrest:ButtonClinica,PasseadorPrest:ButtonPasseador,HotelPrest:ButtonHotel,CepPrest:cep,NumPrest:numero,descricaoPrest:desc,latitude:Latitude,longitude:Longitude,NomeResp:nomeResp,CpfResp:cpfResp,CelResp:numResp,idResp:idResp,EmailFunc:emailResp,idFunc:idFunc});
+                            response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarPrest',{EmailPrest:email,EmergenciaPrest:Emergencia,CnpjPrest:cnpj,CelularPrest:celular,ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,idCont:idConta,SegundInicio:segundaInicio.value,SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value,idHorarioPrest:idHorarioPrest,NomeFantsPrest:NomeFantasia,PetShopPrest:ButtonPetShop,ClinicaPrest:ButtonClinica,PasseadorPrest:ButtonPasseador,AdestradorPrest:ButtonAdestrador,HotelPrest:ButtonHotel,CepPrest:cep,NumPrest:numero,descricaoPrest:desc,latitude:Latitude,longitude:Longitude,NomeResp:nomeResp,CpfResp:cpfResp,CelResp:numResp,idResp:idResp,EmailFunc:emailResp,idFunc:idFunc});
                         } catch (error) {
                             console.log(error);               
                         }
@@ -848,7 +865,7 @@ pSabado.style.display="block";
                         if(response){
                             if(response.data.message){
                                 if(response.data.message === "Alterado"){
-                                    erro.style.color = "#09ff00";      
+                                    erro.style.color = "#006600";      
                                     erro.style.fontWeight= "700";
                                     erro.innerHTML="Aletrado com sucesso";
                                     setTimeout(() => {window.location.href="/EditarPerfil"}, 2000);
@@ -1099,7 +1116,21 @@ pSabado.style.display="block";
             ButtonPasseador="true";
         }
     }
+    
 
+    function Adestrador(){
+        var button = document.getElementById("Adestrador");
+        if(ButtonAdestrador === "true"){
+            button.style.color="#009fe3";
+            button.style.border="1px solid #009fe3";
+            button.style.background="#fff";
+            ButtonAdestrador="false";
+        }else{
+            button.style.backgroundColor="#009fe3";
+            button.style.color="#fff";
+            ButtonAdestrador="true";
+        }
+    }
     
      //Pesquisa do Logitude
     async function getLongitudeInfo(){
@@ -1893,6 +1924,11 @@ pSabado.style.display="block";
                                                     <button type="submit" className="btnCadFunc" id="Passeador" onClick={Passeador}>Passeador</button>
                                                     <div className="clearfix"></div>                                                   
                                                 </div> 
+                                                <div className="col-md-3">
+                                                    <button type="submit" className="btnCadFunc" id="Adestrador" onClick={Adestrador}>Adestrador</button>
+                                                    <div className="clearfix"></div>                                                   
+                                                </div> 
+                                                Adestrador
 
                                                 <div className="col-md-12">
                                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px',marginTop:'1%',textAlign: 'center'}} id="clinicaValida"></p>                                                                          

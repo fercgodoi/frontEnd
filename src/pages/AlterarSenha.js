@@ -97,7 +97,7 @@ export default function AlterarSenha(){
                                             button.removeAttribute("disabled");
                                         }
                                         else if(response.data.message === "deu certo"){
-                                            erro.style.color = "#09ff00";   
+                                            erro.style.color = "#006600";   
                                             erro.style.fontWeight= "700";   
                                             erro.innerText = "Alteramos sua senha, agora faça login.";
                                             setTimeout(() => {window.location.href="/"}, 2000);

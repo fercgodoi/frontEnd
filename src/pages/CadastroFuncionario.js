@@ -96,6 +96,9 @@ export default function CadastroFuncionario(){
             if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
             }
+            if(produto.AdestradorPrest === "true"){
+                nomeTipo= nomeTipo + " Adestrador";
+            }
   
             Tipo.innerHTML= nomeTipo;
   
@@ -376,7 +379,7 @@ export default function CadastroFuncionario(){
                                                             button.removeAttribute("disabled");
                                                         }
                                                         else if(response.data.message === "Cadastrado"){
-                                                                erro.style.color = "#09ff00"; 
+                                                                erro.style.color = "#006600"; 
                                                                 erro.style.fontWeight= "700";     
                                                                 erro.innerText = "Cadastrado com Sucesso";
                                                                 setTimeout(() => {window.location.href="/CadastroFuncionario"}, 2000);

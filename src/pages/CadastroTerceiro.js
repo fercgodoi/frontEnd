@@ -20,6 +20,7 @@ export default function CadastroTerceiro(){
     var ButtonPetShop="false";
     var ButtonHotel ="false";
     var ButtonPasseador = "false";
+    var ButtonAdestrador = "false";
     var btnCEP = "false";
     var Latitude = "";
     var Longitude = "";
@@ -94,7 +95,7 @@ export default function CadastroTerceiro(){
                             button.removeAttribute("disabled");
                         }
                         else{
-                            if (ButtonClinica === "false" && ButtonPetShop === "false" && ButtonHotel=== "false" && ButtonPasseador=== "false") {
+                            if (ButtonClinica === "false" && ButtonPetShop === "false" && ButtonHotel=== "false" && ButtonPasseador=== "false" && ButtonAdestrador=== "false") {
                                 erro.innerHTML = "Escolha uma atuação";
                                 button.innerText="Próximo";
                                 button.removeAttribute("disabled");
@@ -224,7 +225,7 @@ export default function CadastroTerceiro(){
                                         
                                         let response="";
                                         try {
-                                            response = await api.post('https://agendaback.herokuapp.com/Prestador/CadTercPrest',{NomeFantsPrest:NomeFantasia,PetShopPrest:ButtonPetShop,ClinicaPrest:ButtonClinica,PasseadorPrest:ButtonPasseador,HotelPrest:ButtonHotel,CepPrest:cep,NumPrest:numero,descricaoPrest:desc,latitude:Latitude,longitude:Longitude,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value});
+                                            response = await api.post('https://agendaback.herokuapp.com/Prestador/CadTercPrest',{NomeFantsPrest:NomeFantasia,AdestradorPrest:ButtonAdestrador,PetShopPrest:ButtonPetShop,ClinicaPrest:ButtonClinica,PasseadorPrest:ButtonPasseador,HotelPrest:ButtonHotel,CepPrest:cep,NumPrest:numero,descricaoPrest:desc,latitude:Latitude,longitude:Longitude,SegundInicio:segundaInicio.value, SegundFinal:segundaFinal.value, TercaInicio:tercaInicio.value, TercaFinal:tercaFinal.value, QuartInicio:quartaInicio.value, QuartFinal:quartaFinal.value, QuintInicio:quintaInicio.value, QuintFinal:quintaFinal.value, SextInicio:sextaInicio.value, SextFinal:sextaFinal.value, SabInicio:sabadoInicio.value, SabFinal:sabadoFinal.value, DomingInicio:domingoInicio.value, DomingFinal:domingoFinal.value});
                                         } catch (error) {
                                             console.log(error);               
                                         }
@@ -232,9 +233,9 @@ export default function CadastroTerceiro(){
                                         if(response){
                                             if(response.data.message){
                                                 if(response.data.message === "Alterado"){
-                                                    erro.style.color = "#09ff00"; 
+                                                    erro.style.color = "#006600"; 
                                                     erro.style.fontWeight= "700";     
-                                                    erro.innerHTML = "Parabens mais uma etapa concluida, vamos para a proxima !!";
+                                                    erro.innerHTML = "Parabéns mais uma etapa concluida, vamos para a proxima !!";
                                                     setTimeout(() => {window.location.href="/CadastroQuatro"}, 2000); 
                                                 }
                                             }
@@ -325,7 +326,19 @@ export default function CadastroTerceiro(){
             ButtonPasseador="true";
         }
     }
-
+    function Adestrador(){
+        var button = document.getElementById("Adestrador");
+        if(ButtonAdestrador === "true"){
+            button.style.color="#009fe3";
+            button.style.border="1px solid #009fe3";
+            button.style.background="#fff";
+            ButtonAdestrador="false";
+        }else{
+            button.style.backgroundColor="#009fe3";
+            button.style.color="#fff";
+            ButtonAdestrador="true";
+        }
+    }
     
      //Pesquisa do Logitude
     async function getLongitudeInfo(){
@@ -546,7 +559,7 @@ export default function CadastroTerceiro(){
                                 <div className="col-md-12">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Qual é o seu nome fantasia?</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Qual é a sua Razão Social ou Nome fantasia?</a>
                                         <input type="text" className="form-control" id="NomeFantasia" placeholder="Nome Fantasia" style={{color:'#009fe3',marginTop:'1%'}}/>
                                     </div>
                                 </div>
@@ -556,7 +569,7 @@ export default function CadastroTerceiro(){
                                 <div className="col-md-12">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Descreve sua empresa !!</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Descreva a sua Empresa!</a>
                                         <textarea class="form-control" rows="2" id="desc" placeholder="Descrição" style={{color:'#009fe3',marginTop:'1%'}}></textarea>
                                     </div>
                                 </div>
@@ -566,31 +579,36 @@ export default function CadastroTerceiro(){
                                 <div className="col-md-12">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Perfeito! Qual sua área de atuação?</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Qual sua área de atuação?</a>
                                     </div>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-md-3">                                                 
+                            <div className="row" style={{justifyContent: 'center'}}>
+                                <div className="col-md-2">                                                 
                                     <br/>
                                     <button type="submit" className="btnCadFunc" id="Clinica" onClick={Clinica}>Clinica</button>
                                     <div className="clearfix"></div>
                                 </div>
-                                <div className="col-md-3">
+                                <div className="col-md-2">
                                     <br/>
                                     <button type="submit" className="btnCadFunc" id="PetShop"  onClick={PetShop}>PetShop</button>
                                     <div className="clearfix"></div>                                                   
                                 </div>
-                                <div className="col-md-3">
+                                <div className="col-md-2">
                                     <br/>
                                     <button type="submit" className="btnCadFunc" id="Hotel" onClick={Hotel}>Hotel</button>
                                     <div className="clearfix"></div>                                                   
                                 </div> 
-                                <div className="col-md-3">
+                                <div className="col-md-2">
                                     <br/>
                                     <button type="submit" className="btnCadFunc" id="Passeador" onClick={Passeador}>Passeador</button>
                                     <div className="clearfix"></div>                                                   
-                                </div>                           
+                                </div>   
+                                <div className="col-md-2">
+                                    <br/>
+                                    <button type="submit" className="btnCadFunc" id="Adestrador" onClick={Adestrador}>Adestrador</button>
+                                    <div className="clearfix"></div>                                                   
+                                </div>                          
                             </div>
                             <br/>
 
@@ -724,7 +742,7 @@ export default function CadastroTerceiro(){
 
 <div className="row">
     <div className="col-md-12">
-        <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
+        <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que sua empresa na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
     </div>
 </div>
 

@@ -47,7 +47,7 @@ export default function CdastroQuatro(){
             button.innerText="Próximo";
             button.removeAttribute("disabled");
         }else{
-            erro.style.color = "#09ff00";    
+            erro.style.color = "#006600";    
             erro.style.fontWeight= "700";  
             erro.innerHTML = "Você será direcionado para próxima etapa.";
             setTimeout(() => {window.location.href="/CadastroCinco"}, 2000);  
@@ -82,6 +82,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled"); 
@@ -129,6 +131,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled");   
@@ -177,6 +181,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled");  
@@ -225,6 +231,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled"); 
@@ -273,6 +281,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled");  
@@ -321,6 +331,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled"); 
@@ -369,6 +381,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled"); 
@@ -418,6 +432,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled");  
@@ -467,6 +483,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled");    
@@ -516,6 +534,8 @@ export default function CdastroQuatro(){
                             valida1 = "true";
                             nome.style.color="#009fe3";
                             valor.style.color="#009fe3";
+                            erro.style.color = "#006600";
+                            erro.style.fontWeight= "700"; 
                             erro.innerHTML="Adicionado com sucesso";
                             // nome.setAttribute("disabled","disabled");
                             // valor.setAttribute("disabled","disabled");    

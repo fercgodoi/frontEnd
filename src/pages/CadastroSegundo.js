@@ -3,6 +3,7 @@ import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
+// import seta from "../img/seta.png";
 
 import api from "../services/api2";
 
@@ -45,7 +46,7 @@ export default function CadastroSegundo(){
                         button.innerText="Próximo";
                         button.removeAttribute("disabled");
                     }else if(response.data.message === "Alterado"){
-                        erro.style.color = "#09ff00"; 
+                        erro.style.color = "#006600"; 
                         erro.style.fontWeight= "700";     
                         erro.innerHTML = "Verificação correta, vamos para a próxima etapa agora!!";
                         setTimeout(() => {window.location.href="/CadastroTerceiro"}, 2000); 
@@ -75,10 +76,11 @@ export default function CadastroSegundo(){
                 <div className="row">
                     <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
                         <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
-                            <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 2</h4>
+                             <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}> Passo 2</h4>
+                             {/* <img className="card-title" style={{fontWeight:'600',color:'#fff',float:'left'}} src={seta}/>  */}
                         </div>
                         <div className="card-body">
-                            <div className="row">
+                            <div className="row">                                
                                 <div className="col-md-12">
                                     <div className="form-group">                 
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img>                    

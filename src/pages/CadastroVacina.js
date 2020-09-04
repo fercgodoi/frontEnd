@@ -1,4 +1,5 @@
 import React from 'react';
+import CurrencyInput from 'react-currency-input';
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
@@ -94,6 +95,9 @@ export default function CadastroVacina(){
             }
             if(produto.HotelPrest === "true"){
                 nomeTipo= nomeTipo + " Hotel";
+            }
+            if(produto.AdestradorPrest === "true"){
+                nomeTipo= nomeTipo + " Adestrador";
             }
   
             Tipo.innerHTML= nomeTipo;
@@ -200,7 +204,7 @@ export default function CadastroVacina(){
                                                         button.innerText="Próximo";
                                                         button.removeAttribute("disabled");
                                                     }else if(response.data.message === "Cadastrado"){
-                                                        erro.style.color = "#09ff00";      
+                                                        erro.style.color = "#006600";      
                                                         erro.style.fontWeight= "700";
                                                             erro.innerHTML= "Cadastrado com Sucesso";
                                                             setTimeout(() => {window.location.href="/CadastroVacina"}, 2000);
@@ -380,9 +384,10 @@ export default function CadastroVacina(){
                                                 </div>
                                                 <div className="col-md-6">
                                                     <div className="form-group">
-                                                        <input type="text" className="form-control" id="dose" placeholder="Dose"/>
+                                                        <input type="text" className="form-control" id="rg" placeholder="RG Animal"/>
                                                     </div>
                                                 </div>
+                                                
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-6">
@@ -392,15 +397,22 @@ export default function CadastroVacina(){
                                                 </div>
                                                 <div className="col-md-3">
                                                     <div className="form-group">
-                                                        <input type="text" className="form-control" id="rg" placeholder="RG Animal"/>
+                                                        <input type="text" className="form-control" id="dose" placeholder="Dose"/>
                                                     </div>
                                                 </div>
+                                               
                                                 <div class="input-group col-md-3">
-                                                    <div class="input-group-prepend">
+                                                    {/* <div class="input-group-prepend">
                                                         <span class="input-group-text" style={{color:'#009fe3'}}>R$</span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="valor" placeholder="Preço Unitário"/>
+                                                    <input type="text" class="form-control" id="valor" placeholder="Preço Unitário"/> */}
+                                                    <div className="input-group-prepend">
+                                                        <span className="input-group-text">R$</span>
+                                                    </div>
+                                                    {/* <input type="text" className="form-control"  id="inputValor1" placeholder="Valor" /> */}
+                                                     <CurrencyInput  className="form-control"  id="valor" precision="2" decimalSeparator="," thousandSeparator="."/>
                                                 </div>
+                                              
                                                
                                             </div>
                                             <br/>   

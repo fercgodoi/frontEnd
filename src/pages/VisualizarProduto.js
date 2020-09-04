@@ -98,6 +98,9 @@ export default function Visualizar(){
             if(produto.HotelPrest === "Sim"){
                 nomeTipo= nomeTipo + " Hotel";
             }
+            if(produto.AdestradorPrest === "true"){
+                nomeTipo= nomeTipo + " Adestrador";
+            }
   
             Tipo.innerHTML= nomeTipo;
   
