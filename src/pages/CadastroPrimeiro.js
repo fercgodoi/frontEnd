@@ -26,13 +26,13 @@ export default function CadastroPrimeiro(){
         button.setAttribute("disabled","disabled");
 
         if (email === "" || email === null || email === undefined ) {
-            erro.innerHTML = "Preencha seu email";
+            erro.innerHTML = "Preencha seu email!!";
             button.innerText="Próximo";
             button.removeAttribute("disabled");
         }
         else{
             if(email.indexOf("@") === -1 || email.indexOf(".") === -1  ){
-                erro.innerHTML = "Email inválido";
+                erro.innerHTML = "E-mail inválido!!";
                 button.innerText="Próximo";
                 button.removeAttribute("disabled");
             }
@@ -49,13 +49,13 @@ export default function CadastroPrimeiro(){
                     erro.innerHTML ="";
                     if(validarCNPJ(novoCNPJ)){
                         if (celular === "" || celular === null || celular === undefined ) {
-                            erro.innerHTML = "Preencha seu celular";
+                            erro.innerHTML = "Preencha seu celular!!";
                             button.innerText="Próximo";
                             button.removeAttribute("disabled");
                         } 
                         else{
                             if(ButtonSim === "false" && ButtonNao === "false"){ 
-                                erro.innerHTML = "Selecione se é WhatsApp";
+                                erro.innerHTML = "Selecione se é WhatsApp!!";
                                 button.innerText="Próximo";
                                 button.removeAttribute("disabled");
                             }else{
@@ -72,15 +72,21 @@ export default function CadastroPrimeiro(){
                                 if(response){
                                     if(response.data.message){
                                         if(response.data.message === "cnpj ja existe"){
-                                            erro.innerHTML = " CNPJ já existente!";
+                                            erro.style.color = "#006600";     
+                                            erro.style.fontWeight= "700"; 
+                                            erro.innerHTML = "CNPJ já cadastrado em nossa empresa!!";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else if(response.data.message === "email ja existe"){
-                                            erro.innerHTML = "Emailjá existente!";
+                                            erro.style.color = "#006600";     
+                                            erro.style.fontWeight= "700"; 
+                                            erro.innerHTML = "Email já cadastrado em nossa empresa!";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else if(response.data.message === "numero ja existe"){
-                                            erro.innerHTML = "Celular já existente!";
+                                            erro.style.color = "#006600";     
+                                            erro.style.fontWeight= "700"; 
+                                            erro.innerHTML = "Celular já cadastrado em nossa empresa!";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else if(response.data.message === "Enviado"){
@@ -94,7 +100,7 @@ export default function CadastroPrimeiro(){
 
                                     if(response.data.error){
                                         if(response.data.error === "error sql"){
-                                            erro.innerHTML = "Tente Novamente";
+                                            erro.innerHTML = "Tente Novamente !!";
                                             button.innerText="Próximo";
                                             button.removeAttribute("disabled");
                                         }else if(response.data.error === "nao deu"){
@@ -250,7 +256,7 @@ export default function CadastroPrimeiro(){
                                 <div className="col-md-12">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Precisamos do seu CNPJ para confirmar o seu cadastro! </a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Precisamos do seu CNPJ para confirmar o cadastro! </a>
                                         <InputMask type="text"  mask = "99.999.999/9999-99" className="form-control" id="CNPJ" placeholder="CNPJ"  style={{color:'#009fe3',marginTop:'1%'}} maskChar=""/>
                                     </div>
                                 </div>
@@ -260,7 +266,7 @@ export default function CadastroPrimeiro(){
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Certo, agora para completar as validações de segurança adicione o celular da empresa. </a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Celular da empresa. </a>
                                         <InputMask type="text"  mask = "(99) 99999-9999" className="form-control" placeholder="Celular" style={{color:'#009fe3',marginTop:'1%'}} maskChar="" id="celular" />
                                     </div>
                                 </div>

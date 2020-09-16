@@ -132,6 +132,7 @@ export default function VisualizarVacna(){
             } catch (error) {
                 console.log(error);               
             }  
+            console.log(response)
 
             if(response){
                 if(response.data.response){
@@ -368,7 +369,7 @@ export default function VisualizarVacna(){
                                                 </div>
                                                 <div className="col-md-3">
                                                     <div className="form-group">
-                                                        <input type="date" id="dataApliVacina" className="form-control" disabled/>
+                                                        <input type="text" id="dataApliVacina" className="form-control" disabled/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
@@ -378,7 +379,7 @@ export default function VisualizarVacna(){
                                                 </div>
                                                 <div className="col-md-3">
                                                     <div className="form-group">
-                                                        <input type="date" id="dataProxVacina" className="form-control" disabled/>
+                                                        <input type="text" id="dataProxVacina" className="form-control" disabled/>
                                                     </div>
                                                 </div>
                                             </div> 

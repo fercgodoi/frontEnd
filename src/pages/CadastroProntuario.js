@@ -16,7 +16,7 @@ import medicacao from "../img/Icon/medicacaoAzul.png";
 
 export default function CadastroProntuario(){
     localStorage.setItem('Codigo', "");
-    function Validar(){
+   async function Validar(){
         var validar  = localStorage.getItem('token');
         var dados = localStorage.getItem('Acesso');
         if (validar === "" || validar === null || validar === undefined) {    
@@ -24,6 +24,22 @@ export default function CadastroProntuario(){
         }else if (dados === "" || dados === null || dados === undefined) {    
                 setTimeout(() => {window.location.href="/"});        
             }else{
+
+                let response="";
+                try {
+                    response = await api2.post('https://agendaback.herokuapp.com/Funcionario/VetouNao');
+                } catch (error) {
+                    console.log(error);               
+                }  
+
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "Nao tem"){
+                            setTimeout(() => {window.location.href="/Home"});   
+                        }
+                    }
+                }
+            
                 var Calen = document.getElementById("Calen");
                 var Func= document.getElementById("Func");
                 // var Shop= document.getElementById("Shop");

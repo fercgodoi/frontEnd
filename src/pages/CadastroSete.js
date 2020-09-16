@@ -7,6 +7,7 @@ import gatinho from "../img/Icon/gatinho.png";
 // import InputMask from 'react-input-mask';
 
 import api from "../services/api2";
+import seta from "../img/seta.png";
 
 export default function CadastroSete(){
     function Validar(){
@@ -283,7 +284,7 @@ export default function CadastroSete(){
                                                     }else if(response.data.message === "Cadastrado"){
                                                             erro.style.color = "#006600";     
                                                             erro.style.fontWeight= "700";     
-                                                            erro.innerText = "Agora é só logar com a senha que foi enviada pelo email cadastrado !!";
+                                                            erro.innerText = "Agora é só logar com a senha que foi enviada no e-mail cadastrado !!";
                                                             setTimeout(() => {window.location.href="/CadastroConcluido"}, 2000);
                                                         }else if(response.data.message === "Ja existe CRMV"){
                                                                 erro.innerText = "CRMV existente";
@@ -298,7 +299,7 @@ export default function CadastroSete(){
                                             
                                             if(response.data.error){
                                                 if(response.data.error === "error"){
-                                                    erro.innerText = "Não foi possivel enviar a senha pelo email cadastrado";
+                                                    erro.innerText = "Não foi possivel enviar a senha pelo e-mail cadastrado";
                                                     button.innerText="Próximo";
                                                     button.removeAttribute("disabled");
                                                 }else if(response.data.error === "falha na autenticação do token"){
@@ -667,6 +668,10 @@ export default function CadastroSete(){
         }
     }
 
+    function Voltar(){
+        window.location.href="/CadastroCinco";
+    }
+
     return(
         <div>
             <div className="content">
@@ -674,7 +679,7 @@ export default function CadastroSete(){
                     <div className="row">
                         <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
                         <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
-                            <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 6</h4>
+                            <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>  <img  style={{width:'15px',color:'#fff',float:'left'}} onClick={Voltar} src={seta}/>Passo 6</h4>
                         </div>
                             <div className="card-body">
                                 <div className="row">
@@ -710,7 +715,7 @@ export default function CadastroSete(){
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Esse será o seu e-mail para entrar na Plataforma</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Esse será o seu e-mail cadastrado entrar na Plataforma</a>
                                         <input type="text" className="form-control" id="email" placeholder="Email" style={{color:'#009fe3',marginTop:'1%'}} disabled/>
                                     </div>
                                 </div>

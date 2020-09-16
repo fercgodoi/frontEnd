@@ -6,6 +6,8 @@ import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
 import api from "../services/api2";
 
+import seta from "../img/seta.png";
+
 export default function CadastroTerceiro(){
     function Validar(){
         localStorage.setItem('Codigo', "");
@@ -235,7 +237,7 @@ export default function CadastroTerceiro(){
                                                 if(response.data.message === "Alterado"){
                                                     erro.style.color = "#006600"; 
                                                     erro.style.fontWeight= "700";     
-                                                    erro.innerHTML = "Parabéns mais uma etapa concluida, vamos para a proxima !!";
+                                                    erro.innerHTML = "Parabéns!! Mais uma etapa concluida, vamos para a proxima !!";
                                                     setTimeout(() => {window.location.href="/CadastroQuatro"}, 2000); 
                                                 }
                                             }
@@ -545,6 +547,10 @@ export default function CadastroTerceiro(){
             pDomingo.style.display="none";
         }        
     }
+
+    function Voltar(){
+        window.location.href="/CadastroSegundo";
+    }
     return(
     <div>
         <div className="content">
@@ -552,7 +558,7 @@ export default function CadastroTerceiro(){
                 <div className="row">
                     <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
                     <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
-                        <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 3</h4>
+                        <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>  <img  style={{width:'15px',color:'#fff',float:'left'}} onClick={Voltar} src={seta}/>Passo 3</h4>
                     </div>
                         <div className="card-body">
                             <div className="row">

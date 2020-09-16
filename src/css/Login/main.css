@@ -40,6 +40,35 @@
   src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
 } */
 
+.Titulo{
+  font-size: 25px;
+  color:#009fe3;
+  text-align: center;
+  margin-right: 15%;
+}
+
+.Logo{
+  width:90px; 
+  text-align: center; 
+  margin: 0 auto; 
+  margin-top: 10px;
+}
+
+.Div{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.Paragrafo{
+  text-align: justify;
+  font-size: 14px;
+}
+
+.Topico{
+  font-weight: bold; 
+  font-size: 20px;
+  text-align: center;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -245,7 +274,7 @@ iframe {
   min-height: 100vh;
   display: block;
   background-color: #fff;
-  padding: 10% 55px 03% 55px;
+  padding: 06% 55px 03% 55px;
 }
 
 .login100-form-title {

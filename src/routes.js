@@ -34,8 +34,8 @@ import VisualizarProntuario from "./pages/VisualizarProntuario";
 import VisualizarVacina from "./pages/VisualizarVacina";
 import EditarPerfil from "./pages/EditarPerfil";
 
-import teste from "./pages/teste";
-import Teste from "./pages/teste";
+
+import Termo from "./pages/Termo";
 
 const Routes = () => (
     <BrowserRouter>
@@ -104,7 +104,7 @@ const Routes = () => (
           
           <Route exact path="/VisualizarVacina"  component={VisualizarVacina} />
 
-          <Route exact path="/teste"  component={Teste} />
+          <Route exact path="/Termo"  component={Termo} />
 
           <Route exact path="/EditarPerfil"  component={EditarPerfil} />
       </Switch>

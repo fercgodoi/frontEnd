@@ -18,7 +18,7 @@ import medicacao from "../img/Icon/medicacaoBranco.png";
 export default function CadastroMedicacao(){
     localStorage.setItem('Codigo', "");
     
-    function Validar(){
+    async function Validar(){
         var validar  = localStorage.getItem('token');
         var dados = localStorage.getItem('Acesso');
         if (validar === "" || validar === null || validar === undefined) {    
@@ -26,6 +26,21 @@ export default function CadastroMedicacao(){
         }else if (dados === "" || dados === null || dados === undefined) {    
             setTimeout(() => {window.location.href="/"});        
         }else{
+            let response="";
+            try {
+                response = await api.post('https://agendaback.herokuapp.com/Funcionario/VetouNao');
+            } catch (error) {
+                console.log(error);               
+            }  
+
+            if(response){
+                if(response.data.message){
+                    if(response.data.message === "Nao tem"){
+                        setTimeout(() => {window.location.href="/Home"});   
+                    }
+                }
+            }
+            
             var Calen = document.getElementById("Calen");
             var Func= document.getElementById("Func");
             // var Shop= document.getElementById("Shop");
@@ -189,7 +204,7 @@ export default function CadastroMedicacao(){
 
                                         let response="";
                                         try {
-                                            response = await api.post('https://agendaback.herokuapp.com/Medicamento/CadastroMed', {rgPet: rg,statusMed: "Vigente" ,doseMed: dose,rotinaMed: rotina,dataIniMed: dataIni,dataFinMed: dataProx,nomeMed: nome,loteMed: lote,observacaoMed:observ });
+                                            response = await api.post('https://agendaback.herokuapp.com/Medicamento/CadastroMedInserir', {rgPet: rg,statusMed: "Vigente" ,doseMed: dose,rotinaMed: rotina,dataIniMed: dataIni,dataFinMed: dataProx,nomeMed: nome,loteMed: lote,observacaoMed:observ });
                                         } catch (error) {
                                             console.log(error);               
                                         }
@@ -238,10 +253,63 @@ export default function CadastroMedicacao(){
 
     function Edit(){
         window.location.href="/EditarPerfil";
-      }
-      function Login(){
+    }
+    function Login(){
         window.location.href="/";
-      }
+    }
+
+    async function Animal(){
+        var rgPet = document.getElementById("rg");
+        var Peso = document.getElementById("Peso");
+        var Sexo = document.getElementById("Sexo");
+        var dataAniver = document.getElementById("dataAniver");
+        var Cadastrado = document.getElementById("Castrado");
+        var erro = document.getElementById("valida");
+        
+
+        erro.innerHTML="";
+
+        if(rgPet.value.length === 6 ){
+            let response="";
+            try {
+                response = await api.post('https://agendaback.herokuapp.com/Pet/BuscarPet', {rgPet: rgPet.value});
+            } catch (error) {
+                console.log(error);               
+            }
+            
+            if(response){
+                console.log(response);
+
+                if(response.data.response){
+                    var dados = response.data.response.Pet[0];
+                    var dateInicio= dados.aniverPet.split('', 10);
+                    var dateCorreto = dateInicio[8] + dateInicio[9] +  dateInicio[7] + dateInicio[5] + dateInicio[6] +  dateInicio[4] +    dateInicio[0]  + dateInicio[1] + dateInicio[2] +  dateInicio[3] ;
+                    
+                    Peso.value= dados.pesoPet;
+                    Sexo.value= dados.sexoPet;
+                    dataAniver.value= dateCorreto;
+                    
+                    if(dados.dataCastPet === "0000-00-00"){
+                        Cadastrado.value= "Não castrado";
+                    }else{
+                        Cadastrado.value= "Castrado";
+                    }                   
+
+                }else if(response.data.message){
+                    if(response.data.message === "Nao existe"){
+                        erro.innerHTML= "Pet não encontrado";
+                    }
+                }else if(response.data.error){
+                    if(response.data.error === "error sql"){
+                        rgPet.value = "Tente Novamente";
+                    } else if(response.data.error === "falha na autenticação do token"){
+                        rgPet.value = "Tente Novamente";
+                        setTimeout(() => {window.location.href="/"}, 2000);
+                    }
+                }
+            }
+        }
+    }
 
     return(
 
@@ -381,10 +449,55 @@ export default function CadastroMedicacao(){
                                                 </div>
                                                 <div className="col-md-6">
                                                     <div className="form-group">
-                                                        <input type="text" className="form-control"  id="rg" placeholder="RG Animal"/>
+                                                        <input type="text" className="form-control"  id="rg" onChange={Animal} placeholder="RG Animal"/>
                                                     </div>
                                                 </div>                                               
                                             </div>
+
+                                            <div className="row">
+                                                <div className="col-md-1">
+                                                    <div className="form-group">
+                                                        <input type="text" className="form-control" placeholder="Peso" disabled/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-1">
+                                                    <div className="form-group">
+                                                        <input type="text" className="form-control"  id="Peso" disabled/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-1">
+                                                    <div className="form-group">
+                                                    <input type="text" className="form-control" placeholder="Castrado" disabled/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-3">
+                                                    <div className="form-group">
+                                                    <input type="text" className="form-control"  id="Castrado" disabled/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-1">
+                                                    <div className="form-group">
+                                                    <input type="text" className="form-control" placeholder="Sexo" disabled/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-1">
+                                                    <div className="form-group">
+                                                    <input type="text" className="form-control"  id="Sexo" disabled/>
+                                                    </div>
+                                                </div>
+                                               
+                                                <div className="col-md-2">
+                                                    <div className="form-group">
+                                                        <input type="text" className="form-control"  placeholder="Data de Nascimento" disabled/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-2">
+                                                    <div className="form-group">
+                                                        <input type="text" min="2020-04-01" id="dataAniver" className="form-control" disabled/>
+                                                    </div>
+                                                </div>
+                                            </div> 
+
                                             <div className="row">
                                                 <div className="col-md-6">
                                                     <div className="form-group">
@@ -423,12 +536,12 @@ export default function CadastroMedicacao(){
                                             <div className="row">
                                                 <div className="col-md-6">
                                                     <div className="form-group">
-                                                        <textarea type="text"   rows="2" className="form-control" id="rotina" placeholder="Aqui você poderá colocar sua anotação de rotinas exemplo 1 gota a cada 15 dias, 2 pilulas por semana e etc…"/>
+                                                        <textarea type="text"   rows="2" className="form-control" id="rotina" placeholder="Rotina"/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-6">
                                                     <div className="form-group">
-                                                        <textarea type="text"  rows="2" className="form-control" id="observ" placeholder="Observações"/>
+                                                        <textarea type="text"  rows="2"  className="form-control" id="observ" placeholder="Observações"/>
                                                     </div>
                                                 </div>
                                             </div>

@@ -3,7 +3,7 @@ import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
-// import seta from "../img/seta.png";
+import seta from "../img/seta.png";
 
 import api from "../services/api2";
 
@@ -69,6 +69,11 @@ export default function CadastroSegundo(){
             }
         }
     }
+
+    function Voltar(){
+        window.location.href="/CadastroPrimeiro";
+    }
+
     return(
     <div>
         <div className="content">
@@ -76,15 +81,15 @@ export default function CadastroSegundo(){
                 <div className="row">
                     <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
                         <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
-                             <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}> Passo 2</h4>
-                             {/* <img className="card-title" style={{fontWeight:'600',color:'#fff',float:'left'}} src={seta}/>  */}
+                          <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>  <img  style={{width:'15px',color:'#fff',float:'left'}} onClick={Voltar} src={seta}/>Passo 2</h4>
+                             
                         </div>
                         <div className="card-body">
                             <div className="row">                                
                                 <div className="col-md-12">
                                     <div className="form-group">                 
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img>                    
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Você vai receber um código SMS no seu celular e no seu e-mail!</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Você receberá um código de validação no seu e-mail !!</a>
                                         <input type="text" className="form-control" placeholder="Código"id="cod" style={{color:'#009fe3',marginTop:'1%'}}/>
                                     </div>
                                 </div>

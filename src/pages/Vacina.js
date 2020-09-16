@@ -445,6 +445,9 @@ export default function Vacina(){
                         var br = document.createElement("BR");
                         var NomePet1= document.createElement("a");  
                         var NomePet2= document.createElement("a"); 
+                        var div7 = document.createElement("div");
+                        var div8 = document.createElement("div");
+                        var button = document.createElement("button"); 
         
                         tr.style.width="100%";
                         tr.style.borderBottom = "1px solid #c1e0fc";
@@ -495,7 +498,20 @@ export default function Vacina(){
                         Rg.className="TextVacina";
                         Rg.innerHTML=produto[i].rgPet;
 
-                        
+                        div7.className="col-md-2";
+                        div8.style.width="100%";
+                        div8.style.textAlign="right";
+
+                        button.setAttribute("id", i.toString() );
+                        button.onclick = function() { Visualizar(produto[i].idVacina) };
+                        button.className="btn btn-primary btnEditVacina";
+                        button.innerHTML="Visualizar";
+                        button.setAttribute("type","submit");
+
+                        div8.appendChild(button);
+                        div7.appendChild(div8);
+
+
                         div6.appendChild(Rg);
                         div5.appendChild(Data);
                         div4.appendChild(NomeVacina);
@@ -513,12 +529,13 @@ export default function Vacina(){
                         div2.appendChild(ANegar);
                         div2.appendChild(Img);
 
-
+                        
                         div1.appendChild(div2);
                         div1.appendChild(div3);
                         div1.appendChild(div4);
                         div1.appendChild(div5);
                         div1.appendChild(div6);
+                        div1.appendChild(div7);
                         tr.appendChild(div1);
                         tbody.appendChild(tr);
         

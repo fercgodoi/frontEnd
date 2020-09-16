@@ -1,12 +1,11 @@
 import React from 'react';
 import "../css/Login/main.css";
 import "../css/Login/util.css";
-
+// import "../js/chat.js";
 import "../css/Login/new.css";
 import "../css/material-dashboard.css";
 import Logo from  "../img/login.png";
 import api from '../services/api.js';
-
 import Imagem from "../img/cover.jpg";
 
 export default function Login(){
@@ -123,6 +122,29 @@ export default function Login(){
       window.location.href="/CadastroPrimeiro";
     }
 
+    function Chat(){
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function (){
+        
+      var chat = document.getElementById("chat")
+      var s1=document.createElement("script"),
+      s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/5a5d2e6c4b401e45400c1cd3/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+      chat.appendChild(s0);
+      })();
+    }
+
+    setTimeout(() => {Chat()}, 1);
+
+    function Termo(){
+      setTimeout(() => { window.location.href="/Termo"}, 1);     
+    }
+
+
     return(
       <div>
         <div className="limiter">
@@ -165,22 +187,26 @@ export default function Login(){
                       </tr>
                     </table>
                   </div>
-                </div>
-                {/* <div  style={{height: '30%',width: '100%',textAlign: 'center'}}>
-                  <div class="row" style={{textAlign: 'center'}}>
+
+                  <div style={{textAlign: 'center',paddingTop:'10%'}}>
                     <div className="col-md-12">
                       <label style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#333333'}}>89.057.884/0001-24</label>
+                    </div>
+                    <div className="col-md-12">
+                      <button style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#009fe3'}} onClick={Termo}>Termo de Uso</button>
                     </div>
                     <div className="col-md-12">
                       <label style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#333333'}}> Copyright © 2020 Agenda Animal</label> 
                     </div>
                   </div>
-                </div> */}
+                </div>
               </form>
               <div className="login100-more" >
                 <img src={Imagem} alt="" className="ImagemTop"/>
                 <img src={Imagem} alt="" className="ImagemBottom"/>
               </div>
+            </div>
+            <div id="chat">
             </div>
           </div>
         </div>

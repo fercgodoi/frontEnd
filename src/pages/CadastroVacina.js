@@ -19,7 +19,7 @@ import api2 from '../services/api2.js';
 export default function CadastroVacina(){
     localStorage.setItem('Codigo', "");
 
-    function Validar(){
+    async  function Validar(){
         var validar  = localStorage.getItem('token');
         var dados = localStorage.getItem('Acesso');
         if (validar === "" || validar === null || validar === undefined) {    
@@ -27,6 +27,22 @@ export default function CadastroVacina(){
         }else if (dados === "" || dados === null || dados === undefined) {    
                 setTimeout(() => {window.location.href="/"});        
             }else{
+
+                let response="";
+                try {
+                    response = await api2.post('https://agendaback.herokuapp.com/Funcionario/VetouNao');
+                } catch (error) {
+                    console.log(error);               
+                }  
+
+                if(response){
+                    if(response.data.message){
+                        if(response.data.message === "Nao tem"){
+                            setTimeout(() => {window.location.href="/Home"});   
+                        }
+                    }
+                }
+
                 var Calen = document.getElementById("Calen");
                 var Func= document.getElementById("Func");
                 // var Shop= document.getElementById("Shop");
@@ -192,7 +208,7 @@ export default function CadastroVacina(){
                                             valor= valor.replace(/,/g, '.');
 
                                             try {
-                                                response = await api2.post('https://agendaback.herokuapp.com/Vacina/inserirVac', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,rgPet: rg,observacaoVacina: observacao});
+                                                response = await api2.post('https://agendaback.herokuapp.com/Vacina/inserirVacinaCad', {dataApliVacina: dataIni,dataProxVacina: dataProx,nomeVacina: nome ,qntDoseVacina: dose,loteVacina: lote,valorVacina:  valor ,rgPet: rg,observacaoVacina: observacao});
                                             } catch (error) {
                                                 console.log(error);               
                                             }  

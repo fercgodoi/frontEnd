@@ -462,17 +462,19 @@ pSabado.style.display="block";
                             var div4 = document.createElement("div");
                             var div5 = document.createElement("div");
                             var div6 = document.createElement("div");
+                            var div7 = document.createElement("div");
                             var inputNome= document.createElement("input");
                             var spanValor= document.createElement("span");
                             var inputValor= document.createElement("input");
-                            
+                            var inputCodigo= document.createElement("input");
+
                             var buttonEditar = document.createElement("button");    
                             var buttonExcluir = document.createElement("button");       
             
                             tr.style.width="100%";
                             div.className="row";
                             div1.className="col-md-5";
-                            div2.className="col-md-5";
+                            div2.className="col-md-2";
                             div2.style.verticalAlign = "middle";
                             div2.style.display = "inline-grid";
                                 // <CurrencyInput  className="form-control"  id="inputValor3" precision="3" decimalSeparator="," thousandSeparator="." prefix="$ "/>
@@ -484,11 +486,18 @@ pSabado.style.display="block";
                             inputNome.className="form-control";
                             inputNome.style.display ="block";   
 
-                            div3.className="input-group col-md-3";                                                
+                            div3.className="input-group col-md-2";                                                
                             div4.className="input-group-prepend";
 
                             spanValor.className="input-group-text";
                             spanValor.innerHTML="R$";
+
+                            div7.className="col-md-4";
+                            inputCodigo.value= servico[i].codigoServ;
+                            inputCodigo.setAttribute("type","text");
+                            inputCodigo.setAttribute("id","inputCodigo" + servico[i].idServ);
+                            inputCodigo.setAttribute("placeholder","Código EAN");
+                            inputCodigo.className="form-control";
 
                             inputValor.value= servico[i].valorServ;
                             inputValor.setAttribute("type","text");
@@ -523,9 +532,12 @@ pSabado.style.display="block";
                             div3.appendChild(div4);
                             div3.appendChild(inputValor);
                             div2.appendChild(inputNome);
+                            div7.appendChild(inputCodigo);
                             // div1.appendChild(div2);
 
                             // div.appendChild(div1);
+                            
+                            div.appendChild(div7);
                             div.appendChild(div2);
                             div.appendChild(div3);
                             div.appendChild(div5);
@@ -537,7 +549,7 @@ pSabado.style.display="block";
                     if(responseServ.data.error){
                         if(responseServ.data.error ==="erro sql"){
                             erro.innerHTML ="Tente novamente"
-                        }else if(response.data.error === "falha na autenticação do token"){
+                        }else if(responseServ.data.error === "falha na autenticação do token"){
                             erro.value = "Tente Novamente";
                             setTimeout(() => {window.location.href="/"}, 1);
                         }
@@ -1476,20 +1488,24 @@ pSabado.style.display="block";
         var erro= document.getElementById("valida");
         var inputNome= document.getElementById("inputNome" + id);
         var inputValor= document.getElementById("inputValor" + id);
+        var inputCodigo= document.getElementById("inputCodigo" + id);
 
         if (inputNome.value === "" || inputNome.value === null || inputNome.value === undefined ) {
             inputNome.value = "Preencha o campo Nome";
         }else if (inputValor.value === "" || inputValor.value === null || inputValor.value === undefined ) {
             inputValor.value = "Preencha o campo valor";
+        }else if (inputCodigo.value === "" || inputCodigo.value === null || inputCodigo.value === undefined ) {
+            inputCodigo.value = "Preencha o campo Código";
         }
         else{
             inputValor.setAttribute("disabled","disabled");
             inputNome.setAttribute("disabled","disabled");
+            inputCodigo.setAttribute("disabled","disabled");
 
             inputValor.value= inputValor.value.replace(/,/g, '.');
 
             try{
-                response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: inputNome.value, valorServ:inputValor.value, idServ:id});
+                response = await api.post('https://agendaback.herokuapp.com/Prestador/EditarServicosPrest',{tipoServ: inputNome.value, valorServ:inputValor.value,Codigo:inputCodigo.value,idServ:id});
             }catch(erro){
                 console.log(erro);
             }
@@ -1907,7 +1923,7 @@ pSabado.style.display="block";
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="row">
+                                            <div className="row" style={{justifyContent: "center"}}>
                                                 <div className="col-md-3">  
                                                     <button type="submit" className="btnCadFunc" id="Clinica" onClick={Clinica}>Clinica</button>
                                                     <div className="clearfix"></div>
@@ -1924,11 +1940,10 @@ pSabado.style.display="block";
                                                     <button type="submit" className="btnCadFunc" id="Passeador" onClick={Passeador}>Passeador</button>
                                                     <div className="clearfix"></div>                                                   
                                                 </div> 
-                                                <div className="col-md-3">
+                                                <div className="col-md-3" style={{paddingTop: "1%"}}>
                                                     <button type="submit" className="btnCadFunc" id="Adestrador" onClick={Adestrador}>Adestrador</button>
                                                     <div className="clearfix"></div>                                                   
                                                 </div> 
-                                                Adestrador
 
                                                 <div className="col-md-12">
                                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px',marginTop:'1%',textAlign: 'center'}} id="clinicaValida"></p>                                                                          

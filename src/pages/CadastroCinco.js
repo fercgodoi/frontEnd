@@ -3,10 +3,9 @@ import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
-// import axios from "axios";
-//import React, { useState } from 'react';                //--------alteração rodrigo-----//
 
 import api from "../services/api3";
+import seta from "../img/seta.png";
 
 export default function CadastroCinco(){
     function Validar(){
@@ -154,7 +153,7 @@ export default function CadastroCinco(){
                                 console.log('---------------rdsq envio de dados-------------')
                                 console.log(dados)
 
-                                // response = await api.post('https://agendaback.herokuapp.com/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
+                                // response = await api.post('/Prestador/CadCincoPrest',{ContaCont:Conta,BancoCont:Banco,AgenciaCont:Agencia,TipoCont:tipo,CartCont:CodWibx,CieloCont:CodCielo,EmergenciaPrest:Emergencia,LogoPrest:"123",OngPrest:Ong});
 
                                 response = await api.post('https://agendaback.herokuapp.com/Prestador/CadCincoPrest', dados);
 
@@ -478,6 +477,10 @@ export default function CadastroCinco(){
         }   
     }
 
+    function Voltar(){
+        window.location.href="/CadastroQuatro";
+    }
+
     return(
     <div>
         <div className="content">
@@ -485,7 +488,7 @@ export default function CadastroCinco(){
                 <div className="row">
                     <div className="col-md-12" style={{padding:'0px',margin:'0px'}}>
                         <div className="card-header card-header-blue" style={{background:'#009fe3'}}>
-                            <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>Passo 5</h4>
+                            <h4 className="card-title" style={{fontWeight:'300',color:'#fff',textAlign: '-webkit-center'}}>  <img  style={{width:'15px',color:'#fff',float:'left'}} onClick={Voltar} src={seta}/>Passo 5</h4>
                         </div>
                         <div className="card-body">
                             <div className="row">
