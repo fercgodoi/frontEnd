@@ -44,9 +44,11 @@ export default function CadastroConcluido(){
                             <div className="clearfix"></div>
                         </div>                              
                     </div>
-                    <div className="login100-more" >
-                        <img alt=""  src={Blabala} style={{width: '100%',height: '50%',position: 'absolute',top:'50%'}}/>
-                        <img alt=""  src={Blabala} style={{width: '100%',height: '50%',position: 'absolute'}}/>
+                   <div className="login100-more" >
+                       {/* <img src={Imagem} alt="" className="ImagemTop"/> */}
+                        <iframe  className="ImagemTop" src="https://www.youtube.com/embed/qoWtAQOQkjE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        {/* <img src={Imagem} alt="" className="ImagemBottom"/> */}
+                        <iframe className="ImagemBottom" src="https://www.youtube.com/embed/7TtK7I213-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
