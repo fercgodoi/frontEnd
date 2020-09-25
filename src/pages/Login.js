@@ -189,9 +189,6 @@ export default function Login(){
                   </div>
 
                   <div style={{textAlign: 'center',paddingTop:'10%'}}>
-                    {/* <div className="col-md-12">
-                      <label style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#333333'}}>89.057.884/0001-24</label>
-                    </div> */}
                     <div className="col-md-12">
                       <button style={{textAlignLast:'center',fontSize:'12px',marginBottom:'0px',color:'#009fe3'}} onClick={Termo}>Termo de Uso</button>
                     </div>
