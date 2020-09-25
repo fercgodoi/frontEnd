@@ -6,7 +6,7 @@ import "../css/Login/new.css";
 import "../css/material-dashboard.css";
 import Logo from  "../img/login.png";
 import Imagem from "../img/cover.jpg";
-
+import "../js/chat.js";
 import api from '../services/api.js';
 
 export default function EsqueciSenha(){
@@ -168,6 +168,8 @@ export default function EsqueciSenha(){
                             </div>
                         </div>
                     </form>
+                    <div id="chat">
+            </div>
                     <div className="login100-more" >
                         <img src={Imagem} alt="" className="ImagemTop"/>
                         <img src={Imagem} alt=""  className="ImagemBottom"/>

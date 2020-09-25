@@ -4,7 +4,7 @@ import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
-
+import "../js/chat.js";
 import api from "../services/api";
 
 export default function CadastroPrimeiro(){    
@@ -287,6 +287,8 @@ export default function CadastroPrimeiro(){
                                     </div>
                                 </div>
                             </div>
+                            <div id="chat">
+            </div>
                             <div className="row" style={{textAlign: '-webkit-center', marginTop:'8%'}}>
                                 <div className="col-md-12">
                                     <div className="form-group">

@@ -5,7 +5,7 @@ import rodape from  "../img/aprovacoes.png";
 import rodape2 from  "../img/Icon/versao.png";
 import Calendar from 'react-calendar';
 import notas from "../img/pata.png";
-
+import "../js/chat.js";
 import "../js/menu.js";
 
 import inicio from "../img/Icon/inicioAzul.png";
@@ -236,6 +236,7 @@ setTimeout(() => {Dados()}, 1);
   }
 
   async function Dia(valor){
+   
 
     if(valor[5] === "9"){
       valor = valor[0] + valor[1] + valor[2] + valor[3] + valor[4] +  (parseInt(valor[5]) +1) + valor[6] + valor[7]+ valor[8];
@@ -255,6 +256,10 @@ setTimeout(() => {Dados()}, 1);
     }
 
     if(valor[9] !== undefined){
+      var data = document.getElementById('Data');
+      var valorTexto = valor[8]+ valor[9]+valor[7]+valor[5]+valor[6]+valor[4]+valor[0]+valor[1]+valor[2]+valor[3];
+      data.innerHTML= valorTexto;
+      
       let response="";
       try {
           response = await api.post('https://agendaback.herokuapp.com/Agendamento/BuscarAprovadosDia',{dataCorreta: valor});
@@ -266,6 +271,7 @@ setTimeout(() => {Dados()}, 1);
 
       if(response){
         if(response.data.response){
+         
           var produto = response.data.response.Agendamento;
           if(produto.length > 0){
             
@@ -490,6 +496,7 @@ setTimeout(() => {Dados()}, 1);
                             <i className="material-icons">sticky_note_2</i>
                           </div>
                         <p className="card-category">Contagem de Agendamentos Dia</p>
+                        
                         <h3 className="card-title" id="Dia"></h3>
                         </div> 
                         <div className="card-footer"></div>
@@ -514,7 +521,8 @@ setTimeout(() => {Dados()}, 1);
               </div>
             </div>
             <div className="col-lg-6 col-md-12">
-              <div className="card">               
+              <div className="card">      
+              <h3 className="card-title" id="Data" style={{color: "#009fe3",alignSelf: "center",fontWeight: "500",fontSize: "120%",marginTop: "2%"}}></h3>         
                 <div className="card-body table-responsive">
                   <table className="table table-hover">
                     <tbody id="tbody">
@@ -526,6 +534,8 @@ setTimeout(() => {Dados()}, 1);
             </div>
           </div>
         </div>
+        <div id="chat">
+            </div>
       </div>       
     </div>
   </div>

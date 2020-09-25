@@ -4,7 +4,7 @@ import InputMask from 'react-input-mask';
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
-
+import "../js/chat.js";
 import inicio from "../img/Icon/inicio.png";
 import calendario from "../img/Icon/calendarioAzul.png";
 import funcionario from "../img/Icon/funcionarioAzul.png";
@@ -127,7 +127,7 @@ export default function EditarPerfil(){
     var ButtonHotel ="false";
     var ButtonPasseador = "false";
     var ButtonAdestrador = "false";
-    var btnCEP = "false";
+    var btnCEP = "true";
     var Latitude = "";
     var Longitude = "";
     var ButtonEmergenciaSim = "false";
@@ -879,7 +879,7 @@ pSabado.style.display="block";
                                 if(response.data.message === "Alterado"){
                                     erro.style.color = "#006600";      
                                     erro.style.fontWeight= "700";
-                                    erro.innerHTML="Aletrado com sucesso";
+                                    erro.innerHTML="Alterado com Sucesso!";
                                     setTimeout(() => {window.location.href="/EditarPerfil"}, 2000);
                                 }
                             }
@@ -1701,7 +1701,7 @@ pSabado.style.display="block";
 
                                     {/* //////////////////////////// PRESTADORES //////////////////////// */}
                                     <div className="card-body">
-                                        <label className="bmd-label-floating" style={{   color:"#009fe3",textAlign: "center", width: '100%',fontSize: '20px',fontWeight: '500'}}>Prestadores</label>      
+                                        <label className="bmd-label-floating" style={{   color:"#009fe3",textAlign: "center", width: '100%',fontSize: '20px',fontWeight: '500'}}>Dados da Empresa</label>      
                                         {/* <form> */}
                                             <div className="row">
                                                 <div className="col-md-3">
@@ -1912,7 +1912,7 @@ pSabado.style.display="block";
 
 <div className="row">
     <div className="col-md-12">
-        <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
+        <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-feira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
     </div>
 </div>
                                             
@@ -2094,21 +2094,9 @@ pSabado.style.display="block";
                                             </div>
                                             <br/>
 
-                                            <div className="row">
-                                                <div className="col-md-12">
-                                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida2"></p>
-                                                </div>
-                                            </div>
-                                            <br/> 
+                                            
 
-                                            <div className="row" style={{textAlign: '-webkit-center'}}>                                               
-                                                <div className="col-md-12">                                                    
-                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 10%'}} id="buttonSalvar" onClick={Salvar}>Salvar</button>
-                                                    <div className="clearfix"></div>
-                                                </div>
-                                            </div> 
-                                            <br/>
-
+                                          
                                             <div className="card-body">
                                                 <label className="bmd-label-floating" style={{   color:"#009fe3",textAlign: "center", width: '100%',fontSize: '20px',fontWeight: '500'}}>Serviços</label>      
                                             
@@ -2150,16 +2138,36 @@ pSabado.style.display="block";
                                             </div>
 
                                             <br/> 
+                                            
                                             <div className="row">
                                                 <div className="col-md-12">
                                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>
                                                 </div>
                                             </div>
+
+                                            <br/>
+
+                                            <div className="row">
+                                                <div className="col-md-12">
+                                                <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida2"></p>
+                                                </div>
+                                            </div>
+                                            <br/> 
+
+                                            <div className="row" style={{textAlign: '-webkit-center'}}>                                               
+                                                <div className="col-md-12">                                                    
+                                                    <button type="submit" className="btn btn-primary" style={{borderRadius: '30px',padding: '1% 10%'}} id="buttonSalvar" onClick={Salvar}>Salvar</button>
+                                                    <div className="clearfix"></div>
+                                                </div>
+                                            </div> 
+                                            
                                             
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div id="chat">
+            </div>
                      </div>
                  </div> 
             </div>

@@ -5,7 +5,7 @@ import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
 import api from "../services/api2";
-
+import "../js/chat.js";
 import seta from "../img/seta.png";
 
 export default function CadastroTerceiro(){
@@ -565,7 +565,7 @@ export default function CadastroTerceiro(){
                                 <div className="col-md-12">
                                     <div className="form-group">
                                         <img alt="" src={gatinho} style={{width:'30px'}}></img> 
-                                        <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Qual é a sua Razão Social ou Nome fantasia?</a>
+                                        <a style={{marginLeft:'5px',color:'#000000'}}>Miau! Qual é a sua Nome Fantasia/Razão Social? Ele irá aparecer no aplicativo.</a>
                                         <input type="text" className="form-control" id="NomeFantasia" placeholder="Nome Fantasia" style={{color:'#009fe3',marginTop:'1%'}}/>
                                     </div>
                                 </div>
@@ -748,7 +748,7 @@ export default function CadastroTerceiro(){
 
 <div className="row">
     <div className="col-md-12">
-        <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que sua empresa na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
+        <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-feira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
     </div>
 </div>
 
@@ -819,12 +819,14 @@ export default function CadastroTerceiro(){
                                 <div className="col-md-12">
                                     <div className="form-group">
                                         <p style={{color:'red',fontWeight:'200',marginBottom:'0px'}} id="valida"></p>
-                                        <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} id="buttonProximo">Proximo</button>
+                                        <button type="submit" className=" btn btn-primary btnEditShop" onClick={Proximo} id="buttonProximo">Próximo</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div id="chat">
+            </div>
                 </div>
             </div>
         </div>    

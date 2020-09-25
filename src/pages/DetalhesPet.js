@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "../js/chat.js";
 import "../css/material-dashboard.css";
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
@@ -500,6 +500,8 @@ function Login(){
                   </div>   
                 </div>
               </div>
+            </div>
+            <div id="chat">
             </div>
           </div>
         </div>

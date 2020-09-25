@@ -4,6 +4,7 @@ import "../css/Login/util.css";
 import "../css/Login/new.css";
 import "../css/material-dashboard.css";
 import seta from "../img/seta.png";
+import "../js/chat.js";
 
 export default function Termo(){
 
@@ -119,6 +120,8 @@ export default function Termo(){
                     </div>
                 </div>
             </div>
+            <div id="chat">
+</div>
         </div> 
        
     </div>

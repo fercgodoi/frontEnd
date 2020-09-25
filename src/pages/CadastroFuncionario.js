@@ -3,6 +3,7 @@ import InputMask from 'react-input-mask';
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
+import "../js/chat.js";
 
 import "../js/menu.js";
 
@@ -963,7 +964,7 @@ export default function CadastroFuncionario(){
 
                             <div className="row">
                                 <div className="col-md-12">
-                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
+                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-feira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
                                 </div>
                             </div>
 
@@ -1028,6 +1029,8 @@ export default function CadastroFuncionario(){
                                     </div>
                                 </div>
                             </div>
+                            <div id="chat">
+            </div>
                         </div>
                      </div>
                  </div> 

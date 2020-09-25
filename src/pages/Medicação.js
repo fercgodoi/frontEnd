@@ -2,7 +2,7 @@ import React from 'react';
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
-
+import "../js/chat.js";
 import inicio from "../img/Icon/inicioAzul.png";
 import calendario from "../img/Icon/calendarioAzul.png";
 import funcionario from "../img/Icon/funcionarioAzul.png";
@@ -559,7 +559,8 @@ export default function Medicacao(){
                                             </div>
                                         </div>
                                             <br/>
-
+                                            <div id="chat">
+</div>
                                         <div className="tab-content">
                                             <div className="tab-pane active" id="profile">
                                                 <table className="table" style={{marginBottom:'0px'}} id="table">

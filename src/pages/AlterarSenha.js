@@ -6,6 +6,7 @@ import "../css/Login/new.css";
 import "../css/material-dashboard.css";
 import Logo from  "../img/login.png";
 import Imagem from "../img/cover.jpg";
+import "../js/chat.js";
 
 import api2 from '../services/api2.js';
 
@@ -163,6 +164,8 @@ export default function AlterarSenha(){
                             </div>
                         </div>
                     </div>
+                     <div id="chat">
+            </div>
                     <div className="login100-more" >
                         <img src={Imagem}  alt="" className="ImagemTop"/>
                         <img src={Imagem} alt="" className="ImagemBottom"/>

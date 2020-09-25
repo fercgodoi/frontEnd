@@ -4,7 +4,7 @@ import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
-
+import "../js/chat.js";
 import api from "../services/api2";
 
 export default function CadastroSeis(){
@@ -307,6 +307,8 @@ export default function CadastroSeis(){
                             </div>
                         </div>
                     </div>
+                    <div id="chat">
+            </div>
                 </div>
             </div>
         </div>    

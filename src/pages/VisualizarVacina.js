@@ -2,7 +2,7 @@ import React from 'react';
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
-
+import "../js/chat.js";
 import api from '../services/api2.js';
 
 import inicio from "../img/Icon/inicioAzul.png";
@@ -412,6 +412,8 @@ export default function VisualizarVacna(){
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div id="chat">
+</div>
                                             <div className="col-md-12">
                                                 <p style={{color:'red',fontWeight:'200',marginBottom:'0px',textAlign: 'center'}} id="valida"></p>                                                 
                                             </div>

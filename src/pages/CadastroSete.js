@@ -5,7 +5,7 @@ import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
 // import InputMask from 'react-input-mask';
-
+import "../js/chat.js";
 import api from "../services/api2";
 import seta from "../img/seta.png";
 
@@ -869,7 +869,7 @@ export default function CadastroSete(){
 
                             <div className="row">
                                 <div className="col-md-12">
-                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-freira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
+                                    <p><label style={{fontWeight:'400',color:'black'}}>Exemplo:</label> Supondo que o funcionário na segunda-feira tenha um turno das 21:00 até 06:00 de terça-feira, então o cadastro seria na segunda-feira 21:00 até 23:59 e na terça-feira 00:00 até 06:00.</p>
                                 </div>
                             </div>
                                 
@@ -979,6 +979,8 @@ export default function CadastroSete(){
                                 </div>
                             </div>
                         </div>
+                        <div id="chat">
+            </div>
                     </div>
                 </div>
             </div>    

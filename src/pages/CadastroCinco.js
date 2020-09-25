@@ -3,7 +3,7 @@ import "../css/Login/main.css";
 import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import gatinho from "../img/Icon/gatinho.png";
-
+import "../js/chat.js";
 import api from "../services/api3";
 import seta from "../img/seta.png";
 
@@ -592,7 +592,7 @@ export default function CadastroCinco(){
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="form-group">
-                                            <input type="text" className="form-control" placeholder="Conta com o digíto" id="NumConta" style={{color:'#009fe3'}}/>
+                                            <input type="text" className="form-control" placeholder="Conta Corrente com Dígito" id="NumConta" style={{color:'#009fe3'}}/>
                                         </div>
                                     </div>
                                 </div>
@@ -624,6 +624,8 @@ export default function CadastroCinco(){
                                 </div>
                             </div>
                             <br/>
+                            <div id="chat">
+            </div>
                             <div className="row" style={{textAlign: '-webkit-center'}}>
                                 <div className="col-md-12">
                                     <div className="form-group">

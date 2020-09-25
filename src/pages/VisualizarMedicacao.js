@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "../js/chat.js";
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
@@ -427,6 +427,8 @@ export default function VisualizarMedicacao(){
                                 </div>
                             </div>
                         </div>
+                        <div id="chat">
+</div>
                      </div>
                  </div> 
             </div>

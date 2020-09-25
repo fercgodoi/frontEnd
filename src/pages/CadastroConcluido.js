@@ -4,6 +4,7 @@ import "../css/Login/util.css";
 import "../css/material-dashboard.css";
 import rodape from  "../img/login.png";
 import Blabala from "../img/cover.jpg";
+import "../js/chat.js";
 
 
 export default function CadastroConcluido(){
@@ -34,7 +35,7 @@ export default function CadastroConcluido(){
                                 fontFamily:'Arial',
                                 fontSize: '30px',
                                 marginTop: '5%'}}> Cadastro Concluido!</p>
-                                <p style={{color:'#69696D',fontFamily:'Arial',fontSize: 'smaller'}}> Seja bem-vindo ao Agenda Animal, aqui você e sua empresa terão ótimas experiencias e crescerão no mercado!</p>
+                                <p style={{color:'#69696D',fontFamily:'Arial',fontSize: 'smaller'}}> Correto Seja bem-vindo ao Agenda Animal, aqui você e sua empresa terão ótimas experiências e crescerão no mercado!</p>
                             </div>
                             <button type="submit" className=" btn-primary" align="center"  style={{
                                 backgroundColor:' #009fe3',
@@ -44,7 +45,9 @@ export default function CadastroConcluido(){
                             <div className="clearfix"></div>
                         </div>                              
                     </div>
-                   <div className="login100-more" >
+                    <div id="chat">
+            </div>
+                    <div className="login100-more" >
                        {/* <img src={Imagem} alt="" className="ImagemTop"/> */}
                         <iframe  className="ImagemTop" src="https://www.youtube.com/embed/qoWtAQOQkjE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         {/* <img src={Imagem} alt="" className="ImagemBottom"/> */}

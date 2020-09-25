@@ -4,7 +4,7 @@ import "../css/material-dashboard.css";
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
-
+import "../js/chat.js";
 import Confrimar from  "../img/cover.jpg";
 
 import inicio from "../img/Icon/inicioAzul.png";
@@ -459,6 +459,8 @@ export default function EditarProduto(){
                                 </div>
                             </div>
                         </div>
+                        <div id="chat">
+            </div>
                      </div>
                  </div> 
             </div>

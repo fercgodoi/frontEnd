@@ -13,4 +13,4 @@ function Chat(){
     chat.appendChild(s0);
     })();
 }
-// setTimeout(() => {Chat()}, 1);
+setTimeout(() => {Chat()}, 1);

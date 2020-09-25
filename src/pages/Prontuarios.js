@@ -2,7 +2,7 @@ import React from 'react';
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
-
+import "../js/chat.js";
 import api from '../services/api2.js';
 
 import inicio from "../img/Icon/inicioAzul.png";
@@ -592,6 +592,8 @@ export default function Prontuarios(){
                             </div>
                         </div>
                      </div>
+                     <div id="chat">
+</div>
                  </div> 
             </div>
         </div>

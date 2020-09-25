@@ -4,7 +4,7 @@ import "../css/material-dashboard.css";
 import rodape2 from  "../img/Icon/versao.png";
 import rodape from  "../img/Icon/versao.png";
 import api from '../services/api2.js';
-
+import "../js/chat.js";
 import "../js/menu.js";
 
 import inicio from "../img/Icon/inicioAzul.png";
@@ -560,6 +560,8 @@ export default function CadastroMedicacao(){
                                     </div>
                                 </div>
                             </div>
+                            <div id="chat">
+            </div>
                         </div>
                      </div>
                  </div> 

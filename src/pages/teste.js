@@ -2,7 +2,7 @@ import React from 'react';
 import "../css/material-dashboard.css";
 import rodape from  "../img/Icon/versao.png";
 import rodape2 from  "../img/Icon/versao.png";
-
+import "../js/chat.js";
 import "../js/menu.js";
 import api2 from '../services/api2.js';
 
@@ -2759,6 +2759,8 @@ export default function CadastroProntuario(){
                                 </div>
                             </div>
                         </div>
+                        <div id="chat">
+</div>
                      </div>
                  </div> 
             </div>
